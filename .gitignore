@@ -4,3 +4,4 @@ bin
 .vs
 *.gen
 .idea
+/appsettings.json
