@@ -7,10 +7,10 @@ RUN dotnet restore
 
 # Copy everything else and build
 COPY . ./
-RUN dotnet publish -c Release -o out ./daemonapp.csproj
+RUN dotnet publish -c Release -o out ./hass_netdaemon.csproj
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "daemonapp.dll"]
+ENTRYPOINT ["dotnet", "hass_netdaemon.dll"]

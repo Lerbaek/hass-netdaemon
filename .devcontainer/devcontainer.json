@@ -1,5 +1,5 @@
 {
-  "name": "Sample NetDaemon App development",
+  "name": "NetDaemon App-development",
   "dockerFile": "./Dockerfile",
   "postCreateCommand": "dotnet restore *.csproj",
   "settings": {
@@ -7,8 +7,6 @@
     "terminal.integrated.fontSize": 10
   },
   "extensions": [
-    "ms-dotnettools.csharp",
-    "k--kato.docomment",
-    "eamodio.gitlens"
+    "ms-dotnettools.csharp"
   ]
 }

@@ -1,10 +1,11 @@
 {
   "profiles": {
-    "daemonapp": {
+    "hass_netdaemon": {
       "commandName": "Project",
-      "workingDirectory": "$(SolutionDir)"
+      "workingDirectory": "$(ProjectDir)",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DOTNET_ENVIRONMENT": "Development"
       }
     }
   }

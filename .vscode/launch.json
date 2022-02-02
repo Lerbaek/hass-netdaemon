@@ -6,13 +6,14 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net6.0/daemonapp.dll",
+            "program": "${workspaceFolder}/bin/Debug/net6.0/hass_netdaemon.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
             "env": {
+                "DOTNET_ENVIRONMENT": "Development",
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
+            "stopAtEntry": false,
             "logging": {
                 "moduleLoad": false
             }

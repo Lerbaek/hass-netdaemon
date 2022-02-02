@@ -1,3 +1,2 @@
-yaml_config_app:
-    class: AppModel.HelloYamlApp
-    HelloMessage: Hello from yaml
+AppModel.HelloConfig:
+  HelloMessage: Hello from yaml
