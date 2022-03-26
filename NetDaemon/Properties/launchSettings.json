@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "hass_netdaemon": {
+      "commandName": "Project",
+      "workingDirectory": "$(ProjectDir)",
+      "environmentVariables": {
+      }
+    }
+  }
+}

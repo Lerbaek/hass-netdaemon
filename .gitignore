@@ -5,3 +5,7 @@ bin
 *.gen
 .idea
 /appsettings.json
+/NetDaemon/HomeAssistantGenerated.cs
+/NetDaemon/appsettings.json
+/NetDaemon/alerted.txt
+/NetDaemon/Apps/Integrations/Nordlux/Configuration/NordluxConfig.yaml
