@@ -19,7 +19,7 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
     return this;
   }
 
-  private new void DoReset()
+  protected override void DoReset()
   {
     Message = null;
     Actions = Array.Empty<IDictionary<string, string>>();
