@@ -41,14 +41,14 @@
     <ItemGroup>
         <PackageReference Include="FluentValidation" Version="10.4.0" />
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.4.0" />
-        <PackageReference Include="JoySoftware.NetDaemon.AppModel" Version="22.13.1" />
-        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Mqtt" Version="22.13.1" />
-        <PackageReference Include="JoySoftware.NetDaemon.Runtime" Version="22.13.1" />
-        <PackageReference Include="JoySoftware.NetDaemon.HassModel" Version="22.13.1" />
-        <PackageReference Include="JoySoftware.NetDaemon.Client" Version="22.13.1" />
-        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Scheduling" Version="22.13.1" />
-        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Logging" Version="22.13.1" />
-        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Tts" Version="22.13.1" />
+        <PackageReference Include="JoySoftware.NetDaemon.AppModel" Version="22.14.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Mqtt" Version="22.14.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Runtime" Version="22.14.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.HassModel" Version="22.14.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Client" Version="22.14.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Scheduling" Version="22.14.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Logging" Version="22.14.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Tts" Version="22.14.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
         <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="6.0.3" />
