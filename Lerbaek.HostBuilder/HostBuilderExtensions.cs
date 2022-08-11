@@ -11,10 +11,8 @@ namespace Lerbaek.HostBuilder
 {
   public static class HostBuilderExtensions
   {
-    public static IHttpClientBuilder AddLerbaekRetryPolicyHandler<T>(this IHttpClientBuilder builder)
-    {
-      return builder.AddPolicyHandler(RetryPolicy<T>);
-    }
+    public static IHttpClientBuilder AddLerbaekRetryPolicyHandler<T>(this IHttpClientBuilder builder) =>
+      builder.AddPolicyHandler(RetryPolicy<T>);
 
     private static IAsyncPolicy<HttpResponseMessage> RetryPolicy<TType>(IServiceProvider serviceProvider, HttpRequestMessage _) =>
       HandleTransientHttpError()
@@ -23,14 +21,13 @@ namespace Lerbaek.HostBuilder
         .WaitAndRetryAsync(Backoff.ExponentialBackoff(TimeSpan.FromMilliseconds(100), 20, 1.1), (result, __, retryCount, ___) =>
         {
           var logger = serviceProvider.GetRequiredService<ILogger<TType>>();
-          logger.LogWarning("Request failed.");
-          logger.LogWarning("Retry count: {RetryCount}.", retryCount);
+          logger.LogTrace("Request failed.");
+          logger.LogTrace("Retry count: {RetryCount}.", retryCount);
           if (!(result.Result?.StatusCode is null))
-            logger.LogDebug("Status code: {StatusCode} ({StatusCodeName})", (int)result.Result.StatusCode, result.Result.StatusCode);
+            logger.LogTrace("Status code: {StatusCode} ({StatusCodeName})", (int)result.Result.StatusCode, result.Result.StatusCode);
           var exception = result.Exception;
           if(exception is null)
             return;
-          logger.LogDebug("Exception message: {Message}", exception.Message);
           logger.LogTrace("{StackTrace}", exception.ToString());
         });
   }

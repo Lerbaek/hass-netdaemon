@@ -2,7 +2,7 @@
 
 namespace Lerbaek.NetDaemon.Apps.Integrations.CampenAuktioner;
 
-[Focus]
+//[Focus]
 [NetDaemonApp]
 public class CampenAuktioner
 {
@@ -32,7 +32,7 @@ public class CampenAuktioner
       var httpClient = httpClientFactory.CreateClient(nameof(CampenAuktioner));
       campenAuktionerSite = new CampenAuktionerSite(logger, httpClient);
 
-      CheckForMatches("startup search").Wait();
+      _ = CheckForMatches("startup search");
 
       varEntities.CampenWatchlist
         .StateChanges()

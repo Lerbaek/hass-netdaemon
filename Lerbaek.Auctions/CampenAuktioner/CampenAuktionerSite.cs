@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Lerbaek.RegEx;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -26,14 +27,21 @@ namespace Lerbaek.Auctions.CampenAuktioner
       var excludes = terms.SafeRegExtract<string>(AllWordsStartingWithDash);
       
       var results = await GetResults();
-      return results.Where(i => i.Matches(includes, excludes)).ToArray();
+      var matches = results.Where(i => i.Matches(includes, excludes)).ToArray();
+      LogMatchCount(matches);
+      return matches;
     }
 
     public override async Task<IEnumerable<CampenAuktionerItem>> GetMatchesAsync(Func<CampenAuktionerItem, bool> predicate = null)
     {
       var results = await GetResults();
-      return results.Where(predicate ?? (_ => true));
+      var matches = results.Where(predicate ?? (_ => true)).ToArray();
+      LogMatchCount(matches);
+      return matches;
     }
+
+    private void LogMatchCount(CampenAuktionerItem[] matches) =>
+      Logger.LogDebug($"{{matchCount}} match{(matches.Length > 1 ? "es" : "")} found.", matches.Length);
 
     private async Task<IEnumerable<CampenAuktionerItem>> GetResults()
     {
@@ -69,6 +77,11 @@ namespace Lerbaek.Auctions.CampenAuktioner
         Logger.LogInformation(e, "Task cancelled because a new search was started");
         return Enumerable.Empty<CampenAuktionerItem>();
       }
+    }
+
+    private void LogPageRetrieved(int pageNo)
+    {
+      Logger.LogDebug("Retrieved page {page}", pageNo);
     }
 
     private async Task<CampenAuktionerItem[]> GetItemsAsync(int page, CancellationToken cancellationToken)

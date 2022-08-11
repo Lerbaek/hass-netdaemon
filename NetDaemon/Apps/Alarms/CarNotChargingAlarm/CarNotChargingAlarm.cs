@@ -3,7 +3,7 @@ namespace Lerbaek.NetDaemon.Apps.Alarms.CarNotChargingAlarm;
 /// <summary>
 ///   Application to perform repetitive voice alarms.
 /// </summary>
-[Focus]
+//[Focus]
 [NetDaemonApp]
 public class CarNotChargingAlarmApp
 {
