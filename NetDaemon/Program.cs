@@ -2,6 +2,8 @@ using FluentValidation;
 using Lerbaek.HostBuilder;
 using Lerbaek.NetDaemon.Apps.Integrations.CampenAuktioner;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
+using Lerbaek.NetDaemon.Apps.Monitoring.Lectio;
+using Lerbaek.NetDaemon.Common.Logging;
 using NetDaemon.Extensions.MqttEntityManager;
 
 #pragma warning disable CA1812
@@ -11,11 +13,11 @@ try
 
   await Host.CreateDefaultBuilder(args)
         .UseNetDaemonAppSettings()
-        .UseNetDaemonDefaultLogging()
         .UseNetDaemonRuntime()
         .UseNetDaemonTextToSpeech()
         .UseNetDaemonMqttEntityManagement()
         .ConfigureServices(ServiceConfiguration)
+        .UseCustomLogging()
 #if DEBUG
         .UseEnvironment("Development")
 #endif
@@ -29,7 +31,7 @@ catch (Exception e)
     throw;
 }
 
-static void ServiceConfiguration(HostBuilderContext _, IServiceCollection services)
+static void ServiceConfiguration(IServiceCollection services)
 {
   services.AddAppsFromAssembly(Assembly.GetExecutingAssembly())
     .AddNetDaemonStateManager()
@@ -42,6 +44,10 @@ static void ServiceConfiguration(HostBuilderContext _, IServiceCollection servic
   services
     .AddHttpClient<CampenAuktioner>(nameof(CampenAuktioner))
     .AddLerbaekRetryPolicyHandler<CampenAuktioner>();
+
+  services
+    .AddHttpClient<LectioCalendar>(nameof(LectioCalendar))
+    .AddLerbaekRetryPolicyHandler<LectioCalendar>();
 
   services.AddSingleton<IFileSystem, FileSystem>();
   services.AddSingleton<IValidator<VoiceNotificationBuilder>, NotificationBuilderValidator>();

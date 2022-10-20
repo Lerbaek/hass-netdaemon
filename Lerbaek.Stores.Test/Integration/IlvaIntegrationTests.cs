@@ -25,7 +25,7 @@ public class IlvaIntegrationTests : HttpClientModelTestsBase
     var baseUrl = new Uri("http://ilva.dk/");
     var web = new HtmlWeb();
     var doc = web.Load(baseUrl);
-    var spotLinkNodes = doc.DocumentNode.SelectNodes("//a [@class='product-spot__inner product-spot__spot-link']");
+    var spotLinkNodes = doc.DocumentNode.SelectNodes("//a [@class='ribbon-tile__link']");
     spotLinkNodes.Should().NotBeNull();
     var relativePath = spotLinkNodes.First().Attributes["href"].Value;
     var link = new Uri(baseUrl, relativePath);

@@ -2,15 +2,30 @@
 
 using System.Drawing;
 using FluentValidation;
+using Microsoft.Extensions.Configuration;
 
 namespace Lerbaek.NetDaemon.Common.Notifications;
 
 public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilder
 {
-  public IDictionary<string, string>[] Actions { get; protected set; }
+  private IDictionary<string, string>[] actions;
+  public INotificationPresets Presets { get; }
 
-  public NotificationBuilder(IValidator<VoiceNotificationBuilder> validator) : base(validator)
+  public string Title { get; private set; }
+
+  public IDictionary<string, string>[] Actions
   {
+    get => actions;
+    protected set
+    {
+      actions = value;
+      Data["actions"] = value;
+    }
+  }
+
+  public NotificationBuilder(IHaContext ha, IConfiguration config, IValidator<VoiceNotificationBuilder> validator) : base(validator)
+  {
+    Presets = new NotificationPresets(ha, config, this);
   }
 
   public new INotificationBuilder Reset()
@@ -21,9 +36,9 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
 
   protected override void DoReset()
   {
+    base.DoReset();
     Message = null;
     Actions = Array.Empty<IDictionary<string, string>>();
-    base.DoReset();
   }
 
   public INotificationBuilder SetMessage(string message)
@@ -32,9 +47,9 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
     return this;
   }
 
-  public new INotificationBuilder SetTitle(string title)
+  public INotificationBuilder SetTitle(string title)
   {
-    DoSetTitle(title);
+    Title = title;
     return this;
   }
 
@@ -46,7 +61,15 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
 
   public INotificationBuilder SetColor(Color color)
   {
-    Data["color"] = $"#{color.Name[2..]}";
+    Data["color"] = $"#{Convert.ToHexString(new[]{color.R, color.G, color.B})}";
+    return this;
+  }
+
+  public INotificationBuilder SetIcon(Uri iconUrl) => SetIcon(iconUrl.AbsoluteUri);
+
+  public INotificationBuilder SetIcon(string iconUrl)
+  {
+    Data["icon_url"] = iconUrl;
     return this;
   }
 
@@ -56,23 +79,21 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
     return this;
   }
 
-  public IVoiceNotificationBuilder MakeVoiceNotification(string message, VoiceNotificationVolume voiceNotificationVolume)
+  public IVoiceNotificationBuilder MakeVoiceNotification(string ttsText, VoiceNotificationVolume voiceNotificationVolume)
   {
-    base.Reset().SetTitle(message).SetVolume(voiceNotificationVolume);
+    base.Reset().SetTtsText(ttsText).SetVolume(voiceNotificationVolume);
     return this;
   }
 
   public override void Notify(params Action<string, string?, object?, object?>[] notifyActions)
   {
-    DoNotify(notifyActions);
+    DoNotify(notifyActions, Title);
     Reset();
   }
   
-  public INotificationBuilder AddAction(string title, ActionUri uri, string? tag = null)
+  public INotificationBuilder AddActionUri(string title, ActionUri uri, string? tag = null)
   {
-    if (!Data.ContainsKey("actions"))
-      Data.Add("actions", Actions);
-    else if (Actions.Length > 2)
+    if (Actions.Length > 2)
       throw new NotSupportedException("Only 3 actions per notification are allowed");
 
     var action = new Dictionary<string, string>
@@ -89,14 +110,17 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
     return this;
   }
 
-  public INotificationBuilder SetImage(Uri imageLink)
-  {
-    return SetImage(imageLink.AbsoluteUri);
-  }
+  public INotificationBuilder SetImage(Uri imageLink) => SetImage(imageLink.AbsoluteUri);
 
   public INotificationBuilder SetImage(string imageLink)
   {
     Data["image"] = imageLink;
+    return this;
+  }
+
+  public INotificationBuilder SetTag(string tag)
+  {
+    Data["tag"] = tag;
     return this;
   }
 }

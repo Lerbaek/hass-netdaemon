@@ -1,5 +1,4 @@
-﻿using Lerbaek.Test.Common;
-using Lerbaek.Test.Common.Bases.Startup;
+﻿using Lerbaek.Test.Common.Bases.Startup;
 
 namespace Lerbaek.Stores.Test;
 

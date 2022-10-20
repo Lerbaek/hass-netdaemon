@@ -1,9 +1,10 @@
 ﻿using Lerbaek.NetDaemon.Common.Converters;
+using Lerbaek.NetDaemon.Common.Logging;
 
 namespace Lerbaek.NetDaemon.Apps.Automations;
 
 [NetDaemonApp]
-[Focus]
+//[Focus]
 public class NightBrightness
 {
   private const int NightBrightnessPercentage = 1;
@@ -13,7 +14,7 @@ public class NightBrightness
 
   private IEnumerable<LightEntity> ExcludedLights => new[]
   {
-    lights.Natlampe,
+    lights.Ballon,
     lights.FelenaTassel,
     lights.LysIStuen,
     lights.LysIKokkenet,
@@ -25,7 +26,9 @@ public class NightBrightness
     lights.LysIFordelingsgangen,
     lights.LysIBryggerset,
     lights.LysIEntreen,
-    lights.AlleIndendorsLys
+    lights.AlleIndendorsLys,
+    lights.LysIBaghaven,
+    lights.TwinklyEda359
   };
 
   private readonly InputBooleanEntities inputBooleans;
@@ -43,47 +46,61 @@ public class NightBrightness
 
   private void ResetBrightness(StateChange change)
   {
-    if (change.New.IsOn())
-      return;
+    try
+    {
+      if (change.New.IsOn())
+        return;
 
-    var allLights = typeof(LightEntities).GetProperties().Select(p => p.GetMethod!.Invoke(lights, null) as LightEntity);
-    foreach (var light in allLights.Where(light =>
-               light is not null
-               && !IsExcluded(light.EntityId)
-               && light.Attributes!.Brightness is < 255))
-      light!.TurnOff();
+      var allLights = typeof(LightEntities).GetProperties().Select(p => p.GetMethod!.Invoke(lights, null) as LightEntity);
+      foreach (var light in allLights.Where(light =>
+                 light is not null
+                 && !IsExcluded(light.EntityId)
+                 && light.Attributes!.Brightness is < 255))
+        light!.TurnOff();
+    }
+    catch (Exception e)
+    {
+      logger.LogErrorMethod(e);
+    }
   }
 
   private void SetBrightness(StateChange change)
   {
-    if (!SpecificBrightnessRequired(change))
-      return;
-
-    var brightnessPercentage = inputBooleans.NightMode.IsOn()
-      ? NightBrightnessPercentage
-      : MaxBrightnessPercentage;
-
-    var entityId = change.Entity.EntityId;
-    var light = new LightEntity(ha, entityId);
-    var name = light.Attributes?.FriendlyName ?? entityId;
-
-    if (light.Attributes!.Brightness is null)
+    try
     {
-      logger.LogTrace("{name} has no brightness attribute", name);
-      return;
-    }
+      if (!SpecificBrightnessRequired(change))
+        return;
 
-    var currentBrightnessPercentage = ((int)light.Attributes!.Brightness!.Value).ShiftRange((0, 255), (0, MaxBrightnessPercentage));
+      var brightnessPercentage = inputBooleans.NightMode.IsOn()
+        ? NightBrightnessPercentage
+        : MaxBrightnessPercentage;
 
-    if (Math.Abs(currentBrightnessPercentage - brightnessPercentage) < 0.1)
-    {
-      logger.LogTrace("{name} is already at {brightnessPercentage}%", name, brightnessPercentage);
-      return;
-    }
+      var entityId = change.Entity.EntityId;
+      var light = new LightEntity(ha, entityId);
+      var name = light.Attributes?.FriendlyName ?? entityId;
 
-    logger.LogDebug("Setting brightness of {name} from {from} to {to}", name, currentBrightnessPercentage, brightnessPercentage);
+      if (light.Attributes!.Brightness is null)
+      {
+        logger.LogTrace("{name} has no brightness attribute", name);
+        return;
+      }
+
+      var currentBrightnessPercentage = ((int)light.Attributes!.Brightness!.Value).ShiftRange((0, 255), (0, MaxBrightnessPercentage));
+
+      if (Math.Abs(currentBrightnessPercentage - brightnessPercentage) < 0.1)
+      {
+        logger.LogTrace("{name} is already at {brightnessPercentage}%", name, brightnessPercentage);
+        return;
+      }
+
+      logger.LogDebug("Setting brightness of {name} from {from} to {to}", name, currentBrightnessPercentage, brightnessPercentage);
     
-    light.TurnOn(brightnessPct: brightnessPercentage);
+      light.TurnOn(brightnessPct: brightnessPercentage);
+    }
+    catch (Exception e)
+    {
+      logger.LogErrorMethod(e);
+    }
   }
 
   private bool SpecificBrightnessRequired(StateChange change)
@@ -97,7 +114,15 @@ public class NightBrightness
     }
 
     var light = new LightEntity(ha, entityId);
-    var name = light.Attributes?.FriendlyName ?? entityId;
+    string? name;
+    try
+    {
+      name = light.Attributes?.FriendlyName ?? entityId;
+    }
+    catch
+    {
+      return false;
+    }
 
     if (IsExcluded(entityId))
     {

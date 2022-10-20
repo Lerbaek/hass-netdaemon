@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Text.RegularExpressions;
+using FluentAssertions;
 using HtmlAgilityPack;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Xunit;
@@ -28,7 +29,10 @@ public class ProShopIntegrationTests : HttpClientModelTestsBase
     var doc = web.Load(campaignsUrl.AbsoluteUri);
     var spotLinkNodes = doc.DocumentNode.SelectNodes("//a");
     spotLinkNodes.Should().NotBeNull();
-    var relativePath = spotLinkNodes.First().Attributes["href"].Value;
+    const string endsWithProductIdRegex = @"\/\d+$";
+    var relativePath = spotLinkNodes
+      .Select(n => n.Attributes["href"].Value)
+      .First(href => Regex.IsMatch(href, endsWithProductIdRegex));
     var link = new Uri(baseUrl, relativePath);
     return link;
   }

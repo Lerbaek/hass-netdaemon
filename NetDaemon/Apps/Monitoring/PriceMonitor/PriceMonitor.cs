@@ -31,8 +31,8 @@ public class PriceMonitor : ServiceHandler
     Logger = logger;
     HttpClient = httpClientFactory.CreateClient(nameof(PriceMonitor));
     NotificationBuilder = notificationBuilder;
-
-    Initialize();
+    entityManager.RemoveAsync("sensor.ilvapricemonitor_10557295642100692");
+    //Initialize();
   }
 
   public record Registering(string? url);

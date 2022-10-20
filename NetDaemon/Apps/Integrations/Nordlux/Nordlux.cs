@@ -118,7 +118,7 @@ public class Nordlux : ServiceHandler
       var brightness = ((int)onlineDevices.Average(d => d.bri)!).ShiftRange(percentageRange, byteRange);
       var temperature = ((int)onlineDevices.Average(d => d.cct)! % 100).ShiftRange(percentageRange, temperatureRange)
         .Reverse(temperatureRange);
-      attributes = attributes.Set(brightness, colorTemp: temperature);
+      attributes = attributes.Set(brightness, colorTemp: new List<double>{temperature});
     }
 
     await apiManager.SetEntityStateAsync(entity.EntityId, state, attributes, CancellationToken.None);

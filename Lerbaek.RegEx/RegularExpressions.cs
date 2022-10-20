@@ -10,13 +10,18 @@ namespace Lerbaek.RegEx
   {
     public static IEnumerable<T> SafeRegExtract<T>(this IEnumerable<string> terms, string rx)
     {
-      try
+      foreach (var term in terms)
       {
-        return terms.Extract<T>(rx).ToArray();
-      }
-      catch (Exception)
-      {
-        return Array.Empty<T>();
+        IEnumerable<T> matches = Array.Empty<T>();
+        try
+        {
+          matches = term.Extract<List<T>>(rx);
+        }
+        catch
+        {
+        }
+        foreach (var match in matches)
+          yield return match;
       }
     }
 
