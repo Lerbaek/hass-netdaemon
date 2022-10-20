@@ -3,8 +3,26 @@
   &lt;Assembly Path="C:\Users\Kristoffer\.nuget\packages\joysoftware.netdaemon.runtime\22.5.1\lib\net6.0\NetDaemon.Runtime.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\Kristoffer\.nuget\packages\joysoftware.netdaemon.appmodel\22.5.2\lib\net6.0\NetDaemon.AppModel.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\6.0.3\Microsoft.Extensions.Http.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\Kristoffer\.nuget\packages\joysoftware.netdaemon.extensions.mqtt\22.13.1\lib\net6.0\NetDaemon.Extensions.MqttEntityManager.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\Kristoffer\.nuget\packages\microsoft.extensions.logging\6.0.0\lib\netstandard2.1\Microsoft.Extensions.Logging.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\6.0.9\ref\net6.0\Microsoft.Extensions.Hosting.Abstractions.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\ztuff\.nuget\packages\joysoftware.netdaemon.extensions.logging\22.40.0\lib\net6.0\NetDaemon.Extensions.Logging.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
-	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\Kristoffer\AppData\Local\Temp\JetBrains\ReSharperPlatformVs17\vAny_5d05d9b1\CoverageData\_NetDaemon.1220979352\Snapshot\snapshot.utdcvr</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=95192079_002Dffd9_002D4527_002Db224_002D3456ce6eb2bb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Users\Kristoffer\source\repos\hass-netdaemon\Lerbaek.Auctions.Test" Presentation="&amp;lt;Lerbaek.Auctions.Test&amp;gt;" /&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8544b3ee_002D58b8_002D451e_002D8878_002D571b9d77fee6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetMatches_SearchTermANotX_FewerItemsFound" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8cf6529d_002D79f1_002D4ebc_002D8862_002D40a5a785a203/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b73fd6b9_002De20d_002D495b_002D902e_002D1366022afb73/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c5f0d7b4_002Dbd40_002D4ece_002Dabd0_002D09a6cb97b8c8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetSchedule" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::0E9209B8-192A-49D6-AA79-04C070DD6EA3::net6.0::Lerbaek.Calendar.Test.LectioModelTests.GetSchedule&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::BCBAF919-1D0F-4F7D-9837-B722314080D9::net6.0::NetDaemon.Test.Common.Notifications.VoiceNotificationBuilderTests.Test&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>

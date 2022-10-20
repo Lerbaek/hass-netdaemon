@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RegExtract" Version="1.0.18" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lerbaek.RegEx\Lerbaek.RegEx.csproj" />
   </ItemGroup>
 
 </Project>

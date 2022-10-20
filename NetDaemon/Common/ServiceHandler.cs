@@ -23,5 +23,5 @@ public class ServiceHandler
   }
 
   public static void LogServiceCall(ILogger logger, string serviceName, params object[] args) =>
-    logger.LogDebug("{Method}({Args}) has been called", serviceName, string.Join(", ", args));
+    logger.LogTrace("{Method}({Args}) has been called", serviceName, string.Join(", ", args));
 }

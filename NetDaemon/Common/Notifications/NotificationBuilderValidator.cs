@@ -6,10 +6,11 @@ public class NotificationBuilderValidator : AbstractValidator<VoiceNotificationB
 {
   public NotificationBuilderValidator()
   {
-    RuleFor(nb => nb.Title)
+    RuleFor(nb => nb.Data[Configuration.TtsTextKey])
       .NotNull()
       .NotEmpty()
-      .WithMessage($"Notification is missing {nameof(NotificationBuilder.Title)}");
+      .When(nb => nb.Data.ContainsKey(Configuration.TtsTextKey))
+      .WithMessage($"Notification is missing {Configuration.TtsTextKey} value");
     RuleFor(nb => nb.Message)
       .NotNull()
       .NotEmpty()

@@ -69,12 +69,21 @@ public class Nordlux : ServiceHandler
 
   #region Services
 
-  public async Task OliveTreeBranchTurnOff() => await HandlerSetterService(nameof(OliveTreeBranchTurnOff), cipherManager.State.Off);
+  public async Task OliveTreeBranchTurnOff()
+  {
+    LogServiceCall(logger, nameof(OliveTreeBranchTurnOff));
+    await HandlerSetterService(nameof(OliveTreeBranchTurnOff), cipherManager.State.Off);
+  }
 
-  public async Task OliveTreeBranchTurnOn()  => await HandlerSetterService(nameof(OliveTreeBranchTurnOn),  cipherManager.State.On);
+  public async Task OliveTreeBranchTurnOn()
+  {
+    LogServiceCall(logger, nameof(OliveTreeBranchTurnOn));
+    await HandlerSetterService(nameof(OliveTreeBranchTurnOn), cipherManager.State.On);
+  }
 
   public async Task OliveTreeBranchSetBrightness(int brightness)
   {
+    LogServiceCall(logger, nameof(OliveTreeBranchSetBrightness));
     var brightnessPercentage = brightness.ShiftRange(byteRange, percentageRange);
     await HandlerSetterService(nameof(OliveTreeBranchSetBrightness),
       cipherManager.Brightness.Set(brightnessPercentage), brightness);
@@ -83,6 +92,7 @@ public class Nordlux : ServiceHandler
   /// <param name="temperature">Range: 153 (cold) - 500 (warm)</param>
   public async Task OliveTreeBranchSetColorTemperature(int temperature)
   {
+    LogServiceCall(logger, nameof(OliveTreeBranchSetColorTemperature));
     var temperaturePercentage = temperature.ShiftRange(temperatureRange, percentageRange).Reverse(percentageRange);
     await HandlerSetterService(nameof(OliveTreeBranchSetColorTemperature),
       cipherManager.Temperature.Set(temperaturePercentage), temperature);
@@ -91,7 +101,6 @@ public class Nordlux : ServiceHandler
   public async Task OliveTreeBranchGetStatus()
   {
     LogServiceCall(logger, nameof(OliveTreeBranchGetStatus));
-    logger.LogDebug("{Method}() has been called", nameof(OliveTreeBranchGetStatus));
     var status = await GetStatus();
 
     var deviceList = status.data!.deviceList;
@@ -109,7 +118,7 @@ public class Nordlux : ServiceHandler
       var brightness = ((int)onlineDevices.Average(d => d.bri)!).ShiftRange(percentageRange, byteRange);
       var temperature = ((int)onlineDevices.Average(d => d.cct)! % 100).ShiftRange(percentageRange, temperatureRange)
         .Reverse(temperatureRange);
-      attributes = attributes.Set(brightness, colorTemp: temperature);
+      attributes = attributes.Set(brightness, colorTemp: new List<double>{temperature});
     }
 
     await apiManager.SetEntityStateAsync(entity.EntityId, state, attributes, CancellationToken.None);

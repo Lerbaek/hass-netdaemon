@@ -2,7 +2,7 @@
 
 namespace Lerbaek.NetDaemon.Apps.Integrations.CampenAuktioner;
 
-[Focus]
+//[Focus]
 [NetDaemonApp]
 public class CampenAuktioner
 {
@@ -32,7 +32,7 @@ public class CampenAuktioner
       var httpClient = httpClientFactory.CreateClient(nameof(CampenAuktioner));
       campenAuktionerSite = new CampenAuktionerSite(logger, httpClient);
 
-      CheckForMatches("startup search").Wait();
+      _ = CheckForMatches("startup search");
 
       varEntities.CampenWatchlist
         .StateChanges()
@@ -68,8 +68,9 @@ public class CampenAuktioner
       .State!
       .Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
-    var matches = await campenAuktionerSite.GetMatchesAsync(watchlist);
-    
+    var matches = (await campenAuktionerSite.GetMatchesAsync(watchlist)).ToArray();
+
+    SetMatches(string.Join($"{NewLine}---{NewLine}", matches.Select(m => m.Markdown)));
     Notify(matches.ToArray());
   }
 
@@ -104,7 +105,7 @@ public class CampenAuktioner
       notificationBuilder.SetMessage(match.Description!)
                          .SetTitle(match.Title!)
                          .SetImage(match.ImageLink!)
-                         .AddAction("Open", ActionUri.Uri(match.Link!))
+                         .AddActionUri("Open", ActionUri.Uri(match.Link!))
                          .Notify(services.Notify.MobileAppKristoffersGalaxyS20Ultra);
     }
 

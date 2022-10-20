@@ -1,29 +1,26 @@
 ﻿using FluentAssertions;
 using Lerbaek.Auctions.CampenAuktioner;
-using Lerbaek.HostBuilder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using Lerbaek.Test.Common;
+using Lerbaek.Test.Common.Bases.TestClass;
 using Xunit;
+using Xunit.Abstractions;
 
-namespace Lerbaek.Auctions.Test
+namespace Lerbaek.Auctions.Test;
+
+[Collection(nameof(CampenAuktionerSite))]
+public class CampenAuktionerIntegrationTests : HttpClientModelTestsBase
 {
-  [Collection(nameof(CampenAuktionerSite))]
-  public class CampenAuktionerIntegrationTests : AuctionsTestBase
-  {
-    private readonly CampenAuktionerSite uut;
+  private readonly CampenAuktionerSite uut;
 
-    public CampenAuktionerIntegrationTests()
-    {
-      Services.AddHttpClient<CampenAuktionerIntegrationTests>(nameof(CampenAuktionerIntegrationTests))
-        .AddLerbaekRetryPolicyHandler<CampenAuktionerIntegrationTests>();
+  public CampenAuktionerIntegrationTests(
+    IHttpClientFactory httpClientFactory, ITestOutputHelper output)
+    : base(httpClientFactory, output) =>
+    uut = new CampenAuktionerSite(Logger, HttpClient);
 
-      var serviceProvider = BuildServiceProvider();
-      var logger = serviceProvider.GetRequiredService<ILoggerFactory>().CreateLogger<CampenAuktionerIntegrationTests>();
-      var httpClient = serviceProvider.GetRequiredService<IHttpClientFactory>().CreateClient(nameof(CampenAuktionerIntegrationTests));
-      uut = new CampenAuktionerSite(logger, httpClient);
-    }
-
-    [Fact]
-    public async Task GetMatches_GetAllItems_ItemsFound() => (await uut.GetMatchesAsync()).Should().NotBeNullOrEmpty();
+  [Fact]
+  public async Task GetMatches_GetAllItems_ItemsFound()
+  {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    var matches = await uut.GetMatchesAsync();
+    matches.Should().NotBeNullOrEmpty();
   }
 }
