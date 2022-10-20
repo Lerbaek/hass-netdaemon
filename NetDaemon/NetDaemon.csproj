@@ -13,6 +13,10 @@
         <AssemblyName>Lerbaek.$(MSBuildProjectName)</AssemblyName>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deploy|AnyCPU'">
+      <Optimize>True</Optimize>
+    </PropertyGroup>
+
     <ItemGroup>
       <Compile Remove="bin\**" />
       <EmbeddedResource Remove="bin\**" />
