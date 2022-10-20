@@ -73,6 +73,6 @@
     </ItemGroup>
         
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-      <Exec Command="nd-codegen" />
+      <Exec Command="if $(ConfigurationName) == Debug nd-codegen" />
     </Target>
 </Project>
