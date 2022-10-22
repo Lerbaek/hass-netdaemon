@@ -157,6 +157,7 @@ Car is home: {CarHome}",
       .AddActionUri("Overblik", ActionUri.Lovelace("bil"), "car-not-charging")
       .SetChannel("alarm_stream")
       .MakeSticky()
+      .SetTag(nameof(CarNotChargingAlarm))
       .SetColor(Color(batteryPercentage))
       .Notify(notifyServices.MobileAppKristoffersGalaxyS20Ultra);
 
