@@ -5,7 +5,6 @@ bin
 *.gen
 .idea
 /appsettings.json
-/NetDaemon/HomeAssistantGenerated.cs
 /NetDaemon/appsettings.json
 /NetDaemon/alerted.txt
 *.yaml
