@@ -23,11 +23,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Calendar", "Lerbaek
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Calendar.Test", "Lerbaek.Calendar.Test\Lerbaek.Calendar.Test.csproj", "{0E9209B8-192A-49D6-AA79-04C070DD6EA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetDaemon.Test", "NetDaemon.Test\NetDaemon.Test.csproj", "{BCBAF919-1D0F-4F7D-9837-B722314080D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetDaemon.Test", "NetDaemon.Test\NetDaemon.Test.csproj", "{BCBAF919-1D0F-4F7D-9837-B722314080D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lerbaek.Messaging", "Lerbaek.Messaging\Lerbaek.Messaging.csproj", "{13E12E85-4B69-450D-B076-06774D4D6B6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Messaging", "Lerbaek.Messaging\Lerbaek.Messaging.csproj", "{13E12E85-4B69-450D-B076-06774D4D6B6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lerbaek.Lectio", "Lerbaek.Lectio\Lerbaek.Lectio.csproj", "{0986983D-9446-4D57-838E-91CEB70BE788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Lectio", "Lerbaek.Lectio\Lerbaek.Lectio.csproj", "{0986983D-9446-4D57-838E-91CEB70BE788}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{088B0726-3B84-406B-9DE4-ADDFA6920349}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
