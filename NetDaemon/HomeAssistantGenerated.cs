@@ -107,6 +107,8 @@ namespace HomeAssistantGenerated
 		public AutomationEntity AlarmRenovation => new(_haContext, "automation.alarm_renovation");
 		///<summary>Badeværelse: Dæmpet lys om natten</summary>
 		public AutomationEntity BadevaerelseDaempetLysOmNatten => new(_haContext, "automation.badevaerelse_daempet_lys_om_natten");
+		///<summary>Bevægelse i stuen</summary>
+		public AutomationEntity BevaegelseIStuen => new(_haContext, "automation.bevaegelse_i_stuen");
 		///<summary>Bil: Automatisk lås</summary>
 		public AutomationEntity BilAutomatiskLas => new(_haContext, "automation.bil_automatisk_las");
 		///<summary>Bil: Advarsel ved manglende opladning</summary>
@@ -399,21 +401,21 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity UnderskabsbelysningKontaktUpdateAvailable => new(_haContext, "binary_sensor.underskabsbelysning_kontakt_update_available");
 		///<summary>Updater</summary>
 		public BinarySensorEntity Updater => new(_haContext, "binary_sensor.updater");
-		///<summary>VA0006690304 battery state</summary>
+		///<summary>Termostat i soveværelse battery state</summary>
 		public BinarySensorEntity Va0006690304BatteryState => new(_haContext, "binary_sensor.va0006690304_battery_state");
-		///<summary>VA0006690304 connection state</summary>
+		///<summary>Termostat i soveværelse connection state</summary>
 		public BinarySensorEntity Va0006690304ConnectionState => new(_haContext, "binary_sensor.va0006690304_connection_state");
-		///<summary>VA0203691776 battery state</summary>
+		///<summary>Termostat i køkken battery state</summary>
 		public BinarySensorEntity Va0203691776BatteryState => new(_haContext, "binary_sensor.va0203691776_battery_state");
-		///<summary>VA0203691776 connection state</summary>
+		///<summary>Termostat i køkken connection state</summary>
 		public BinarySensorEntity Va0203691776ConnectionState => new(_haContext, "binary_sensor.va0203691776_connection_state");
 		///<summary>VA0292559360 battery state</summary>
 		public BinarySensorEntity Va0292559360BatteryState => new(_haContext, "binary_sensor.va0292559360_battery_state");
 		///<summary>VA0292559360 connection state</summary>
 		public BinarySensorEntity Va0292559360ConnectionState => new(_haContext, "binary_sensor.va0292559360_connection_state");
-		///<summary>VA0846141952 battery state</summary>
+		///<summary>Termostat på Ebbes værelse battery state</summary>
 		public BinarySensorEntity Va0846141952BatteryState => new(_haContext, "binary_sensor.va0846141952_battery_state");
-		///<summary>VA0846141952 connection state</summary>
+		///<summary>Termostat på Ebbes værelse connection state</summary>
 		public BinarySensorEntity Va0846141952ConnectionState => new(_haContext, "binary_sensor.va0846141952_connection_state");
 		///<summary>VA1555305984 battery state</summary>
 		public BinarySensorEntity Va1555305984BatteryState => new(_haContext, "binary_sensor.va1555305984_battery_state");
@@ -423,21 +425,21 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity Va2289048064BatteryState => new(_haContext, "binary_sensor.va2289048064_battery_state");
 		///<summary>VA2289048064 connection state</summary>
 		public BinarySensorEntity Va2289048064ConnectionState => new(_haContext, "binary_sensor.va2289048064_connection_state");
-		///<summary>VA2590972416 battery state</summary>
+		///<summary>Termostat i gang battery state</summary>
 		public BinarySensorEntity Va2590972416BatteryState => new(_haContext, "binary_sensor.va2590972416_battery_state");
-		///<summary>VA2590972416 connection state</summary>
+		///<summary>Termostat i gang connection state</summary>
 		public BinarySensorEntity Va2590972416ConnectionState => new(_haContext, "binary_sensor.va2590972416_connection_state");
-		///<summary>VA2708412928 battery state</summary>
+		///<summary>Termostat på Roars værelse battery state</summary>
 		public BinarySensorEntity Va2708412928BatteryState => new(_haContext, "binary_sensor.va2708412928_battery_state");
-		///<summary>VA2708412928 connection state</summary>
+		///<summary>Termostat på Roars værelse connection state</summary>
 		public BinarySensorEntity Va2708412928ConnectionState => new(_haContext, "binary_sensor.va2708412928_connection_state");
 		///<summary>VA2792299008 battery state</summary>
 		public BinarySensorEntity Va2792299008BatteryState => new(_haContext, "binary_sensor.va2792299008_battery_state");
 		///<summary>VA2792299008 connection state</summary>
 		public BinarySensorEntity Va2792299008ConnectionState => new(_haContext, "binary_sensor.va2792299008_connection_state");
-		///<summary>VA3228506624 battery state</summary>
+		///<summary>Termostat på toilet battery state</summary>
 		public BinarySensorEntity Va3228506624BatteryState => new(_haContext, "binary_sensor.va3228506624_battery_state");
-		///<summary>VA3228506624 connection state</summary>
+		///<summary>Termostat på toilet connection state</summary>
 		public BinarySensorEntity Va3228506624ConnectionState => new(_haContext, "binary_sensor.va3228506624_connection_state");
 		///<summary>VA3396213248 battery state</summary>
 		public BinarySensorEntity Va3396213248BatteryState => new(_haContext, "binary_sensor.va3396213248_battery_state");
@@ -639,18 +641,14 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity RoboticMower => new(_haContext, "device_tracker.robotic_mower");
 		///<summary>Grasputin</summary>
 		public DeviceTrackerEntity RoboticMower2 => new(_haContext, "device_tracker.robotic_mower_2");
-		///<summary>S78f354bf382f3aa3C 81FC</summary>
 		public DeviceTrackerEntity S78f354bf382f3aa3c81fc => new(_haContext, "device_tracker.s78f354bf382f3aa3c_81fc");
 		public DeviceTrackerEntity S9fc1e43d898f31bacDb8a => new(_haContext, "device_tracker.s9fc1e43d898f31bac_db8a");
 		///<summary>SAMSUNG</summary>
 		public DeviceTrackerEntity Samsung => new(_haContext, "device_tracker.samsung");
-		///<summary>Samsung 7 Series (65)</summary>
+		///<summary>SAMSUNG</summary>
 		public DeviceTrackerEntity Samsung2 => new(_haContext, "device_tracker.samsung_2");
-		///<summary>Saphe D0C9</summary>
 		public DeviceTrackerEntity SapheD0c9 => new(_haContext, "device_tracker.saphe_d0c9");
-		///<summary>Sc8bfaff5ce07e22cC 18B6</summary>
 		public DeviceTrackerEntity Sc8bfaff5ce07e22cc18b6 => new(_haContext, "device_tracker.sc8bfaff5ce07e22cc_18b6");
-		///<summary>Sd01db6144334011bC 998A</summary>
 		public DeviceTrackerEntity Sd01db6144334011bc998a => new(_haContext, "device_tracker.sd01db6144334011bc_998a");
 		///<summary>SEEDBOX</summary>
 		public DeviceTrackerEntity Seedbox => new(_haContext, "device_tracker.seedbox");
@@ -660,7 +658,7 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity SmG985f => new(_haContext, "device_tracker.sm_g985f");
 		///<summary>SONOSZP</summary>
 		public DeviceTrackerEntity Sonoszp => new(_haContext, "device_tracker.sonoszp");
-		///<summary>SONOSZP</summary>
+		///<summary>Badeværelse</summary>
 		public DeviceTrackerEntity Sonoszp2 => new(_haContext, "device_tracker.sonoszp_2");
 		///<summary>SOVE</summary>
 		public DeviceTrackerEntity Sove => new(_haContext, "device_tracker.sove");
@@ -860,6 +858,8 @@ namespace HomeAssistantGenerated
 
 		///<summary>Bagkant for bilopladning aktiveret</summary>
 		public InputBooleanEntity BagkantForBilopladningAktiveret => new(_haContext, "input_boolean.bagkant_for_bilopladning_aktiveret");
+		///<summary>dev_netdaemon_lerbaek_net_daemon_apps_automations_chest_freezer_chest_freezer</summary>
+		public InputBooleanEntity DevNetdaemonLerbaekNetDaemonAppsAutomationsChestFreezerChestFreezer => new(_haContext, "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_automations_chest_freezer_chest_freezer");
 		///<summary>Emballage</summary>
 		public InputBooleanEntity Emballage => new(_haContext, "input_boolean.emballage");
 		///<summary>Ferietilstand</summary>
@@ -1448,6 +1448,18 @@ namespace HomeAssistantGenerated
 		public SensorEntity Nykredit352053MedAfdrag => new(_haContext, "sensor.nykredit_35_2053_med_afdrag");
 		///<summary>Nykredit 4% 2053 med afdrag</summary>
 		public SensorEntity Nykredit42053MedAfdrag => new(_haContext, "sensor.nykredit_4_2053_med_afdrag");
+		///<summary>OpenWeatherMap Condition</summary>
+		public SensorEntity OpenweathermapCondition => new(_haContext, "sensor.openweathermap_condition");
+		///<summary>OpenWeatherMap Forecast Condition</summary>
+		public SensorEntity OpenweathermapForecastCondition => new(_haContext, "sensor.openweathermap_forecast_condition");
+		///<summary>OpenWeatherMap Forecast Time</summary>
+		public SensorEntity OpenweathermapForecastTime => new(_haContext, "sensor.openweathermap_forecast_time");
+		///<summary>OpenWeatherMap Precipitation kind</summary>
+		public SensorEntity OpenweathermapPrecipitationKind => new(_haContext, "sensor.openweathermap_precipitation_kind");
+		///<summary>OpenWeatherMap Weather</summary>
+		public SensorEntity OpenweathermapWeather => new(_haContext, "sensor.openweathermap_weather");
+		///<summary>OpenWeatherMap Weather Code</summary>
+		public SensorEntity OpenweathermapWeatherCode => new(_haContext, "sensor.openweathermap_weather_code");
 		///<summary>renovation_emballage</summary>
 		public SensorEntity RenovationEmballage => new(_haContext, "sensor.renovation_emballage");
 		///<summary>Emballage</summary>
@@ -1636,6 +1648,46 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity LysIIndkorslenStromstyrke => new(_haContext, "sensor.lys_i_indkorslen_stromstyrke");
 		///<summary>nordpool_kwh_dk1_dkk_3_10_025</summary>
 		public NumericSensorEntity NordpoolKwhDk1Dkk310025 => new(_haContext, "sensor.nordpool_kwh_dk1_dkk_3_10_025");
+		///<summary>OpenWeatherMap Cloud coverage</summary>
+		public NumericSensorEntity OpenweathermapCloudCoverage => new(_haContext, "sensor.openweathermap_cloud_coverage");
+		///<summary>OpenWeatherMap Dew Point</summary>
+		public NumericSensorEntity OpenweathermapDewPoint => new(_haContext, "sensor.openweathermap_dew_point");
+		///<summary>OpenWeatherMap Feels like temperature</summary>
+		public NumericSensorEntity OpenweathermapFeelsLikeTemperature => new(_haContext, "sensor.openweathermap_feels_like_temperature");
+		///<summary>OpenWeatherMap Forecast Cloud coverage</summary>
+		public NumericSensorEntity OpenweathermapForecastCloudCoverage => new(_haContext, "sensor.openweathermap_forecast_cloud_coverage");
+		///<summary>OpenWeatherMap Forecast Precipitation</summary>
+		public NumericSensorEntity OpenweathermapForecastPrecipitation => new(_haContext, "sensor.openweathermap_forecast_precipitation");
+		///<summary>OpenWeatherMap Forecast Precipitation probability</summary>
+		public NumericSensorEntity OpenweathermapForecastPrecipitationProbability => new(_haContext, "sensor.openweathermap_forecast_precipitation_probability");
+		///<summary>OpenWeatherMap Forecast Pressure</summary>
+		public NumericSensorEntity OpenweathermapForecastPressure => new(_haContext, "sensor.openweathermap_forecast_pressure");
+		///<summary>OpenWeatherMap Forecast Temperature</summary>
+		public NumericSensorEntity OpenweathermapForecastTemperature => new(_haContext, "sensor.openweathermap_forecast_temperature");
+		///<summary>OpenWeatherMap Forecast Temperature Low</summary>
+		public NumericSensorEntity OpenweathermapForecastTemperatureLow => new(_haContext, "sensor.openweathermap_forecast_temperature_low");
+		///<summary>OpenWeatherMap Forecast Wind bearing</summary>
+		public NumericSensorEntity OpenweathermapForecastWindBearing => new(_haContext, "sensor.openweathermap_forecast_wind_bearing");
+		///<summary>OpenWeatherMap Forecast Wind speed</summary>
+		public NumericSensorEntity OpenweathermapForecastWindSpeed => new(_haContext, "sensor.openweathermap_forecast_wind_speed");
+		///<summary>OpenWeatherMap Humidity</summary>
+		public NumericSensorEntity OpenweathermapHumidity => new(_haContext, "sensor.openweathermap_humidity");
+		///<summary>OpenWeatherMap Pressure</summary>
+		public NumericSensorEntity OpenweathermapPressure => new(_haContext, "sensor.openweathermap_pressure");
+		///<summary>OpenWeatherMap Rain</summary>
+		public NumericSensorEntity OpenweathermapRain => new(_haContext, "sensor.openweathermap_rain");
+		///<summary>OpenWeatherMap Snow</summary>
+		public NumericSensorEntity OpenweathermapSnow => new(_haContext, "sensor.openweathermap_snow");
+		///<summary>OpenWeatherMap Temperature</summary>
+		public NumericSensorEntity OpenweathermapTemperature => new(_haContext, "sensor.openweathermap_temperature");
+		///<summary>OpenWeatherMap UV Index</summary>
+		public NumericSensorEntity OpenweathermapUvIndex => new(_haContext, "sensor.openweathermap_uv_index");
+		///<summary>OpenWeatherMap Visibility</summary>
+		public NumericSensorEntity OpenweathermapVisibility => new(_haContext, "sensor.openweathermap_visibility");
+		///<summary>OpenWeatherMap Wind bearing</summary>
+		public NumericSensorEntity OpenweathermapWindBearing => new(_haContext, "sensor.openweathermap_wind_bearing");
+		///<summary>OpenWeatherMap Wind speed</summary>
+		public NumericSensorEntity OpenweathermapWindSpeed => new(_haContext, "sensor.openweathermap_wind_speed");
 		///<summary>Orico HDD docking station Battery</summary>
 		public NumericSensorEntity OricoHddDockingStationBattery => new(_haContext, "sensor.orico_hdd_docking_station_battery");
 		///<summary>Plex (Seedbox)</summary>
@@ -1654,7 +1706,7 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity RoborockS5MaxLastCleanArea => new(_haContext, "sensor.roborock_s5_max_last_clean_area");
 		///<summary>Roborock S5 Max Last clean duration</summary>
 		public NumericSensorEntity RoborockS5MaxLastCleanDuration => new(_haContext, "sensor.roborock_s5_max_last_clean_duration");
-		///<summary>S78f354bf382f3aa3C 81FC Estimated Distance</summary>
+		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity S78f354bf382f3aa3c81fcEstimatedDistance => new(_haContext, "sensor.s78f354bf382f3aa3c_81fc_estimated_distance");
 		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity S9fc1e43d898f31bacDb8aEstimatedDistance => new(_haContext, "sensor.s9fc1e43d898f31bac_db8a_estimated_distance");
@@ -1666,11 +1718,11 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity SamsungClp325wTonerMagenta => new(_haContext, "sensor.samsung_clp_325w_toner_magenta");
 		///<summary>Samsung CLP-325W Toner yellow</summary>
 		public NumericSensorEntity SamsungClp325wTonerYellow => new(_haContext, "sensor.samsung_clp_325w_toner_yellow");
-		///<summary>Saphe D0C9 Estimated Distance</summary>
+		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity SapheD0c9EstimatedDistance => new(_haContext, "sensor.saphe_d0c9_estimated_distance");
-		///<summary>Sc8bfaff5ce07e22cC 18B6 Estimated Distance</summary>
+		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity Sc8bfaff5ce07e22cc18b6EstimatedDistance => new(_haContext, "sensor.sc8bfaff5ce07e22cc_18b6_estimated_distance");
-		///<summary>Sd01db6144334011bC 998A Estimated Distance</summary>
+		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity Sd01db6144334011bc998aEstimatedDistance => new(_haContext, "sensor.sd01db6144334011bc_998a_estimated_distance");
 		///<summary>Soveværelse heating</summary>
 		public NumericSensorEntity SovevaerelseHeating => new(_haContext, "sensor.sovevaerelse_heating");
@@ -1916,6 +1968,8 @@ namespace HomeAssistantGenerated
 		public WeatherEntity Hjem => new(_haContext, "weather.hjem");
 		///<summary>Forecast Kærvej 32</summary>
 		public WeatherEntity Kaervej32 => new(_haContext, "weather.kaervej_32");
+		///<summary>OpenWeatherMap</summary>
+		public WeatherEntity Openweathermap => new(_haContext, "weather.openweathermap");
 	}
 
 	public partial class ZoneEntities
@@ -2241,17 +2295,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("mac")]
 		public string? Mac { get; init; }
 
-		[JsonPropertyName("major")]
-		public double? Major { get; init; }
-
-		[JsonPropertyName("minor")]
-		public double? Minor { get; init; }
-
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
-
-		[JsonPropertyName("source")]
-		public string? Source { get; init; }
 
 		[JsonPropertyName("source_type")]
 		public string? SourceType { get; init; }
@@ -2261,9 +2306,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
-
-		[JsonPropertyName("uuid")]
-		public string? Uuid { get; init; }
 
 		[JsonPropertyName("vertical_accuracy")]
 		public double? VerticalAccuracy { get; init; }
@@ -2567,20 +2609,11 @@ namespace HomeAssistantGenerated
 
 	public record MediaPlayerAttributes
 	{
-		[JsonPropertyName("app_id")]
-		public string? AppId { get; init; }
-
-		[JsonPropertyName("app_name")]
-		public string? AppName { get; init; }
-
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
 		[JsonPropertyName("entity_picture")]
 		public string? EntityPicture { get; init; }
-
-		[JsonPropertyName("entity_picture_local")]
-		public object? EntityPictureLocal { get; init; }
 
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
@@ -2593,12 +2626,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("is_volume_muted")]
 		public bool? IsVolumeMuted { get; init; }
-
-		[JsonPropertyName("media_album_name")]
-		public string? MediaAlbumName { get; init; }
-
-		[JsonPropertyName("media_artist")]
-		public string? MediaArtist { get; init; }
 
 		[JsonPropertyName("media_content_id")]
 		public object? MediaContentId { get; init; }
@@ -2636,6 +2663,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("media_title")]
 		public string? MediaTitle { get; init; }
 
+		[JsonPropertyName("media_track")]
+		public double? MediaTrack { get; init; }
+
 		[JsonPropertyName("player_source")]
 		public string? PlayerSource { get; init; }
 
@@ -2647,6 +2677,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("shuffle")]
 		public bool? Shuffle { get; init; }
+
+		[JsonPropertyName("sound_mode_list")]
+		public IReadOnlyList<string>? SoundModeList { get; init; }
 
 		[JsonPropertyName("source_list")]
 		public IReadOnlyList<string>? SourceList { get; init; }
@@ -2841,6 +2874,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("administrative_area")]
 		public string? AdministrativeArea { get; init; }
 
+		[JsonPropertyName("attribution")]
+		public string? Attribution { get; init; }
+
 		[JsonPropertyName("battery")]
 		public double? Battery { get; init; }
 
@@ -2972,6 +3008,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("action")]
 		public string? Action { get; init; }
 
+		[JsonPropertyName("attribution")]
+		public string? Attribution { get; init; }
+
 		[JsonPropertyName("average")]
 		public double? Average { get; init; }
 
@@ -3041,8 +3080,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("last_run_success")]
 		public object? LastRunSuccess { get; init; }
 
-		[JsonPropertyName("Lerbæk - Plex for Kodi")]
-		public string? LerbkPlexforKodi { get; init; }
+		[JsonPropertyName("Lerbæk - Plex for Samsung")]
+		public string? LerbkPlexforSamsung { get; init; }
 
 		[JsonPropertyName("linkquality")]
 		public double? Linkquality { get; init; }
