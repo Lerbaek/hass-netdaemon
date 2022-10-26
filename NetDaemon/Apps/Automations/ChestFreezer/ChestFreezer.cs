@@ -32,6 +32,8 @@ public class ChestFreezer
   {
     try
     {
+      if (!nordpoolSensor.State.HasValue)
+        throw new NullReferenceException($"Ingen øjebliksværdi fundet i {nordpoolSensor.EntityId}");
       var thresholds = EvaluateThresholds;
 
       var currentPrice = nordpoolSensor.State!.Value;
@@ -84,6 +86,11 @@ public class ChestFreezer
     catch(Exception e)
     {
       logger.LogErrorMethod(e);
+      if (chestFreezer.IsOff())
+      {
+        logger.LogWarning("Tænder fryseren for en sikkerheds skyld.");
+        chestFreezer.TurnOn();
+      }
       notificationBuilder.Presets.NotifyAppException(e);
     }
     finally
