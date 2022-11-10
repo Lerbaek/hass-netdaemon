@@ -12,6 +12,7 @@ public class Humidity
   private readonly NotifyServices notifyServices;
   private readonly DeviceTrackerEntities deviceTrackers;
   private Dictionary<string, List<BinarySensorEntity>> windowDoorSensorsByArea = null!;
+  private ClimateEntity[] climateEntities;
 
   private bool IsHome => deviceTrackers.KristoffersGalaxyS20Ultra.State is "home";
 
@@ -46,8 +47,9 @@ public class Humidity
 
   private void SubscribeToClimateEntities(IHaContext ha)
   {
-    var climateEntities = new ClimateEntities(ha);
-    foreach (var climateEntity in climateEntities.GetPropertiesOfType<ClimateEntity>())
+    var entities = new ClimateEntities(ha);
+    climateEntities = entities.GetPropertiesOfType<ClimateEntity>().ToArray();
+    foreach (var climateEntity in climateEntities)
     {
       climateEntity.StateAllChanges().Where(HumidityOutOfRange).Subscribe(CheckHumidity);
       if (climateEntity.Attributes != null)
@@ -62,7 +64,7 @@ public class Humidity
     var low = humidity < limits.Low;
     var title = (low ? "Lav" : "Høj") + " luftfugtighed!";
     var friendlyName = climate.Attributes.FriendlyName;
-    const string message = "{0}: Luftfugtighed på {1}%.";
+    const string message = "{0}: {1}%.";
 
     logger.LogDebug(string.Format(message, "{FriendlyName}", "{Humidity}"), friendlyName, humidity);
     
@@ -80,11 +82,22 @@ public class Humidity
 
     // Set color too
 
+    var notificationMessage = string.Join(
+      NewLine,
+      climateEntities.Where(
+          ce => ce.Attributes?.CurrentHumidity is {} currentHumidity &&
+                (currentHumidity < limits.Low || currentHumidity > limits.High))
+        .Select(
+          sba =>
+            string.Format(
+              message,
+              sba.Attributes!.FriendlyName,
+              sba.Attributes!.CurrentHumidity)));
     notificationBuilder
       .SetTitle(title)
-      .SetMessage(string.Format(message, friendlyName, humidity))
+      .SetMessage(notificationMessage)
       .SetChannel("Humidity alert")
-      .SetTag(climate.EntityId)
+      .SetTag(nameof(Humidity))
       .Notify(notifyServices.MobileAppKristoffersGalaxyS20Ultra);
   }
 
