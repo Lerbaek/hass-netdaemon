@@ -46,7 +46,7 @@ namespace Lerbaek.Calendar.Lectio
       var course = additionalInfo.Extract<string>("(?<=Hold: ).*");
       var startDateTimeString = additionalInfo.Extract<string>(".*-\\d{4}.*(?= til )");
       var startDateTime = DateTime.Parse(startDateTimeString, CultureInfo.GetCultureInfo("da-DK"));
-      var endTime = additionalInfo.Extract<TimeSpan>("(?<= til ).*");
+      var endTime = additionalInfo.Extract<TimeSpan>("(?<=.*-\\d{4} \\d\\d:\\d\\d til ).*");
       var link = activityNode.GetAttributeValue("href", null);
       var baseUriNode = htmlNode.OwnerDocument.DocumentNode.SelectSingleNode("//a[@class=\"ls-master-header-logo\"]");
       var baseUri = new Uri(baseUriNode.GetAttributeValue("href", null));
