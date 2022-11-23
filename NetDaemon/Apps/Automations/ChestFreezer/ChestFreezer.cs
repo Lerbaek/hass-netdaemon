@@ -4,7 +4,7 @@ using Lerbaek.NetDaemon.Common.Logging;
 namespace Lerbaek.NetDaemon.Apps.Automations.ChestFreezer;
 
 [NetDaemonApp]
-//[Focus]
+[Focus]
 public class ChestFreezer
 {
   private readonly INetDaemonScheduler scheduler;
@@ -126,7 +126,7 @@ public class ChestFreezer
         }
         var lowerThreshold = pricesToday!.OrderBy(_ => _).Skip(11).Take(2).Average();
         var average = pricesToday!.Average();
-        var upperThreshold = new[]{lowerThreshold, average, 1}.Max(); // Never turn off if below 1
+        var upperThreshold = new[]{lowerThreshold, average, 2.5}.Max(); // Never turn off if below 2,5
         var lowerString = FormatPrice(lowerThreshold);
         var upperString = FormatPrice(upperThreshold);
         logger.LogInformation("1 kWh koster nu {currentPrice}.", currentPriceString);
