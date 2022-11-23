@@ -27,6 +27,8 @@ namespace HomeAssistantGenerated
 
 		InputDatetimeEntities InputDatetime { get; }
 
+		InputNumberEntities InputNumber { get; }
+
 		InputTextEntities InputText { get; }
 
 		LightEntities Light { get; }
@@ -36,8 +38,6 @@ namespace HomeAssistantGenerated
 		MediaPlayerEntities MediaPlayer { get; }
 
 		NumberEntities Number { get; }
-
-		PersistentNotificationEntities PersistentNotification { get; }
 
 		PersonEntities Person { get; }
 
@@ -81,12 +81,12 @@ namespace HomeAssistantGenerated
 		public GroupEntities Group => new(_haContext);
 		public InputBooleanEntities InputBoolean => new(_haContext);
 		public InputDatetimeEntities InputDatetime => new(_haContext);
+		public InputNumberEntities InputNumber => new(_haContext);
 		public InputTextEntities InputText => new(_haContext);
 		public LightEntities Light => new(_haContext);
 		public LockEntities Lock => new(_haContext);
 		public MediaPlayerEntities MediaPlayer => new(_haContext);
 		public NumberEntities Number => new(_haContext);
-		public PersistentNotificationEntities PersistentNotification => new(_haContext);
 		public PersonEntities Person => new(_haContext);
 		public SceneEntities Scene => new(_haContext);
 		public ScriptEntities Script => new(_haContext);
@@ -145,6 +145,8 @@ namespace HomeAssistantGenerated
 		public AutomationEntity HjemFerietilstand => new(_haContext, "automation.hjem_ferietilstand");
 		///<summary>Hjem: Night mode</summary>
 		public AutomationEntity HjemNightMode => new(_haContext, "automation.hjem_night_mode");
+		///<summary>Julelys</summary>
+		public AutomationEntity Julelys => new(_haContext, "automation.julelys");
 		///<summary>Julelys: Sluk</summary>
 		public AutomationEntity JulelysSluk => new(_haContext, "automation.julelys_sluk");
 		///<summary>Julelys: Tænd</summary>
@@ -401,6 +403,8 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity StuePower => new(_haContext, "binary_sensor.stue_power");
 		///<summary>Toilet early start</summary>
 		public BinarySensorEntity ToiletEarlyStart => new(_haContext, "binary_sensor.toilet_early_start");
+		///<summary>Toilet-kontakt  update available</summary>
+		public BinarySensorEntity ToiletKontaktUpdateAvailable => new(_haContext, "binary_sensor.toilet_kontakt_update_available");
 		///<summary>Toilet link</summary>
 		public BinarySensorEntity ToiletLink => new(_haContext, "binary_sensor.toilet_link");
 		///<summary>Toilet open window</summary>
@@ -467,6 +471,8 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity VinkeAstronautUpdateAvailable => new(_haContext, "binary_sensor.vinke_astronaut_update_available");
 		///<summary>Walk-in-closet-kontakt update available</summary>
 		public BinarySensorEntity WalkInClosetKontaktUpdateAvailable => new(_haContext, "binary_sensor.walk_in_closet_kontakt_update_available");
+		///<summary>Walk-in-closet-shortcut update available</summary>
+		public BinarySensorEntity WalkInClosetShortcutUpdateAvailable => new(_haContext, "binary_sensor.walk_in_closet_shortcut_update_available");
 		///<summary>Walk-in closet update available</summary>
 		public BinarySensorEntity WalkInClosetUpdateAvailable => new(_haContext, "binary_sensor.walk_in_closet_update_available");
 		///<summary>XR500 (Gateway) wan status</summary>
@@ -547,6 +553,8 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity Chromecast2 => new(_haContext, "device_tracker.chromecast_2");
 		///<summary>CHROMECAST</summary>
 		public DeviceTrackerEntity Chromecast3 => new(_haContext, "device_tracker.chromecast_3");
+		///<summary>CHROMECAST</summary>
+		public DeviceTrackerEntity Chromecast4 => new(_haContext, "device_tracker.chromecast_4");
 		///<summary>DESKTOP-9T9VAUC</summary>
 		public DeviceTrackerEntity Desktop9t9vauc => new(_haContext, "device_tracker.desktop_9t9vauc");
 		///<summary>DK-KLE-850G5</summary>
@@ -565,6 +573,8 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity Esp10269b => new(_haContext, "device_tracker.esp_10269b");
 		///<summary>ESP_207210</summary>
 		public DeviceTrackerEntity Esp207210 => new(_haContext, "device_tracker.esp_207210");
+		///<summary>ESP_2074B2</summary>
+		public DeviceTrackerEntity Esp2074b2 => new(_haContext, "device_tracker.esp_2074b2");
 		///<summary>ESP_DBBFC1</summary>
 		public DeviceTrackerEntity EspDbbfc1 => new(_haContext, "device_tracker.esp_dbbfc1");
 		///<summary>ESP_EB80F3</summary>
@@ -609,13 +619,13 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity KristoffersGalaxyS9 => new(_haContext, "device_tracker.kristoffers_galaxy_s9");
 		///<summary>KRISTOFFERS-GALAXY-S9</summary>
 		public DeviceTrackerEntity KristoffersGalaxyS92 => new(_haContext, "device_tracker.kristoffers_galaxy_s9_2");
-		///<summary>KRISTOFFERS-GALAXY-S9</summary>
+		///<summary>(null)</summary>
 		public DeviceTrackerEntity KristoffersGalaxyS93 => new(_haContext, "device_tracker.kristoffers_galaxy_s9_3");
 		///<summary>KRISTOFFERS-S20-ULTRA</summary>
 		public DeviceTrackerEntity KristoffersS20Ultra => new(_haContext, "device_tracker.kristoffers_s20_ultra");
 		///<summary>KRISTOFFERS-S20-ULTRA</summary>
 		public DeviceTrackerEntity KristoffersS20Ultra2 => new(_haContext, "device_tracker.kristoffers_s20_ultra_2");
-		///<summary>KRISTOFFERS-S20-ULTRA</summary>
+		///<summary>(null)</summary>
 		public DeviceTrackerEntity KristoffersS20Ultra3 => new(_haContext, "device_tracker.kristoffers_s20_ultra_3");
 		///<summary>LOUISELSIPHONE</summary>
 		public DeviceTrackerEntity Louiselsiphone => new(_haContext, "device_tracker.louiselsiphone");
@@ -661,9 +671,7 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity Samsung2 => new(_haContext, "device_tracker.samsung_2");
 		public DeviceTrackerEntity SapheD0c9 => new(_haContext, "device_tracker.saphe_d0c9");
 		public DeviceTrackerEntity SapheOne680b => new(_haContext, "device_tracker.saphe_one_680b");
-		///<summary>Sc8bfaff5ce07e22cC 18B6</summary>
 		public DeviceTrackerEntity Sc8bfaff5ce07e22cc18b6 => new(_haContext, "device_tracker.sc8bfaff5ce07e22cc_18b6");
-		///<summary>Sd01db6144334011bC 998A</summary>
 		public DeviceTrackerEntity Sd01db6144334011bc998a => new(_haContext, "device_tracker.sd01db6144334011bc_998a");
 		///<summary>SEEDBOX</summary>
 		public DeviceTrackerEntity Seedbox => new(_haContext, "device_tracker.seedbox");
@@ -767,7 +775,7 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity Tuyaterrassekontakt => new(_haContext, "device_tracker.tuyaterrassekontakt");
 		///<summary>TuyaTerrasseKontakt</summary>
 		public DeviceTrackerEntity Tuyaterrassekontakt2 => new(_haContext, "device_tracker.tuyaterrassekontakt_2");
-		///<summary>TWINKLY_EDA359</summary>
+		///<summary>TWINKLY-EDA359</summary>
 		public DeviceTrackerEntity TwinklyEda359 => new(_haContext, "device_tracker.twinkly_eda359");
 		///<summary>unnamed device</summary>
 		public DeviceTrackerEntity UnnamedDevice => new(_haContext, "device_tracker.unnamed_device");
@@ -803,7 +811,7 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity UnnamedDevice9 => new(_haContext, "device_tracker.unnamed_device_9");
 		///<summary>WB268384</summary>
 		public DeviceTrackerEntity Wb268384 => new(_haContext, "device_tracker.wb268384");
-		///<summary>DESKTOP-CO5LNMA</summary>
+		///<summary>WIN-F8S9DTB7ECU</summary>
 		public DeviceTrackerEntity WinF8s9dtb7ecu => new(_haContext, "device_tracker.win_f8s9dtb7ecu");
 		///<summary>WLAN0</summary>
 		public DeviceTrackerEntity Wlan0 => new(_haContext, "device_tracker.wlan0");
@@ -921,6 +929,26 @@ namespace HomeAssistantGenerated
 
 		///<summary>Bagkant for bilopladning</summary>
 		public InputDatetimeEntity BagkantForBilopladning => new(_haContext, "input_datetime.bagkant_for_bilopladning");
+		///<summary>Julelys slukketid, aften</summary>
+		public InputDatetimeEntity JulelysSlukketidAften => new(_haContext, "input_datetime.julelys_slukketid_aften");
+		///<summary>Julelys tændetid, morgen</summary>
+		public InputDatetimeEntity JulelysTaendetidMorgen => new(_haContext, "input_datetime.julelys_taendetid_morgen");
+		///<summary>Tid</summary>
+		public InputDatetimeEntity Tid => new(_haContext, "input_datetime.tid");
+	}
+
+	public partial class InputNumberEntities
+	{
+		private readonly IHaContext _haContext;
+		public InputNumberEntities(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>Dørklokke-lydstyrke</summary>
+		public InputNumberEntity DorklokkeLydstyrke => new(_haContext, "input_number.dorklokke_lydstyrke");
+		///<summary>Max. pris for julelys</summary>
+		public InputNumberEntity MaxPrisForJulelys => new(_haContext, "input_number.max_pris_for_julelys");
 	}
 
 	public partial class InputTextEntities
@@ -965,6 +993,8 @@ namespace HomeAssistantGenerated
 		public LightEntity Havelamper => new(_haContext, "light.havelamper");
 		///<summary>Hjørneterrasse</summary>
 		public LightEntity Hjorneterrasse => new(_haContext, "light.hjorneterrasse");
+		///<summary>Julelys</summary>
+		public LightEntity Julelys => new(_haContext, "light.julelys");
 		///<summary>Kanin-astronaut</summary>
 		public LightEntity KaninAstronaut => new(_haContext, "light.kanin_astronaut");
 		///<summary>Køkkenvask</summary>
@@ -1087,6 +1117,8 @@ namespace HomeAssistantGenerated
 		public MediaPlayerEntity CcSovevaerelse => new(_haContext, "media_player.cc_sovevaerelse");
 		///<summary>ChromeCast (Stue)</summary>
 		public MediaPlayerEntity CcStue => new(_haContext, "media_player.cc_stue");
+		///<summary>CCSoveværelse</summary>
+		public MediaPlayerEntity Ccsovevaerelse => new(_haContext, "media_player.ccsovevaerelse");
 		///<summary>Chromecast5045</summary>
 		public MediaPlayerEntity Chromecast5045 => new(_haContext, "media_player.chromecast5045");
 		///<summary>ChromeTV</summary>
@@ -1179,18 +1211,6 @@ namespace HomeAssistantGenerated
 		public NumberEntity WallboxPortalMaxChargingCurrent => new(_haContext, "number.wallbox_portal_max_charging_current");
 	}
 
-	public partial class PersistentNotificationEntities
-	{
-		private readonly IHaContext _haContext;
-		public PersistentNotificationEntities(IHaContext haContext)
-		{
-			_haContext = haContext;
-		}
-
-		///<summary>Login attempt failed</summary>
-		public PersistentNotificationEntity HttpLogin => new(_haContext, "persistent_notification.http_login");
-	}
-
 	public partial class PersonEntities
 	{
 		private readonly IHaContext _haContext;
@@ -1223,12 +1243,38 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>lightning_flash</summary>
-		public SceneEntity LightningFlash => new(_haContext, "scene.lightning_flash");
-		///<summary>volume_before_doorbell</summary>
-		public SceneEntity VolumeBeforeDoorbell => new(_haContext, "scene.volume_before_doorbell");
-		///<summary>volume_before_thunder</summary>
-		public SceneEntity VolumeBeforeThunder => new(_haContext, "scene.volume_before_thunder");
+		///<summary>Dæmp Roars SceneSwitch helt</summary>
+		public SceneEntity DaempRoarsSceneswitchHelt => new(_haContext, "scene.daemp_roars_sceneswitch_helt");
+		///<summary>Godnat</summary>
+		public SceneEntity Godnat => new(_haContext, "scene.godnat");
+		///<summary>Indikér garage åben</summary>
+		public SceneEntity IndikerGarageAben => new(_haContext, "scene.indiker_garage_aben");
+		///<summary>Indikér garage lukket</summary>
+		public SceneEntity IndikerGarageLukket => new(_haContext, "scene.indiker_garage_lukket");
+		///<summary>Nulstil alle indendørs lys</summary>
+		public SceneEntity NulstilAlleIndendorsLys => new(_haContext, "scene.nulstil_alle_indendors_lys");
+		///<summary>Nulstil lys i Walk-in Closet</summary>
+		public SceneEntity NulstilLysIWalkInCloset => new(_haContext, "scene.nulstil_lys_i_walk_in_closet");
+		///<summary>Nulstil lys på Roars værelse</summary>
+		public SceneEntity NulstilLysPaRoarsVaerelse => new(_haContext, "scene.nulstil_lys_pa_roars_vaerelse");
+		///<summary>Nulstil lys ved TV'et i stuen</summary>
+		public SceneEntity NulstilLysVedTvEtIStuen => new(_haContext, "scene.nulstil_lys_ved_tv_et_i_stuen");
+		///<summary>Skift lysniveau på Roars værelse</summary>
+		public SceneEntity SkiftLysniveauPaRoarsVaerelse => new(_haContext, "scene.skift_lysniveau_pa_roars_vaerelse");
+		///<summary>Sluk alle indendørs lys</summary>
+		public SceneEntity SlukAlleIndendorsLys => new(_haContext, "scene.sluk_alle_indendors_lys");
+		///<summary>Sluk lys på loftet</summary>
+		public SceneEntity SlukLysPaLoftet => new(_haContext, "scene.sluk_lys_pa_loftet");
+		///<summary>Sluk lyset i stuen</summary>
+		public SceneEntity SlukLysetIStuen => new(_haContext, "scene.sluk_lyset_i_stuen");
+		///<summary>Tænd hele stuen</summary>
+		public SceneEntity TaendHeleStuen => new(_haContext, "scene.taend_hele_stuen");
+		///<summary>Tænd lys på loftet</summary>
+		public SceneEntity TaendLysPaLoftet => new(_haContext, "scene.taend_lys_pa_loftet");
+		///<summary>Tænd lyset i indkørslen i et kvarter</summary>
+		public SceneEntity TaendLysetIIndkorslenIEtKvarter => new(_haContext, "scene.taend_lyset_i_indkorslen_i_et_kvarter");
+		///<summary>Tænd lyset på loftet</summary>
+		public SceneEntity TaendLysetPaLoftet => new(_haContext, "scene.taend_lyset_pa_loftet");
 	}
 
 	public partial class ScriptEntities
@@ -1535,6 +1581,8 @@ namespace HomeAssistantGenerated
 		public SensorEntity RoborockS5MaxLastCleanEnd => new(_haContext, "sensor.roborock_s5_max_last_clean_end");
 		///<summary>Roborock S5 Max Last clean start</summary>
 		public SensorEntity RoborockS5MaxLastCleanStart => new(_haContext, "sensor.roborock_s5_max_last_clean_start");
+		///<summary>Samsung CLP-325W Active Alerts</summary>
+		public SensorEntity SamsungClp325wActiveAlerts => new(_haContext, "sensor.samsung_clp_325w_active_alerts");
 		///<summary>Samsung CLP-325W Tray tray_1</summary>
 		public SensorEntity SamsungClp325wTrayTray1 => new(_haContext, "sensor.samsung_clp_325w_tray_tray_1");
 		///<summary>Soveværelse tado mode</summary>
@@ -1545,6 +1593,10 @@ namespace HomeAssistantGenerated
 		public SensorEntity StueTadoMode => new(_haContext, "sensor.stue_tado_mode");
 		///<summary>StueTS004F action</summary>
 		public SensorEntity Stuets004fAction => new(_haContext, "sensor.stuets004f_action");
+		///<summary>Toilet-kontakt  action</summary>
+		public SensorEntity ToiletKontaktAction => new(_haContext, "sensor.toilet_kontakt_action");
+		///<summary>Toilet-kontakt  click</summary>
+		public SensorEntity ToiletKontaktClick => new(_haContext, "sensor.toilet_kontakt_click");
 		///<summary>Toilet tado mode</summary>
 		public SensorEntity ToiletTadoMode => new(_haContext, "sensor.toilet_tado_mode");
 		///<summary>Underskabsbelysning-kontakt action</summary>
@@ -1553,6 +1605,10 @@ namespace HomeAssistantGenerated
 		public SensorEntity UnderskabsbelysningKontaktClick => new(_haContext, "sensor.underskabsbelysning_kontakt_click");
 		///<summary>Walk-in-closet-kontakt action</summary>
 		public SensorEntity WalkInClosetKontaktAction => new(_haContext, "sensor.walk_in_closet_kontakt_action");
+		///<summary>Walk-in-closet-kontakt click</summary>
+		public SensorEntity WalkInClosetKontaktClick => new(_haContext, "sensor.walk_in_closet_kontakt_click");
+		///<summary>Walk-in-closet-shortcut action</summary>
+		public SensorEntity WalkInClosetShortcutAction => new(_haContext, "sensor.walk_in_closet_shortcut_action");
 		///<summary>Wallbox Portal Charging Speed</summary>
 		public SensorEntity WallboxPortalChargingSpeed => new(_haContext, "sensor.wallbox_portal_charging_speed");
 		///<summary>Wallbox Portal Cost</summary>
@@ -1635,6 +1691,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity EforsyningWaterTemperatureForward => new(_haContext, "sensor.eforsyning_water_temperature_forward");
 		///<summary>EForsyning Water Temperature return</summary>
 		public NumericSensorEntity EforsyningWaterTemperatureReturn => new(_haContext, "sensor.eforsyning_water_temperature_return");
+		///<summary>EForsyning Water Temperature return year-to-date</summary>
+		public NumericSensorEntity EforsyningWaterTemperatureReturnYearToDate => new(_haContext, "sensor.eforsyning_water_temperature_return_year_to_date");
 		///<summary>EForsyning Water total-used</summary>
 		public NumericSensorEntity EforsyningWaterTotalUsed => new(_haContext, "sensor.eforsyning_water_total_used");
 		///<summary>EForsyning Water use-prognosis</summary>
@@ -1651,6 +1709,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity GaragedorSensorBattery => new(_haContext, "sensor.garagedor_sensor_battery");
 		///<summary>Garageport-knap, bil battery</summary>
 		public NumericSensorEntity GarageportKnapBilBattery => new(_haContext, "sensor.garageport_knap_bil_battery");
+		///<summary>Gennemsnitlig luftfugtighed</summary>
+		public NumericSensorEntity GennemsnitligLuftfugtighed => new(_haContext, "sensor.gennemsnitlig_luftfugtighed");
 		///<summary>Gros Galaxy S20+ Battery Level</summary>
 		public NumericSensorEntity GrosGalaxyS20BatteryLevel => new(_haContext, "sensor.gros_galaxy_s20_battery_level");
 		///<summary>Gros Galaxy S20+ Battery Power</summary>
@@ -1661,6 +1721,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity Hacs => new(_haContext, "sensor.hacs");
 		///<summary>Woodstock Sofabord 120 x 47 x 60 cm </summary>
 		public NumericSensorEntity Ilvapricemonitor10557295642100692 => new(_haContext, "sensor.ilvapricemonitor_1055729_5642100692");
+		///<summary>Julelys Power</summary>
+		public NumericSensorEntity JulelysPower => new(_haContext, "sensor.julelys_power");
 		///<summary>Køkken / Gang heating</summary>
 		public NumericSensorEntity KokkenGangHeating => new(_haContext, "sensor.kokken_gang_heating");
 		///<summary>Køkken / Gang humidity</summary>
@@ -1689,6 +1751,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity LillebrorsVaerelseHumidity => new(_haContext, "sensor.lillebrors_vaerelse_humidity");
 		///<summary>Ebbes værelse temperature</summary>
 		public NumericSensorEntity LillebrorsVaerelseTemperature => new(_haContext, "sensor.lillebrors_vaerelse_temperature");
+		///<summary>Lys i indkørslen Power</summary>
+		public NumericSensorEntity LysIIndkorslenPower => new(_haContext, "sensor.lys_i_indkorslen_power");
 		///<summary>Lys i indkørslen, strømstyrke</summary>
 		public NumericSensorEntity LysIIndkorslenStromstyrke => new(_haContext, "sensor.lys_i_indkorslen_stromstyrke");
 		///<summary>nordpool_kwh_dk1_dkk_3_10_025</summary>
@@ -1767,9 +1831,9 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity SapheD0c9EstimatedDistance => new(_haContext, "sensor.saphe_d0c9_estimated_distance");
 		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity SapheOne680bEstimatedDistance => new(_haContext, "sensor.saphe_one_680b_estimated_distance");
-		///<summary>Sc8bfaff5ce07e22cC 18B6 Estimated Distance</summary>
+		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity Sc8bfaff5ce07e22cc18b6EstimatedDistance => new(_haContext, "sensor.sc8bfaff5ce07e22cc_18b6_estimated_distance");
-		///<summary>Sd01db6144334011bC 998A Estimated Distance</summary>
+		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity Sd01db6144334011bc998aEstimatedDistance => new(_haContext, "sensor.sd01db6144334011bc_998a_estimated_distance");
 		///<summary>Soveværelse heating</summary>
 		public NumericSensorEntity SovevaerelseHeating => new(_haContext, "sensor.sovevaerelse_heating");
@@ -1797,6 +1861,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity ToiletHeating => new(_haContext, "sensor.toilet_heating");
 		///<summary>Toilet humidity</summary>
 		public NumericSensorEntity ToiletHumidity => new(_haContext, "sensor.toilet_humidity");
+		///<summary>Toilet-kontakt  battery</summary>
+		public NumericSensorEntity ToiletKontaktBattery => new(_haContext, "sensor.toilet_kontakt_battery");
 		///<summary>Toilet temperature</summary>
 		public NumericSensorEntity ToiletTemperature => new(_haContext, "sensor.toilet_temperature");
 		///<summary>Underskabsbelysning-kontakt battery</summary>
@@ -1815,6 +1881,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity VindueRoarPowerOutageCount => new(_haContext, "sensor.vindue_roar_power_outage_count");
 		///<summary>Walk-in-closet-kontakt battery</summary>
 		public NumericSensorEntity WalkInClosetKontaktBattery => new(_haContext, "sensor.walk_in_closet_kontakt_battery");
+		///<summary>Walk-in-closet-shortcut battery</summary>
+		public NumericSensorEntity WalkInClosetShortcutBattery => new(_haContext, "sensor.walk_in_closet_shortcut_battery");
 		///<summary>Wallbox Portal Added Energy</summary>
 		public NumericSensorEntity WallboxPortalAddedEnergy => new(_haContext, "sensor.wallbox_portal_added_energy");
 		///<summary>Wallbox Portal Added Range</summary>
@@ -1885,6 +1953,8 @@ namespace HomeAssistantGenerated
 		public SwitchEntity HavelamperSocket1 => new(_haContext, "switch.havelamper_socket_1");
 		///<summary>Hjørneterrasse Socket 1</summary>
 		public SwitchEntity HjorneterrasseSocket1 => new(_haContext, "switch.hjorneterrasse_socket_1");
+		///<summary>Julelys</summary>
+		public SwitchEntity JulelysSocket1 => new(_haContext, "switch.julelys_socket_1");
 		///<summary>Kummefryser</summary>
 		public SwitchEntity Kummefryser => new(_haContext, "switch.kummefryser");
 		///<summary>Lys i indkørslen Socket 1</summary>
@@ -2109,11 +2179,20 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("contact")]
 		public bool? Contact { get; init; }
 
+		[JsonPropertyName("detectedTime")]
+		public string? DetectedTime { get; init; }
+
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
 		[JsonPropertyName("device_temperature")]
 		public double? DeviceTemperature { get; init; }
+
+		[JsonPropertyName("durationInSeconds")]
+		public double? DurationInSeconds { get; init; }
+
+		[JsonPropertyName("expiry")]
+		public string? Expiry { get; init; }
 
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
@@ -2138,6 +2217,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("power_outage_count")]
 		public double? PowerOutageCount { get; init; }
+
+		[JsonPropertyName("remainingTimeInSeconds")]
+		public double? RemainingTimeInSeconds { get; init; }
 
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
@@ -2342,17 +2424,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("mac")]
 		public string? Mac { get; init; }
 
-		[JsonPropertyName("major")]
-		public double? Major { get; init; }
-
-		[JsonPropertyName("minor")]
-		public double? Minor { get; init; }
-
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
-
-		[JsonPropertyName("source")]
-		public string? Source { get; init; }
 
 		[JsonPropertyName("source_type")]
 		public string? SourceType { get; init; }
@@ -2362,9 +2435,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
-
-		[JsonPropertyName("uuid")]
-		public string? Uuid { get; init; }
 
 		[JsonPropertyName("vertical_accuracy")]
 		public double? VerticalAccuracy { get; init; }
@@ -2435,6 +2505,9 @@ namespace HomeAssistantGenerated
 
 	public record InputDatetimeAttributes
 	{
+		[JsonPropertyName("day")]
+		public double? Day { get; init; }
+
 		[JsonPropertyName("editable")]
 		public bool? Editable { get; init; }
 
@@ -2456,11 +2529,58 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("minute")]
 		public double? Minute { get; init; }
 
+		[JsonPropertyName("month")]
+		public double? Month { get; init; }
+
 		[JsonPropertyName("second")]
 		public double? Second { get; init; }
 
 		[JsonPropertyName("timestamp")]
 		public double? Timestamp { get; init; }
+
+		[JsonPropertyName("year")]
+		public double? Year { get; init; }
+	}
+
+	public partial record InputNumberEntity : NumericEntity<InputNumberEntity, NumericEntityState<InputNumberAttributes>, InputNumberAttributes>
+	{
+		public InputNumberEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
+		{
+		}
+
+		public InputNumberEntity(Entity entity) : base(entity)
+		{
+		}
+	}
+
+	public record InputNumberAttributes
+	{
+		[JsonPropertyName("editable")]
+		public bool? Editable { get; init; }
+
+		[JsonPropertyName("friendly_name")]
+		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("icon")]
+		public string? Icon { get; init; }
+
+		[JsonPropertyName("initial")]
+		public object? Initial { get; init; }
+
+		[JsonPropertyName("max")]
+		public double? Max { get; init; }
+
+		[JsonPropertyName("min")]
+		public double? Min { get; init; }
+
+		[JsonPropertyName("mode")]
+		public string? Mode { get; init; }
+
+		[JsonPropertyName("step")]
+		public double? Step { get; init; }
+
+		[JsonPropertyName("unit_of_measurement")]
+		public string? UnitOfMeasurement { get; init; }
 	}
 
 	public partial record InputTextEntity : Entity<InputTextEntity, EntityState<InputTextAttributes>, InputTextAttributes>
@@ -2526,6 +2646,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("color_temp")]
 		public double? ColorTemp { get; init; }
 
+		[JsonPropertyName("color_temp_kelvin")]
+		public double? ColorTempKelvin { get; init; }
+
 		[JsonPropertyName("color_temp_startup")]
 		public double? ColorTempStartup { get; init; }
 
@@ -2577,6 +2700,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("linkquality")]
 		public double? Linkquality { get; init; }
 
+		[JsonPropertyName("max_color_temp_kelvin")]
+		public double? MaxColorTempKelvin { get; init; }
+
 		[JsonPropertyName("max_mireds")]
 		public double? MaxMireds { get; init; }
 
@@ -2588,6 +2714,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("measured_frame_rate")]
 		public double? MeasuredFrameRate { get; init; }
+
+		[JsonPropertyName("min_color_temp_kelvin")]
+		public double? MinColorTempKelvin { get; init; }
 
 		[JsonPropertyName("min_mireds")]
 		public double? MinMireds { get; init; }
@@ -2674,9 +2803,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
-		[JsonPropertyName("entity_picture")]
-		public string? EntityPicture { get; init; }
-
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 
@@ -2689,47 +2815,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("is_volume_muted")]
 		public bool? IsVolumeMuted { get; init; }
 
-		[JsonPropertyName("media_album_name")]
-		public string? MediaAlbumName { get; init; }
-
 		[JsonPropertyName("media_content_id")]
-		public object? MediaContentId { get; init; }
-
-		[JsonPropertyName("media_content_rating")]
-		public string? MediaContentRating { get; init; }
+		public string? MediaContentId { get; init; }
 
 		[JsonPropertyName("media_content_type")]
 		public string? MediaContentType { get; init; }
-
-		[JsonPropertyName("media_duration")]
-		public double? MediaDuration { get; init; }
-
-		[JsonPropertyName("media_episode")]
-		public double? MediaEpisode { get; init; }
-
-		[JsonPropertyName("media_library_title")]
-		public string? MediaLibraryTitle { get; init; }
-
-		[JsonPropertyName("media_position")]
-		public double? MediaPosition { get; init; }
-
-		[JsonPropertyName("media_position_updated_at")]
-		public string? MediaPositionUpdatedAt { get; init; }
-
-		[JsonPropertyName("media_season")]
-		public double? MediaSeason { get; init; }
-
-		[JsonPropertyName("media_series_title")]
-		public string? MediaSeriesTitle { get; init; }
-
-		[JsonPropertyName("media_summary")]
-		public string? MediaSummary { get; init; }
-
-		[JsonPropertyName("media_title")]
-		public string? MediaTitle { get; init; }
-
-		[JsonPropertyName("player_source")]
-		public string? PlayerSource { get; init; }
 
 		[JsonPropertyName("queue_position")]
 		public double? QueuePosition { get; init; }
@@ -2746,14 +2836,14 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("shuffle")]
 		public bool? Shuffle { get; init; }
 
+		[JsonPropertyName("source")]
+		public string? Source { get; init; }
+
 		[JsonPropertyName("source_list")]
 		public IReadOnlyList<string>? SourceList { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
-
-		[JsonPropertyName("username")]
-		public string? Username { get; init; }
 
 		[JsonPropertyName("volume_level")]
 		public double? VolumeLevel { get; init; }
@@ -2786,29 +2876,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("step")]
 		public double? Step { get; init; }
-	}
-
-	public partial record PersistentNotificationEntity : Entity<PersistentNotificationEntity, EntityState<PersistentNotificationAttributes>, PersistentNotificationAttributes>
-	{
-		public PersistentNotificationEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
-		{
-		}
-
-		public PersistentNotificationEntity(Entity entity) : base(entity)
-		{
-		}
-	}
-
-	public record PersistentNotificationAttributes
-	{
-		[JsonPropertyName("friendly_name")]
-		public string? FriendlyName { get; init; }
-
-		[JsonPropertyName("message")]
-		public string? Message { get; init; }
-
-		[JsonPropertyName("title")]
-		public string? Title { get; init; }
 	}
 
 	public partial record PersonEntity : Entity<PersonEntity, EntityState<PersonAttributes>, PersonAttributes>
@@ -2865,9 +2932,6 @@ namespace HomeAssistantGenerated
 
 	public record SceneAttributes
 	{
-		[JsonPropertyName("entity_id")]
-		public IReadOnlyList<string>? EntityId { get; init; }
-
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 	}
@@ -2974,7 +3038,7 @@ namespace HomeAssistantGenerated
 	public record SensorAttributes
 	{
 		[JsonPropertyName("action")]
-		public string? Action { get; init; }
+		public object? Action { get; init; }
 
 		[JsonPropertyName("address")]
 		public object? Address { get; init; }
@@ -3114,7 +3178,10 @@ namespace HomeAssistantGenerated
 	public record NumericSensorAttributes
 	{
 		[JsonPropertyName("action")]
-		public string? Action { get; init; }
+		public object? Action { get; init; }
+
+		[JsonPropertyName("additional_costs_current_hour")]
+		public double? AdditionalCostsCurrentHour { get; init; }
 
 		[JsonPropertyName("attribution")]
 		public string? Attribution { get; init; }
@@ -3188,14 +3255,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("last_run_success")]
 		public object? LastRunSuccess { get; init; }
 
-		[JsonPropertyName("Lerbæk - Plex for Kodi")]
-		public string? LerbkPlexforKodi { get; init; }
-
 		[JsonPropertyName("linkquality")]
 		public double? Linkquality { get; init; }
 
-		[JsonPropertyName("low price")]
-		public bool? Lowprice { get; init; }
+		[JsonPropertyName("low_price")]
+		public bool? LowPrice { get; init; }
 
 		[JsonPropertyName("max")]
 		public double? Max { get; init; }
@@ -3235,6 +3299,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("power_outage_count")]
 		public double? PowerOutageCount { get; init; }
+
+		[JsonPropertyName("price_percent_to_average")]
+		public double? PricePercentToAverage { get; init; }
 
 		[JsonPropertyName("raw_today")]
 		public IReadOnlyList<object>? RawToday { get; init; }
@@ -3285,7 +3352,7 @@ namespace HomeAssistantGenerated
 		public IReadOnlyList<double>? Today { get; init; }
 
 		[JsonPropertyName("tomorrow")]
-		public IReadOnlyList<double>? Tomorrow { get; init; }
+		public IReadOnlyList<object>? Tomorrow { get; init; }
 
 		[JsonPropertyName("tomorrow_valid")]
 		public bool? TomorrowValid { get; init; }
@@ -3380,9 +3447,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("last_run_success")]
 		public bool? LastRunSuccess { get; init; }
-
-		[JsonPropertyName("linkquality")]
-		public double? Linkquality { get; init; }
 
 		[JsonPropertyName("runtime_info")]
 		public object? RuntimeInfo { get; init; }
@@ -9983,6 +10047,61 @@ namespace HomeAssistantGenerated
 		public static void SetDatetime(this IEnumerable<InputDatetimeEntity> target, string? @date = null, DateTime? @time = null, string? @datetime = null, long? @timestamp = null)
 		{
 			target.CallService("set_datetime", new InputDatetimeSetDatetimeParameters{Date = @date, Time = @time, Datetime = @datetime, Timestamp = @timestamp});
+		}
+	}
+
+	public static class InputNumberEntityExtensionMethods
+	{
+		///<summary>Decrement the value of an input number entity by its stepping.</summary>
+		public static void Decrement(this InputNumberEntity target)
+		{
+			target.CallService("decrement");
+		}
+
+		///<summary>Decrement the value of an input number entity by its stepping.</summary>
+		public static void Decrement(this IEnumerable<InputNumberEntity> target)
+		{
+			target.CallService("decrement");
+		}
+
+		///<summary>Increment the value of an input number entity by its stepping.</summary>
+		public static void Increment(this InputNumberEntity target)
+		{
+			target.CallService("increment");
+		}
+
+		///<summary>Increment the value of an input number entity by its stepping.</summary>
+		public static void Increment(this IEnumerable<InputNumberEntity> target)
+		{
+			target.CallService("increment");
+		}
+
+		///<summary>Set the value of an input number entity.</summary>
+		public static void SetValue(this InputNumberEntity target, InputNumberSetValueParameters data)
+		{
+			target.CallService("set_value", data);
+		}
+
+		///<summary>Set the value of an input number entity.</summary>
+		public static void SetValue(this IEnumerable<InputNumberEntity> target, InputNumberSetValueParameters data)
+		{
+			target.CallService("set_value", data);
+		}
+
+		///<summary>Set the value of an input number entity.</summary>
+		///<param name="target">The InputNumberEntity to call this service for</param>
+		///<param name="value">The target value the entity should be set to.</param>
+		public static void SetValue(this InputNumberEntity target, double @value)
+		{
+			target.CallService("set_value", new InputNumberSetValueParameters{Value = @value});
+		}
+
+		///<summary>Set the value of an input number entity.</summary>
+		///<param name="target">The IEnumerable<InputNumberEntity> to call this service for</param>
+		///<param name="value">The target value the entity should be set to.</param>
+		public static void SetValue(this IEnumerable<InputNumberEntity> target, double @value)
+		{
+			target.CallService("set_value", new InputNumberSetValueParameters{Value = @value});
 		}
 	}
 
