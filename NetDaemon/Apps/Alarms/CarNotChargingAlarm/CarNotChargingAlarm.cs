@@ -138,9 +138,12 @@ Battery: {BatteryPercentage}%
 Car is home: {CarHome}",
       Connected, EngineRunning, batteryPercentage, CarHome);
 
+    var notifyServices = new NotifyServices(haContext);
+
     if (!ShouldBeCharging)
     {
       logger.LogDebug("Car should not be charging.");
+      NotificationBuilder.Clear(nameof(CarNotChargingAlarm), notifyServices.MobileAppKristoffersGalaxyS20Ultra);
       return;
     }
 
@@ -148,8 +151,6 @@ Car is home: {CarHome}",
 
     var start = new TimeSpan(8, 0, 0);
     var end = new TimeSpan(21, 30, 0);
-
-    var notifyServices = new NotifyServices(haContext);
 
     notificationBuilder
       .SetMessage($"{batteryPercentage}% opladet")

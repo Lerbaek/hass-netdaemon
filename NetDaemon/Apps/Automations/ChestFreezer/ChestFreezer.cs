@@ -4,7 +4,7 @@ using Lerbaek.NetDaemon.Common.Logging;
 namespace Lerbaek.NetDaemon.Apps.Automations.ChestFreezer;
 
 [NetDaemonApp]
-[Focus]
+//[Focus]
 public class ChestFreezer
 {
   private readonly INetDaemonScheduler scheduler;

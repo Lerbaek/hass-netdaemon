@@ -90,7 +90,18 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
     DoNotify(notifyActions, Title);
     Reset();
   }
-  
+
+  public static void Clear(string tag, params Action<string, string?, object?, object?>[] notifyActions)
+  {
+    var data = new Dictionary<string, string> { { "tag", tag } };
+    foreach (var notifyAction in notifyActions)
+      notifyAction(
+        "clear_notification",
+        null,
+        null,
+        data);
+  }
+
   public INotificationBuilder AddActionUri(string title, ActionUri uri, string? tag = null)
   {
     if (Actions.Length > 2)

@@ -39,6 +39,8 @@ namespace HomeAssistantGenerated
 
 		NumberEntities Number { get; }
 
+		PersistentNotificationEntities PersistentNotification { get; }
+
 		PersonEntities Person { get; }
 
 		SceneEntities Scene { get; }
@@ -87,6 +89,7 @@ namespace HomeAssistantGenerated
 		public LockEntities Lock => new(_haContext);
 		public MediaPlayerEntities MediaPlayer => new(_haContext);
 		public NumberEntities Number => new(_haContext);
+		public PersistentNotificationEntities PersistentNotification => new(_haContext);
 		public PersonEntities Person => new(_haContext);
 		public SceneEntities Scene => new(_haContext);
 		public ScriptEntities Script => new(_haContext);
@@ -669,9 +672,13 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity Samsung => new(_haContext, "device_tracker.samsung");
 		///<summary>Samsung 7 Series (65)</summary>
 		public DeviceTrackerEntity Samsung2 => new(_haContext, "device_tracker.samsung_2");
+		///<summary>Saphe 67A5</summary>
+		public DeviceTrackerEntity Saphe67a5 => new(_haContext, "device_tracker.saphe_67a5");
 		public DeviceTrackerEntity SapheD0c9 => new(_haContext, "device_tracker.saphe_d0c9");
 		public DeviceTrackerEntity SapheOne680b => new(_haContext, "device_tracker.saphe_one_680b");
+		///<summary>Sc8bfaff5ce07e22cC 18B6</summary>
 		public DeviceTrackerEntity Sc8bfaff5ce07e22cc18b6 => new(_haContext, "device_tracker.sc8bfaff5ce07e22cc_18b6");
+		///<summary>Sd01db6144334011bC 998A</summary>
 		public DeviceTrackerEntity Sd01db6144334011bc998a => new(_haContext, "device_tracker.sd01db6144334011bc_998a");
 		///<summary>SEEDBOX</summary>
 		public DeviceTrackerEntity Seedbox => new(_haContext, "device_tracker.seedbox");
@@ -881,6 +888,8 @@ namespace HomeAssistantGenerated
 
 		///<summary>Bagkant for bilopladning aktiveret</summary>
 		public InputBooleanEntity BagkantForBilopladningAktiveret => new(_haContext, "input_boolean.bagkant_for_bilopladning_aktiveret");
+		///<summary>dev_netdaemon_lerbaek_net_daemon_apps_alarms_car_not_charging_alarm_car_not_charging_alarm_app</summary>
+		public InputBooleanEntity DevNetdaemonLerbaekNetDaemonAppsAlarmsCarNotChargingAlarmCarNotChargingAlarmApp => new(_haContext, "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_alarms_car_not_charging_alarm_car_not_charging_alarm_app");
 		///<summary>Dørklokke</summary>
 		public InputBooleanEntity Dorklokke => new(_haContext, "input_boolean.dorklokke");
 		///<summary>Emballage</summary>
@@ -1035,8 +1044,6 @@ namespace HomeAssistantGenerated
 		public LightEntity LysPaSovevaerelset => new(_haContext, "light.lys_pa_sovevaerelset");
 		///<summary>Lys på toilettet</summary>
 		public LightEntity LysPaToilettet => new(_haContext, "light.lys_pa_toilettet");
-		///<summary>Lys på toilettet</summary>
-		public LightEntity LysPaToilettet2 => new(_haContext, "light.lys_pa_toilettet_2");
 		///<summary>Lys på loftet</summary>
 		public LightEntity LysPaaLoftet => new(_haContext, "light.lys_paa_loftet");
 		///<summary>Lys under sengen</summary>
@@ -1185,6 +1192,8 @@ namespace HomeAssistantGenerated
 		public MediaPlayerEntity PlexPlexWebChromeWindows3 => new(_haContext, "media_player.plex_plex_web_chrome_windows_3");
 		///<summary>Plex (Plex Web - Chrome)</summary>
 		public MediaPlayerEntity PlexPlexWebChromeWindows4 => new(_haContext, "media_player.plex_plex_web_chrome_windows_4");
+		///<summary>Plex (Plex Web - Chrome - Windows)</summary>
+		public MediaPlayerEntity PlexPlexWebChromeWindows5 => new(_haContext, "media_player.plex_plex_web_chrome_windows_5");
 		///<summary>Plex (stadsg - Plex for Apple TV - Apple TV)</summary>
 		public MediaPlayerEntity PlexStadsgaard86GmailComPlexForAppleTvDagligstue => new(_haContext, "media_player.plex_stadsgaard86_gmail_com_plex_for_apple_tv_dagligstue");
 		///<summary>Samsung 7 Series (65)</summary>
@@ -1209,6 +1218,18 @@ namespace HomeAssistantGenerated
 		public NumberEntity BadevaerelseTreble => new(_haContext, "number.badevaerelse_treble");
 		///<summary>Wallbox Portal Max. Charging Current</summary>
 		public NumberEntity WallboxPortalMaxChargingCurrent => new(_haContext, "number.wallbox_portal_max_charging_current");
+	}
+
+	public partial class PersistentNotificationEntities
+	{
+		private readonly IHaContext _haContext;
+		public PersistentNotificationEntities(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>Login attempt failed</summary>
+		public PersistentNotificationEntity HttpLogin => new(_haContext, "persistent_notification.http_login");
 	}
 
 	public partial class PersonEntities
@@ -1275,6 +1296,8 @@ namespace HomeAssistantGenerated
 		public SceneEntity TaendLysetIIndkorslenIEtKvarter => new(_haContext, "scene.taend_lyset_i_indkorslen_i_et_kvarter");
 		///<summary>Tænd lyset på loftet</summary>
 		public SceneEntity TaendLysetPaLoftet => new(_haContext, "scene.taend_lyset_pa_loftet");
+		///<summary>volume_before_doorbell</summary>
+		public SceneEntity VolumeBeforeDoorbell => new(_haContext, "scene.volume_before_doorbell");
 	}
 
 	public partial class ScriptEntities
@@ -1711,6 +1734,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity GarageportKnapBilBattery => new(_haContext, "sensor.garageport_knap_bil_battery");
 		///<summary>Gennemsnitlig luftfugtighed</summary>
 		public NumericSensorEntity GennemsnitligLuftfugtighed => new(_haContext, "sensor.gennemsnitlig_luftfugtighed");
+		///<summary>Gennemsnitlig temperatur</summary>
+		public NumericSensorEntity GennemsnitligTemperatur => new(_haContext, "sensor.gennemsnitlig_temperatur");
 		///<summary>Gros Galaxy S20+ Battery Level</summary>
 		public NumericSensorEntity GrosGalaxyS20BatteryLevel => new(_haContext, "sensor.gros_galaxy_s20_battery_level");
 		///<summary>Gros Galaxy S20+ Battery Power</summary>
@@ -1827,13 +1852,15 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity SamsungClp325wTonerMagenta => new(_haContext, "sensor.samsung_clp_325w_toner_magenta");
 		///<summary>Samsung CLP-325W Toner yellow</summary>
 		public NumericSensorEntity SamsungClp325wTonerYellow => new(_haContext, "sensor.samsung_clp_325w_toner_yellow");
+		///<summary>Saphe 67A5 Estimated Distance</summary>
+		public NumericSensorEntity Saphe67a5EstimatedDistance => new(_haContext, "sensor.saphe_67a5_estimated_distance");
 		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity SapheD0c9EstimatedDistance => new(_haContext, "sensor.saphe_d0c9_estimated_distance");
 		///<summary>Estimated Distance</summary>
 		public NumericSensorEntity SapheOne680bEstimatedDistance => new(_haContext, "sensor.saphe_one_680b_estimated_distance");
-		///<summary>Estimated Distance</summary>
+		///<summary>Sc8bfaff5ce07e22cC 18B6 Estimated Distance</summary>
 		public NumericSensorEntity Sc8bfaff5ce07e22cc18b6EstimatedDistance => new(_haContext, "sensor.sc8bfaff5ce07e22cc_18b6_estimated_distance");
-		///<summary>Estimated Distance</summary>
+		///<summary>Sd01db6144334011bC 998A Estimated Distance</summary>
 		public NumericSensorEntity Sd01db6144334011bc998aEstimatedDistance => new(_haContext, "sensor.sd01db6144334011bc_998a_estimated_distance");
 		///<summary>Soveværelse heating</summary>
 		public NumericSensorEntity SovevaerelseHeating => new(_haContext, "sensor.sovevaerelse_heating");
@@ -2179,20 +2206,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("contact")]
 		public bool? Contact { get; init; }
 
-		[JsonPropertyName("detectedTime")]
-		public string? DetectedTime { get; init; }
-
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
 		[JsonPropertyName("device_temperature")]
 		public double? DeviceTemperature { get; init; }
-
-		[JsonPropertyName("durationInSeconds")]
-		public double? DurationInSeconds { get; init; }
-
-		[JsonPropertyName("expiry")]
-		public string? Expiry { get; init; }
 
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
@@ -2217,9 +2235,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("power_outage_count")]
 		public double? PowerOutageCount { get; init; }
-
-		[JsonPropertyName("remainingTimeInSeconds")]
-		public double? RemainingTimeInSeconds { get; init; }
 
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
@@ -2424,8 +2439,17 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("mac")]
 		public string? Mac { get; init; }
 
+		[JsonPropertyName("major")]
+		public double? Major { get; init; }
+
+		[JsonPropertyName("minor")]
+		public double? Minor { get; init; }
+
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
+
+		[JsonPropertyName("source")]
+		public string? Source { get; init; }
 
 		[JsonPropertyName("source_type")]
 		public string? SourceType { get; init; }
@@ -2435,6 +2459,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
+
+		[JsonPropertyName("uuid")]
+		public string? Uuid { get; init; }
 
 		[JsonPropertyName("vertical_accuracy")]
 		public double? VerticalAccuracy { get; init; }
@@ -2736,9 +2763,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("product_name")]
 		public string? ProductName { get; init; }
 
-		[JsonPropertyName("restored")]
-		public bool? Restored { get; init; }
-
 		[JsonPropertyName("rgb_color")]
 		public IReadOnlyList<double>? RgbColor { get; init; }
 
@@ -2803,6 +2827,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
+		[JsonPropertyName("entity_picture")]
+		public string? EntityPicture { get; init; }
+
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 
@@ -2815,11 +2842,47 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("is_volume_muted")]
 		public bool? IsVolumeMuted { get; init; }
 
+		[JsonPropertyName("media_album_name")]
+		public string? MediaAlbumName { get; init; }
+
 		[JsonPropertyName("media_content_id")]
-		public string? MediaContentId { get; init; }
+		public object? MediaContentId { get; init; }
+
+		[JsonPropertyName("media_content_rating")]
+		public string? MediaContentRating { get; init; }
 
 		[JsonPropertyName("media_content_type")]
 		public string? MediaContentType { get; init; }
+
+		[JsonPropertyName("media_duration")]
+		public double? MediaDuration { get; init; }
+
+		[JsonPropertyName("media_episode")]
+		public double? MediaEpisode { get; init; }
+
+		[JsonPropertyName("media_library_title")]
+		public string? MediaLibraryTitle { get; init; }
+
+		[JsonPropertyName("media_position")]
+		public double? MediaPosition { get; init; }
+
+		[JsonPropertyName("media_position_updated_at")]
+		public string? MediaPositionUpdatedAt { get; init; }
+
+		[JsonPropertyName("media_season")]
+		public double? MediaSeason { get; init; }
+
+		[JsonPropertyName("media_series_title")]
+		public string? MediaSeriesTitle { get; init; }
+
+		[JsonPropertyName("media_summary")]
+		public string? MediaSummary { get; init; }
+
+		[JsonPropertyName("media_title")]
+		public string? MediaTitle { get; init; }
+
+		[JsonPropertyName("player_source")]
+		public string? PlayerSource { get; init; }
 
 		[JsonPropertyName("queue_position")]
 		public double? QueuePosition { get; init; }
@@ -2836,14 +2899,14 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("shuffle")]
 		public bool? Shuffle { get; init; }
 
-		[JsonPropertyName("source")]
-		public string? Source { get; init; }
-
 		[JsonPropertyName("source_list")]
 		public IReadOnlyList<string>? SourceList { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
+
+		[JsonPropertyName("username")]
+		public string? Username { get; init; }
 
 		[JsonPropertyName("volume_level")]
 		public double? VolumeLevel { get; init; }
@@ -2876,6 +2939,29 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("step")]
 		public double? Step { get; init; }
+	}
+
+	public partial record PersistentNotificationEntity : Entity<PersistentNotificationEntity, EntityState<PersistentNotificationAttributes>, PersistentNotificationAttributes>
+	{
+		public PersistentNotificationEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
+		{
+		}
+
+		public PersistentNotificationEntity(Entity entity) : base(entity)
+		{
+		}
+	}
+
+	public record PersistentNotificationAttributes
+	{
+		[JsonPropertyName("friendly_name")]
+		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("message")]
+		public string? Message { get; init; }
+
+		[JsonPropertyName("title")]
+		public string? Title { get; init; }
 	}
 
 	public partial record PersonEntity : Entity<PersonEntity, EntityState<PersonAttributes>, PersonAttributes>
@@ -2932,6 +3018,9 @@ namespace HomeAssistantGenerated
 
 	public record SceneAttributes
 	{
+		[JsonPropertyName("entity_id")]
+		public IReadOnlyList<string>? EntityId { get; init; }
+
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 	}
@@ -3038,7 +3127,7 @@ namespace HomeAssistantGenerated
 	public record SensorAttributes
 	{
 		[JsonPropertyName("action")]
-		public object? Action { get; init; }
+		public string? Action { get; init; }
 
 		[JsonPropertyName("address")]
 		public object? Address { get; init; }
@@ -3178,7 +3267,7 @@ namespace HomeAssistantGenerated
 	public record NumericSensorAttributes
 	{
 		[JsonPropertyName("action")]
-		public object? Action { get; init; }
+		public string? Action { get; init; }
 
 		[JsonPropertyName("additional_costs_current_hour")]
 		public double? AdditionalCostsCurrentHour { get; init; }
@@ -3254,6 +3343,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("last_run_success")]
 		public object? LastRunSuccess { get; init; }
+
+		[JsonPropertyName("Lerbæk - Plex for Kodi")]
+		public string? LerbkPlexforKodi { get; init; }
 
 		[JsonPropertyName("linkquality")]
 		public double? Linkquality { get; init; }
@@ -3352,7 +3444,7 @@ namespace HomeAssistantGenerated
 		public IReadOnlyList<double>? Today { get; init; }
 
 		[JsonPropertyName("tomorrow")]
-		public IReadOnlyList<object>? Tomorrow { get; init; }
+		public IReadOnlyList<double>? Tomorrow { get; init; }
 
 		[JsonPropertyName("tomorrow_valid")]
 		public bool? TomorrowValid { get; init; }
