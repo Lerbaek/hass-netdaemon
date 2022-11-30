@@ -12,7 +12,7 @@ public class Humidity
   private readonly NotifyServices notifyServices;
   private readonly DeviceTrackerEntities deviceTrackers;
   private Dictionary<string, List<BinarySensorEntity>> windowDoorSensorsByArea = null!;
-  private ClimateEntity[] climateEntities;
+  private ClimateEntity[] climateEntities = null!;
 
   private bool IsHome => deviceTrackers.KristoffersGalaxyS20Ultra.State is "home";
 
