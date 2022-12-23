@@ -35,9 +35,16 @@ public class LectioCalendar
       Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)!,
 #endif
       calendarFilename);
-    await calendar.SaveCalendar(path, "Gro, VUC");
+    try
+    {
+      await calendar.SaveCalendar(path, "Gro, VUC");
 #if DEPLOY
     logger.LogInformation("Internet calendar {path} has been updated.", $"https://homeassistant.lerbaek.dk/local/{calendarEndPath}/{calendarFilename}");
 #endif
+    }
+    catch (Exception e)
+    {
+      logger.LogError(e, "An error occurred while trying to update {Calendar}", nameof(LectioCalendar));
+    }
   }
 }
