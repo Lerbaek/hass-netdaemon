@@ -12,6 +12,7 @@ public class CarNotChargingAlarmApp
   private readonly ILogger<CarNotChargingAlarmApp> logger;
   private readonly INotificationBuilder notificationBuilder;
   private readonly Entities entities;
+  private readonly Services services;
   private string carBluetoothName = null!;
 
   private readonly string[] homeNetworks =
@@ -24,15 +25,15 @@ public class CarNotChargingAlarmApp
 
   private bool EngineRunning => entities.BinarySensor.CeedEngine.IsOn();
   private bool Connected => ChargerSeesCar || CarSeesCharger;
-  private bool ChargerSeesCar => DescriptionContains("connected") || DescriptionContains("charging");
-  private bool CarSeesCharger => entities.BinarySensor.CeedPluggedIn.IsOn();
+  private bool ChargerSeesCar => !DescriptionContains("disconnected") && (DescriptionContains("connected") || DescriptionContains("charging"));
+  private bool CarSeesCharger => entities.BinarySensor.CeedEvBatteryPlug.IsOn();
   private bool CarHome => IsHome(entities.DeviceTracker.CeedLocation);
   private bool KristofferHome => IsHome(entities.Person.Kristoffer) || KristofferConnectedToHomeNetwork;
   private bool KristofferConnectedToHomeNetwork => IsConnectedToHomeNetwork(entities.Sensor.KristoffersGalaxyS20UltraWifiConnection);
   //private bool GroConnectedToHomeNetwork => IsConnectedToHomeNetwork(entities.Sensor.GrosGalaxyS20WifiConnection);
 
   private bool DescriptionContains(string key) => entities.Sensor.WallboxPortalStatusDescription.State!.Contains(key, StringComparison.InvariantCultureIgnoreCase);
-  private bool BatteryIs(int percentage) => (int)Math.Round(entities.Sensor.CeedEvBattery.State!.Value) == percentage;
+  private bool BatteryIs(int percentage) => (int)Math.Round(entities.Sensor.CeedEvBatteryLevel.State!.Value) == percentage;
   private bool IsHome(Entity entity) => entity.State is "home";
 
   private bool IsConnectedToCarBluetooth(NumericEntityState<NumericSensorAttributes> entity) =>
@@ -53,14 +54,17 @@ public class CarNotChargingAlarmApp
     return FromArgb((int)Math.Round((100 - percentage) * multiplier), (int)Math.Round(percentage * multiplier), 0);
   }
 
+  private void ForceUpdate() => services.KiaUvo.ForceUpdate("74bce309438a261af1845811fb2599d5");
+
   public CarNotChargingAlarmApp(IHaContext haContext, ILogger<CarNotChargingAlarmApp> logger, INotificationBuilder notificationBuilder)
   {
     this.haContext = haContext;
     this.logger = logger;
     this.notificationBuilder = notificationBuilder;
     entities = new Entities(haContext);
-    entities.Sensor.CeedLastUpdate.StateChanges().Subscribe(CarNotChargingAlarm);
-    entities.Switch.CeedForceUpdate.TurnOn();
+    services = new Services(haContext);
+    entities.Sensor.CeedLastUpdatedAt.StateChanges().Subscribe(CarNotChargingAlarm);
+    ForceUpdate();
     ConfigureHomeArrival();
   }
 
@@ -104,7 +108,7 @@ public class CarNotChargingAlarmApp
           change.Entity.Attributes!.FriendlyName,
           carBluetoothName);
 
-        entities.Switch.CeedForceUpdate.TurnOn();
+        ForceUpdate();
       });
   }
 
@@ -119,23 +123,25 @@ public class CarNotChargingAlarmApp
         {
           logger.LogDebug("Entities not yet available.");
           logger.LogDebug("Retry count: {RetryCount}.", retryCount);
-        }).ExecuteAndCapture(() => entities.Sensor.CeedEvBattery);
+        }).ExecuteAndCapture(() => entities.Sensor.CeedEvBatteryLevel);
 
     Task.Delay(5000).Wait();
 
-    if (!entities.Sensor.CeedEvBattery.State.HasValue)
+    if (!entities.Sensor.CeedEvBatteryLevel.State.HasValue)
     {
       logger.LogWarning("Charging status could not be determined, entities are unavailable.");
       return;
     }
 
-    var batteryPercentage = (int)Math.Round(entities.Sensor.CeedEvBattery.State!.Value);
+    var batteryPercentage = (int)Math.Round(entities.Sensor.CeedEvBatteryLevel.State!.Value);
 
-    logger.LogDebug(@"
-Connected: {Connected}
-Engine running: {EngineRunning}
-Battery: {BatteryPercentage}%
-Car is home: {CarHome}",
+    logger.LogDebug(
+      """
+        Connected: {Connected}
+        Engine running: {EngineRunning}
+        Battery: {BatteryPercentage}%
+        Car is home: {CarHome}
+      """,
       Connected, EngineRunning, batteryPercentage, CarHome);
 
     var notifyServices = new NotifyServices(haContext);

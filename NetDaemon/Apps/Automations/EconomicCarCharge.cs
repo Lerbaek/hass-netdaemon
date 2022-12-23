@@ -23,7 +23,7 @@ public class EconomicCarCharge
 
     entities
       .BinarySensor
-      .CeedCharging
+      .CeedEvBatteryCharge
       .StateChanges()
       .Subscribe(AdjustCharging);
 
@@ -41,7 +41,7 @@ public class EconomicCarCharge
 
   private void AdjustCharging()
   {
-    var charge = (int)entities.Sensor.CeedEvBattery.State!;
+    var charge = (int)entities.Sensor.CeedEvBatteryLevel.State!;
     if (charge == 100)
       return;
 
