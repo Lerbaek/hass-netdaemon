@@ -10,7 +10,7 @@ public class ChestFreezer
   private readonly INetDaemonScheduler scheduler;
   private readonly ILogger<ChestFreezer> logger;
   private readonly INotificationBuilder notificationBuilder;
-  private readonly NumericSensorEntity nordpoolSensor;
+  private readonly NumericSensorEntity energySensor;
   private readonly SwitchEntity chestFreezer;
   private readonly InputBooleanEntity chestFreezerPaused;
   private readonly NotifyServices notifyServices;
@@ -22,7 +22,7 @@ public class ChestFreezer
     this.notificationBuilder = notificationBuilder;
     var entities = new Entities(ha);
     notifyServices = new NotifyServices(ha);
-    nordpoolSensor = entities.Sensor.NordpoolKwhDk1Dkk310025;
+    energySensor = entities.Sensor.EnergiDataService;
     chestFreezer = entities.Switch.Kummefryser;
     chestFreezerPaused = entities.InputBoolean.KummefryserPaPause;
     Task.Run(SetPowerState);
@@ -32,11 +32,11 @@ public class ChestFreezer
   {
     try
     {
-      if (!nordpoolSensor.State.HasValue)
-        throw new NullReferenceException($"Ingen øjebliksværdi fundet i {nordpoolSensor.EntityId}");
+      if (!energySensor.State.HasValue)
+        throw new NullReferenceException($"Ingen øjebliksværdi fundet i {energySensor.EntityId}");
       var thresholds = EvaluateThresholds;
 
-      var currentPrice = nordpoolSensor.State!.Value;
+      var currentPrice = energySensor.State!.Value;
       var needsToggling = currentPrice > thresholds.High && chestFreezer.IsOn() ||
                           currentPrice < thresholds.Low && chestFreezer.IsOff();
       var tooHigh = needsToggling ^ chestFreezer.IsOff();
@@ -50,13 +50,11 @@ public class ChestFreezer
       else
         logger.LogInformation("Kummefryseren er fortsat {onOrOff}.", tooHigh ? "slukket" : "tændt");
 
-      var attributes = nordpoolSensor.Attributes!;
+      var attributes = energySensor.Attributes!;
 
       var knownPrices = attributes
         .Today!
-        // ReSharper disable once RedundantEnumerableCastCall
-        // If regenerated when no values are available for tomorrow, type will be Object
-        .Concat(attributes.Tomorrow!.OfType<double>())
+        .Concat(attributes.Tomorrow?.OfType<double>() ?? Array.Empty<double>())
         .ToArray();
 
       var nextHour = DateTime.Now.Hour + 1;
@@ -104,14 +102,14 @@ public class ChestFreezer
     get
     {
       {
-        var currentPriceString = FormatPrice(nordpoolSensor.State!.Value);
+        var currentPriceString = FormatPrice(energySensor.State!.Value);
         IReadOnlyList<double>? pricesToday = null;
         var retriesLeft = 16;
         while(retriesLeft --> 1)
         {
           try
           {
-            pricesToday = nordpoolSensor.Attributes!.Today!;
+            pricesToday = energySensor.Attributes!.Today!;
             break;
           }
           catch (Exception e)
