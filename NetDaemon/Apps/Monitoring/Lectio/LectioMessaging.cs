@@ -64,7 +64,7 @@ public class LectioMessaging : Lectio
           .SetColor(LightSteelBlue)
           .SetMessage(message.Message)
           .AddActionUri("Se besked", ActionUri.Uri(message.Link))
-          .Notify(notifyService.MobileAppKristoffersGalaxyS20Ultra);
+          .Notify(notifyService.KristoffersTelefon);
       }
     }
     catch (Exception e)

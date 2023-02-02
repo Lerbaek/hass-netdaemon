@@ -149,7 +149,7 @@ public class CarNotChargingAlarmApp
     if (!ShouldBeCharging)
     {
       logger.LogDebug("Car should not be charging.");
-      NotificationBuilder.Clear(nameof(CarNotChargingAlarm), notifyServices.MobileAppKristoffersGalaxyS20Ultra);
+      NotificationBuilder.Clear(nameof(CarNotChargingAlarm), notifyServices.KristoffersTelefon);
       return;
     }
 
@@ -166,7 +166,7 @@ public class CarNotChargingAlarmApp
       .MakeSticky()
       .SetTag(nameof(CarNotChargingAlarm))
       .SetColor(Color(batteryPercentage))
-      .Notify(notifyServices.MobileAppKristoffersGalaxyS20Ultra);
+      .Notify(notifyServices.KristoffersTelefon);
 
     var now = DateTime.Now.TimeOfDay;
 
@@ -174,6 +174,6 @@ public class CarNotChargingAlarmApp
       notificationBuilder
         .MakeVoiceNotification($"Husk at sætte bilen til opladning. Den er i øjeblikket {batteryPercentage} procent opladet",
                                VoiceNotificationVolume.NotZero)
-        .Notify(notifyServices.MobileAppKristoffersGalaxyS20Ultra);
+        .Notify(notifyServices.KristoffersTelefon);
   }
 }

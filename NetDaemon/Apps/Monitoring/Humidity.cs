@@ -98,7 +98,7 @@ public class Humidity
       .SetMessage(notificationMessage)
       .SetChannel("Humidity alert")
       .SetTag(nameof(Humidity))
-      .Notify(notifyServices.MobileAppKristoffersGalaxyS20Ultra);
+      .Notify(notifyServices.KristoffersTelefon);
   }
 
   private bool HumidityOutOfRange(StateChange change)

@@ -27,7 +27,7 @@ public class NotificationPresets : INotificationPresets
           .SetColor(Red)
           .SetChannel("alert")
           .AddActionUri("Åbn log", ActionUri.Uri(logUrl!))
-          .Notify(notifyServices.MobileAppKristoffersGalaxyS20Ultra)))
+          .Notify(notifyServices.KristoffersTelefon)))
       .DoWithStackParent();
   }
 }

@@ -106,7 +106,7 @@ public class CampenAuktioner
                          .SetTitle(match.Title!)
                          .SetImage(match.ImageLink!)
                          .AddActionUri("Open", ActionUri.Uri(match.Link!))
-                         .Notify(services.Notify.MobileAppKristoffersGalaxyS20Ultra);
+                         .Notify(services.Notify.KristoffersTelefon);
     }
 
     fileSystem.File
