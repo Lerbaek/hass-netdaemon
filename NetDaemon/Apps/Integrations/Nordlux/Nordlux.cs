@@ -10,7 +10,7 @@ namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 /// <summary>
 ///   Application to control Nordlux lights.
 /// </summary>
-//[Focus]
+[Focus]
 [NetDaemonApp]
 public class Nordlux : ServiceHandler
 {
@@ -103,7 +103,13 @@ public class Nordlux : ServiceHandler
     LogServiceCall(logger, nameof(OliveTreeBranchGetStatus));
     var status = await GetStatus();
 
-    var deviceList = status.data!.deviceList;
+    var deviceList = status.data!.deviceList!.ToArray();
+
+    if (!deviceList.Any())
+    {
+      logger.LogWarning("No devices were found when retrieving status. Assert that the ciphers are still valid.");
+      return;
+    }
 
     var entity = new LightEntities(haContext).OliveTreeBranch;
 
