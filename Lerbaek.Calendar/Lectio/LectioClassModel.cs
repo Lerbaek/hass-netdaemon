@@ -45,8 +45,11 @@ namespace Lerbaek.Calendar.Lectio
       var additionalInfo = activityNode.GetAttributeValue("data-additionalinfo", null);
       var course = additionalInfo.Extract<string>("(?<=Hold: ).*");
       var startDateTimeString = additionalInfo.Extract<string>(".*-\\d{4}.*(?= til )");
-      var startDateTime = DateTime.Parse(startDateTimeString, CultureInfo.GetCultureInfo("da-DK"));
-      var endTime = additionalInfo.Extract<TimeSpan>("(?<=.*-\\d{4} \\d\\d:\\d\\d til ).*");
+      var startDateTime = ParseDateTime(startDateTimeString);
+      var endTimeString = additionalInfo.Extract<string>("(?<=.*-\\d{4} \\d\\d:\\d\\d til ).*");
+      var endTime = TimeSpan.TryParse(endTimeString, out var endTimeSpan)
+        ? endTimeSpan
+        : ParseDateTime(startDateTimeString).TimeOfDay;
       var link = activityNode.GetAttributeValue("href", null);
       var baseUriNode = htmlNode.OwnerDocument.DocumentNode.SelectSingleNode("//a[@class=\"ls-master-header-logo\"]");
       var baseUri = new Uri(baseUriNode.GetAttributeValue("href", null));
@@ -56,5 +59,8 @@ namespace Lerbaek.Calendar.Lectio
       return new LectioClassModel(course, startDateTime, endTime - startDateTime.TimeOfDay, additionalInfo,
         uri, cancelled);
     }
+
+    private static DateTime ParseDateTime(string startDateTimeString) =>
+      DateTime.Parse(startDateTimeString, CultureInfo.GetCultureInfo("da-DK"));
   }
 }
