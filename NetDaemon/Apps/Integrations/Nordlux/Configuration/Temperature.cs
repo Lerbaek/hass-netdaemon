@@ -1,7 +1,14 @@
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 
-public class Temperature
+public class Temperature : Con
 {
-  public string[]? Digits { get; set; }
-  public string? Under100PostPrefix { get; set; }
+
+  private Temperature(int value) : base("cct", $"{value}") {}
+
+  public static Temperature WithValue(int value)
+  {
+    if (value is < 1 or > 100)
+      throw new ArgumentOutOfRangeException(nameof(value));
+    return new Temperature(800 + value);
+  }
 }

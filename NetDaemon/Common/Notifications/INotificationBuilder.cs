@@ -19,6 +19,7 @@ public interface INotificationBuilder
   INotificationBuilder MakeSticky(bool isSticky = true);
   IVoiceNotificationBuilder MakeVoiceNotification(string ttsText, VoiceNotificationVolume voiceNotificationVolume);
   void Notify(params Action<string, string?, object?, object?>[] notifyActions);
+  INotificationBuilder AddClickAction(ActionUri uri);
   INotificationBuilder AddActionUri(string title, ActionUri uri, string? tag = null);
   INotificationBuilder SetImage(Uri imageLink);
   INotificationBuilder SetImage(string imageLink);

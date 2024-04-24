@@ -3,6 +3,7 @@
 using System.Drawing;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
+using YamlDotNet.Core.Tokens;
 
 namespace Lerbaek.NetDaemon.Common.Notifications;
 
@@ -100,6 +101,12 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
         null,
         null,
         data);
+  }
+
+  public INotificationBuilder AddClickAction(ActionUri uri)
+  {
+    Data["clickAction"] = uri;
+    return this;
   }
 
   public INotificationBuilder AddActionUri(string title, ActionUri uri, string? tag = null)

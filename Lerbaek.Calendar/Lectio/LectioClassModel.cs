@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using FluentResults;
 using HtmlAgilityPack;
 using Ical.Net.CalendarComponents;
 using Ical.Net.DataTypes;
+using Lerbaek.Lectio;
 using RegExtract;
 using static System.Environment;
 
@@ -39,10 +41,16 @@ namespace Lerbaek.Calendar.Lectio
       Cancelled = cancelled;
     }
 
-    public static LectioClassModel Parse(HtmlNode htmlNode)
+    public static Result<LectioClassModel> Parse(HtmlNode htmlNode)
     {
       var activityNode = htmlNode.SelectSingleNode(".//a");
-      var additionalInfo = activityNode.GetAttributeValue("data-additionalinfo", null);
+      const string tooltipAttribute = "data-tooltip";
+      var additionalInfo = activityNode.GetAttributeValue(tooltipAttribute, null);
+      if (additionalInfo is null)
+      {
+        LectioError.AttributeNotFound.Metadata["attribute"] = tooltipAttribute;
+        return Result.Fail(LectioError.AttributeNotFound);
+      }
       var course = additionalInfo.Extract<string>("(?<=Hold: ).*");
       var startDateTimeString = additionalInfo.Extract<string>(".*-\\d{4}.*(?= til )");
       var startDateTime = ParseDateTime(startDateTimeString);
@@ -50,9 +58,23 @@ namespace Lerbaek.Calendar.Lectio
       var endTime = TimeSpan.TryParse(endTimeString, out var endTimeSpan)
         ? endTimeSpan
         : ParseDateTime(startDateTimeString).TimeOfDay;
-      var link = activityNode.GetAttributeValue("href", null);
+      const string linkAttribute = "href";
+      var link = activityNode.GetAttributeValue(linkAttribute, null);
+      if (link is null)
+      {
+        LectioError.AttributeNotFound.Metadata["attribute"] = linkAttribute;
+        return Result.Fail(LectioError.AttributeNotFound);
+      }
       var baseUriNode = htmlNode.OwnerDocument.DocumentNode.SelectSingleNode("//a[@class=\"ls-master-header-logo\"]");
-      var baseUri = new Uri(baseUriNode.GetAttributeValue("href", null));
+      var baseUriLink = baseUriNode.GetAttributeValue(linkAttribute, null);
+
+      if (baseUriLink is null)
+      {
+        LectioError.AttributeNotFound.Metadata["attribute"] = linkAttribute;
+        return Result.Fail(LectioError.AttributeNotFound);
+      }
+
+      var baseUri = new Uri(baseUriLink);
       var uri = new Uri(baseUri, link.Split('&').First());
       var cancelled = activityNode.HasClass("s2cancelled");
 

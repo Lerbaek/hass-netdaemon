@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using FluentResults;
 using HtmlAgilityPack;
 using Lerbaek.Lectio;
 using Microsoft.Extensions.Logging;
@@ -16,14 +17,16 @@ namespace Lerbaek.Calendar.Lectio
 
     public LectioCalendarModel(LectioModel lectioModel) : base(lectioModel.Logger) => this.lectioModel = lectioModel;
 
-    public override async Task<IEnumerable<IEventModel>> GetEvents()
+    public override async Task<Result<IEnumerable<IEventModel>>> GetEvents()
     {
       var doc = new HtmlDocument();
       Logger.LogDebug("Trying to get schedule from Lectio.");
       if (!await TryGetSchedule(doc))
       {
         Logger.LogDebug("Could not get schedule. Logging in.");
-        await lectioModel.Login();
+        var loginResult = await lectioModel.Login();
+        if (loginResult.IsFailed)
+          return Result.Fail(loginResult.Errors);
         Logger.LogDebug("Getting schedule from Lectio.");
         await TryGetSchedule(doc);
       }
@@ -45,20 +48,12 @@ namespace Lerbaek.Calendar.Lectio
       Logger.LogDebug("Getting class schedules in parallel.");
       var tasks = classIds.Select(id => Task.Run(async () =>
       {
-        var content = new FormUrlEncodedContent(new[]
-        {
-          new KeyValuePair<string, string>(
-            "s$m$Content$Content$actContentList$activityDisplayMode",
-            "CurrentSchoolYear"),
-        });
-
-        var response = await lectioModel.HttpClient.PostAsync(
-          $"https://www.lectio.dk/lectio/560/aktivitet/AktivitetListe2.aspx?holdelementid={id}",
-          content);
+        var response = await lectioModel.HttpClient.GetAsync(
+          $"https://www.lectio.dk/lectio/560/aktivitet/AktivitetListe2.aspx?holdelementid={id}");
 
         var classDoc = new HtmlDocument();
         classDoc.Load(await response.Content.ReadAsStreamAsync());
-        var rows = classDoc.DocumentNode.SelectNodes("//td[@class=\"ls-activity-col\"]");
+        var rows = classDoc.DocumentNode.SelectNodes("//td[contains(@class, 'ls-activity-col')]");
         return rows;
       }));
 
@@ -66,15 +61,26 @@ namespace Lerbaek.Calendar.Lectio
 
       Logger.LogDebug("HTML for all class schedules retrieved.");
 
-      var classesWithSchedule = classes.Where(@class => !(@class is null))
+      var classesWithScheduleResult = classes.Where(@class => !(@class is null))
         .SelectMany(@class => @class.Select(LectioClassModel.Parse).ToArray()).ToArray();
 
+      if (classesWithScheduleResult.Any(r => r.IsFailed))
+      {
+        var errorMessages = classesWithScheduleResult
+          .Where(r => r.IsFailed)
+          .SelectMany(r => r.Errors)
+          .GroupBy(e => e)
+          .Select(g => g.Key);
+        return Result.Fail(errorMessages);
+      }
+
+      var classesWithSchedule = classesWithScheduleResult.Select(r => r.Value).ToArray();
       foreach (var classGroup in classesWithSchedule.GroupBy(c => c.Name))
-        Logger.LogDebug("{Name}: Found {lessonCount} lessons.", classGroup.Key, $"{classGroup.Count()}");
+        Logger.LogDebug("{Name}: Found {LessonCount} lessons.", classGroup.Key, $"{classGroup.Count()}");
 
-      Logger.LogInformation("Successfully retrieved {length} calendar events.", $"{classesWithSchedule.Length}");
+      Logger.LogInformation("Successfully retrieved {CalendarEventCount} calendar events.", $"{classesWithScheduleResult.Length}");
 
-      return classesWithSchedule;
+      return Result.Ok((IEnumerable<IEventModel>)classesWithSchedule);
     }
 
     private async Task<bool> TryGetSchedule(HtmlDocument doc)

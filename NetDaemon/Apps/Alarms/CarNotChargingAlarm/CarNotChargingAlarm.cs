@@ -4,7 +4,7 @@ namespace Lerbaek.NetDaemon.Apps.Alarms.CarNotChargingAlarm;
 ///   Application to perform repetitive voice alarms.
 /// </summary>
 //[Focus]
-[NetDaemonApp]
+//[NetDaemonApp]
 public class CarNotChargingAlarmApp
 {
   private const string CarBluetoothMacAddress = "CC:88:26:8E:E0:52";
@@ -36,10 +36,12 @@ public class CarNotChargingAlarmApp
   private bool BatteryIs(int percentage) => (int)Math.Round(entities.Sensor.CeedEvBatteryLevel.State!.Value) == percentage;
   private bool IsHome(Entity entity) => entity.State is "home";
 
-  private bool IsConnectedToCarBluetooth(NumericEntityState<NumericSensorAttributes> entity) =>
-    entity.Attributes!
-      .ConnectedPairedDevices!
-      .Contains(carBluetoothName);
+  private bool IsConnectedToCarBluetooth(NumericEntityState<NumericSensorAttributes> entity)
+  {
+    if(entity.Attributes!.ConnectedPairedDevices is IEnumerable<string> devices)
+      return devices.Contains(carBluetoothName);
+    return false;
+  }
 
   private bool IsConnectedToHomeNetwork(SensorEntity sensor) => homeNetworks.Contains(sensor.State!);
 

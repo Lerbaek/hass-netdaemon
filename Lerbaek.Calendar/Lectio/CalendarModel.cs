@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentResults;
 using Ical.Net;
 using Ical.Net.CalendarComponents;
 using Ical.Net.Serialization;
@@ -15,13 +16,15 @@ namespace Lerbaek.Calendar.Lectio
 
     protected CalendarModel(ILogger logger) => Logger = logger;
 
-    public abstract Task<IEnumerable<IEventModel>> GetEvents();
+    public abstract Task<Result<IEnumerable<IEventModel>>> GetEvents();
 
-    public async Task<Ical.Net.Calendar> CreateCalendar(string name, string description = null)
+    public async Task<Result<Ical.Net.Calendar>> CreateCalendar(string name, string description = null)
     {
       Logger.LogInformation("Creating calendar \"{name}\"", name);
 
-      var schedule = await GetEvents();
+      var scheduleResult = await GetEvents();
+      if (scheduleResult.IsFailed)
+        return Result.Fail(scheduleResult.Errors);
       var calendar = new Ical.Net.Calendar
       {
         Method = "PUBLISH",
@@ -39,16 +42,19 @@ namespace Lerbaek.Calendar.Lectio
       };
       var fromDateTimeZone = VTimeZone.FromDateTimeZone("Europe/Copenhagen");
       calendar.AddTimeZone(fromDateTimeZone);
-      calendar.Events.AddRange(schedule.Select(@class => @class.CalendarEvent));
+      calendar.Events.AddRange(scheduleResult.Value.Select(@class => @class.CalendarEvent));
 
       Logger.LogInformation("Calendar created.");
 
       return calendar;
     }
 
-    public async Task<Ical.Net.Calendar> SaveCalendar(string path, string name, string description = null)
+    public async Task<Result<Ical.Net.Calendar>> SaveCalendar(string path, string name, string description = null)
     {
-      var calendar = await CreateCalendar(name, description);
+      var calendarResult = await CreateCalendar(name, description);
+      if (calendarResult.IsFailed)
+        return Result.Fail(calendarResult.Errors);
+      var calendar = calendarResult.Value;
 
       var serializer = new CalendarSerializer();
       var serializedCalendar = serializer.SerializeToString(calendar);

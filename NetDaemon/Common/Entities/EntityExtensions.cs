@@ -5,7 +5,7 @@ public static class EntityExtensions
   public static LightAttributes Set(this LightAttributes attributes,
     int? brightness                            = null,
     string? colorMode                          = null,
-    IReadOnlyList<double>? colorTemp           = null,
+    double? colorTemp                          = null,
     IReadOnlyList<string>? effectList          = null,
     IReadOnlyList<string>? entityId            = null,
     string? entityPicture                      = null,
@@ -26,7 +26,7 @@ public static class EntityExtensions
     {
       Brightness          = brightness          ?? attributes.Brightness,
       ColorMode           = colorMode           ?? attributes.ColorMode,
-      //ColorTemp           = colorTemp           ?? attributes.ColorTemp,
+      ColorTemp           = colorTemp           ?? attributes.ColorTemp,
       EffectList          = effectList          ?? attributes.EffectList,
       EntityId            = entityId            ?? attributes.EntityId,
       EntityPicture       = entityPicture       ?? attributes.EntityPicture,

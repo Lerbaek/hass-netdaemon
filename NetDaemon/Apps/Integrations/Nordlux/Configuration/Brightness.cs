@@ -1,11 +1,14 @@
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 
-public class Brightness
+public class Brightness : Con
 {
-  public string[]? FirstDigit { get; set; }
-  public string[]? SecondDigit { get; set; }
-  public string? SuffixOneDigit { get; set; }
-  public string? SuffixTwoDigits { get; set; }
-  public string? PreSuffix100 { get; set; }
-  public string? PostPrefix { get; set; }
+
+  private Brightness(int value) : base("bri", $"{value}") {}
+
+  public static Brightness WithValue(int value)
+  {
+    if (value is < 1 or > 100)
+      throw new ArgumentOutOfRangeException(nameof(value));
+    return new Brightness(value);
+  }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using FluentResults;
 using HtmlAgilityPack;
 using Microsoft.Extensions.Logging;
 using RegExtract;
@@ -23,7 +24,7 @@ namespace Lerbaek.Lectio
       HttpClient = httpClientFactory.CreateClient(nameof(LectioModel));
     }
 
-    public async Task Login()
+    public async Task<Result> Login()
     {
       var content = new FormUrlEncodedContent(new (string key, string value)[]
       {
@@ -41,6 +42,11 @@ namespace Lerbaek.Lectio
       var doc = new HtmlDocument();
       doc.Load(await response.Content.ReadAsStreamAsync());
 
+      if (doc.DocumentNode.InnerHtml.Contains("Fejl i Brugernavn og/eller adgangskode"))
+      {
+        return Result.Fail(LectioError.BadCredentials);
+      }
+
       StudentId = doc
         .DocumentNode
         .SelectSingleNode("//meta[@name=\"msapplication-starturl\"]")
@@ -50,6 +56,8 @@ namespace Lerbaek.Lectio
       Logger.LogDebug("Student ID resolved to {StudentId}", $"{StudentId}");
 
       Logger.LogTrace("Response: {msg}", doc.ParsedText);
+
+      return Result.Ok();
     }
 
     public async Task<bool> TryGetPage(Uri uri, HtmlDocument doc)

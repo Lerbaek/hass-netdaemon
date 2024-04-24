@@ -1,5 +1,4 @@
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
-using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Managers;
 using Lerbaek.NetDaemon.Common;
 using Lerbaek.NetDaemon.Common.Converters;
 using Lerbaek.NetDaemon.Common.Entities;
@@ -10,14 +9,13 @@ namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 /// <summary>
 ///   Application to control Nordlux lights.
 /// </summary>
-[Focus]
+//[Focus]
 [NetDaemonApp]
 public class Nordlux : ServiceHandler
 {
   private readonly IHomeAssistantApiManager apiManager;
   private readonly ILogger<Nordlux> logger;
   private readonly IRequestHandler requestHandler;
-  private readonly CipherManager cipherManager;
   private readonly NordluxConfig config;
 
   public Nordlux(
@@ -33,8 +31,6 @@ public class Nordlux : ServiceHandler
     this.logger = logger;
     this.apiManager = apiManager;
     this.requestHandler = requestHandler;
-
-    cipherManager = new CipherManager(config.Value.Ciphers!);
 
     Initialize(scheduler);
   }
@@ -72,21 +68,20 @@ public class Nordlux : ServiceHandler
   public async Task OliveTreeBranchTurnOff()
   {
     LogServiceCall(logger, nameof(OliveTreeBranchTurnOff));
-    await HandlerSetterService(nameof(OliveTreeBranchTurnOff), cipherManager.State.Off);
+    await HandlerSetterService(nameof(OliveTreeBranchTurnOff), Power.Off);
   }
 
   public async Task OliveTreeBranchTurnOn()
   {
     LogServiceCall(logger, nameof(OliveTreeBranchTurnOn));
-    await HandlerSetterService(nameof(OliveTreeBranchTurnOn), cipherManager.State.On);
+    await HandlerSetterService(nameof(OliveTreeBranchTurnOn), Power.On);
   }
 
   public async Task OliveTreeBranchSetBrightness(int brightness)
   {
     LogServiceCall(logger, nameof(OliveTreeBranchSetBrightness));
     var brightnessPercentage = brightness.ShiftRange(byteRange, percentageRange);
-    await HandlerSetterService(nameof(OliveTreeBranchSetBrightness),
-      cipherManager.Brightness.Set(brightnessPercentage), brightness);
+    await HandlerSetterService(nameof(OliveTreeBranchSetBrightness), Brightness.WithValue(brightnessPercentage));
   }
 
   /// <param name="temperature">Range: 153 (cold) - 500 (warm)</param>
@@ -94,8 +89,7 @@ public class Nordlux : ServiceHandler
   {
     LogServiceCall(logger, nameof(OliveTreeBranchSetColorTemperature));
     var temperaturePercentage = temperature.ShiftRange(temperatureRange, percentageRange).Reverse(percentageRange);
-    await HandlerSetterService(nameof(OliveTreeBranchSetColorTemperature),
-      cipherManager.Temperature.Set(temperaturePercentage), temperature);
+    await HandlerSetterService(nameof(OliveTreeBranchSetColorTemperature), Temperature.WithValue(temperaturePercentage));
   }
 
   public async Task OliveTreeBranchGetStatus()
@@ -124,33 +118,80 @@ public class Nordlux : ServiceHandler
       var brightness = ((int)onlineDevices.Average(d => d.bri)!).ShiftRange(percentageRange, byteRange);
       var temperature = ((int)onlineDevices.Average(d => d.cct)! % 100).ShiftRange(percentageRange, temperatureRange)
         .Reverse(temperatureRange);
-      attributes = attributes.Set(brightness, colorTemp: new List<double>{temperature});
+      attributes = attributes.Set(brightness, colorTemp: temperature);
     }
 
     await apiManager.SetEntityStateAsync(entity.EntityId, state, attributes, CancellationToken.None);
   }
 
-  private async Task HandlerSetterService(string serviceName, string commandCipher, params object[] args)
+  private async Task HandlerSetterService(string serviceName, Con con)
   {
-    LogServiceCall(logger, serviceName, args);
-    await requestHandler.Send(commandCipher);
+    var setStatusBody =
+      $$"""
+      {
+          "accountId": "{{config.AccountId}}",
+          "addressType": 1,
+          "appkeyIndex": 0,
+          "conAddress": 49152,
+          "conList": [
+              {
+                  "conModel": 4867,
+                  "conName": "{{con.Name}}",
+                  "conValue": "{{con.Value}}"
+              }
+          ],
+          "elemIndex": 0,
+          "houseId": "{{config.HouseId}}",
+          "roomCode": 1,
+          "targetId": "54fdcc619d9b4f37848edc6da6ea156b",
+          "targetType": 2,
+          "token": "{{config.Token}}",
+          "type": 1,
+          "uv": 0,
+          "appCode": "{{config.AppCode}}",
+          "appVersion": "{{config.AppVersion}}",
+          "bulid_v": {{config.BulidV}},
+          "mobileSystemType": "{{config.MobileSystemType}}",
+          "version": "{{config.Version}}"
+      }
+      """;
+    LogServiceCall(logger, serviceName);
+    var response = await (await requestHandler.Send(setStatusBody)).Content.ReadAsStringAsync();
     await OliveTreeBranchGetStatus();
   }
 
-
   private async Task<Status> GetStatus()
   {
-    var statusCiphers = config.Ciphers!.Status!;
-    var response = await requestHandler.Send(cipherManager.Base +
-                                             cipherManager.CipherStatus +
-                                             statusCiphers.Body +
-                                             cipherManager.CipherStateOrGetStatus +
-                                             statusCiphers.Suffix,
-      RequestType.Get);
+    try
+    {
+      var getStatusBody =
+        $$"""
+          {
+            "accountId":"{{config.AccountId}}",
+            "houseId":"{{config.HouseId}}",
+            "token":"{{config.Token}}",
+            "appCode":"{{config.AppCode}}",
+            "appVersion":"{{config.AppVersion}}",
+            "bulid_v":{{config.BulidV}},
+            "mobileSystemType":"{{config.MobileSystemType}}",
+            "uniqueIndication":"{{config.UniqueIndication}}",
+            "version":"{{config.Version}}"
+          }
+          """;
+
+      var response = await requestHandler.Send(
+        getStatusBody,
+        ApiPath.GetBulbStatus);
       
-    var content = await response.Content.ReadAsStringAsync();
-    logger.LogTrace("Status:{NewLine}{Content}", NewLine, content);
-    return JsonConvert.DeserializeObject<Status>(content)!;
+      var content = await response.Content.ReadAsStringAsync();
+      logger.LogTrace("Status:{NewLine}{Content}", NewLine, content);
+      return JsonConvert.DeserializeObject<Status>(content)!;
+    }
+    catch (Exception e)
+    {
+      Console.WriteLine(e);
+      throw;
+    }
   }
   #endregion
 }
