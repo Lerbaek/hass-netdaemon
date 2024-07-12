@@ -416,11 +416,6 @@
           "cSharpName": "AudiobookshelfConnected"
         },
         {
-          "id": "binary_sensor.aula_aulamessage",
-          "friendlyName": "Aula message",
-          "cSharpName": "AulaAulamessage"
-        },
-        {
           "id": "binary_sensor.badevaerelse_early_start",
           "friendlyName": "Badev\u00E6relse Early start",
           "cSharpName": "BadevaerelseEarlyStart"
@@ -452,7 +447,7 @@
         },
         {
           "id": "binary_sensor.bevaegelse_i_stuen_occupancy",
-          "friendlyName": "Bev\u00E6gelse i stuen Motion",
+          "friendlyName": "Bev\u00E6gelse i stuen Occupancy",
           "cSharpName": "BevaegelseIStuenOccupancy"
         },
         {
@@ -462,7 +457,7 @@
         },
         {
           "id": "binary_sensor.bevaegelse_pa_ebbes_vaerelse_occupancy",
-          "friendlyName": "Bev\u00E6gelse p\u00E5 Ebbes v\u00E6relse Motion",
+          "friendlyName": "Bev\u00E6gelse p\u00E5 Ebbes v\u00E6relse Occupancy",
           "cSharpName": "BevaegelsePaEbbesVaerelseOccupancy"
         },
         {
@@ -627,7 +622,7 @@
         },
         {
           "id": "binary_sensor.indkorsel_motion",
-          "friendlyName": "Indkorsel Motion",
+          "friendlyName": "Motion",
           "cSharpName": "IndkorselMotion"
         },
         {
@@ -1386,6 +1381,11 @@
           "jsonName": "test_alarm_result",
           "cSharpName": "TestAlarmResult",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "motor_speed",
+          "cSharpName": "MotorSpeed",
+          "clrType": "System.String"
         }
       ]
     },
@@ -1393,14 +1393,139 @@
       "domain": "button",
       "entities": [
         {
+          "id": "button.ballon_identify",
+          "friendlyName": "Ballon Identify",
+          "cSharpName": "BallonIdentify"
+        },
+        {
+          "id": "button.bryggers_identify_2",
+          "friendlyName": "Bryggers Identify",
+          "cSharpName": "BryggersIdentify2"
+        },
+        {
+          "id": "button.ebbe_kontakt_identify",
+          "friendlyName": "Ebbe-kontakt Identify",
+          "cSharpName": "EbbeKontaktIdentify"
+        },
+        {
+          "id": "button.flowerpot_vp1_identify_2",
+          "friendlyName": "Flowerpot VP1 Identify",
+          "cSharpName": "FlowerpotVp1Identify2"
+        },
+        {
+          "id": "button.garage_lanterne_identify",
+          "friendlyName": "Garage-lanterne Identify",
+          "cSharpName": "GarageLanterneIdentify"
+        },
+        {
+          "id": "button.garageport_knap_bil_identify",
+          "friendlyName": "Garageport-knap, bil Identify",
+          "cSharpName": "GarageportKnapBilIdentify"
+        },
+        {
           "id": "button.grasputin_restart_baseboard",
-          "friendlyName": "Grasputin Restart baseboard",
+          "friendlyName": "Restart baseboard",
           "cSharpName": "GrasputinRestartBaseboard"
         },
         {
           "id": "button.grasputin_start_cutting_edge",
           "friendlyName": "Grasputin Start cutting edge",
           "cSharpName": "GrasputinStartCuttingEdge"
+        },
+        {
+          "id": "button.kanin_astronaut_identify",
+          "friendlyName": "Kanin-astronaut Identify",
+          "cSharpName": "KaninAstronautIdentify"
+        },
+        {
+          "id": "button.kokkenvask_kontakt_identify",
+          "friendlyName": "K\u00F8kkenvask-kontakt Identify",
+          "cSharpName": "KokkenvaskKontaktIdentify"
+        },
+        {
+          "id": "button.mane_identify",
+          "friendlyName": "M\u00E5ne Identify",
+          "cSharpName": "ManeIdentify"
+        },
+        {
+          "id": "button.partial_alang_1_identify",
+          "friendlyName": "Partial: Al\u00E4ng 1 Identify",
+          "cSharpName": "PartialAlang1Identify"
+        },
+        {
+          "id": "button.partial_alang_2_identify",
+          "friendlyName": "Partial: Al\u00E4ng 2 Identify",
+          "cSharpName": "PartialAlang2Identify"
+        },
+        {
+          "id": "button.partial_alang_3_identify",
+          "friendlyName": "Partial: Al\u00E4ng 3 Identify",
+          "cSharpName": "PartialAlang3Identify"
+        },
+        {
+          "id": "button.partial_entre_dor_identify",
+          "friendlyName": "Partial: Entr\u00E9 (d\u00F8r) Identify",
+          "cSharpName": "PartialEntreDorIdentify"
+        },
+        {
+          "id": "button.partial_entre_midt_identify",
+          "friendlyName": "Partial: Entr\u00E9 (midt) Identify",
+          "cSharpName": "PartialEntreMidtIdentify"
+        },
+        {
+          "id": "button.partial_entre_stue_identify",
+          "friendlyName": "Partial: Entr\u00E9 (stue) Identify",
+          "cSharpName": "PartialEntreStueIdentify"
+        },
+        {
+          "id": "button.partial_felena_tassel_rgbw_1_identify",
+          "friendlyName": "Partial: Felena Tassel RGBW 1 Identify",
+          "cSharpName": "PartialFelenaTasselRgbw1Identify"
+        },
+        {
+          "id": "button.partial_felena_tassel_rgbw_2_identify",
+          "friendlyName": "Partial: Felena Tassel RGBW 2 Identify",
+          "cSharpName": "PartialFelenaTasselRgbw2Identify"
+        },
+        {
+          "id": "button.partial_felena_tassel_rgbw_3_identify",
+          "friendlyName": "Partial: Felena Tassel RGBW 3 Identify",
+          "cSharpName": "PartialFelenaTasselRgbw3Identify"
+        },
+        {
+          "id": "button.partial_fordelingsgang_kokken_identify",
+          "friendlyName": "Partial: Fordelingsgang (k\u00F8kken) Identify",
+          "cSharpName": "PartialFordelingsgangKokkenIdentify"
+        },
+        {
+          "id": "button.partial_fordelingsgang_midt_identify",
+          "friendlyName": "Partial: Fordelingsgang (midt) Identify",
+          "cSharpName": "PartialFordelingsgangMidtIdentify"
+        },
+        {
+          "id": "button.partial_fordelingsgang_vaerelser_identify",
+          "friendlyName": "Partial: Fordelingsgang (v\u00E6relser) Identify",
+          "cSharpName": "PartialFordelingsgangVaerelserIdentify"
+        },
+        {
+          "id": "button.partial_kokkenvask_1_identify",
+          "friendlyName": "Partial: K\u00F8kkenvask 1 Identify",
+          "cSharpName": "PartialKokkenvask1Identify"
+        },
+        {
+          "id": "button.partial_kokkenvask_2_identify",
+          "friendlyName": "Partial: K\u00F8kkenvask 2 Identify",
+          "cSharpName": "PartialKokkenvask2Identify"
+        },
+        {
+          "id": "button.partial_kokkenvask_3_identify",
+          "friendlyName": "Partial: K\u00F8kkenvask 3 Identify",
+          "cSharpName": "PartialKokkenvask3Identify"
+        },
+        {
+          "id": "button.roar_kontakt_identify",
+          "friendlyName": "Roar-kontakt Identify",
+          "cSharpName": "RoarKontaktIdentify"
         },
         {
           "id": "button.roborock_s5_max_reset_filter",
@@ -1448,6 +1573,41 @@
           "cSharpName": "SynchronizeDevices"
         },
         {
+          "id": "button.toilet_kontakt_identify",
+          "friendlyName": "Toilet-kontakt Identify",
+          "cSharpName": "ToiletKontaktIdentify"
+        },
+        {
+          "id": "button.underskabsbelysning_kontakt_identify",
+          "friendlyName": "Underskabsbelysning-kontakt Identify",
+          "cSharpName": "UnderskabsbelysningKontaktIdentify"
+        },
+        {
+          "id": "button.valder_identify_2",
+          "friendlyName": "Valder Identify",
+          "cSharpName": "ValderIdentify2"
+        },
+        {
+          "id": "button.vinke_astronaut_identify",
+          "friendlyName": "Vinke-astronaut Identify",
+          "cSharpName": "VinkeAstronautIdentify"
+        },
+        {
+          "id": "button.walk_in_closet_identify",
+          "friendlyName": "Walk-in-closet Identify",
+          "cSharpName": "WalkInClosetIdentify"
+        },
+        {
+          "id": "button.walk_in_closet_kontakt_identify",
+          "friendlyName": "Walk-in-closet-kontakt Identify",
+          "cSharpName": "WalkInClosetKontaktIdentify"
+        },
+        {
+          "id": "button.walk_in_closet_shortcut_identify",
+          "friendlyName": "Walk-in-closet-shortcut Identify",
+          "cSharpName": "WalkInClosetShortcutIdentify"
+        },
+        {
           "id": "button.xr500_reboot",
           "friendlyName": "XR500 Restart",
           "cSharpName": "Xr500Reboot"
@@ -1483,6 +1643,86 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "brightness",
+          "cSharpName": "Brightness",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "color_mode",
+          "cSharpName": "ColorMode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "color_options",
+          "cSharpName": "ColorOptions",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "color_temp",
+          "cSharpName": "ColorTemp",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "color_temp_startup",
+          "cSharpName": "ColorTempStartup",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "last_seen",
+          "cSharpName": "LastSeen",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "level_config",
+          "cSharpName": "LevelConfig",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "linkquality",
+          "cSharpName": "Linkquality",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "power_on_behavior",
+          "cSharpName": "PowerOnBehavior",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "update",
+          "cSharpName": "Update",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "update_available",
+          "cSharpName": "UpdateAvailable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "action",
+          "cSharpName": "Action",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "battery",
+          "cSharpName": "Battery",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "color",
+          "cSharpName": "Color",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "click",
+          "cSharpName": "Click",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "elapsed",
+          "cSharpName": "Elapsed",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -1496,12 +1736,12 @@
         },
         {
           "id": "camera.indkorsel_clear",
-          "friendlyName": "Indkorsel Clear",
+          "friendlyName": "Clear",
           "cSharpName": "IndkorselClear"
         },
         {
           "id": "camera.indkorsel_fluent",
-          "friendlyName": "Indkorsel Fluent",
+          "friendlyName": "Fluent",
           "cSharpName": "IndkorselFluent"
         },
         {
@@ -1565,6 +1805,11 @@
           "jsonName": "icon",
           "cSharpName": "Icon",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -1764,6 +2009,16 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "last_seen",
+          "cSharpName": "LastSeen",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "motor_speed",
+          "cSharpName": "MotorSpeed",
+          "clrType": "System.String"
         }
       ]
     },
@@ -1782,7 +2037,7 @@
         },
         {
           "id": "device_tracker.camera1",
-          "friendlyName": "INDKORSEL",
+          "friendlyName": "Indkorsel",
           "cSharpName": "Camera1"
         },
         {
@@ -1864,6 +2119,11 @@
           "id": "device_tracker.esp_207210",
           "friendlyName": "ESP_207210",
           "cSharpName": "Esp207210"
+        },
+        {
+          "id": "device_tracker.esp_207210_2",
+          "friendlyName": "ESP_207210",
+          "cSharpName": "Esp2072102"
         },
         {
           "id": "device_tracker.esp_2074b2",
@@ -2207,7 +2467,7 @@
         },
         {
           "id": "device_tracker.robotic_mower_2",
-          "friendlyName": "ROBOTIC-MOWER",
+          "friendlyName": "Grasputin",
           "cSharpName": "RoboticMower2"
         },
         {
@@ -2257,7 +2517,7 @@
         },
         {
           "id": "device_tracker.sc8bfaff5ce07e22cc_18b6",
-          "friendlyName": "Sc8bfaff5ce07e22cC 18B6",
+          "friendlyName": null,
           "cSharpName": "Sc8bfaff5ce07e22cc18b6"
         },
         {
@@ -2292,7 +2552,7 @@
         },
         {
           "id": "device_tracker.sonoszp_2",
-          "friendlyName": "Legev\u00E6relse",
+          "friendlyName": "SONOSZP",
           "cSharpName": "Sonoszp2"
         },
         {
@@ -2532,7 +2792,7 @@
         },
         {
           "id": "device_tracker.twinkly_eda359",
-          "friendlyName": "TWINKLY_EDA359",
+          "friendlyName": "TWINKLY-EDA359",
           "cSharpName": "TwinklyEda359"
         },
         {
@@ -2676,9 +2936,39 @@
           "cSharpName": "UnnamedDevice34"
         },
         {
+          "id": "device_tracker.unnamed_device_35",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice35"
+        },
+        {
+          "id": "device_tracker.unnamed_device_36",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice36"
+        },
+        {
+          "id": "device_tracker.unnamed_device_37",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice37"
+        },
+        {
+          "id": "device_tracker.unnamed_device_38",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice38"
+        },
+        {
+          "id": "device_tracker.unnamed_device_39",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice39"
+        },
+        {
           "id": "device_tracker.unnamed_device_4",
           "friendlyName": "unnamed device",
           "cSharpName": "UnnamedDevice4"
+        },
+        {
+          "id": "device_tracker.unnamed_device_40",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice40"
         },
         {
           "id": "device_tracker.unnamed_device_5",
@@ -2712,12 +3002,12 @@
         },
         {
           "id": "device_tracker.win_f8s9dtb7ecu",
-          "friendlyName": "DESKTOP-CO5LNMA",
+          "friendlyName": "WIN-F8S9DTB7ECU",
           "cSharpName": "WinF8s9dtb7ecu"
         },
         {
           "id": "device_tracker.win_opknss9qive",
-          "friendlyName": "GROS-T490S",
+          "friendlyName": "WIN-OPKNSS9QIVE",
           "cSharpName": "WinOpknss9qive"
         },
         {
@@ -3689,6 +3979,11 @@
           "cSharpName": "PartialToiletVindue"
         },
         {
+          "id": "light.spejllys",
+          "friendlyName": "Spejllys",
+          "cSharpName": "Spejllys"
+        },
+        {
           "id": "light.terrasse",
           "friendlyName": "Terrasse",
           "cSharpName": "Terrasse"
@@ -4079,7 +4374,7 @@
         },
         {
           "id": "media_player.legevaerelse",
-          "friendlyName": null,
+          "friendlyName": "Legev\u00E6relse",
           "cSharpName": "Legevaerelse"
         },
         {
@@ -4503,6 +4798,11 @@
           "jsonName": "media_artist",
           "cSharpName": "MediaArtist",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "source",
+          "cSharpName": "Source",
+          "clrType": "System.String"
         }
       ]
     },
@@ -4522,27 +4822,27 @@
         },
         {
           "id": "number.grasputin_torque",
-          "friendlyName": "Grasputin Torque",
+          "friendlyName": "Torque",
           "cSharpName": "GrasputinTorque"
         },
         {
           "id": "number.indkorsel_motion_sensitivity",
-          "friendlyName": "Indkorsel Motion sensitivity",
+          "friendlyName": "Motion sensitivity",
           "cSharpName": "IndkorselMotionSensitivity"
         },
         {
           "id": "number.legevaerelse_balance",
-          "friendlyName": "Balance",
+          "friendlyName": "Legev\u00E6relse Balance",
           "cSharpName": "LegevaerelseBalance"
         },
         {
           "id": "number.legevaerelse_bass",
-          "friendlyName": "Bass",
+          "friendlyName": "Legev\u00E6relse Bass",
           "cSharpName": "LegevaerelseBass"
         },
         {
           "id": "number.legevaerelse_treble",
-          "friendlyName": "Treble",
+          "friendlyName": "Legev\u00E6relse Treble",
           "cSharpName": "LegevaerelseTreble"
         },
         {
@@ -4987,7 +5287,7 @@
         },
         {
           "id": "select.indkorsel_day_night_mode",
-          "friendlyName": "Indkorsel Day night mode",
+          "friendlyName": "Day night mode",
           "cSharpName": "IndkorselDayNightMode"
         },
         {
@@ -5365,7 +5665,7 @@
         {
           "jsonName": "device_temperature",
           "cSharpName": "DeviceTemperature",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "power_outage_count",
@@ -5411,6 +5711,41 @@
           "jsonName": "last_seen",
           "cSharpName": "LastSeen",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "charging_status",
+          "cSharpName": "ChargingStatus",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "motor_speed",
+          "cSharpName": "MotorSpeed",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "motor_state",
+          "cSharpName": "MotorState",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "position",
+          "cSharpName": "Position",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "running",
+          "cSharpName": "Running",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -6159,7 +6494,7 @@
         },
         {
           "id": "sensor.remote_engine_start",
-          "friendlyName": "Remote engine start",
+          "friendlyName": "Renault Zoe Remote engine start",
           "cSharpName": "RemoteEngineStart"
         },
         {
@@ -6256,11 +6591,6 @@
           "id": "sensor.sovevaerelse_tado_mode",
           "friendlyName": "Sovev\u00E6relse Tado mode",
           "cSharpName": "SovevaerelseTadoMode"
-        },
-        {
-          "id": "sensor.stilling_skole_roar",
-          "friendlyName": "Stilling Skole Roar",
-          "cSharpName": "StillingSkoleRoar"
         },
         {
           "id": "sensor.stovsugerts004f_action",
@@ -7058,6 +7388,11 @@
           "jsonName": "id",
           "cSharpName": "Id",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "motor_speed",
+          "cSharpName": "MotorSpeed",
+          "clrType": "System.String"
         }
       ]
     },
@@ -7212,7 +7547,7 @@
         },
         {
           "id": "sensor.eforsyning_energy_total_used_cost",
-          "friendlyName": "sensor Cost",
+          "friendlyName": "EForsyning Energy total-used Cost",
           "cSharpName": "EforsyningEnergyTotalUsedCost"
         },
         {
@@ -7227,7 +7562,7 @@
         },
         {
           "id": "sensor.eforsyning_energy_used_cost",
-          "friendlyName": "sensor Cost",
+          "friendlyName": "EForsyning Energy used Cost",
           "cSharpName": "EforsyningEnergyUsedCost"
         },
         {
@@ -7716,6 +8051,11 @@
           "cSharpName": "OpenweathermapForecastCloudCoverage"
         },
         {
+          "id": "sensor.openweathermap_forecast_cloud_coverage_2",
+          "friendlyName": "OpenWeatherMap Forecast Cloud coverage",
+          "cSharpName": "OpenweathermapForecastCloudCoverage2"
+        },
+        {
           "id": "sensor.openweathermap_forecast_precipitation",
           "friendlyName": "OpenWeatherMap Forecast Precipitation",
           "cSharpName": "OpenweathermapForecastPrecipitation"
@@ -7892,7 +8232,7 @@
         },
         {
           "id": "sensor.sc8bfaff5ce07e22cc_18b6_estimated_distance",
-          "friendlyName": "Sc8bfaff5ce07e22cC 18B6 Estimated distance",
+          "friendlyName": "Estimated distance",
           "cSharpName": "Sc8bfaff5ce07e22cc18b6EstimatedDistance"
         },
         {
@@ -8796,6 +9136,11 @@
           "jsonName": "meters",
           "cSharpName": "Meters",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "motor_speed",
+          "cSharpName": "MotorSpeed",
+          "clrType": "System.String"
         }
       ]
     },
@@ -8906,32 +9251,32 @@
         },
         {
           "id": "switch.indkorsel_email_on_event",
-          "friendlyName": "Indkorsel Email on event",
+          "friendlyName": "Email on event",
           "cSharpName": "IndkorselEmailOnEvent"
         },
         {
           "id": "switch.indkorsel_ftp_upload",
-          "friendlyName": "Indkorsel FTP upload",
+          "friendlyName": "FTP upload",
           "cSharpName": "IndkorselFtpUpload"
         },
         {
           "id": "switch.indkorsel_infra_red_lights_in_night_mode",
-          "friendlyName": "Indkorsel Infra red lights in night mode",
+          "friendlyName": "Infra red lights in night mode",
           "cSharpName": "IndkorselInfraRedLightsInNightMode"
         },
         {
           "id": "switch.indkorsel_push_notifications",
-          "friendlyName": "Indkorsel Push notifications",
+          "friendlyName": "Push notifications",
           "cSharpName": "IndkorselPushNotifications"
         },
         {
           "id": "switch.indkorsel_record",
-          "friendlyName": "Indkorsel Record",
+          "friendlyName": "Record",
           "cSharpName": "IndkorselRecord"
         },
         {
           "id": "switch.indkorsel_record_audio",
-          "friendlyName": "Indkorsel Record audio",
+          "friendlyName": "Record audio",
           "cSharpName": "IndkorselRecordAudio"
         },
         {
@@ -8946,12 +9291,12 @@
         },
         {
           "id": "switch.legevaerelse_crossfade",
-          "friendlyName": "Crossfade",
+          "friendlyName": "Legev\u00E6relse Crossfade",
           "cSharpName": "LegevaerelseCrossfade"
         },
         {
           "id": "switch.legevaerelse_loudness",
-          "friendlyName": "Loudness",
+          "friendlyName": "Legev\u00E6relse Loudness",
           "cSharpName": "LegevaerelseLoudness"
         },
         {
@@ -9113,6 +9458,11 @@
           "id": "switch.sonoff_switch",
           "friendlyName": "Sonoff switch",
           "cSharpName": "SonoffSwitch"
+        },
+        {
+          "id": "switch.spejllys_do_not_disturb",
+          "friendlyName": "Spejllys Do not disturb",
+          "cSharpName": "SpejllysDoNotDisturb"
         },
         {
           "id": "switch.torretumbler",
@@ -9445,7 +9795,7 @@
         },
         {
           "id": "update.indkorsel_firmware",
-          "friendlyName": "Indkorsel Firmware",
+          "friendlyName": "Firmware",
           "cSharpName": "IndkorselFirmware"
         },
         {
@@ -9497,6 +9847,11 @@
           "id": "update.netdaemon_v3_beta_update",
           "friendlyName": "NetDaemon V3 - beta Update",
           "cSharpName": "NetdaemonV3BetaUpdate"
+        },
+        {
+          "id": "update.netdaemon_v4_net_8_update",
+          "friendlyName": "NetDaemon V4 (.NET 8) Update",
+          "cSharpName": "NetdaemonV4Net8Update"
         },
         {
           "id": "update.node_red_update",
@@ -9899,6 +10254,11 @@
           "jsonName": "color_options",
           "cSharpName": "ColorOptions",
           "clrType": "System.Object"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -10329,9 +10689,24 @@
       "domain": "calendar",
       "entities": [
         {
-          "id": "calendar.skoleskema_roar_lerbaek_emkjaer",
-          "friendlyName": "Skoleskema Roar Lerb\u00E6k Emkj\u00E6r",
-          "cSharpName": "SkoleskemaRoarLerbaekEmkjaer"
+          "id": "calendar.mealie_breakfast",
+          "friendlyName": "Mealie Breakfast",
+          "cSharpName": "MealieBreakfast"
+        },
+        {
+          "id": "calendar.mealie_dinner",
+          "friendlyName": "Mealie Dinner",
+          "cSharpName": "MealieDinner"
+        },
+        {
+          "id": "calendar.mealie_lunch",
+          "friendlyName": "Mealie Lunch",
+          "cSharpName": "MealieLunch"
+        },
+        {
+          "id": "calendar.mealie_side",
+          "friendlyName": "Mealie Side",
+          "cSharpName": "MealieSide"
         }
       ],
       "attributes": [
@@ -10349,6 +10724,36 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "message",
+          "cSharpName": "Message",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "all_day",
+          "cSharpName": "AllDay",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "start_time",
+          "cSharpName": "StartTime",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "end_time",
+          "cSharpName": "EndTime",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "location",
+          "cSharpName": "Location",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "description",
+          "cSharpName": "Description",
+          "clrType": "System.String"
         }
       ]
     },
@@ -10423,6 +10828,28 @@
           "jsonName": "protocol",
           "cSharpName": "Protocol",
           "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "conversation",
+      "entities": [
+        {
+          "id": "conversation.home_assistant",
+          "friendlyName": "Home Assistant",
+          "cSharpName": "HomeAssistant"
+        },
+        {
+          "id": "conversation.openai_conversation",
+          "friendlyName": "OpenAI Conversation",
+          "cSharpName": "OpenaiConversation"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
         }
       ]
     }
