@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RegExtract" Version="1.0.18" />
+    <PackageReference Include="RegExtract" Version="2.3.0" />
   </ItemGroup>
 
 </Project>
