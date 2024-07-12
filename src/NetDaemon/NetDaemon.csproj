@@ -4,7 +4,7 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <RootNamespace>Lerbaek.NetDaemon</RootNamespace>
+        <RootNamespace>Lerbaek.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
         <Configurations>Debug;Release;Deploy</Configurations>
         <BaseOutputPath Condition="'$(Configuration)' == 'Deploy'">\\192.168.1.9\config\netdaemon3</BaseOutputPath>
         <AppendTargetFrameworkToOutputPath Condition="'$(Configuration)' == 'Deploy'">false</AppendTargetFrameworkToOutputPath>
