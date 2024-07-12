@@ -2,7 +2,7 @@ namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.ResponseModel;
 
 public class Status
 {
-  public string? msg { get; set; }
-  public Data? data { get; set; }
-  public int? isSuccess { get; set; }
+  public string? Msg { get; set; }
+  public Data? Data { get; set; }
+  public int? IsSuccess { get; set; }
 }

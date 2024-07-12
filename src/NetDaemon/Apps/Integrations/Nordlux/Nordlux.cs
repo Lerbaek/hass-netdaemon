@@ -44,8 +44,8 @@ public class Nordlux : ServiceHandler
 #pragma warning disable CS4014
     scheduler.RunEvery(FromMinutes(1), () => OliveTreeBranchGetStatus());
 
-    RegisterService<Attributes>("setbrightness",       a => OliveTreeBranchSetBrightness      (a.brightness));
-    RegisterService<Attributes>("setcolortemperature", a => OliveTreeBranchSetColorTemperature(a.temperature));
+    RegisterService<Attributes>("setbrightness",       a => OliveTreeBranchSetBrightness      (a.Brightness));
+    RegisterService<Attributes>("setcolortemperature", a => OliveTreeBranchSetColorTemperature(a.Temperature));
     
     RegisterService<State>("turnon",    OliveTreeBranchTurnOn);
     RegisterService<State>("turnoff",   OliveTreeBranchTurnOff);
@@ -57,7 +57,7 @@ public class Nordlux : ServiceHandler
 
   #region Records
 
-  public record Attributes(int brightness, int temperature);
+  public record Attributes(int Brightness, int Temperature);
 
   public record State;
 
@@ -97,7 +97,7 @@ public class Nordlux : ServiceHandler
     LogServiceCall(logger, nameof(OliveTreeBranchGetStatus));
     var status = await GetStatus();
 
-    var deviceList = status.data!.deviceList!.ToArray();
+    var deviceList = status.Data!.DeviceList!.ToArray();
 
     if (!deviceList.Any())
     {
@@ -105,9 +105,9 @@ public class Nordlux : ServiceHandler
       return;
     }
 
-    var entity = new LightEntities(haContext).OliveTreeBranch;
+    var entity = new LightEntities(HaContext).OliveTreeBranch;
 
-    var onlineDevices = deviceList!.Where(dl => dl.IsOnline()).ToArray();
+    var onlineDevices = deviceList.Where(dl => dl.IsOnline()).ToArray();
     var isOnline = onlineDevices.Any();
     var state = isOnline
       ? "on"
@@ -115,8 +115,8 @@ public class Nordlux : ServiceHandler
     var attributes = entity.Attributes;
     if (isOnline && attributes is not null)
     {
-      var brightness = ((int)onlineDevices.Average(d => d.bri)!).ShiftRange(percentageRange, byteRange);
-      var temperature = ((int)onlineDevices.Average(d => d.cct)! % 100).ShiftRange(percentageRange, temperatureRange)
+      var brightness = ((int)onlineDevices.Average(d => d.Bri)!).ShiftRange(percentageRange, byteRange);
+      var temperature = ((int)onlineDevices.Average(d => d.Cct)! % 100).ShiftRange(percentageRange, temperatureRange)
         .Reverse(temperatureRange);
       attributes = attributes.Set(brightness, colorTemp: temperature);
     }
@@ -156,7 +156,7 @@ public class Nordlux : ServiceHandler
       }
       """;
     LogServiceCall(logger, serviceName);
-    var response = await (await requestHandler.Send(setStatusBody)).Content.ReadAsStringAsync();
+    await requestHandler.Send(setStatusBody);
     await OliveTreeBranchGetStatus();
   }
 

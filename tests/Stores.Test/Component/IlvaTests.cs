@@ -11,8 +11,8 @@ namespace Lerbaek.Stores.Test.Component;
 
 public class IlvaTests : StoreTestBase
 {
-  private const string woodstockPath = "/stuen/sofaborde/woodstock/top-i-olieret-egefiner/p-1055729-5642100692/";
-  private const string bestlaPath    = "/havemoebler/liggestole/bestla/graa-polyester-reb/p-1068901-5642651197/";
+  private const string WoodstockPath = "/stuen/sofaborde/woodstock/top-i-olieret-egefiner/p-1055729-5642100692/";
+  private const string BestlaPath    = "/havemoebler/liggestole/bestla/graa-polyester-reb/p-1068901-5642651197/";
 
   public IlvaTests(ITestOutputHelper output) : base(output, GetProductId)
   {
@@ -41,8 +41,8 @@ public class IlvaTests : StoreTestBase
     CreateModel<IlvaModel>(new Uri($"https://proshop.dk{url}"), IlvaModel.TryCreate);
 
   [Theory]
-  [InlineData(woodstockPath, "Woodstock Sofabord 120 x 47 x 60 cm")]
-  [InlineData(bestlaPath, "Bestla Solseng")]
+  [InlineData(WoodstockPath, "Woodstock Sofabord 120 x 47 x 60 cm")]
+  [InlineData(BestlaPath, "Bestla Solseng")]
   public async Task GetTitle_PageExists_TitleIsRetrieved(string url, string expectedTitle)
   {
     var uut = CreateModel(url);
@@ -52,8 +52,8 @@ public class IlvaTests : StoreTestBase
 
 
   [Theory]
-  [InlineData(woodstockPath, 1799)]
-  [InlineData(bestlaPath, 6999)]
+  [InlineData(WoodstockPath, 1799)]
+  [InlineData(BestlaPath, 6999)]
   public async Task GetTitle_PageExists_CurrentPriceIsRetrieved(string url, decimal expectedCurrentPrice)
   {
     var uut = CreateModel(url);
@@ -63,8 +63,8 @@ public class IlvaTests : StoreTestBase
 
 
   [Theory]
-  [InlineData(woodstockPath, 2299)]
-  [InlineData(bestlaPath, 8999)]
+  [InlineData(WoodstockPath, 2299)]
+  [InlineData(BestlaPath, 8999)]
   public async Task GetTitle_PageExists_NormalPriceIsRetrieved(string url, decimal expectedNormalPrice)
   {
     var uut = CreateModel(url);
@@ -74,8 +74,8 @@ public class IlvaTests : StoreTestBase
 
 
   [Theory]
-  [InlineData(woodstockPath)]
-  [InlineData(bestlaPath)]
+  [InlineData(WoodstockPath)]
+  [InlineData(BestlaPath)]
   public void GetTitle_PageExists_CurrencyIsDKK(string url)
   {
     var uut = CreateModel(url);

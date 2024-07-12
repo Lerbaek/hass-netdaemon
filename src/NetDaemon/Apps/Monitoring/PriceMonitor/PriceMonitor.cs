@@ -33,8 +33,8 @@ public class PriceMonitor : ServiceHandler
     //Initialize();
   }
 
-  public record Registering(string? url);
-  public record Unregistering(string? id);
+  public record Registering(string? Url);
+  public record Unregistering(string? Id);
 
   private void Initialize()
   {
@@ -44,38 +44,38 @@ public class PriceMonitor : ServiceHandler
 
   private async Task Unregister(Unregistering args)
   {
-    if (args.id is null)
+    if (args.Id is null)
     {
       Logger.LogError("No entity ID provided");
       return;
     }
     
-    var entity = new Entity(haContext, args.id);
+    var entity = new Entity(HaContext, args.Id);
     if (entity.EntityState is null)
     {
-      Logger.LogWarning("Entity {entityId} not found", args.id);
+      Logger.LogWarning("Entity {entityId} not found", args.Id);
       return;
     }
     
-    Logger.LogDebug("Removing {PriceMonitor} service with the id {Id}", nameof(PriceMonitor), args.id);
-    await EntityManager.RemoveAsync(args.id!);
+    Logger.LogDebug("Removing {PriceMonitor} service with the id {Id}", nameof(PriceMonitor), args.Id);
+    await EntityManager.RemoveAsync(args.Id!);
 
     entity.StateChanges().Subscribe(change =>
     {
       if (change.New is null)
-        Logger.LogInformation("{Id} service removed.", args.id); //untested
+        Logger.LogInformation("{Id} service removed.", args.Id); //untested
     });
   }
 
   private async Task Register(Registering args)
   {
-    if (args.url is null)
+    if (args.Url is null)
     {
       Logger.LogError("No URL provided");
       return;
     }
 
-    if (!Uri.TryCreate(args.url, UriKind.Absolute, out var url))
+    if (!Uri.TryCreate(args.Url, UriKind.Absolute, out var url))
     {
       Logger.LogError("Invalid URL provided");
       return;
@@ -95,7 +95,7 @@ public class PriceMonitor : ServiceHandler
       return;
     }
 
-    var sensorEntity = new SensorEntity(haContext, storePriceMonitor!.EntityId);
+    var sensorEntity = new SensorEntity(HaContext, storePriceMonitor!.EntityId);
 
     if(sensorEntity.State is null)
       await EntityManager.CreateAsync(storePriceMonitor.EntityId,
@@ -121,7 +121,7 @@ public class PriceMonitor : ServiceHandler
     var title = await storePriceMonitor.GetTitle();
     var price = await storePriceMonitor.GetCurrentPrice();
 
-    var oldPriceFound = decimal.TryParse(new SensorEntity(haContext, storePriceMonitor.EntityId).State, out var oldPrice);
+    var oldPriceFound = decimal.TryParse(new SensorEntity(HaContext, storePriceMonitor.EntityId).State, out var oldPrice);
     if (oldPriceFound)
     {
       if (price == oldPrice)

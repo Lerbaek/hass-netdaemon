@@ -9,8 +9,8 @@ namespace Lerbaek.Stores.Test.Component;
 
 public class ProShopTests : StoreTestBase
 {
-  private const string galaxyS21Path = "/Mobil/Samsung-Galaxy-S21-5G-128GB-Phantom-Grey/2911936";
-  private const string airpodsPath    = "/Hovedtelefonerheadset/Apple-AirPods-2021/3011150";
+  private const string GalaxyS21Path = "/Mobil/Samsung-Galaxy-S21-5G-128GB-Phantom-Grey/2911936";
+  private const string AirpodsPath    = "/Hovedtelefonerheadset/Apple-AirPods-2021/3011150";
 
   public ProShopTests(ITestOutputHelper output) : base(output, GetProductId) { }
   
@@ -27,8 +27,8 @@ public class ProShopTests : StoreTestBase
     CreateModel<ProShopModel>(new Uri($"https://proshop.dk{url}"), ProShopModel.TryCreate);
 
   [Theory]
-  [InlineData(galaxyS21Path, "Samsung Galaxy S21 5G 128GB - Phantom Grey")]
-  [InlineData(airpodsPath, "Apple AirPods (2021)")]
+  [InlineData(GalaxyS21Path, "Samsung Galaxy S21 5G 128GB - Phantom Grey")]
+  [InlineData(AirpodsPath, "Apple AirPods (2021)")]
   public async Task GetTitle_PageExists_TitleIsRetrieved(string url, string expectedTitle)
   {
     var uut = CreateModel(url);
@@ -38,8 +38,8 @@ public class ProShopTests : StoreTestBase
 
 
   [Theory]
-  [InlineData(galaxyS21Path, 4777)]
-  [InlineData(airpodsPath, 1333)]
+  [InlineData(GalaxyS21Path, 4777)]
+  [InlineData(AirpodsPath, 1333)]
   public async Task GetTitle_PageExists_CurrentPriceIsRetrieved(string url, decimal expectedCurrentPrice)
   {
     var uut = CreateModel(url);
@@ -49,8 +49,8 @@ public class ProShopTests : StoreTestBase
 
 
   [Theory]
-  [InlineData(galaxyS21Path, 6599)]
-  [InlineData(airpodsPath, 1495)]
+  [InlineData(GalaxyS21Path, 6599)]
+  [InlineData(AirpodsPath, 1495)]
   public async Task GetTitle_PageExists_NormalPriceIsRetrieved(string url, decimal expectedNormalPrice)
   {
     var uut = CreateModel(url);
@@ -60,8 +60,8 @@ public class ProShopTests : StoreTestBase
 
 
   [Theory]
-  [InlineData(galaxyS21Path)]
-  [InlineData(airpodsPath)]
+  [InlineData(GalaxyS21Path)]
+  [InlineData(AirpodsPath)]
   public void GetTitle_PageExists_CurrencyIsDKK(string url)
   {
     var uut = CreateModel(url);
