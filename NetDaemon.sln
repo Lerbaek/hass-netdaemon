@@ -3,37 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetDaemon", "NetDaemon\NetDaemon.csproj", "{91A03E65-4015-46C9-8033-7E4D58FB4052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetDaemon", "src\NetDaemon\NetDaemon.csproj", "{91A03E65-4015-46C9-8033-7E4D58FB4052}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Auctions", "Lerbaek.Auctions\Lerbaek.Auctions.csproj", "{4E00B177-6871-469A-87E6-539A3C8A1CDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctions", "src\Auctions\Auctions.csproj", "{4E00B177-6871-469A-87E6-539A3C8A1CDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Auctions.Test", "Lerbaek.Auctions.Test\Lerbaek.Auctions.Test.csproj", "{DA4E5DA7-F467-41B2-A20F-36845E485911}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctions.Test", "tests\Auctions.Test\Auctions.Test.csproj", "{DA4E5DA7-F467-41B2-A20F-36845E485911}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.HostBuilder", "Lerbaek.HostBuilder\Lerbaek.HostBuilder.csproj", "{3334F052-FBF2-4BC2-AC43-749903417433}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostBuilder", "src\HostBuilder\HostBuilder.csproj", "{3334F052-FBF2-4BC2-AC43-749903417433}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Stores", "Lerbaek.Stores\Lerbaek.Stores.csproj", "{E9F54687-6594-4149-9720-7F4A6B5F7123}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stores", "src\Stores\Stores.csproj", "{E9F54687-6594-4149-9720-7F4A6B5F7123}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Test.Common", "Lerbaek.Test.Common\Lerbaek.Test.Common.csproj", "{94BA72AF-BEE7-43C8-A075-D71875A7E40B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Common", "tests\Test.Common\Test.Common.csproj", "{94BA72AF-BEE7-43C8-A075-D71875A7E40B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Stores.Test", "Lerbaek.Stores.Test\Lerbaek.Stores.Test.csproj", "{504D6797-AABC-4A5D-9A5B-B37761EA4E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stores.Test", "tests\Stores.Test\Stores.Test.csproj", "{504D6797-AABC-4A5D-9A5B-B37761EA4E41}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.RegEx", "Lerbaek.RegEx\Lerbaek.RegEx.csproj", "{0E6044F3-960B-49D2-A401-CE76657F7B70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegEx", "src\RegEx\RegEx.csproj", "{0E6044F3-960B-49D2-A401-CE76657F7B70}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Calendar", "Lerbaek.Calendar\Lerbaek.Calendar.csproj", "{C58B9FC2-7266-477C-BF69-DE02D6CB2C3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar", "src\Calendar\Calendar.csproj", "{C58B9FC2-7266-477C-BF69-DE02D6CB2C3A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Calendar.Test", "Lerbaek.Calendar.Test\Lerbaek.Calendar.Test.csproj", "{0E9209B8-192A-49D6-AA79-04C070DD6EA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar.Test", "tests\Calendar.Test\Calendar.Test.csproj", "{0E9209B8-192A-49D6-AA79-04C070DD6EA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetDaemon.Test", "NetDaemon.Test\NetDaemon.Test.csproj", "{BCBAF919-1D0F-4F7D-9837-B722314080D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetDaemon.Test", "tests\NetDaemon.Test\NetDaemon.Test.csproj", "{BCBAF919-1D0F-4F7D-9837-B722314080D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Messaging", "Lerbaek.Messaging\Lerbaek.Messaging.csproj", "{13E12E85-4B69-450D-B076-06774D4D6B6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messaging", "src\Messaging\Messaging.csproj", "{13E12E85-4B69-450D-B076-06774D4D6B6A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lerbaek.Lectio", "Lerbaek.Lectio\Lerbaek.Lectio.csproj", "{0986983D-9446-4D57-838E-91CEB70BE788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lectio", "src\Lectio\Lectio.csproj", "{0986983D-9446-4D57-838E-91CEB70BE788}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{088B0726-3B84-406B-9DE4-ADDFA6920349}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Archive", "Archive", "{1B27B32A-C4A1-4215-824E-A9F5EEB26BF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A4DA181A-5744-410F-B512-4BAC74B84E3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{508AFDF1-990C-4DA7-BD53-3DEA5EE26CB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +129,20 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4E00B177-6871-469A-87E6-539A3C8A1CDB} = {508AFDF1-990C-4DA7-BD53-3DEA5EE26CB7}
+		{DA4E5DA7-F467-41B2-A20F-36845E485911} = {A4DA181A-5744-410F-B512-4BAC74B84E3F}
+		{3334F052-FBF2-4BC2-AC43-749903417433} = {508AFDF1-990C-4DA7-BD53-3DEA5EE26CB7}
+		{E9F54687-6594-4149-9720-7F4A6B5F7123} = {508AFDF1-990C-4DA7-BD53-3DEA5EE26CB7}
+		{94BA72AF-BEE7-43C8-A075-D71875A7E40B} = {A4DA181A-5744-410F-B512-4BAC74B84E3F}
+		{504D6797-AABC-4A5D-9A5B-B37761EA4E41} = {A4DA181A-5744-410F-B512-4BAC74B84E3F}
+		{0E6044F3-960B-49D2-A401-CE76657F7B70} = {508AFDF1-990C-4DA7-BD53-3DEA5EE26CB7}
+		{C58B9FC2-7266-477C-BF69-DE02D6CB2C3A} = {1B27B32A-C4A1-4215-824E-A9F5EEB26BF0}
+		{0E9209B8-192A-49D6-AA79-04C070DD6EA3} = {1B27B32A-C4A1-4215-824E-A9F5EEB26BF0}
+		{BCBAF919-1D0F-4F7D-9837-B722314080D9} = {A4DA181A-5744-410F-B512-4BAC74B84E3F}
+		{13E12E85-4B69-450D-B076-06774D4D6B6A} = {508AFDF1-990C-4DA7-BD53-3DEA5EE26CB7}
+		{0986983D-9446-4D57-838E-91CEB70BE788} = {508AFDF1-990C-4DA7-BD53-3DEA5EE26CB7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {521BF5C6-855E-4C3E-B3C9-C28950BFAA59}
