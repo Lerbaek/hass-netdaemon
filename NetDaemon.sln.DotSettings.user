@@ -20,9 +20,6 @@
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c5f0d7b4_002Dbd40_002D4ece_002Dabd0_002D09a6cb97b8c8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetSchedule" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::0E9209B8-192A-49D6-AA79-04C070DD6EA3::net6.0::Lerbaek.Calendar.Test.LectioModelTests.GetSchedule&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::BCBAF919-1D0F-4F7D-9837-B722314080D9::net6.0::NetDaemon.Test.Common.Notifications.VoiceNotificationBuilderTests.Test&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>
