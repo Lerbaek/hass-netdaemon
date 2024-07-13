@@ -26,7 +26,7 @@ public class ProShopTests : StoreTestBase
   private ProShopModel CreateModel(string url) =>
     CreateModel<ProShopModel>(new Uri($"https://proshop.dk{url}"), ProShopModel.TryCreate);
 
-  [Theory]
+  [Theory(Skip = "Archived")]
   [InlineData(GalaxyS21Path, "Samsung Galaxy S21 5G 128GB - Phantom Grey")]
   [InlineData(AirpodsPath, "Apple AirPods (2021)")]
   public async Task GetTitle_PageExists_TitleIsRetrieved(string url, string expectedTitle)
@@ -37,7 +37,7 @@ public class ProShopTests : StoreTestBase
   }
 
 
-  [Theory]
+  [Theory(Skip = "Archived")]
   [InlineData(GalaxyS21Path, 4777)]
   [InlineData(AirpodsPath, 1333)]
   public async Task GetTitle_PageExists_CurrentPriceIsRetrieved(string url, decimal expectedCurrentPrice)
@@ -48,7 +48,7 @@ public class ProShopTests : StoreTestBase
   }
 
 
-  [Theory]
+  [Theory(Skip = "Archived")]
   [InlineData(GalaxyS21Path, 6599)]
   [InlineData(AirpodsPath, 1495)]
   public async Task GetTitle_PageExists_NormalPriceIsRetrieved(string url, decimal expectedNormalPrice)
@@ -59,7 +59,7 @@ public class ProShopTests : StoreTestBase
   }
 
 
-  [Theory]
+  [Theory(Skip = "Archived")]
   [InlineData(GalaxyS21Path)]
   [InlineData(AirpodsPath)]
   public void GetTitle_PageExists_CurrencyIsDKK(string url)

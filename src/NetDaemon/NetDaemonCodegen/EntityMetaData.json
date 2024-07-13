@@ -199,6 +199,11 @@
           "cSharpName": "OkonomiOmlaegLan"
         },
         {
+          "id": "automation.olive_tree_branch_hent_status",
+          "friendlyName": "Olive Tree Branch: Hent status",
+          "cSharpName": "OliveTreeBranchHentStatus"
+        },
+        {
           "id": "automation.renovation_alarm",
           "friendlyName": "Renovation: Alarm",
           "cSharpName": "RenovationAlarm"
@@ -2517,7 +2522,7 @@
         },
         {
           "id": "device_tracker.sc8bfaff5ce07e22cc_18b6",
-          "friendlyName": null,
+          "friendlyName": "Sc8bfaff5ce07e22cC 18B6",
           "cSharpName": "Sc8bfaff5ce07e22cc18b6"
         },
         {
@@ -3278,6 +3283,11 @@
           "id": "input_boolean.bagkant_for_bilopladning_aktiveret",
           "friendlyName": "Bagkant for bilopladning aktiveret",
           "cSharpName": "BagkantForBilopladningAktiveret"
+        },
+        {
+          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
+          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
+          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsIntegrationsNordluxNordlux"
         },
         {
           "id": "input_boolean.dorklokke",
@@ -4802,6 +4812,11 @@
         {
           "jsonName": "source",
           "cSharpName": "Source",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "dynamic_range",
+          "cSharpName": "DynamicRange",
           "clrType": "System.String"
         }
       ]
@@ -8232,7 +8247,7 @@
         },
         {
           "id": "sensor.sc8bfaff5ce07e22cc_18b6_estimated_distance",
-          "friendlyName": "Estimated distance",
+          "friendlyName": "Sc8bfaff5ce07e22cC 18B6 Estimated distance",
           "cSharpName": "Sc8bfaff5ce07e22cc18b6EstimatedDistance"
         },
         {

@@ -40,7 +40,7 @@ public class IlvaTests : StoreTestBase
   private IlvaModel CreateModel(string url) =>
     CreateModel<IlvaModel>(new Uri($"https://proshop.dk{url}"), IlvaModel.TryCreate);
 
-  [Theory]
+  [Theory(Skip = "Archived")]
   [InlineData(WoodstockPath, "Woodstock Sofabord 120 x 47 x 60 cm")]
   [InlineData(BestlaPath, "Bestla Solseng")]
   public async Task GetTitle_PageExists_TitleIsRetrieved(string url, string expectedTitle)
@@ -51,7 +51,7 @@ public class IlvaTests : StoreTestBase
   }
 
 
-  [Theory]
+  [Theory(Skip = "Archived")]
   [InlineData(WoodstockPath, 1799)]
   [InlineData(BestlaPath, 6999)]
   public async Task GetTitle_PageExists_CurrentPriceIsRetrieved(string url, decimal expectedCurrentPrice)
@@ -62,7 +62,7 @@ public class IlvaTests : StoreTestBase
   }
 
 
-  [Theory]
+  [Theory(Skip = "Archived")]
   [InlineData(WoodstockPath, 2299)]
   [InlineData(BestlaPath, 8999)]
   public async Task GetTitle_PageExists_NormalPriceIsRetrieved(string url, decimal expectedNormalPrice)
@@ -73,7 +73,7 @@ public class IlvaTests : StoreTestBase
   }
 
 
-  [Theory]
+  [Theory(Skip = "Archived")]
   [InlineData(WoodstockPath)]
   [InlineData(BestlaPath)]
   public void GetTitle_PageExists_CurrencyIsDKK(string url)

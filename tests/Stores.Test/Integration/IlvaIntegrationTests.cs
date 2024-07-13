@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Text.Json.Nodes;
+using FluentAssertions;
 using HtmlAgilityPack;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Xunit;
@@ -15,19 +16,25 @@ public class IlvaIntegrationTests : HttpClientModelTestsBase
     IHttpClientFactory httpClientFactory, ITestOutputHelper output)
     : base(httpClientFactory, output)
   {
-    IlvaModel.TryCreate(GetALink(), HttpClient, Logger, out uut)
+    IlvaModel.TryCreate(GetALink().Result, HttpClient, Logger, out uut)
       .Should().BeTrue();
     
   }
 
-  public static Uri GetALink()
+  public async Task<Uri> GetALink()
   {
+    var popularProductResponse =
+      await HttpClient.GetAsync(
+        "https://api.ilva.dk/api/recommendations/getPopularProductCategoriesRecommendations/?displayedAtLocationType=Front+Page&numOfRecommendations=1");
+
+
     var baseUrl = new Uri("http://ilva.dk/");
-    var web = new HtmlWeb();
-    var doc = web.Load(baseUrl);
-    var spotLinkNodes = doc.DocumentNode.SelectNodes("//a [@class='ribbon-tile__link']");
-    spotLinkNodes.Should().NotBeNull();
-    var relativePath = spotLinkNodes.First().Attributes["href"].Value;
+    var popularProductStream = await popularProductResponse.Content.ReadAsStreamAsync();
+    var popularProductJson = await JsonNode.ParseAsync(popularProductStream);
+    var dataJson = popularProductJson?["data"]?[0];
+    var variantsJson = dataJson?["variants"]?[0];
+    var relativePath = variantsJson?["url"]?.GetValue<string>();
+    relativePath.Should().NotBeNull();
     var link = new Uri(baseUrl, relativePath);
     return link;
   }

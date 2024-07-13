@@ -9,7 +9,7 @@ namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 /// <summary>
 ///   Application to control Nordlux lights.
 /// </summary>
-//[Focus]
+[Focus]
 [NetDaemonApp]
 public class Nordlux : ServiceHandler
 {
@@ -22,7 +22,6 @@ public class Nordlux : ServiceHandler
     IHaContext haContext,
     IAppConfig<NordluxConfig> config,
     ILogger<Nordlux> logger,
-    INetDaemonScheduler scheduler,
     IHomeAssistantApiManager apiManager,
     IRequestHandler requestHandler)
     : base(haContext, "olivetreebranch")
@@ -32,34 +31,32 @@ public class Nordlux : ServiceHandler
     this.apiManager = apiManager;
     this.requestHandler = requestHandler;
 
-    Initialize(scheduler);
+    RegisterServices();
   }
 
   private readonly (int, int) percentageRange = (1, 100);
   private readonly (int, int) byteRange = (1, 255);
   private readonly (int, int) temperatureRange = (153, 500);
 
-  private void Initialize(INetDaemonScheduler scheduler)
+  private void RegisterServices()
   {
-#pragma warning disable CS4014
-    scheduler.RunEvery(FromMinutes(1), () => OliveTreeBranchGetStatus());
+    RegisterService<BrightnessData>(
+        "setbrightness",
+        data => OliveTreeBranchSetBrightness(data.Percentage));
 
-    RegisterService<Attributes>("setbrightness",       a => OliveTreeBranchSetBrightness      (a.Brightness));
-    RegisterService<Attributes>("setcolortemperature", a => OliveTreeBranchSetColorTemperature(a.Temperature));
+    RegisterService<TemperatureData>(
+        "setcolortemperature",
+        data => OliveTreeBranchSetColorTemperature(data.Kelvin));
     
-    RegisterService<State>("turnon",    OliveTreeBranchTurnOn);
-    RegisterService<State>("turnoff",   OliveTreeBranchTurnOff);
-    RegisterService<State>("getstatus", OliveTreeBranchGetStatus);
-
-    OliveTreeBranchGetStatus();
-#pragma warning restore CS4014
+    RegisterService("turnon",    OliveTreeBranchTurnOn);
+    RegisterService("turnoff",   OliveTreeBranchTurnOff);
+    RegisterService("getstatus", OliveTreeBranchGetStatus);
   }
 
   #region Records
 
-  public record Attributes(int Brightness, int Temperature);
-
-  public record State;
+  public record BrightnessData(int Percentage);
+  public record TemperatureData(int Kelvin);
 
   #endregion
 

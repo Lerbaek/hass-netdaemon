@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Lerbaek.RegEx;
@@ -22,9 +23,9 @@ namespace Lerbaek.Auctions.CampenAuktioner
     public override async Task<IEnumerable<CampenAuktionerItem>> GetMatchesAsync(IEnumerable<string> searchTerms)
     {
 
-      var terms = searchTerms as string[] ?? searchTerms.ToArray();
-      var includes = terms.SafeRegExtract<string>(AllWordsNotStartingWithDash);
-      var excludes = terms.SafeRegExtract<string>(AllWordsStartingWithDash);
+      var terms = searchTerms.Select(term => term.Trim()).ToArray();
+      var includes = terms.Where(term => !term.StartsWith("-")).ToArray();
+      var excludes = terms.Where(term => term.StartsWith("-")).ToArray();
       
       var results = await GetResults();
       var matches = results.Where(i => i.Matches(includes, excludes)).ToArray();
