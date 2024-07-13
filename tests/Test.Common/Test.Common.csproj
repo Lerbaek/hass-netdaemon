@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.3.0" />
+    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.4.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="9.2.1" />
+    <PackageReference Include="Xunit.DependencyInjection" Version="9.3.0" />
     <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
   </ItemGroup>
 
