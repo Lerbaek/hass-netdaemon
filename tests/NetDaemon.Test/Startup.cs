@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NetDaemon.HassModel;
 using NSubstitute;
 
-namespace NetDaemon.Test;
+namespace Lerbaek.NetDaemon.Test;
 
 public class Startup : TestsStartup
 {

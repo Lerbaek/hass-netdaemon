@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 using static Lerbaek.NetDaemon.Common.Notifications.Configuration;
 using static Lerbaek.NetDaemon.Common.Notifications.VoiceNotificationVolume;
 
-namespace NetDaemon.Test.Common.Notifications;
+namespace Lerbaek.NetDaemon.Test.Common.Notifications;
 
 [Collection(nameof(VoiceNotificationBuilder))]
 public class VoiceNotificationBuilderTests(ITestOutputHelper output, INotificationBuilder notificationBuilder)
