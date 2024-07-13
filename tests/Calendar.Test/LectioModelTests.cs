@@ -6,14 +6,10 @@ using Xunit.Abstractions;
 namespace Lerbaek.Calendar.Test
 {
   [Collection(nameof(LectioCalendarModel))]
-  public class LectioModelTests : HttpClientModelTestsBase
+  public class LectioModelTests(IHttpClientFactory httpClientFactory, ITestOutputHelper output)
+    : HttpClientModelTestsBase(httpClientFactory, output)
   {
     private readonly LectioCalendarModel uut = null!;
-
-    public LectioModelTests(IHttpClientFactory httpClientFactory, ITestOutputHelper output)
-      : base(httpClientFactory, output)
-    {
-    }
 
     [Fact]
     public async Task GetSchedule()

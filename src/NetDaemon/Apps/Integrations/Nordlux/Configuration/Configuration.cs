@@ -1,13 +1,7 @@
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 
-public abstract class Con
+public abstract class Con(string name, string value)
 {
-  protected Con(string name, string value)
-  {
-    Name = name;
-    Value = value;
-  }
-
-  public string Name { get; protected set; }
-  public string Value { get; protected set; }
+  public string Name { get; protected set; } = name;
+  public string Value { get; protected set; } = value;
 }

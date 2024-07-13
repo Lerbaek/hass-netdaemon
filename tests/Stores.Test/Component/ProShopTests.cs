@@ -7,13 +7,11 @@ using Xunit.Abstractions;
 
 namespace Lerbaek.Stores.Test.Component;
 
-public class ProShopTests : StoreTestBase
+public class ProShopTests(ITestOutputHelper output) : StoreTestBase(output, GetProductId)
 {
   private const string GalaxyS21Path = "/Mobil/Samsung-Galaxy-S21-5G-128GB-Phantom-Grey/2911936";
   private const string AirpodsPath    = "/Hovedtelefonerheadset/Apple-AirPods-2021/3011150";
 
-  public ProShopTests(ITestOutputHelper output) : base(output, GetProductId) { }
-  
   private static string GetProductId(Uri url, ILogger logger)
   {
     var validPath = url.TryGetProductId(out var productId, out var error);

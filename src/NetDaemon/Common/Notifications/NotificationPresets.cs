@@ -3,18 +3,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace Lerbaek.NetDaemon.Common.Notifications;
 
-public class NotificationPresets : INotificationPresets
+public class NotificationPresets(IHaContext ha, IConfiguration config, INotificationBuilder notificationBuilder)
+  : INotificationPresets
 {
-  private readonly INotificationBuilder notificationBuilder;
-  private readonly string logUrl;
-  private readonly NotifyServices notifyServices;
-
-  public NotificationPresets(IHaContext ha, IConfiguration config, INotificationBuilder notificationBuilder)
-  {
-    notifyServices = new NotifyServices(ha);
-    this.notificationBuilder = notificationBuilder;
-    logUrl = config["Lerbaek:LogUrl"];
-  }
+  private readonly string logUrl = config["Lerbaek:LogUrl"];
+  private readonly NotifyServices notifyServices = new(ha);
 
   public void NotifyAppException(Exception e)
   {

@@ -1,11 +1,7 @@
 ﻿namespace Lerbaek.NetDaemon.Common.Entities;
 
-public class EntityManager : IEntityManager
+public class EntityManager(IHaContext haContext) : IEntityManager
 {
-  private readonly IHaContext haContext;
-
-  public EntityManager(IHaContext haContext) => this.haContext = haContext;
-
   public void CreateOrUpdate(string entityId, string state, string? friendlyName, string? icon = null,
     IDictionary<string, string?>? attributes = null)
   {

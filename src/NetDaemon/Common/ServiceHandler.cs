@@ -1,15 +1,9 @@
 namespace Lerbaek.NetDaemon.Common;
 
-public class ServiceHandler
+public class ServiceHandler(IHaContext haContext, string prefix)
 {
-  protected readonly IHaContext HaContext;
-  private readonly NameGenerator nameGenerator;
-
-  public ServiceHandler(IHaContext haContext, string prefix)
-  {
-    this.HaContext = haContext;
-    nameGenerator = new NameGenerator(prefix);
-  }
+  protected readonly IHaContext HaContext = haContext;
+  private readonly NameGenerator nameGenerator = new(prefix);
 
   public void RegisterService<T>(string serviceName, Func<T, Task> service)
   {

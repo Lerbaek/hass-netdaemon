@@ -10,15 +10,11 @@ using static Lerbaek.NetDaemon.Common.Notifications.VoiceNotificationVolume;
 namespace NetDaemon.Test.Common.Notifications;
 
 [Collection(nameof(VoiceNotificationBuilder))]
-public class VoiceNotificationBuilderTests : LoggerTestsBase
+public class VoiceNotificationBuilderTests(ITestOutputHelper output, INotificationBuilder notificationBuilder)
+  : LoggerTestsBase(output)
 {
   private const string TtsTextValue = "Test";
-  private readonly IVoiceNotificationBuilder uut;
-
-  public VoiceNotificationBuilderTests(ITestOutputHelper output, INotificationBuilder notificationBuilder) : base(output)
-  {
-    uut = notificationBuilder.MakeVoiceNotification(TtsTextValue, Default);
-  }
+  private readonly IVoiceNotificationBuilder uut = notificationBuilder.MakeVoiceNotification(TtsTextValue, Default);
 
   public static IEnumerable<object[]> Volumes =>
     Enum.GetValues<VoiceNotificationVolume>()

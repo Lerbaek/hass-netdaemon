@@ -5,14 +5,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace Lerbaek.NetDaemon.Archive.Apps.Monitoring.Lectio;
 
-public abstract class Lectio
+public abstract class Lectio(IHttpClientFactory httpClientFactory)
 {
-  protected HttpClient HttpClient;
-
-  protected Lectio(IHttpClientFactory httpClientFactory)
-  {
-    HttpClient = httpClientFactory.CreateClient(nameof(Lectio));
-  }
+  protected HttpClient HttpClient = httpClientFactory.CreateClient(nameof(Lectio));
 }
 
 //[NetDaemonApp]
