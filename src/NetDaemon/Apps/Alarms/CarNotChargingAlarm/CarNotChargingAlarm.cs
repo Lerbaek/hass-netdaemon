@@ -8,14 +8,14 @@ namespace Lerbaek.NetDaemon.Apps.Alarms.CarNotChargingAlarm;
 public class CarNotChargingAlarmApp
 {
   private const string CarBluetoothMacAddress = "CC:88:26:8E:E0:52";
-  private readonly IHaContext haContext;
-  private readonly ILogger<CarNotChargingAlarmApp> logger;
-  private readonly INotificationBuilder notificationBuilder;
-  private readonly Entities entities;
-  private readonly Services services;
-  private string carBluetoothName = null!;
+  private readonly IHaContext _haContext;
+  private readonly ILogger<CarNotChargingAlarmApp> _logger;
+  private readonly INotificationBuilder _notificationBuilder;
+  private readonly Entities _entities;
+  private readonly Services _services;
+  private string _carBluetoothName = null!;
 
-  private readonly string[] homeNetworks =
+  private readonly string[] _homeNetworks =
   {
     "Virus.exe",
     "Virus5.ext",
@@ -23,27 +23,27 @@ public class CarNotChargingAlarmApp
     "PlayGroundStuff"
   };
 
-  private bool EngineRunning => entities.BinarySensor.CeedEngine.IsOn();
+  private bool EngineRunning => _entities.BinarySensor.CeedEngine.IsOn();
   private bool Connected => ChargerSeesCar || CarSeesCharger;
   private bool ChargerSeesCar => !DescriptionContains("disconnected") && (DescriptionContains("connected") || DescriptionContains("charging"));
-  private bool CarSeesCharger => entities.BinarySensor.CeedEvBatteryPlug.IsOn();
-  private bool CarHome => IsHome(entities.DeviceTracker.CeedLocation);
-  private bool KristofferHome => IsHome(entities.Person.Kristoffer) || KristofferConnectedToHomeNetwork;
-  private bool KristofferConnectedToHomeNetwork => IsConnectedToHomeNetwork(entities.Sensor.KristoffersGalaxyS20UltraWifiConnection);
+  private bool CarSeesCharger => _entities.BinarySensor.CeedEvBatteryPlug.IsOn();
+  private bool CarHome => IsHome(_entities.DeviceTracker.CeedLocation);
+  private bool KristofferHome => IsHome(_entities.Person.Kristoffer) || KristofferConnectedToHomeNetwork;
+  private bool KristofferConnectedToHomeNetwork => IsConnectedToHomeNetwork(_entities.Sensor.KristoffersGalaxyS20UltraWifiConnection);
   //private bool GroConnectedToHomeNetwork => IsConnectedToHomeNetwork(entities.Sensor.GrosGalaxyS20WifiConnection);
 
-  private bool DescriptionContains(string key) => entities.Sensor.WallboxPortalStatusDescription.State!.Contains(key, StringComparison.InvariantCultureIgnoreCase);
-  private bool BatteryIs(int percentage) => (int)Math.Round(entities.Sensor.CeedEvBatteryLevel.State!.Value) == percentage;
+  private bool DescriptionContains(string key) => _entities.Sensor.WallboxPortalStatusDescription.State!.Contains(key, StringComparison.InvariantCultureIgnoreCase);
+  private bool BatteryIs(int percentage) => (int)Math.Round(_entities.Sensor.CeedEvBatteryLevel.State!.Value) == percentage;
   private bool IsHome(Entity entity) => entity.State is "home";
 
   private bool IsConnectedToCarBluetooth(NumericEntityState<NumericSensorAttributes> entity)
   {
     if(entity.Attributes!.ConnectedPairedDevices is IEnumerable<string> devices)
-      return devices.Contains(carBluetoothName);
+      return devices.Contains(_carBluetoothName);
     return false;
   }
 
-  private bool IsConnectedToHomeNetwork(SensorEntity sensor) => homeNetworks.Contains(sensor.State!);
+  private bool IsConnectedToHomeNetwork(SensorEntity sensor) => _homeNetworks.Contains(sensor.State!);
 
   private bool CarDisconnected(NumericStateChange<NumericSensorEntity, NumericEntityState<NumericSensorAttributes>> change) =>
     IsConnectedToCarBluetooth(change.Old!) && !IsConnectedToCarBluetooth(change.New!);
@@ -56,35 +56,35 @@ public class CarNotChargingAlarmApp
     return FromArgb((int)Math.Round((100 - percentage) * multiplier), (int)Math.Round(percentage * multiplier), 0);
   }
 
-  private void ForceUpdate() => services.KiaUvo.ForceUpdate("74bce309438a261af1845811fb2599d5");
+  private void ForceUpdate() => _services.KiaUvo.ForceUpdate("74bce309438a261af1845811fb2599d5");
 
   public CarNotChargingAlarmApp(IHaContext haContext, ILogger<CarNotChargingAlarmApp> logger, INotificationBuilder notificationBuilder)
   {
-    this.haContext = haContext;
-    this.logger = logger;
-    this.notificationBuilder = notificationBuilder;
-    entities = new Entities(haContext);
-    services = new Services(haContext);
-    entities.Sensor.CeedLastUpdatedAt.StateChanges().Subscribe(CarNotChargingAlarm);
+    this._haContext = haContext;
+    this._logger = logger;
+    this._notificationBuilder = notificationBuilder;
+    _entities = new Entities(haContext);
+    _services = new Services(haContext);
+    _entities.Sensor.CeedLastUpdatedAt.StateChanges().Subscribe(CarNotChargingAlarm);
     ForceUpdate();
     ConfigureHomeArrival();
   }
 
   private void ConfigureHomeArrival()
   {
-    carBluetoothName =
-      entities
+    _carBluetoothName =
+      _entities
         .Sensor
         .KristoffersGalaxyS20UltraBluetoothConnection
         .Attributes!
         .PairedDevices!
         .Single(d => d.Contains(CarBluetoothMacAddress, StringComparison.InvariantCultureIgnoreCase));
 
-    logger.LogInformation("Car's Bluetooth name resolved to {bluetoothName}", carBluetoothName);
+    _logger.LogInformation("Car's Bluetooth name resolved to {bluetoothName}", _carBluetoothName);
 
     var people = new (NumericSensorEntity BluetoothConnection, Func<bool> IsHome)[]
     {
-      (BluetoothConnection: entities.Sensor.KristoffersGalaxyS20UltraBluetoothConnection, () => KristofferHome),
+      (BluetoothConnection: _entities.Sensor.KristoffersGalaxyS20UltraBluetoothConnection, () => KristofferHome),
       //(entities.Sensor.GrosGalaxyS20BluetoothConnection, () => GroHome),
     };
 
@@ -98,17 +98,17 @@ public class CarNotChargingAlarmApp
 
         if (!person.IsHome())
         {
-          logger.LogDebug(
+          _logger.LogDebug(
             "{friendlyName} has disconnected from {bluetoothName}, but the phone has been detected away from home.",
             change.Entity.Attributes!.FriendlyName,
-            carBluetoothName);
+            _carBluetoothName);
           return;
         }
 
-        logger.LogInformation(
+        _logger.LogInformation(
           "{friendlyName} has disconnected from {bluetoothName}, and the phone has been detected at home. Refreshing data.",
           change.Entity.Attributes!.FriendlyName,
-          carBluetoothName);
+          _carBluetoothName);
 
         ForceUpdate();
       });
@@ -117,27 +117,27 @@ public class CarNotChargingAlarmApp
 
   private void CarNotChargingAlarm(StateChange<SensorEntity, EntityState<SensorAttributes>> change)
   {
-    logger.LogInformation("Evaluating charging status.");
+    _logger.LogInformation("Evaluating charging status.");
 
     _ = Policy.HandleResult<NumericSensorEntity>(entity => !entity.State.HasValue)
       .WaitAndRetry(Backoff.ExponentialBackoff(FromSeconds(1), 5),
         (_, _, retryCount, _) =>
         {
-          logger.LogDebug("Entities not yet available.");
-          logger.LogDebug("Retry count: {RetryCount}.", retryCount);
-        }).ExecuteAndCapture(() => entities.Sensor.CeedEvBatteryLevel);
+          _logger.LogDebug("Entities not yet available.");
+          _logger.LogDebug("Retry count: {RetryCount}.", retryCount);
+        }).ExecuteAndCapture(() => _entities.Sensor.CeedEvBatteryLevel);
 
     Task.Delay(5000).Wait();
 
-    if (!entities.Sensor.CeedEvBatteryLevel.State.HasValue)
+    if (!_entities.Sensor.CeedEvBatteryLevel.State.HasValue)
     {
-      logger.LogWarning("Charging status could not be determined, entities are unavailable.");
+      _logger.LogWarning("Charging status could not be determined, entities are unavailable.");
       return;
     }
 
-    var batteryPercentage = (int)Math.Round(entities.Sensor.CeedEvBatteryLevel.State!.Value);
+    var batteryPercentage = (int)Math.Round(_entities.Sensor.CeedEvBatteryLevel.State!.Value);
 
-    logger.LogDebug(
+    _logger.LogDebug(
       """
         Connected: {Connected}
         Engine running: {EngineRunning}
@@ -146,21 +146,21 @@ public class CarNotChargingAlarmApp
       """,
       Connected, EngineRunning, batteryPercentage, CarHome);
 
-    var notifyServices = new NotifyServices(haContext);
+    var notifyServices = new NotifyServices(_haContext);
 
     if (!ShouldBeCharging)
     {
-      logger.LogDebug("Car should not be charging.");
+      _logger.LogDebug("Car should not be charging.");
       NotificationBuilder.Clear(nameof(CarNotChargingAlarm), notifyServices.KristoffersTelefon);
       return;
     }
 
-    logger.LogDebug("Car should be charging. Sending notification.");
+    _logger.LogDebug("Car should be charging. Sending notification.");
 
     var start = new TimeSpan(8, 0, 0);
     var end = new TimeSpan(21, 30, 0);
 
-    notificationBuilder
+    _notificationBuilder
       .SetMessage($"{batteryPercentage}% opladet")
       .SetTitle("Bilen lader ikke")
       .AddActionUri("Overblik", ActionUri.Lovelace("bil"), "car-not-charging")
@@ -173,7 +173,7 @@ public class CarNotChargingAlarmApp
     var now = DateTime.Now.TimeOfDay;
 
     if (now > start && now < end && KristofferHome)
-      notificationBuilder
+      _notificationBuilder
         .MakeVoiceNotification($"Husk at sætte bilen til opladning. Den er i øjeblikket {batteryPercentage} procent opladet",
                                VoiceNotificationVolume.NotZero)
         .Notify(notifyServices.KristoffersTelefon);

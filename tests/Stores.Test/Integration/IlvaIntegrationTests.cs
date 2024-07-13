@@ -10,13 +10,13 @@ namespace Lerbaek.Stores.Test.Integration;
 [Collection(nameof(IlvaModel))]
 public class IlvaIntegrationTests : HttpClientModelTestsBase
 {
-  private readonly IlvaModel uut;
+  private readonly IlvaModel _uut;
 
   public IlvaIntegrationTests(
     IHttpClientFactory httpClientFactory, ITestOutputHelper output)
     : base(httpClientFactory, output)
   {
-    IlvaModel.TryCreate(GetALink().Result, HttpClient, Logger, out uut)
+    IlvaModel.TryCreate(GetALink().Result, HttpClient, Logger, out _uut)
       .Should().BeTrue();
     
   }
@@ -39,24 +39,24 @@ public class IlvaIntegrationTests : HttpClientModelTestsBase
     return link;
   }
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public async Task GetTitle_PageExists_TitleIsRetrieved()
   {
-    var title = await uut.GetTitle();
+    var title = await _uut.GetTitle();
     title.Should().NotBeNullOrEmpty();
   }
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public async Task GetTitle_PageExists_CurrentPriceIsRetrieved()
   {
-    var price = await uut.GetCurrentPrice();
+    var price = await _uut.GetCurrentPrice();
     price.Should().BeGreaterThan(0);
   }
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public async Task GetTitle_PageExists_NormalPriceIsRetrieved()
   {
-    var price = await uut.GetNormalPrice();
+    var price = await _uut.GetNormalPrice();
     price.Should().BeGreaterThan(0);
   }
 }

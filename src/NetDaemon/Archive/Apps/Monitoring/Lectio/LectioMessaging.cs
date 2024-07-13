@@ -14,11 +14,11 @@ public abstract class Lectio(IHttpClientFactory httpClientFactory)
 //[Focus]
 public class LectioMessaging : Lectio
 {
-  private readonly ILogger<LectioMessaging> logger;
-  private readonly INotificationBuilder notificationBuilder;
-  private readonly LectioMessagingModel messaging;
-  private readonly IConfiguration config;
-  private readonly NotifyServices notifyService;
+  private readonly ILogger<LectioMessaging> _logger;
+  private readonly INotificationBuilder _notificationBuilder;
+  private readonly LectioMessagingModel _messaging;
+  private readonly IConfiguration _config;
+  private readonly NotifyServices _notifyService;
 
   public LectioMessaging(
     IHaContext ha,
@@ -29,12 +29,12 @@ public class LectioMessaging : Lectio
     IHttpClientFactory httpClientFactory,
     INotificationBuilder notificationBuilder) : base(httpClientFactory)
   {
-    this.config = config;
-    this.logger = logger;
-    this.notificationBuilder = notificationBuilder;
+    this._config = config;
+    this._logger = logger;
+    this._notificationBuilder = notificationBuilder;
     var lectioModel = new LectioModel(appConfig.Value, logger, httpClientFactory);
-    messaging = new LectioMessagingModel(lectioModel);
-    notifyService = new NotifyServices(ha);
+    _messaging = new LectioMessagingModel(lectioModel);
+    _notifyService = new NotifyServices(ha);
 
     UpdateMessagesAsync();
     scheduler.RunEvery(FromHours(1), UpdateMessagesAsync);
@@ -44,22 +44,22 @@ public class LectioMessaging : Lectio
   {
     try
     {
-      var messages = await messaging.GetMessagesAsync(FromHours(1));
+      var messages = await _messaging.GetMessagesAsync(FromHours(1));
       foreach (var message in messages)
       {
-        notificationBuilder
+        _notificationBuilder
           .SetTitle(message.Title)
           .SetChannel("Beskeder")
           .SetColor(LightSteelBlue)
           .SetMessage(message.Message)
           .AddActionUri("Se besked", ActionUri.Uri(message.Link))
-          .Notify(notifyService.KristoffersTelefon);
+          .Notify(_notifyService.KristoffersTelefon);
       }
     }
     catch (Exception e)
     {
-      logger.LogErrorMethod(e);
-      notificationBuilder.Presets.NotifyAppException(e);
+      _logger.LogErrorMethod(e);
+      _notificationBuilder.Presets.NotifyAppException(e);
     }
   }
 }

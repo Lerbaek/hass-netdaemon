@@ -12,15 +12,15 @@ namespace Lerbaek.Stores
 {
   public class ProShopModel : StoreModel, IStoreModel
   {
-    private readonly HttpClient httpClient;
-    private Task<JToken> content;
+    private readonly HttpClient _httpClient;
+    private Task<JToken> _content;
 
     protected string ProductId { get; }
 
     protected ProShopModel(string productId, HttpClient httpClient, ILogger logger) : base(logger)
     {
       ProductId = productId;
-      this.httpClient = httpClient;
+      this._httpClient = httpClient;
       Refresh();
     }
 
@@ -56,7 +56,7 @@ namespace Lerbaek.Stores
     public async Task<string> GetTitle()
     {
       const string titleKey = "ProductName";
-      var token = await content;
+      var token = await _content;
       var title = token[titleKey]?.Value<string>()?.Trim() ?? throw new KeyNotFoundException(titleKey);
       Logger.LogDebug($"{titleKey}: {title}");
       return title;
@@ -69,10 +69,10 @@ namespace Lerbaek.Stores
       const string baseUrl =
         "https://proshop.dk/";
       
-      content = Task.Run(async () =>
+      _content = Task.Run(async () =>
       {
         var requestUri = $"{baseUrl}{ProductId}";
-        var response = await httpClient.GetAsync(requestUri);
+        var response = await _httpClient.GetAsync(requestUri);
         var responseContent = await response.Content.ReadAsStringAsync();
         try
         {
@@ -93,7 +93,7 @@ namespace Lerbaek.Stores
 
     protected async Task<decimal> GetPrice(string priceTypeKey)
     {
-      var token = await content;
+      var token = await _content;
       var value = token[priceTypeKey]?.Value<decimal>() ?? throw new KeyNotFoundException(priceTypeKey);
       Logger.LogDebug($"{priceTypeKey}: {value}");
       return value;

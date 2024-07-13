@@ -6,13 +6,13 @@ namespace Lerbaek.NetDaemon.Apps.Integrations.CampenAuktioner;
 [NetDaemonApp]
 public class CampenAuktioner
 {
-  private readonly IFileSystem fileSystem;
-  private readonly INotificationBuilder notificationBuilder;
-  private readonly ILogger<CampenAuktioner> logger;
-  private readonly IHaContext haContext;
-  private readonly IServices services;
-  private readonly VarEntities varEntities;
-  private readonly CampenAuktionerSite campenAuktionerSite;
+  private readonly IFileSystem _fileSystem;
+  private readonly INotificationBuilder _notificationBuilder;
+  private readonly ILogger<CampenAuktioner> _logger;
+  private readonly IHaContext _haContext;
+  private readonly IServices _services;
+  private readonly VarEntities _varEntities;
+  private readonly CampenAuktionerSite _campenAuktionerSite;
 
   public CampenAuktioner(IHaContext               ha,
                          INetDaemonScheduler      scheduler,
@@ -21,20 +21,20 @@ public class CampenAuktioner
                          IFileSystem              fileSystem,
                          INotificationBuilder     notificationBuilder)
   {
-    this.fileSystem = fileSystem;
-    this.notificationBuilder = notificationBuilder;
-    this.logger = logger;
-    haContext = ha;
-    services = new Services(ha);
-    varEntities = new VarEntities(ha);
+    this._fileSystem = fileSystem;
+    this._notificationBuilder = notificationBuilder;
+    this._logger = logger;
+    _haContext = ha;
+    _services = new Services(ha);
+    _varEntities = new VarEntities(ha);
     try
     { 
       var httpClient = httpClientFactory.CreateClient(nameof(CampenAuktioner));
-      campenAuktionerSite = new CampenAuktionerSite(logger, httpClient);
+      _campenAuktionerSite = new CampenAuktionerSite(logger, httpClient);
 
       _ = CheckForMatches("startup search");
 
-      varEntities.CampenWatchlist
+      _varEntities.CampenWatchlist
         .StateChanges()
         .Where(s => s.Old?.State != s.New?.State)
         .Subscribe(_ => CheckForMatches("updated watch list").Wait());
@@ -57,18 +57,18 @@ public class CampenAuktioner
     }
     catch (Exception e)
     {
-      logger.LogError($"An error occurred on {context}.");
-      logger.LogError("{Exception}", e.ToString());
+      _logger.LogError($"An error occurred on {context}.");
+      _logger.LogError("{Exception}", e.ToString());
     }
   }
 
   private async Task CheckForMatches()
   {
-    var watchlist = varEntities.CampenWatchlist
+    var watchlist = _varEntities.CampenWatchlist
       .State!
       .Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
-    var matches = (await campenAuktionerSite.GetMatchesAsync(watchlist)).ToArray();
+    var matches = (await _campenAuktionerSite.GetMatchesAsync(watchlist)).ToArray();
 
     SetMatches(string.Join($"{NewLine}---{NewLine}", matches.Select(m => m.Markdown)));
     Notify(matches.ToArray());
@@ -77,10 +77,10 @@ public class CampenAuktioner
   private void Notify(CampenAuktionerItem[] matches)
   {
     const string fileName = "alerted.txt";
-    if (!fileSystem.File.Exists(fileName))
-      fileSystem.File.Create(fileName).Dispose();
+    if (!_fileSystem.File.Exists(fileName))
+      _fileSystem.File.Create(fileName).Dispose();
     
-    var alerted = fileSystem.File
+    var alerted = _fileSystem.File
                             .ReadAllText(fileName)
                             .Split(NewLine)
                             .Where(l =>
@@ -97,19 +97,19 @@ public class CampenAuktioner
     {
       if (alerted.Any(m => m.Contains(match.Id!)))
       {
-        logger.LogDebug("Skipping {Title} because a notification has previously been sent.", match.Title);
+        _logger.LogDebug("Skipping {Title} because a notification has previously been sent.", match.Title);
         continue;
       }
 
-      logger.LogInformation("Match: {Title}", match.Title);
-      notificationBuilder.SetMessage(match.Description!)
+      _logger.LogInformation("Match: {Title}", match.Title);
+      _notificationBuilder.SetMessage(match.Description!)
                          .SetTitle(match.Title!)
                          .SetImage(match.ImageLink!)
                          .AddActionUri("Open", ActionUri.Uri(match.Link!))
-                         .Notify(services.Notify.KristoffersTelefon);
+                         .Notify(_services.Notify.KristoffersTelefon);
     }
 
-    fileSystem.File
+    _fileSystem.File
               .WriteAllText(fileName,
                             string.Join(NewLine,
                                         alerted.Union(matches.Select(m => $"{DateTime.Now + m.TimeLeft:yyyyMMdd} {m.Id}"))));
@@ -117,7 +117,7 @@ public class CampenAuktioner
 
   private void SetMatches(string markdown, int matchCount = 0)
   {
-    haContext.CallService("netdaemon",
+    _haContext.CallService("netdaemon",
       $"entity_{(typeof(SensorEntities).GetProperty("CampenWatchlist") == null ? "create" : "update")}", null, new
       {
         entity_id = "sensor.campen_watchlist",

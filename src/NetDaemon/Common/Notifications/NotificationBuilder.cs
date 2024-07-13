@@ -7,17 +7,17 @@ namespace Lerbaek.NetDaemon.Common.Notifications;
 
 public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilder
 {
-  private IDictionary<string, string>[] actions;
+  private IDictionary<string, string>[] _actions;
   public INotificationPresets Presets { get; }
 
   public string Title { get; private set; }
 
   public IDictionary<string, string>[] Actions
   {
-    get => actions;
+    get => _actions;
     protected set
     {
-      actions = value;
+      _actions = value;
       Data["actions"] = value;
     }
   }

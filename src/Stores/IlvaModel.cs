@@ -12,18 +12,18 @@ namespace Lerbaek.Stores
 {
   public class IlvaModel : StoreModel, IStoreModel
   {
-    private readonly string productItemId;
-    private readonly string variantErpId;
-    private readonly HttpClient httpClient;
-    private Task<JToken> content;
+    private readonly string _productItemId;
+    private readonly string _variantErpId;
+    private readonly HttpClient _httpClient;
+    private Task<JToken> _content;
   
-    protected string ProductId => $"{productItemId}-{variantErpId}";
+    protected string ProductId => $"{_productItemId}-{_variantErpId}";
 
     protected IlvaModel(string productItemId, string variantErpId, HttpClient httpClient, ILogger logger) : base(logger)
     {
-      this.productItemId = productItemId;
-      this.variantErpId = variantErpId;
-      this.httpClient = httpClient;
+      this._productItemId = productItemId;
+      this._variantErpId = variantErpId;
+      this._httpClient = httpClient;
       Refresh();
     }
 
@@ -78,9 +78,9 @@ namespace Lerbaek.Stores
       const string baseUrl =
         "https://ilva.dk/umbraco/frontend/productapi/GetProducts?ExcludeDiscountedVariants=false&productIds=";
       
-      content = Task.Run(async () =>
+      _content = Task.Run(async () =>
       {
-        var response = await httpClient.GetAsync($"{baseUrl}{ProductId}");
+        var response = await _httpClient.GetAsync($"{baseUrl}{ProductId}");
         var responseContent = await response.Content.ReadAsStringAsync();
         return JToken.Parse(responseContent);
       });
@@ -108,11 +108,11 @@ namespace Lerbaek.Stores
       const string dataKey = "data";
       const string variantsKey = "variants";
 
-      var jToken = await content;
+      var jToken = await _content;
       var data = jToken[dataKey] ?? throw new KeyNotFoundException(dataKey);
       var firstData = data[0] ?? throw new InvalidOperationException($"\"{dataKey}\" is empty or not an array");
       var variants = firstData[variantsKey] ?? throw new KeyNotFoundException(variantsKey);
-      var variant = variants.Single(v => v[nameof(variantErpId)].Value<string>() == variantErpId);
+      var variant = variants.Single(v => v[nameof(_variantErpId)].Value<string>() == _variantErpId);
       return variant;
     }
   }

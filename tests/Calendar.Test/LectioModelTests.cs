@@ -9,7 +9,7 @@ namespace Lerbaek.Calendar.Test
   public class LectioModelTests(IHttpClientFactory httpClientFactory, ITestOutputHelper output)
     : HttpClientModelTestsBase(httpClientFactory, output)
   {
-    private readonly LectioCalendarModel uut = null!;
+    private readonly LectioCalendarModel _uut = null!;
 
     [Fact]
     public async Task GetSchedule()

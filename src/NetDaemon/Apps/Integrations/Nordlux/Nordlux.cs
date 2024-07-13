@@ -13,10 +13,10 @@ namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 [NetDaemonApp]
 public class Nordlux : ServiceHandler
 {
-  private readonly IHomeAssistantApiManager apiManager;
-  private readonly ILogger<Nordlux> logger;
-  private readonly IRequestHandler requestHandler;
-  private readonly NordluxConfig config;
+  private readonly IHomeAssistantApiManager _apiManager;
+  private readonly ILogger<Nordlux> _logger;
+  private readonly IRequestHandler _requestHandler;
+  private readonly NordluxConfig _config;
 
   public Nordlux(
     IHaContext haContext,
@@ -26,17 +26,17 @@ public class Nordlux : ServiceHandler
     IRequestHandler requestHandler)
     : base(haContext, "olivetreebranch")
   {
-    this.config = config.Value;
-    this.logger = logger;
-    this.apiManager = apiManager;
-    this.requestHandler = requestHandler;
+    this._config = config.Value;
+    this._logger = logger;
+    this._apiManager = apiManager;
+    this._requestHandler = requestHandler;
 
     RegisterServices();
   }
 
-  private readonly (int, int) percentageRange = (1, 100);
-  private readonly (int, int) byteRange = (1, 255);
-  private readonly (int, int) temperatureRange = (153, 500);
+  private readonly (int, int) _percentageRange = (1, 100);
+  private readonly (int, int) _byteRange = (1, 255);
+  private readonly (int, int) _temperatureRange = (153, 500);
 
   private void RegisterServices()
   {
@@ -64,41 +64,41 @@ public class Nordlux : ServiceHandler
 
   public async Task OliveTreeBranchTurnOff()
   {
-    LogServiceCall(logger, nameof(OliveTreeBranchTurnOff));
+    LogServiceCall(_logger, nameof(OliveTreeBranchTurnOff));
     await HandlerSetterService(nameof(OliveTreeBranchTurnOff), Power.Off);
   }
 
   public async Task OliveTreeBranchTurnOn()
   {
-    LogServiceCall(logger, nameof(OliveTreeBranchTurnOn));
+    LogServiceCall(_logger, nameof(OliveTreeBranchTurnOn));
     await HandlerSetterService(nameof(OliveTreeBranchTurnOn), Power.On);
   }
 
   public async Task OliveTreeBranchSetBrightness(int brightness)
   {
-    LogServiceCall(logger, nameof(OliveTreeBranchSetBrightness));
-    var brightnessPercentage = brightness.ShiftRange(byteRange, percentageRange);
+    LogServiceCall(_logger, nameof(OliveTreeBranchSetBrightness));
+    var brightnessPercentage = brightness.ShiftRange(_byteRange, _percentageRange);
     await HandlerSetterService(nameof(OliveTreeBranchSetBrightness), Brightness.WithValue(brightnessPercentage));
   }
 
   /// <param name="temperature">Range: 153 (cold) - 500 (warm)</param>
   public async Task OliveTreeBranchSetColorTemperature(int temperature)
   {
-    LogServiceCall(logger, nameof(OliveTreeBranchSetColorTemperature));
-    var temperaturePercentage = temperature.ShiftRange(temperatureRange, percentageRange).Reverse(percentageRange);
+    LogServiceCall(_logger, nameof(OliveTreeBranchSetColorTemperature));
+    var temperaturePercentage = temperature.ShiftRange(_temperatureRange, _percentageRange).Reverse(_percentageRange);
     await HandlerSetterService(nameof(OliveTreeBranchSetColorTemperature), Temperature.WithValue(temperaturePercentage));
   }
 
   public async Task OliveTreeBranchGetStatus()
   {
-    LogServiceCall(logger, nameof(OliveTreeBranchGetStatus));
+    LogServiceCall(_logger, nameof(OliveTreeBranchGetStatus));
     var status = await GetStatus();
 
     var deviceList = status.Data!.DeviceList!.ToArray();
 
     if (!deviceList.Any())
     {
-      logger.LogWarning("No devices were found when retrieving status. Assert that the ciphers are still valid.");
+      _logger.LogWarning("No devices were found when retrieving status. Assert that the ciphers are still valid.");
       return;
     }
 
@@ -112,13 +112,13 @@ public class Nordlux : ServiceHandler
     var attributes = entity.Attributes;
     if (isOnline && attributes is not null)
     {
-      var brightness = ((int)onlineDevices.Average(d => d.Bri)!).ShiftRange(percentageRange, byteRange);
-      var temperature = ((int)onlineDevices.Average(d => d.Cct)! % 100).ShiftRange(percentageRange, temperatureRange)
-        .Reverse(temperatureRange);
+      var brightness = ((int)onlineDevices.Average(d => d.Bri)!).ShiftRange(_percentageRange, _byteRange);
+      var temperature = ((int)onlineDevices.Average(d => d.Cct)! % 100).ShiftRange(_percentageRange, _temperatureRange)
+        .Reverse(_temperatureRange);
       attributes = attributes.Set(brightness, colorTemp: temperature);
     }
 
-    await apiManager.SetEntityStateAsync(entity.EntityId, state, attributes, CancellationToken.None);
+    await _apiManager.SetEntityStateAsync(entity.EntityId, state, attributes, CancellationToken.None);
   }
 
   private async Task HandlerSetterService(string serviceName, Con con)
@@ -126,7 +126,7 @@ public class Nordlux : ServiceHandler
     var setStatusBody =
       $$"""
       {
-          "accountId": "{{config.AccountId}}",
+          "accountId": "{{_config.AccountId}}",
           "addressType": 1,
           "appkeyIndex": 0,
           "conAddress": 49152,
@@ -138,22 +138,22 @@ public class Nordlux : ServiceHandler
               }
           ],
           "elemIndex": 0,
-          "houseId": "{{config.HouseId}}",
+          "houseId": "{{_config.HouseId}}",
           "roomCode": 1,
           "targetId": "54fdcc619d9b4f37848edc6da6ea156b",
           "targetType": 2,
-          "token": "{{config.Token}}",
+          "token": "{{_config.Token}}",
           "type": 1,
           "uv": 0,
-          "appCode": "{{config.AppCode}}",
-          "appVersion": "{{config.AppVersion}}",
-          "bulid_v": {{config.BulidV}},
-          "mobileSystemType": "{{config.MobileSystemType}}",
-          "version": "{{config.Version}}"
+          "appCode": "{{_config.AppCode}}",
+          "appVersion": "{{_config.AppVersion}}",
+          "bulid_v": {{_config.BulidV}},
+          "mobileSystemType": "{{_config.MobileSystemType}}",
+          "version": "{{_config.Version}}"
       }
       """;
-    LogServiceCall(logger, serviceName);
-    await requestHandler.Send(setStatusBody);
+    LogServiceCall(_logger, serviceName);
+    await _requestHandler.Send(setStatusBody);
     await OliveTreeBranchGetStatus();
   }
 
@@ -164,24 +164,24 @@ public class Nordlux : ServiceHandler
       var getStatusBody =
         $$"""
           {
-            "accountId":"{{config.AccountId}}",
-            "houseId":"{{config.HouseId}}",
-            "token":"{{config.Token}}",
-            "appCode":"{{config.AppCode}}",
-            "appVersion":"{{config.AppVersion}}",
-            "bulid_v":{{config.BulidV}},
-            "mobileSystemType":"{{config.MobileSystemType}}",
-            "uniqueIndication":"{{config.UniqueIndication}}",
-            "version":"{{config.Version}}"
+            "accountId":"{{_config.AccountId}}",
+            "houseId":"{{_config.HouseId}}",
+            "token":"{{_config.Token}}",
+            "appCode":"{{_config.AppCode}}",
+            "appVersion":"{{_config.AppVersion}}",
+            "bulid_v":{{_config.BulidV}},
+            "mobileSystemType":"{{_config.MobileSystemType}}",
+            "uniqueIndication":"{{_config.UniqueIndication}}",
+            "version":"{{_config.Version}}"
           }
           """;
 
-      var response = await requestHandler.Send(
+      var response = await _requestHandler.Send(
         getStatusBody,
         ApiPath.GetBulbStatus);
       
       var content = await response.Content.ReadAsStringAsync();
-      logger.LogTrace("Status:{NewLine}{Content}", NewLine, content);
+      _logger.LogTrace("Status:{NewLine}{Content}", NewLine, content);
       return JsonConvert.DeserializeObject<Status>(content)!;
     }
     catch (Exception e)

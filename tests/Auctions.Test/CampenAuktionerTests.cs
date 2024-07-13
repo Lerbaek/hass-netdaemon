@@ -11,8 +11,8 @@ namespace Lerbaek.Auctions.Test;
 
 public class CampenAuktionerTests : LoggerTestsBase
 {
-  private readonly CampenAuktionerSite uut;
-  private readonly IEnumerable<CampenAuktionerItem> itemsWithA;
+  private readonly CampenAuktionerSite _uut;
+  private readonly IEnumerable<CampenAuktionerItem> _itemsWithA;
 
   public CampenAuktionerTests(ITestOutputHelper output) : base(output)
   {
@@ -27,17 +27,17 @@ public class CampenAuktionerTests : LoggerTestsBase
       return Task.FromResult(response);
     });
       
-    uut = new CampenAuktionerSite(Logger, httpClient);
-    itemsWithA = uut.GetMatchesAsync(new[] { "a" }).Result;
+    _uut = new CampenAuktionerSite(Logger, httpClient);
+    _itemsWithA = _uut.GetMatchesAsync(new[] { "a" }).Result;
   }
 
   [Fact]
-  public void GetMatches_SearchTermA_ItemsFound() => itemsWithA.Should().NotBeNullOrEmpty();
+  public void GetMatches_SearchTermA_ItemsFound() => _itemsWithA.Should().NotBeNullOrEmpty();
 
   [Fact]
   public async Task GetMatches_SearchTermANotX_FewerItemsFound()
   {
-    var itemsSubset = await uut.GetMatchesAsync(new[] { "a -x" });
-    itemsSubset.Count().Should().BeLessThan(itemsWithA.Count());
+    var itemsSubset = await _uut.GetMatchesAsync(new[] { "a -x" });
+    itemsSubset.Count().Should().BeLessThan(_itemsWithA.Count());
   }
 }

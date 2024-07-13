@@ -14,7 +14,7 @@ public class VoiceNotificationBuilderTests(ITestOutputHelper output, INotificati
   : LoggerTestsBase(output)
 {
   private const string TtsTextValue = "Test";
-  private readonly IVoiceNotificationBuilder uut = notificationBuilder.MakeVoiceNotification(TtsTextValue, Default);
+  private readonly IVoiceNotificationBuilder _uut = notificationBuilder.MakeVoiceNotification(TtsTextValue, Default);
 
   public static IEnumerable<object[]> Volumes =>
     Enum.GetValues<VoiceNotificationVolume>()
@@ -24,8 +24,8 @@ public class VoiceNotificationBuilderTests(ITestOutputHelper output, INotificati
   [MemberData(nameof(Volumes))]
   public void NotificationBuilder_MakeVoiceNotification_PropertiesAreCorrectlySet(VoiceNotificationVolume volume)
   {
-    uut.SetVolume(volume);
-    uut.Notify((message, title, target, data) =>
+    _uut.SetVolume(volume);
+    _uut.Notify((message, title, target, data) =>
     {
       using (new AssertionScope())
       {

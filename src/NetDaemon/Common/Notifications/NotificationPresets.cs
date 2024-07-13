@@ -6,8 +6,8 @@ namespace Lerbaek.NetDaemon.Common.Notifications;
 public class NotificationPresets(IHaContext ha, IConfiguration config, INotificationBuilder notificationBuilder)
   : INotificationPresets
 {
-  private readonly string logUrl = config["Lerbaek:LogUrl"];
-  private readonly NotifyServices notifyServices = new(ha);
+  private readonly string _logUrl = config["Lerbaek:LogUrl"];
+  private readonly NotifyServices _notifyServices = new(ha);
 
   public void NotifyAppException(Exception e)
   {
@@ -17,8 +17,8 @@ public class NotificationPresets(IHaContext ha, IConfiguration config, INotifica
           .SetMessage(e.Message)
           .SetColor(Red)
           .SetChannel("alert")
-          .AddActionUri("Åbn log", ActionUri.Uri(logUrl!))
-          .Notify(notifyServices.KristoffersTelefon)))
+          .AddActionUri("Åbn log", ActionUri.Uri(_logUrl!))
+          .Notify(_notifyServices.KristoffersTelefon)))
       .DoWithStackParent();
   }
 }

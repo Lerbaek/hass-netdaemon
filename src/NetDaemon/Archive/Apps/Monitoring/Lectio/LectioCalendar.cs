@@ -7,10 +7,10 @@ namespace Lerbaek.NetDaemon.Archive.Apps.Monitoring.Lectio;
 //[Focus]
 public class LectioCalendar
 {
-    private readonly ILogger<LectioCalendar> logger;
-    private readonly INotificationBuilder notificationBuilder;
-    private readonly LectioCalendarModel calendar;
-    private readonly NotifyServices notifyServices;
+    private readonly ILogger<LectioCalendar> _logger;
+    private readonly INotificationBuilder _notificationBuilder;
+    private readonly LectioCalendarModel _calendar;
+    private readonly NotifyServices _notifyServices;
 
     public LectioCalendar(
       IHaContext haContext,
@@ -20,11 +20,11 @@ public class LectioCalendar
       IHttpClientFactory httpClientFactory,
       INotificationBuilder notificationBuilder)
     {
-        this.logger = logger;
-        this.notificationBuilder = notificationBuilder;
+        this._logger = logger;
+        this._notificationBuilder = notificationBuilder;
         var lectioModel = new LectioModel(config.Value, logger, httpClientFactory);
-        calendar = new LectioCalendarModel(lectioModel);
-        notifyServices = new NotifyServices(haContext);
+        _calendar = new LectioCalendarModel(lectioModel);
+        _notifyServices = new NotifyServices(haContext);
 
         UpdateCalendar();
         scheduler.RunEvery(FromHours(1), UpdateCalendar);
@@ -44,12 +44,12 @@ public class LectioCalendar
           calendarFilename);
         try
         {
-            var result = await calendar.SaveCalendar(path, "Gro, VUC");
+            var result = await _calendar.SaveCalendar(path, "Gro, VUC");
             if (!result.IsFailed)
                 return;
 
             if (result.Errors.Contains(LectioError.BadCredentials))
-                notificationBuilder
+                _notificationBuilder
                   .SetMessage("Ugyldigt brugernavn eller adgangskode.")
                   .SetTag($"{nameof(LectioError)}{nameof(LectioError.BadCredentials)}");
             else if (result.Errors.Contains(LectioError.AttributeNotFound))
@@ -59,12 +59,12 @@ public class LectioCalendar
                   result.Errors
                     .Where(e => e.Equals(LectioError.AttributeNotFound))
                     .SelectMany(e => e.Metadata.Values));
-                notificationBuilder
+                _notificationBuilder
                   .SetMessage(
                     $"Attribut ikke fundet: {missingAttributes}")
                   .SetTag($"{nameof(LectioError)}{nameof(LectioError.AttributeNotFound)}");
             }
-            logger.LogError("An error occurred while trying to update {Calendar}. Reason: {Reason}",
+            _logger.LogError("An error occurred while trying to update {Calendar}. Reason: {Reason}",
               nameof(LectioCalendar),
               string.Join(", ", result.Reasons.Select(r =>
               $"{r.Message}" + (r.Metadata.Any() ? $": {string.Join(", ", r.Metadata.Values)}" : ""))));
@@ -76,8 +76,8 @@ public class LectioCalendar
         }
         catch (Exception e)
         {
-            logger.LogError(e, "An error occurred while trying to update {Calendar}", nameof(LectioCalendar));
-            notificationBuilder
+            _logger.LogError(e, "An error occurred while trying to update {Calendar}", nameof(LectioCalendar));
+            _notificationBuilder
               .SetMessage(e.ToString())
               .SetTag($"{nameof(LectioError)}{nameof(Exception)}");
             SendNotification();
@@ -86,11 +86,11 @@ public class LectioCalendar
 
     private void SendNotification()
     {
-        notificationBuilder
+        _notificationBuilder
           .SetTitle("Fejl: Lectio calendar")
           .SetChannel(nameof(LectioError))
           .MakeSticky()
           .SetColor(Red)
-          .Notify(notifyServices.KristoffersTelefon);
+          .Notify(_notifyServices.KristoffersTelefon);
     }
 }

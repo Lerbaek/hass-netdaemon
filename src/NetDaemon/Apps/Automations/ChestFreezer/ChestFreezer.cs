@@ -6,24 +6,24 @@ namespace Lerbaek.NetDaemon.Apps.Automations.ChestFreezer;
 //[Focus]
 public class ChestFreezer
 {
-  private readonly INetDaemonScheduler scheduler;
-  private readonly ILogger<ChestFreezer> logger;
-  private readonly INotificationBuilder notificationBuilder;
-  private readonly NumericSensorEntity energySensor;
-  private readonly SwitchEntity chestFreezer;
-  private readonly InputBooleanEntity chestFreezerPaused;
-  private readonly NotifyServices notifyServices;
+  private readonly INetDaemonScheduler _scheduler;
+  private readonly ILogger<ChestFreezer> _logger;
+  private readonly INotificationBuilder _notificationBuilder;
+  private readonly NumericSensorEntity _energySensor;
+  private readonly SwitchEntity _chestFreezer;
+  private readonly InputBooleanEntity _chestFreezerPaused;
+  private readonly NotifyServices _notifyServices;
 
   public ChestFreezer(IHaContext ha, INetDaemonScheduler scheduler, ILogger<ChestFreezer> logger, INotificationBuilder notificationBuilder)
   {
-    this.scheduler = scheduler;
-    this.logger = logger;
-    this.notificationBuilder = notificationBuilder;
+    this._scheduler = scheduler;
+    this._logger = logger;
+    this._notificationBuilder = notificationBuilder;
     var entities = new Entities(ha);
-    notifyServices = new NotifyServices(ha);
-    energySensor = entities.Sensor.EnergiDataService;
-    chestFreezer = entities.Switch.Kummefryser;
-    chestFreezerPaused = entities.InputBoolean.KummefryserPaPause;
+    _notifyServices = new NotifyServices(ha);
+    _energySensor = entities.Sensor.EnergiDataService;
+    _chestFreezer = entities.Switch.Kummefryser;
+    _chestFreezerPaused = entities.InputBoolean.KummefryserPaPause;
     Task.Run(SetPowerState);
   }
 
@@ -31,25 +31,25 @@ public class ChestFreezer
   {
     try
     {
-      if (!energySensor.State.HasValue)
-        throw new NullReferenceException($"Ingen øjebliksværdi fundet i {energySensor.EntityId}");
+      if (!_energySensor.State.HasValue)
+        throw new NullReferenceException($"Ingen øjebliksværdi fundet i {_energySensor.EntityId}");
       var thresholds = EvaluateThresholds;
 
-      var currentPrice = energySensor.State!.Value;
-      var needsToggling = currentPrice > thresholds.High && chestFreezer.IsOn() ||
-                          currentPrice < thresholds.Low && chestFreezer.IsOff();
-      var tooHigh = needsToggling ^ chestFreezer.IsOff();
+      var currentPrice = _energySensor.State!.Value;
+      var needsToggling = currentPrice > thresholds.High && _chestFreezer.IsOn() ||
+                          currentPrice < thresholds.Low && _chestFreezer.IsOff();
+      var tooHigh = needsToggling ^ _chestFreezer.IsOff();
 
       if (needsToggling)
       {
-        logger.LogInformation("{TurningOnOrOff} kummefryseren.", tooHigh ? "Slukker" : "Tænder");
-        SetStateOn(chestFreezerPaused, tooHigh);
-        SetStateOn(chestFreezer, !tooHigh);
+        _logger.LogInformation("{TurningOnOrOff} kummefryseren.", tooHigh ? "Slukker" : "Tænder");
+        SetStateOn(_chestFreezerPaused, tooHigh);
+        SetStateOn(_chestFreezer, !tooHigh);
       }
       else
-        logger.LogInformation("Kummefryseren er fortsat {onOrOff}.", tooHigh ? "slukket" : "tændt");
+        _logger.LogInformation("Kummefryseren er fortsat {onOrOff}.", tooHigh ? "slukket" : "tændt");
 
-      var attributes = energySensor.Attributes!;
+      var attributes = _energySensor.Attributes!;
 
       var knownPrices = attributes
         .Today!
@@ -72,23 +72,23 @@ public class ChestFreezer
       if (pricesOutsideThreshold.Any())
       {
         var acceptablePriceTime = (knownFuturePrices.IndexOf(pricesOutsideThreshold.First()) + nextHour) % 24;
-        logger.LogInformation("Den {onOrOff} igen kl. {time}", tooHigh ? "tændes" : "slukkes", acceptablePriceTime);
+        _logger.LogInformation("Den {onOrOff} igen kl. {time}", tooHigh ? "tændes" : "slukkes", acceptablePriceTime);
       }
       else
       {
-        logger.LogInformation("Der er ikke planlagt ændringer i de næste {availableHours} timer.",
+        _logger.LogInformation("Der er ikke planlagt ændringer i de næste {availableHours} timer.",
           knownFuturePrices.Count.ToString());
       }
     }
     catch(Exception e)
     {
-      logger.LogErrorMethod(e);
-      if (chestFreezer.IsOff())
+      _logger.LogErrorMethod(e);
+      if (_chestFreezer.IsOff())
       {
-        logger.LogWarning("Tænder fryseren for en sikkerheds skyld.");
-        chestFreezer.TurnOn();
+        _logger.LogWarning("Tænder fryseren for en sikkerheds skyld.");
+        _chestFreezer.TurnOn();
       }
-      notificationBuilder.Presets.NotifyAppException(e);
+      _notificationBuilder.Presets.NotifyAppException(e);
     }
     finally
     {
@@ -101,23 +101,23 @@ public class ChestFreezer
     get
     {
       {
-        var currentPriceString = FormatPrice(energySensor.State!.Value);
+        var currentPriceString = FormatPrice(_energySensor.State!.Value);
         IReadOnlyList<double>? pricesToday = null;
         var retriesLeft = 16;
         while(retriesLeft --> 1)
         {
           try
           {
-            pricesToday = energySensor.Attributes!.Today!;
+            pricesToday = _energySensor.Attributes!.Today!;
             break;
           }
           catch (Exception e)
           {
             if (retriesLeft == 0)
               throw;
-            notificationBuilder.Presets.NotifyAppException(e);
-            logger.LogErrorMethod(e);
-            logger.LogWarning("Retrying every minute for {retries} more minute(s). Debugging is encouraged.", retriesLeft);
+            _notificationBuilder.Presets.NotifyAppException(e);
+            _logger.LogErrorMethod(e);
+            _logger.LogWarning("Retrying every minute for {retries} more minute(s). Debugging is encouraged.", retriesLeft);
             Task.Delay(FromMinutes(1)).Wait();
           }
         }
@@ -126,9 +126,9 @@ public class ChestFreezer
         var upperThreshold = new[]{lowerThreshold, average, 2.5}.Max(); // Never turn off if below 2,5
         var lowerString = FormatPrice(lowerThreshold);
         var upperString = FormatPrice(upperThreshold);
-        logger.LogInformation("1 kWh koster nu {currentPrice}.", currentPriceString);
-        logger.LogInformation("Tænder når prisen er under: {low}.", lowerString);
-        logger.LogInformation("Slukker når den er over: {high}", upperString);
+        _logger.LogInformation("1 kWh koster nu {currentPrice}.", currentPriceString);
+        _logger.LogInformation("Tænder når prisen er under: {low}.", lowerString);
+        _logger.LogInformation("Slukker når den er over: {high}", upperString);
         return (lowerThreshold, upperThreshold);
       }
     }
@@ -155,6 +155,6 @@ public class ChestFreezer
       .AddMinutes(0 - now.Minute)
       .AddSeconds(5 - now.Second)
       .AddMilliseconds(0 - now.Millisecond);
-    scheduler.RunAt(nextRun, SetPowerState);
+    _scheduler.RunAt(nextRun, SetPowerState);
   }
 }

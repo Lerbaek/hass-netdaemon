@@ -11,23 +11,23 @@ namespace Lerbaek.Messaging.Lectio
 {
   public class LectioMessagingModel
   {
-    private readonly LectioModel lectioModel;
+    private readonly LectioModel _lectioModel;
 
     public LectioMessagingModel(LectioModel lectioModel)
     {
-      this.lectioModel = lectioModel;
+      this._lectioModel = lectioModel;
     }
 
     public async Task<IEnumerable<LectioMessageModel>> GetMessagesAsync(TimeSpan timeSpan)
     {
       var doc = new HtmlDocument();
-      lectioModel.Logger.LogDebug("Trying to get messages from Lectio.");
+      _lectioModel.Logger.LogDebug("Trying to get messages from Lectio.");
 
       if (!await TryGetInbox(doc))
       {
-        lectioModel.Logger.LogDebug("Could not get messages. Logging in.");
-        await lectioModel.Login();
-        lectioModel.Logger.LogDebug("Getting messages from Lectio.");
+        _lectioModel.Logger.LogDebug("Could not get messages. Logging in.");
+        await _lectioModel.Login();
+        _lectioModel.Logger.LogDebug("Getting messages from Lectio.");
         await TryGetInbox(doc);
       }
 
@@ -44,8 +44,8 @@ namespace Lerbaek.Messaging.Lectio
 
       foreach (var threadId in threadIds)
       {
-        var threadStream = await lectioModel.HttpClient.GetStreamAsync(
-          $"https://www.lectio.dk/lectio/560/beskeder2.aspx?type=showthread&elevid={lectioModel.StudentId}&selectedfolderid=-10&id={threadId}");
+        var threadStream = await _lectioModel.HttpClient.GetStreamAsync(
+          $"https://www.lectio.dk/lectio/560/beskeder2.aspx?type=showthread&elevid={_lectioModel.StudentId}&selectedfolderid=-10&id={threadId}");
         var threadDoc = new HtmlDocument();
         threadDoc.Load(threadStream);
         threadDocs.Add(threadDoc);
@@ -56,9 +56,9 @@ namespace Lerbaek.Messaging.Lectio
 
     private async Task<bool> TryGetInbox(HtmlDocument doc)
     {
-      return await lectioModel.TryGetPage(
+      return await _lectioModel.TryGetPage(
         new Uri(
-          $"https://www.lectio.dk/lectio/560/beskeder2.aspx?type=&elevid={lectioModel.StudentId}&selectedfolderid=-10"),
+          $"https://www.lectio.dk/lectio/560/beskeder2.aspx?type=&elevid={_lectioModel.StudentId}&selectedfolderid=-10"),
         doc);
     }
   }

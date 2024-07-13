@@ -6,22 +6,22 @@ namespace Lerbaek.NetDaemon.Apps.Monitoring;
 //[Focus]
 public class Humidity
 {
-  private readonly ILogger<Humidity> logger;
-  private readonly INotificationBuilder notificationBuilder;
-  private readonly (int Low, int High) limits = (40, 60);
-  private readonly NotifyServices notifyServices;
-  private readonly DeviceTrackerEntities deviceTrackers;
-  private Dictionary<string, List<BinarySensorEntity>> windowDoorSensorsByArea = null!;
-  private ClimateEntity[] climateEntities = null!;
+  private readonly ILogger<Humidity> _logger;
+  private readonly INotificationBuilder _notificationBuilder;
+  private readonly (int Low, int High) _limits = (40, 60);
+  private readonly NotifyServices _notifyServices;
+  private readonly DeviceTrackerEntities _deviceTrackers;
+  private Dictionary<string, List<BinarySensorEntity>> _windowDoorSensorsByArea = null!;
+  private ClimateEntity[] _climateEntities = null!;
 
-  private bool IsHome => deviceTrackers.KristoffersGalaxyS20Ultra.State is "home";
+  private bool IsHome => _deviceTrackers.KristoffersGalaxyS20Ultra.State is "home";
 
   public Humidity(IHaContext ha, ILogger<Humidity> logger, INotificationBuilder notificationBuilder)
   {
-    this.logger = logger;
-    this.notificationBuilder = notificationBuilder;
-    notifyServices = new NotifyServices(ha);
-    deviceTrackers = new DeviceTrackerEntities(ha);
+    this._logger = logger;
+    this._notificationBuilder = notificationBuilder;
+    _notifyServices = new NotifyServices(ha);
+    _deviceTrackers = new DeviceTrackerEntities(ha);
     ResolveWindowSensors(ha);
     SubscribeToClimateEntities(ha);
   }
@@ -29,7 +29,7 @@ public class Humidity
   private void ResolveWindowSensors(IHaContext ha)
   {
     var sensors = new BinarySensorEntities(ha);
-    windowDoorSensorsByArea = sensors
+    _windowDoorSensorsByArea = sensors
       .GetPropertiesOfType<BinarySensorEntity>()
       .Where(s => s.Attributes is { DeviceClass: "window", Contact: { } })
       .GroupBy(s =>
@@ -39,7 +39,7 @@ public class Humidity
 
         const string errorMsg = "{0} is not assigned to any area.";
         var e = new NullReferenceException(string.Format(errorMsg, s.EntityId));
-        logger.LogError(e, string.Format(errorMsg, "{EntityId}"), s.EntityId);
+        _logger.LogError(e, string.Format(errorMsg, "{EntityId}"), s.EntityId);
         throw e;
       })
       .ToDictionary(g => g.Key, g => g.ToList());
@@ -48,12 +48,12 @@ public class Humidity
   private void SubscribeToClimateEntities(IHaContext ha)
   {
     var entities = new ClimateEntities(ha);
-    climateEntities = entities.GetPropertiesOfType<ClimateEntity>().ToArray();
-    foreach (var climateEntity in climateEntities)
+    _climateEntities = entities.GetPropertiesOfType<ClimateEntity>().ToArray();
+    foreach (var climateEntity in _climateEntities)
     {
       climateEntity.StateAllChanges().Where(HumidityOutOfRange).Subscribe(CheckHumidity);
       if (climateEntity.Attributes != null)
-        logger.LogInformation("Overvåger luftfugtighed i {Room}", climateEntity.Attributes.FriendlyName);
+        _logger.LogInformation("Overvåger luftfugtighed i {Room}", climateEntity.Attributes.FriendlyName);
     }
   }
 
@@ -61,22 +61,22 @@ public class Humidity
   {
     var climate = (ClimateEntity)change.Entity;
     var humidity = climate.Attributes!.CurrentHumidity;
-    var low = humidity < limits.Low;
+    var low = humidity < _limits.Low;
     var title = (low ? "Lav" : "Høj") + " luftfugtighed!";
     var friendlyName = climate.Attributes.FriendlyName;
     const string message = "{0}: {1}%.";
 
-    logger.LogDebug(string.Format(message, "{FriendlyName}", "{Humidity}"), friendlyName, humidity);
+    _logger.LogDebug(string.Format(message, "{FriendlyName}", "{Humidity}"), friendlyName, humidity);
     
-    if(windowDoorSensorsByArea.TryGetValue(climate.Area!, out var sensors) && sensors.Any(s => s.IsOn()))
+    if(_windowDoorSensorsByArea.TryGetValue(climate.Area!, out var sensors) && sensors.Any(s => s.IsOn()))
     {
-      logger.LogDebug("{FriendlyName}: Der udluftes allerede.", friendlyName);
+      _logger.LogDebug("{FriendlyName}: Der udluftes allerede.", friendlyName);
       return;
     }
 
     if (!IsHome)
     {
-      logger.LogDebug("{FriendlyName}: Kristoffer er ikke hjemme, så ingen notifikation sendt.", friendlyName);
+      _logger.LogDebug("{FriendlyName}: Kristoffer er ikke hjemme, så ingen notifikation sendt.", friendlyName);
       return;
     }
 
@@ -84,21 +84,21 @@ public class Humidity
 
     var notificationMessage = string.Join(
       NewLine,
-      climateEntities.Where(
+      _climateEntities.Where(
           ce => ce.Attributes?.CurrentHumidity is {} currentHumidity &&
-                (currentHumidity < limits.Low || currentHumidity > limits.High))
+                (currentHumidity < _limits.Low || currentHumidity > _limits.High))
         .Select(
           sba =>
             string.Format(
               message,
               sba.Attributes!.FriendlyName,
               sba.Attributes!.CurrentHumidity)));
-    notificationBuilder
+    _notificationBuilder
       .SetTitle(title)
       .SetMessage(notificationMessage)
       .SetChannel("Humidity alert")
       .SetTag(nameof(Humidity))
-      .Notify(notifyServices.KristoffersTelefon);
+      .Notify(_notifyServices.KristoffersTelefon);
   }
 
   private bool HumidityOutOfRange(StateChange change)
@@ -110,10 +110,10 @@ public class Humidity
 
     if (humidity is null)
     {
-      logger.LogWarning("Ingen værdi for luftfugtighed fundet i {entityId}.", climate.EntityId);
+      _logger.LogWarning("Ingen værdi for luftfugtighed fundet i {entityId}.", climate.EntityId);
       return false;
     }
 
-    return humidity < limits.Low || humidity > limits.High;
+    return humidity < _limits.Low || humidity > _limits.High;
   }
 }

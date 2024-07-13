@@ -15,12 +15,12 @@ namespace Lerbaek.Lectio
     public ILogger Logger { get; }
     public HttpClient HttpClient { get; }
     public long StudentId { get; private set; }= -1;
-    private readonly LectioConfig config;
+    private readonly LectioConfig _config;
 
     public LectioModel(LectioConfig config, ILogger logger, IHttpClientFactory httpClientFactory)
     {
       Logger = logger;
-      this.config = config;
+      this._config = config;
       HttpClient = httpClientFactory.CreateClient(nameof(LectioModel));
     }
 
@@ -32,11 +32,11 @@ namespace Lerbaek.Lectio
         ("__EVENTTARGET", "m$Content$submitbtn2"),
         ("__EVENTVALIDATION",
           "omkBP+/TrZoAdJ+61ALetpe9aIc9+oKC8am2FRCpce09OTzWV27VCGYz/vc3OXR6kT+giVxBuQ19h+kAB9pAGpd6C6FjK0z/RsTCRPMBgEfHnWjJQijGVPNMc63fptjoEPgV9wJPHlsrshdx3ZhypUdWdIGgSyLRZtfyAOGrmeqz60AK3C9B+qVHnozdgA2agsBUO2pMwau9lU1l1Vs/PXT0oCcR34ZnsomWqKZRygc="),
-        ("m$Content$username", config.Username),
-        ("m$Content$password", config.Password)
+        ("m$Content$username", _config.Username),
+        ("m$Content$password", _config.Password)
       }.Select(tuple => new KeyValuePair<string, string>(tuple.key, tuple.value)));
 
-      Logger.LogInformation("Logging in to LectioModel with user: {username}", config.Username);
+      Logger.LogInformation("Logging in to LectioModel with user: {username}", _config.Username);
       var response = await HttpClient.PostAsync("https://www.lectio.dk/lectio/560/login.aspx", content);
       Logger.LogDebug("Status code: {statusCode}", response.StatusCode);
       var doc = new HtmlDocument();

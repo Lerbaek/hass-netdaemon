@@ -12,7 +12,7 @@ namespace Lerbaek.Auctions
   {
     protected readonly ILogger Logger;
     protected readonly HttpClient HttpClient;
-    private Dictionary<HttpClient, CancellationTokenSource> cancellationTokens;
+    private Dictionary<HttpClient, CancellationTokenSource> _cancellationTokens;
 
     /// <summary>
     /// When called, this property always cancels the old instance and returns a new one.
@@ -21,9 +21,9 @@ namespace Lerbaek.Auctions
     {
       get
       {
-        if (cancellationTokens.ContainsKey(HttpClient))
-          cancellationTokens[HttpClient].Cancel();
-        return cancellationTokens[HttpClient] = new CancellationTokenSource();
+        if (_cancellationTokens.ContainsKey(HttpClient))
+          _cancellationTokens[HttpClient].Cancel();
+        return _cancellationTokens[HttpClient] = new CancellationTokenSource();
       }
     }
 
@@ -31,7 +31,7 @@ namespace Lerbaek.Auctions
     {
       Logger = logger;
       HttpClient = httpClient;
-      cancellationTokens = new Dictionary<HttpClient, CancellationTokenSource>();
+      _cancellationTokens = new Dictionary<HttpClient, CancellationTokenSource>();
     }
 
 

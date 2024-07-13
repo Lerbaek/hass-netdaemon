@@ -12,9 +12,9 @@ namespace Lerbaek.Calendar.Lectio
 {
   public class LectioCalendarModel : CalendarModel
   {
-    private readonly LectioModel lectioModel;
+    private readonly LectioModel _lectioModel;
 
-    public LectioCalendarModel(LectioModel lectioModel) : base(lectioModel.Logger) => this.lectioModel = lectioModel;
+    public LectioCalendarModel(LectioModel lectioModel) : base(lectioModel.Logger) => this._lectioModel = lectioModel;
 
     public override async Task<Result<IEnumerable<IEventModel>>> GetEvents()
     {
@@ -23,7 +23,7 @@ namespace Lerbaek.Calendar.Lectio
       if (!await TryGetSchedule(doc))
       {
         Logger.LogDebug("Could not get schedule. Logging in.");
-        var loginResult = await lectioModel.Login();
+        var loginResult = await _lectioModel.Login();
         if (loginResult.IsFailed)
           return Result.Fail(loginResult.Errors);
         Logger.LogDebug("Getting schedule from Lectio.");
@@ -47,7 +47,7 @@ namespace Lerbaek.Calendar.Lectio
       Logger.LogDebug("Getting class schedules in parallel.");
       var tasks = classIds.Select(id => Task.Run(async () =>
       {
-        var response = await lectioModel.HttpClient.GetAsync(
+        var response = await _lectioModel.HttpClient.GetAsync(
           $"https://www.lectio.dk/lectio/560/aktivitet/AktivitetListe2.aspx?holdelementid={id}");
 
         var classDoc = new HtmlDocument();
@@ -84,9 +84,9 @@ namespace Lerbaek.Calendar.Lectio
 
     private async Task<bool> TryGetSchedule(HtmlDocument doc)
     {
-      return await lectioModel.TryGetPage(
+      return await _lectioModel.TryGetPage(
         new Uri(
-          $"https://www.lectio.dk/lectio/560/SkemaNy.aspx?type=elev&elevid={lectioModel.StudentId}"),
+          $"https://www.lectio.dk/lectio/560/SkemaNy.aspx?type=elev&elevid={_lectioModel.StudentId}"),
         doc);
     }
   }

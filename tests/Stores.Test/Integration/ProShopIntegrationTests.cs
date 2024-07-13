@@ -9,13 +9,13 @@ namespace Lerbaek.Stores.Test.Integration;
 
 public class ProShopIntegrationTests : HttpClientModelTestsBase
 {
-  private readonly ProShopModel uut;
+  private readonly ProShopModel _uut;
 
   public ProShopIntegrationTests(
     IHttpClientFactory httpClientFactory, ITestOutputHelper output)
     : base(httpClientFactory, output)
   {
-    ProShopModel.TryCreate(GetALink(), HttpClient, Logger, out uut)
+    ProShopModel.TryCreate(GetALink(), HttpClient, Logger, out _uut)
       .Should().BeTrue();
     
   }
@@ -37,24 +37,24 @@ public class ProShopIntegrationTests : HttpClientModelTestsBase
     return link;
   }
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public async Task GetTitle_PageExists_TitleIsRetrieved()
   {
-    var title = await uut.GetTitle();
+    var title = await _uut.GetTitle();
     title.Should().NotBeNullOrEmpty();
   }
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public async Task GetTitle_PageExists_CurrentPriceIsRetrieved()
   {
-    var price = await uut.GetCurrentPrice();
+    var price = await _uut.GetCurrentPrice();
     price.Should().BeGreaterThan(0);
   }
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public async Task GetTitle_PageExists_NormalPriceIsRetrieved()
   {
-    var price = await uut.GetNormalPrice();
+    var price = await _uut.GetNormalPrice();
     price.Should().BeGreaterThan(0);
   }
 }

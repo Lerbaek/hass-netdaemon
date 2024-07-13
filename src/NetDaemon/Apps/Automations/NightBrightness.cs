@@ -9,51 +9,51 @@ public class NightBrightness
 {
   private const int NightBrightnessPercentage = 1;
   private const int MaxBrightnessPercentage = 100;
-  private readonly IHaContext ha;
-  private readonly ILogger<NightBrightness> logger;
+  private readonly IHaContext _ha;
+  private readonly ILogger<NightBrightness> _logger;
 
   private IEnumerable<LightEntity> ExcludedLights => new[]
   {
-    lights.Alang,
-    lights.AlleIndendorsLys,
-    lights.BadevaerelseGu53,
-    lights.Ballon,
-    lights.FelenaTassel,
-    lights.FelenaTassel,
-    lights.GarageLanterne,
-    lights.Indkorsel,
-    lights.LysForanGaragen,
-    lights.LysIBaghaven,
-    lights.LysIBryggerset,
-    lights.LysIEntreen,
-    lights.LysIFordelingsgangen,
-    lights.LysIKokkenet,
-    lights.LysIStuen,
-    lights.LysPaBadevaerelset,
-    lights.LysPaEbbesVaerelse,
-    lights.LysPaRoarsVaerelse,
-    lights.LysPaSovevaerelset,
-    lights.LysPaToilettet,
-    lights.Maane,
-    lights.PartialIndkorsel1,
-    lights.PartialIndkorsel2,
-    lights.PartialIndkorsel3,
-    lights.PartialIndkorsel4,
-    lights.PartialIndkorsel5,
-    lights.Toilet,
+    _lights.Alang,
+    _lights.AlleIndendorsLys,
+    _lights.BadevaerelseGu53,
+    _lights.Ballon,
+    _lights.FelenaTassel,
+    _lights.FelenaTassel,
+    _lights.GarageLanterne,
+    _lights.Indkorsel,
+    _lights.LysForanGaragen,
+    _lights.LysIBaghaven,
+    _lights.LysIBryggerset,
+    _lights.LysIEntreen,
+    _lights.LysIFordelingsgangen,
+    _lights.LysIKokkenet,
+    _lights.LysIStuen,
+    _lights.LysPaBadevaerelset,
+    _lights.LysPaEbbesVaerelse,
+    _lights.LysPaRoarsVaerelse,
+    _lights.LysPaSovevaerelset,
+    _lights.LysPaToilettet,
+    _lights.Maane,
+    _lights.PartialIndkorsel1,
+    _lights.PartialIndkorsel2,
+    _lights.PartialIndkorsel3,
+    _lights.PartialIndkorsel4,
+    _lights.PartialIndkorsel5,
+    _lights.Toilet,
   };
 
-  private readonly InputBooleanEntities inputBooleans;
-  private readonly LightEntities lights;
+  private readonly InputBooleanEntities _inputBooleans;
+  private readonly LightEntities _lights;
 
   public NightBrightness(IHaContext ha, ILogger<NightBrightness> logger)
   {
-    this.ha = ha;
-    this.logger = logger;
-    inputBooleans = new InputBooleanEntities(ha);
-    lights = new LightEntities(ha);
+    this._ha = ha;
+    this._logger = logger;
+    _inputBooleans = new InputBooleanEntities(ha);
+    _lights = new LightEntities(ha);
     ha.StateChanges().Subscribe(SetBrightness);
-    inputBooleans.NightMode.StateChanges().Subscribe(ResetBrightness);
+    _inputBooleans.NightMode.StateChanges().Subscribe(ResetBrightness);
   }
 
   private void ResetBrightness(StateChange change)
@@ -63,7 +63,7 @@ public class NightBrightness
       if (change.New.IsOn())
         return;
 
-      var allLights = typeof(LightEntities).GetProperties().Select(p => p.GetMethod!.Invoke(lights, null) as LightEntity);
+      var allLights = typeof(LightEntities).GetProperties().Select(p => p.GetMethod!.Invoke(_lights, null) as LightEntity);
       foreach (var light in allLights.Where(light =>
                  light is not null
                  && !IsExcluded(light.EntityId)
@@ -72,7 +72,7 @@ public class NightBrightness
     }
     catch (Exception e)
     {
-      logger.LogErrorMethod(e);
+      _logger.LogErrorMethod(e);
     }
   }
 
@@ -83,17 +83,17 @@ public class NightBrightness
       if (!SpecificBrightnessRequired(change))
         return;
 
-      var brightnessPercentage = inputBooleans.NightMode.IsOn()
+      var brightnessPercentage = _inputBooleans.NightMode.IsOn()
         ? NightBrightnessPercentage
         : MaxBrightnessPercentage;
 
       var entityId = change.Entity.EntityId;
-      var light = new LightEntity(ha, entityId);
+      var light = new LightEntity(_ha, entityId);
       var name = light.Attributes?.FriendlyName ?? entityId;
 
       if (light.Attributes!.Brightness is null)
       {
-        logger.LogTrace("{name} has no brightness attribute", name);
+        _logger.LogTrace("{name} has no brightness attribute", name);
         return;
       }
 
@@ -101,17 +101,17 @@ public class NightBrightness
 
       if (Math.Abs(currentBrightnessPercentage - brightnessPercentage) < 0.1)
       {
-        logger.LogTrace("{name} is already at {brightnessPercentage}%", name, brightnessPercentage);
+        _logger.LogTrace("{name} is already at {brightnessPercentage}%", name, brightnessPercentage);
         return;
       }
 
-      logger.LogDebug("Setting brightness of {name} from {from} to {to}", name, currentBrightnessPercentage, brightnessPercentage);
+      _logger.LogDebug("Setting brightness of {name} from {from} to {to}", name, currentBrightnessPercentage, brightnessPercentage);
     
       light.TurnOn(brightnessPct: brightnessPercentage);
     }
     catch (Exception e)
     {
-      logger.LogErrorMethod(e);
+      _logger.LogErrorMethod(e);
     }
   }
 
@@ -121,11 +121,11 @@ public class NightBrightness
 
     if (!entityId.StartsWith("light."))
     {
-      logger.LogTrace("{name} is not a light entity", entityId);
+      _logger.LogTrace("{name} is not a light entity", entityId);
       return false;
     }
 
-    var light = new LightEntity(ha, entityId);
+    var light = new LightEntity(_ha, entityId);
     string? name;
     try
     {
@@ -138,19 +138,19 @@ public class NightBrightness
 
     if (IsExcluded(entityId))
     {
-      logger.LogTrace("{name} is excluded", name);
+      _logger.LogTrace("{name} is excluded", name);
       return false;
     }
 
     if (change.Old.IsOn())
     {
-      logger.LogTrace("{name} is already on", name);
+      _logger.LogTrace("{name} is already on", name);
       return false;
     }
 
     if (change.New.IsOff())
     {
-      logger.LogTrace("{name} has been turned off", name);
+      _logger.LogTrace("{name} has been turned off", name);
       return false;
     }
 
