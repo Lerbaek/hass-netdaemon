@@ -66,6 +66,7 @@ public class LectioCalendar
                     $"Attribut ikke fundet: {missingAttributes}")
                   .SetTag($"{nameof(LectioError)}{nameof(LectioError.AttributeNotFound)}");
             }
+
             _logger.LogError("An error occurred while trying to update {Calendar}. Reason: {Reason}",
               nameof(LectioCalendar),
               string.Join(", ", result.Reasons.Select(r =>

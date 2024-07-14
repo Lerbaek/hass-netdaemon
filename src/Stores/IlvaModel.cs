@@ -41,6 +41,7 @@ namespace Lerbaek.Stores
           success = false;
           logger.LogError(error);
         }
+
         if(!url.TryGetVariantErp(out var variantErpId, out error))
         {
           success = false;

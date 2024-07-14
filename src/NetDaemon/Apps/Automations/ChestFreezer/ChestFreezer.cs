@@ -86,6 +86,7 @@ public class ChestFreezer
         _logger.LogWarning("Tænder fryseren for en sikkerheds skyld.");
         _chestFreezer.TurnOn();
       }
+
       _notificationBuilder.Presets.NotifyAppException(e);
     }
     finally
@@ -119,6 +120,7 @@ public class ChestFreezer
             Task.Delay(FromMinutes(1)).Wait();
           }
         }
+
         var lowerThreshold = pricesToday!.OrderBy(_ => _).Skip(11).Take(2).Average();
         var average = pricesToday!.Average();
         var upperThreshold = new[]{lowerThreshold, average, 2.5}.Max(); // Never turn off if below 2,5

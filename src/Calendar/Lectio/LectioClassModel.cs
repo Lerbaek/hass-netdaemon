@@ -51,6 +51,7 @@ namespace Lerbaek.Calendar.Lectio
         LectioError.AttributeNotFound.Metadata["attribute"] = tooltipAttribute;
         return Result.Fail(LectioError.AttributeNotFound);
       }
+
       var course = additionalInfo.Extract<string>("(?<=Hold: ).*");
       var startDateTimeString = additionalInfo.Extract<string>(".*-\\d{4}.*(?= til )");
       var startDateTime = ParseDateTime(startDateTimeString);
@@ -65,6 +66,7 @@ namespace Lerbaek.Calendar.Lectio
         LectioError.AttributeNotFound.Metadata["attribute"] = linkAttribute;
         return Result.Fail(LectioError.AttributeNotFound);
       }
+
       var baseUriNode = htmlNode.OwnerDocument.DocumentNode.SelectSingleNode("//a[@class=\"ls-master-header-logo\"]");
       var baseUriLink = baseUriNode.GetAttributeValue(linkAttribute, null);
 

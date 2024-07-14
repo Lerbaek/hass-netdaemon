@@ -18,6 +18,7 @@ namespace Lerbaek.RegEx
         catch
         {
         }
+
         foreach (var match in matches)
           yield return match;
       }
