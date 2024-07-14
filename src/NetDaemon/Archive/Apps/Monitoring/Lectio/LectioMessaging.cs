@@ -17,19 +17,16 @@ public class LectioMessaging : Lectio
   private readonly ILogger<LectioMessaging> _logger;
   private readonly INotificationBuilder _notificationBuilder;
   private readonly LectioMessagingModel _messaging;
-  private readonly IConfiguration _config;
   private readonly NotifyServices _notifyService;
 
   public LectioMessaging(
     IHaContext ha,
     IAppConfig<LectioConfig> appConfig,
-    IConfiguration config,
     INetDaemonScheduler scheduler,
     ILogger<LectioMessaging> logger,
     IHttpClientFactory httpClientFactory,
     INotificationBuilder notificationBuilder) : base(httpClientFactory)
   {
-    this._config = config;
     this._logger = logger;
     this._notificationBuilder = notificationBuilder;
     var lectioModel = new LectioModel(appConfig.Value, logger, httpClientFactory);
