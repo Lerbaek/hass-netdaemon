@@ -96,7 +96,7 @@ public class Nordlux : ServiceHandler
 
     var deviceList = status.Data!.DeviceList!.ToArray();
 
-    if (!deviceList.Any())
+    if (deviceList.Length == 0)
     {
       _logger.LogWarning("No devices were found when retrieving status. Assert that the ciphers are still valid.");
       return;
@@ -105,7 +105,7 @@ public class Nordlux : ServiceHandler
     var entity = new LightEntities(HaContext).OliveTreeBranch;
 
     var onlineDevices = deviceList.Where(dl => dl.IsOnline()).ToArray();
-    var isOnline = onlineDevices.Any();
+    var isOnline = onlineDevices.Length != 0;
     var state = isOnline
       ? "on"
       : "off";

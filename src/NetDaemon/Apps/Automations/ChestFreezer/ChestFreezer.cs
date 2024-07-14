@@ -67,7 +67,7 @@ public class ChestFreezer
             : price > high)
         .ToArray();
 
-      if (pricesOutsideThreshold.Any())
+      if (pricesOutsideThreshold.Length != 0)
       {
         var acceptablePriceTime = (knownFuturePrices.IndexOf(pricesOutsideThreshold.First()) + nextHour) % 24;
         _logger.LogInformation("Den {onOrOff} igen kl. {time}", tooHigh ? "tændes" : "slukkes", acceptablePriceTime);
