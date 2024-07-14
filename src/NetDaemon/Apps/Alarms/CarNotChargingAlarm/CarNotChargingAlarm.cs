@@ -16,12 +16,12 @@ public class CarNotChargingAlarmApp
   private string _carBluetoothName = null!;
 
   private readonly string[] _homeNetworks =
-  {
+  [
     "Virus.exe",
     "Virus5.ext",
     "Virus.ext",
     "PlayGroundStuff"
-  };
+  ];
 
   private bool EngineRunning => _entities.BinarySensor.CeedEngine.IsOn();
   private bool Connected => ChargerSeesCar || CarSeesCharger;

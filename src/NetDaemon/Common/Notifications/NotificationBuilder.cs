@@ -122,7 +122,7 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
     if (tag != null)
       action.Add("tag", tag);
 
-    Actions = Actions.Concat(new[] { action }).ToArray();
+    Actions = Actions.Concat([action]).ToArray();
     return this;
   }
 

@@ -28,7 +28,7 @@ public class CampenAuktionerTests : LoggerTestsBase
     });
       
     _uut = new CampenAuktionerSite(Logger, httpClient);
-    _itemsWithA = _uut.GetMatchesAsync(new[] { "a" }).Result;
+    _itemsWithA = _uut.GetMatchesAsync(["a"]).Result;
   }
 
   [Fact]
@@ -37,7 +37,7 @@ public class CampenAuktionerTests : LoggerTestsBase
   [Fact]
   public async Task GetMatches_SearchTermANotX_FewerItemsFound()
   {
-    var itemsSubset = await _uut.GetMatchesAsync(new[] { "a -x" });
+    var itemsSubset = await _uut.GetMatchesAsync(["a -x"]);
     itemsSubset.Count().Should().BeLessThan(_itemsWithA.Count());
   }
 }

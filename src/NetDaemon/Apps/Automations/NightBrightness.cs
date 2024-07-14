@@ -12,8 +12,8 @@ public class NightBrightness
   private readonly IHaContext _ha;
   private readonly ILogger<NightBrightness> _logger;
 
-  private IEnumerable<LightEntity> ExcludedLights => new[]
-  {
+  private IEnumerable<LightEntity> ExcludedLights =>
+  [
     _lights.Alang,
     _lights.AlleIndendorsLys,
     _lights.BadevaerelseGu53,
@@ -41,7 +41,7 @@ public class NightBrightness
     _lights.PartialIndkorsel4,
     _lights.PartialIndkorsel5,
     _lights.Toilet,
-  };
+  ];
 
   private readonly InputBooleanEntities _inputBooleans;
   private readonly LightEntities _lights;
