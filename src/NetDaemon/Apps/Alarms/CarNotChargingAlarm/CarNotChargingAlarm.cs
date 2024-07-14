@@ -34,7 +34,7 @@ public class CarNotChargingAlarmApp
 
   private bool DescriptionContains(string key) => _entities.Sensor.WallboxPortalStatusDescription.State!.Contains(key, StringComparison.InvariantCultureIgnoreCase);
   private bool BatteryIs(int percentage) => (int)Math.Round(_entities.Sensor.CeedEvBatteryLevel.State!.Value) == percentage;
-  private bool IsHome(Entity entity) => entity.State is "home";
+  private static bool IsHome(Entity entity) => entity.State is "home";
 
   private bool IsConnectedToCarBluetooth(NumericEntityState<NumericSensorAttributes> entity)
   {

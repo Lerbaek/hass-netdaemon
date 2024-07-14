@@ -134,7 +134,7 @@ public class ChestFreezer
     }
   }
 
-  private string FormatPrice(double price)
+  private static string FormatPrice(double price)
   {
     var priceKroner = (int)price;
     var priceKronerString = priceKroner > 0 ? priceKroner + " kr." : "";
@@ -144,7 +144,7 @@ public class ChestFreezer
     return priceString;
   }
 
-  private void SetStateOn(Entity entity, bool turnedOn) =>
+  private static void SetStateOn(Entity entity, bool turnedOn) =>
     entity.CallService($"turn_{(turnedOn ? "on" : "off")}");
 
   private void ScheduleNextRun()
