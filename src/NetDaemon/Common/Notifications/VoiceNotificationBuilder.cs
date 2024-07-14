@@ -46,11 +46,11 @@ public class VoiceNotificationBuilder : IVoiceNotificationBuilder
     }
     else
     {
-      if (!VoiceNotificationVolumeStream.ContainsKey(voiceNotificationVolume))
+      if (!VoiceNotificationVolumeStream.TryGetValue(voiceNotificationVolume, out string? value))
         throw new ArgumentException(
           $@"{nameof(VoiceNotificationVolume)} value '{(int)voiceNotificationVolume}' not supported",
           nameof(voiceNotificationVolume));
-      Data[MediaStreamKey] = VoiceNotificationVolumeStream[voiceNotificationVolume];
+      Data[MediaStreamKey] = value;
     }
 
     // ReSharper disable once SwitchExpressionHandlesSomeKnownEnumValuesWithExceptionInDefault
