@@ -93,7 +93,7 @@ public class NightBrightness
 
       if (light.Attributes!.Brightness is null)
       {
-        _logger.LogTrace("{name} has no brightness attribute", name);
+        _logger.LogTrace("{Name} has no brightness attribute", name);
         return;
       }
 
@@ -101,11 +101,11 @@ public class NightBrightness
 
       if (Math.Abs(currentBrightnessPercentage - brightnessPercentage) < 0.1)
       {
-        _logger.LogTrace("{name} is already at {brightnessPercentage}%", name, brightnessPercentage);
+        _logger.LogTrace("{Name} is already at {BrightnessPercentage}%", name, brightnessPercentage);
         return;
       }
 
-      _logger.LogDebug("Setting brightness of {name} from {from} to {to}", name, currentBrightnessPercentage, brightnessPercentage);
+      _logger.LogDebug("Setting brightness of {Name} from {From} to {To}", name, currentBrightnessPercentage, brightnessPercentage);
     
       light.TurnOn(brightnessPct: brightnessPercentage);
     }
@@ -121,7 +121,7 @@ public class NightBrightness
 
     if (!entityId.StartsWith("light."))
     {
-      _logger.LogTrace("{name} is not a light entity", entityId);
+      _logger.LogTrace("{Name} is not a light entity", entityId);
       return false;
     }
 
@@ -138,19 +138,19 @@ public class NightBrightness
 
     if (IsExcluded(entityId))
     {
-      _logger.LogTrace("{name} is excluded", name);
+      _logger.LogTrace("{Name} is excluded", name);
       return false;
     }
 
     if (change.Old.IsOn())
     {
-      _logger.LogTrace("{name} is already on", name);
+      _logger.LogTrace("{Name} is already on", name);
       return false;
     }
 
     if (change.New.IsOff())
     {
-      _logger.LogTrace("{name} has been turned off", name);
+      _logger.LogTrace("{Name} has been turned off", name);
       return false;
     }
 

@@ -26,7 +26,6 @@ public class IlvaIntegrationTests : HttpClientModelTestsBase
       await HttpClient.GetAsync(
         "https://api.ilva.dk/api/recommendations/getPopularProductCategoriesRecommendations/?displayedAtLocationType=Front+Page&numOfRecommendations=1");
 
-
     var baseUrl = new Uri("http://ilva.dk/");
     var popularProductStream = await popularProductResponse.Content.ReadAsStreamAsync();
     var popularProductJson = await JsonNode.ParseAsync(popularProductStream);

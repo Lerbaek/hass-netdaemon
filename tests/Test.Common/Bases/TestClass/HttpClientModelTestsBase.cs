@@ -2,13 +2,8 @@
 
 namespace Lerbaek.Test.Common.Bases.TestClass
 {
-  public abstract class HttpClientModelTestsBase : LoggerTestsBase
+  public abstract class HttpClientModelTestsBase(IHttpClientFactory httpClientFactory, ITestOutputHelper output) : LoggerTestsBase(output)
   {
-    protected HttpClient HttpClient { get; }
-  
-    protected HttpClientModelTestsBase(IHttpClientFactory httpClientFactory, ITestOutputHelper output) : base(output)
-    {
-      HttpClient = httpClientFactory.CreateClient(nameof(HttpClientModelTestsBase));
-    }
+    protected HttpClient HttpClient { get; } = httpClientFactory.CreateClient(nameof(HttpClientModelTestsBase));
   }
 }

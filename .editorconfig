@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# Use PascalCase for named placeholders
+dotnet_diagnostic.CA1727.severity = error

@@ -16,9 +16,8 @@ public class VoiceNotificationBuilderTests(ITestOutputHelper output, INotificati
   private const string TtsTextValue = "Test";
   private readonly IVoiceNotificationBuilder _uut = notificationBuilder.MakeVoiceNotification(TtsTextValue, Default);
 
-  public static IEnumerable<object[]> Volumes =>
-    Enum.GetValues<VoiceNotificationVolume>()
-        .Select(v => new object[] { v });
+  public static TheoryData<VoiceNotificationVolume> Volumes =>
+    new(Enum.GetValues<VoiceNotificationVolume>());
 
   [Theory]
   [MemberData(nameof(Volumes))]

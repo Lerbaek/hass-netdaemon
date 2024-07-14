@@ -53,7 +53,7 @@ public class PriceMonitor : ServiceHandler
     var entity = new Entity(HaContext, args.Id);
     if (entity.EntityState is null)
     {
-      Logger.LogWarning("Entity {entityId} not found", args.Id);
+      Logger.LogWarning("Entity {EntityId} not found", args.Id);
       return;
     }
     
@@ -91,7 +91,7 @@ public class PriceMonitor : ServiceHandler
     
     if(!success)
     {
-      Logger.LogError("Failed to create price monitor for the URL \"{url}\"", url);
+      Logger.LogError("Failed to create price monitor for the URL \"{Url}\"", url);
       return;
     }
 
@@ -126,7 +126,7 @@ public class PriceMonitor : ServiceHandler
     {
       if (price == oldPrice)
       {
-        Logger.LogTrace("{title}: {currency}{price} (unchanged)", title, storePriceMonitor.Currency, price);
+        Logger.LogTrace("{Title}: {Currency}{Price} (unchanged)", title, storePriceMonitor.Currency, price);
         return;
       }
     }
@@ -134,11 +134,11 @@ public class PriceMonitor : ServiceHandler
     var normalPrice = await storePriceMonitor.GetNormalPrice();
 
     if (price != normalPrice)
-      Logger.LogInformation("{title}: {currency}{price} (normally {currency}{normalPrice})",
+      Logger.LogInformation("{Title}: {Currency}{Price} (normally {Currency}{NormalPrice})",
         title, storePriceMonitor.Currency, price, storePriceMonitor.Currency,
         await storePriceMonitor.GetNormalPrice());
     else
-      Logger.LogInformation("{title}: {currency}{price}",
+      Logger.LogInformation("{Title}: {Currency}{Price}",
         title, storePriceMonitor.Currency, price);
 
     await EntityManager.SetStateAsync(storePriceMonitor.EntityId, $"{price}");

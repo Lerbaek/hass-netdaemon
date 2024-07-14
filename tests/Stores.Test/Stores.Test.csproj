@@ -8,6 +8,14 @@
     <AssemblyName>Lerbaek.$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;xUnit1004</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;xUnit1004</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="SampleData\1055729-5642100692.json" />
     <None Remove="SampleData\1068901-5642651197.json" />

@@ -57,7 +57,7 @@ public class CampenAuktioner
     }
     catch (Exception e)
     {
-      _logger.LogError($"An error occurred on {context}.");
+      _logger.LogError("An error occurred on {Context}.", context);
       _logger.LogError("{Exception}", e.ToString());
     }
   }
@@ -71,7 +71,7 @@ public class CampenAuktioner
     var matches = (await _campenAuktionerSite.GetMatchesAsync(watchlist)).ToArray();
 
     SetMatches(string.Join($"{NewLine}---{NewLine}", matches.Select(m => m.Markdown)));
-    Notify(matches.ToArray());
+    Notify([.. matches]);
   }
 
   private void Notify(CampenAuktionerItem[] matches)

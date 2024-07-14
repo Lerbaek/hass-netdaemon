@@ -50,7 +50,6 @@ public class IlvaTests : StoreTestBase
     title.Should().Be(expectedTitle);
   }
 
-
   [Theory(Skip = "Archived")]
   [InlineData(WoodstockPath, 1799)]
   [InlineData(BestlaPath, 6999)]
@@ -61,7 +60,6 @@ public class IlvaTests : StoreTestBase
     price.Should().Be(expectedCurrentPrice);
   }
 
-
   [Theory(Skip = "Archived")]
   [InlineData(WoodstockPath, 2299)]
   [InlineData(BestlaPath, 8999)]
@@ -71,7 +69,6 @@ public class IlvaTests : StoreTestBase
     var price = await uut.GetNormalPrice();
     price.Should().Be(expectedNormalPrice);
   }
-
 
   [Theory(Skip = "Archived")]
   [InlineData(WoodstockPath)]

@@ -80,7 +80,7 @@ public class CarNotChargingAlarmApp
         .PairedDevices!
         .Single(d => d.Contains(CarBluetoothMacAddress, StringComparison.InvariantCultureIgnoreCase));
 
-    _logger.LogInformation("Car's Bluetooth name resolved to {bluetoothName}", _carBluetoothName);
+    _logger.LogInformation("Car's Bluetooth name resolved to {BluetoothName}", _carBluetoothName);
 
     var people = new (NumericSensorEntity BluetoothConnection, Func<bool> IsHome)[]
     {
@@ -99,21 +99,20 @@ public class CarNotChargingAlarmApp
         if (!person.IsHome())
         {
           _logger.LogDebug(
-            "{friendlyName} has disconnected from {bluetoothName}, but the phone has been detected away from home.",
+            "{FriendlyName} has disconnected from {BluetoothName}, but the phone has been detected away from home.",
             change.Entity.Attributes!.FriendlyName,
             _carBluetoothName);
           return;
         }
 
         _logger.LogInformation(
-          "{friendlyName} has disconnected from {bluetoothName}, and the phone has been detected at home. Refreshing data.",
+          "{FriendlyName} has disconnected from {BluetoothName}, and the phone has been detected at home. Refreshing data.",
           change.Entity.Attributes!.FriendlyName,
           _carBluetoothName);
 
         ForceUpdate();
       });
   }
-
 
   private void CarNotChargingAlarm(StateChange<SensorEntity, EntityState<SensorAttributes>> change)
   {

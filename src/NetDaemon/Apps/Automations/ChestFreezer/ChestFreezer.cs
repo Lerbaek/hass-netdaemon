@@ -45,7 +45,7 @@ public class ChestFreezer
         SetStateOn(_chestFreezer, !tooHigh);
       }
       else
-        _logger.LogInformation("Kummefryseren er fortsat {onOrOff}.", tooHigh ? "slukket" : "tændt");
+        _logger.LogInformation("Kummefryseren er fortsat {OnOrOff}.", tooHigh ? "slukket" : "tændt");
 
       var attributes = _energySensor.Attributes!;
 
@@ -70,11 +70,11 @@ public class ChestFreezer
       if (pricesOutsideThreshold.Length != 0)
       {
         var acceptablePriceTime = (knownFuturePrices.IndexOf(pricesOutsideThreshold.First()) + nextHour) % 24;
-        _logger.LogInformation("Den {onOrOff} igen kl. {time}", tooHigh ? "tændes" : "slukkes", acceptablePriceTime);
+        _logger.LogInformation("Den {OnOrOff} igen kl. {Time}", tooHigh ? "tændes" : "slukkes", acceptablePriceTime);
       }
       else
       {
-        _logger.LogInformation("Der er ikke planlagt ændringer i de næste {availableHours} timer.",
+        _logger.LogInformation("Der er ikke planlagt ændringer i de næste {AvailableHours} timer.",
           knownFuturePrices.Count.ToString());
       }
     }
@@ -116,7 +116,7 @@ public class ChestFreezer
               throw;
             _notificationBuilder.Presets.NotifyAppException(e);
             _logger.LogErrorMethod(e);
-            _logger.LogWarning("Retrying every minute for {retries} more minute(s). Debugging is encouraged.", retriesLeft);
+            _logger.LogWarning("Retrying every minute for {Retries} more minute(s). Debugging is encouraged.", retriesLeft);
             Task.Delay(FromMinutes(1)).Wait();
           }
         }
@@ -126,9 +126,9 @@ public class ChestFreezer
         var upperThreshold = new[]{lowerThreshold, average, 2.5}.Max(); // Never turn off if below 2,5
         var lowerString = FormatPrice(lowerThreshold);
         var upperString = FormatPrice(upperThreshold);
-        _logger.LogInformation("1 kWh koster nu {currentPrice}.", currentPriceString);
-        _logger.LogInformation("Tænder når prisen er under: {low}.", lowerString);
-        _logger.LogInformation("Slukker når den er over: {high}", upperString);
+        _logger.LogInformation("1 kWh koster nu {CurrentPrice}.", currentPriceString);
+        _logger.LogInformation("Tænder når prisen er under: {Low}.", lowerString);
+        _logger.LogInformation("Slukker når den er over: {High}", upperString);
         return (lowerThreshold, upperThreshold);
       }
     }

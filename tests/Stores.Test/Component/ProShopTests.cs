@@ -16,7 +16,7 @@ public class ProShopTests(ITestOutputHelper output) : StoreTestBase(output, GetP
   {
     var validPath = url.TryGetProductId(out var productId, out var error);
     if (!validPath)
-      logger.LogError(error);
+      logger.LogError("{Error}", error);
     validPath.Should().BeTrue("the path should end with a product ID");
     return productId;
   }
@@ -34,7 +34,6 @@ public class ProShopTests(ITestOutputHelper output) : StoreTestBase(output, GetP
     title.Should().Be(expectedTitle);
   }
 
-
   [Theory(Skip = "Archived")]
   [InlineData(GalaxyS21Path, 4777)]
   [InlineData(AirpodsPath, 1333)]
@@ -45,7 +44,6 @@ public class ProShopTests(ITestOutputHelper output) : StoreTestBase(output, GetP
     price.Should().Be(expectedCurrentPrice);
   }
 
-
   [Theory(Skip = "Archived")]
   [InlineData(GalaxyS21Path, 6599)]
   [InlineData(AirpodsPath, 1495)]
@@ -55,7 +53,6 @@ public class ProShopTests(ITestOutputHelper output) : StoreTestBase(output, GetP
     var price = await uut.GetNormalPrice();
     price.Should().Be(expectedNormalPrice);
   }
-
 
   [Theory(Skip = "Archived")]
   [InlineData(GalaxyS21Path)]

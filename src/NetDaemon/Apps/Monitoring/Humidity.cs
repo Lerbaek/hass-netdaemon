@@ -39,7 +39,7 @@ public class Humidity
 
         const string errorMsg = "{0} is not assigned to any area.";
         var e = new NullReferenceException(string.Format(errorMsg, s.EntityId));
-        _logger.LogError(e, string.Format(errorMsg, "{EntityId}"), s.EntityId);
+        _logger.LogError(e, "{EntityId} is not assigned to any area.", s.EntityId);
         throw e;
       })
       .ToDictionary(g => g.Key, g => g.ToList());
@@ -64,9 +64,8 @@ public class Humidity
     var low = humidity < _limits.Low;
     var title = (low ? "Lav" : "Høj") + " luftfugtighed!";
     var friendlyName = climate.Attributes.FriendlyName;
-    const string message = "{0}: {1}%.";
 
-    _logger.LogDebug(string.Format(message, "{FriendlyName}", "{Humidity}"), friendlyName, humidity);
+    _logger.LogDebug("{FriendlyName}: {Humidity}%.", friendlyName, humidity);
     
     if(_windowDoorSensorsByArea.TryGetValue(climate.Area!, out var sensors) && sensors.Any(s => s.IsOn()))
     {
@@ -89,10 +88,7 @@ public class Humidity
                 (currentHumidity < _limits.Low || currentHumidity > _limits.High))
         .Select(
           sba =>
-            string.Format(
-              message,
-              sba.Attributes!.FriendlyName,
-              sba.Attributes!.CurrentHumidity)));
+            $"{sba.Attributes!.FriendlyName}: {sba.Attributes!.CurrentHumidity}%."));
     _notificationBuilder
       .SetTitle(title)
       .SetMessage(notificationMessage)
@@ -110,7 +106,7 @@ public class Humidity
 
     if (humidity is null)
     {
-      _logger.LogWarning("Ingen værdi for luftfugtighed fundet i {entityId}.", climate.EntityId);
+      _logger.LogWarning("Ingen værdi for luftfugtighed fundet i {EntityId}.", climate.EntityId);
       return false;
     }
 

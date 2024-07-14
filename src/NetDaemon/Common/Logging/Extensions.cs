@@ -5,7 +5,7 @@ namespace Lerbaek.NetDaemon.Common.Logging;
 internal static class Extensions
 {
   internal static void LogErrorMethod(this ILogger logger, Exception e) =>
-    ((Action<MethodBase>)(mb => logger.LogError(e, "An error occurred in {method}", mb.Name))).DoWithStackParent();
+    ((Action<MethodBase>)(mb => logger.LogError(e, "An error occurred in {Method}", mb.Name))).DoWithStackParent();
 
   internal static void DoWithStackParent(this Action<MethodBase> action)
   {
