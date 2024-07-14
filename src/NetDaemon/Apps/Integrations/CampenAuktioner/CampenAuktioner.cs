@@ -21,9 +21,9 @@ public class CampenAuktioner
                          IFileSystem              fileSystem,
                          INotificationBuilder     notificationBuilder)
   {
-    this._fileSystem = fileSystem;
-    this._notificationBuilder = notificationBuilder;
-    this._logger = logger;
+    _fileSystem = fileSystem;
+    _notificationBuilder = notificationBuilder;
+    _logger = logger;
     _haContext = ha;
     _services = new Services(ha);
     _varEntities = new VarEntities(ha);

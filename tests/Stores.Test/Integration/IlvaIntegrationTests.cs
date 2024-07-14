@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Nodes;
 using FluentAssertions;
-using HtmlAgilityPack;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Xunit;
 using Xunit.Abstractions;

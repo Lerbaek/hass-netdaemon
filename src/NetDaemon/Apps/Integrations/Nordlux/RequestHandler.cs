@@ -15,8 +15,8 @@ public class RequestHandler : IRequestHandler
 
   public RequestHandler(IAppConfig<NordluxConfig> config, ILogger<NordluxConfig> logger, IHttpClientFactory httpClientFactory)
   {
-    this._config = config.Value;
-    this._logger = logger;
+    _config = config.Value;
+    _logger = logger;
     _httpClient = httpClientFactory.CreateClient(nameof(Nordlux));
 
     _aes = Aes.Create();

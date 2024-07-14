@@ -48,8 +48,8 @@ public class NightBrightness
 
   public NightBrightness(IHaContext ha, ILogger<NightBrightness> logger)
   {
-    this._ha = ha;
-    this._logger = logger;
+    _ha = ha;
+    _logger = logger;
     _inputBooleans = new InputBooleanEntities(ha);
     _lights = new LightEntities(ha);
     ha.StateChanges().Subscribe(SetBrightness);

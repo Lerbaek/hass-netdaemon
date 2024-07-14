@@ -20,7 +20,7 @@ namespace Lerbaek.Stores
     protected ProShopModel(string productId, HttpClient httpClient, ILogger logger) : base(logger)
     {
       ProductId = productId;
-      this._httpClient = httpClient;
+      _httpClient = httpClient;
       Refresh();
     }
 

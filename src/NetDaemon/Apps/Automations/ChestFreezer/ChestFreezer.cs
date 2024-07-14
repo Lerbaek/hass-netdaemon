@@ -16,9 +16,9 @@ public class ChestFreezer
 
   public ChestFreezer(IHaContext ha, INetDaemonScheduler scheduler, ILogger<ChestFreezer> logger, INotificationBuilder notificationBuilder)
   {
-    this._scheduler = scheduler;
-    this._logger = logger;
-    this._notificationBuilder = notificationBuilder;
+    _scheduler = scheduler;
+    _logger = logger;
+    _notificationBuilder = notificationBuilder;
     var entities = new Entities(ha);
     _notifyServices = new NotifyServices(ha);
     _energySensor = entities.Sensor.EnergiDataService;

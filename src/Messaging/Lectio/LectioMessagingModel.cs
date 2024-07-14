@@ -15,7 +15,7 @@ namespace Lerbaek.Messaging.Lectio
 
     public LectioMessagingModel(LectioModel lectioModel)
     {
-      this._lectioModel = lectioModel;
+      _lectioModel = lectioModel;
     }
 
     public async Task<IEnumerable<LectioMessageModel>> GetMessagesAsync()

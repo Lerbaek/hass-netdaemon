@@ -18,8 +18,8 @@ public class Humidity
 
   public Humidity(IHaContext ha, ILogger<Humidity> logger, INotificationBuilder notificationBuilder)
   {
-    this._logger = logger;
-    this._notificationBuilder = notificationBuilder;
+    _logger = logger;
+    _notificationBuilder = notificationBuilder;
     _notifyServices = new NotifyServices(ha);
     _deviceTrackers = new DeviceTrackerEntities(ha);
     ResolveWindowSensors(ha);

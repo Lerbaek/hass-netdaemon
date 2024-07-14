@@ -20,7 +20,7 @@ namespace Lerbaek.Lectio
     public LectioModel(LectioConfig config, ILogger logger, IHttpClientFactory httpClientFactory)
     {
       Logger = logger;
-      this._config = config;
+      _config = config;
       HttpClient = httpClientFactory.CreateClient(nameof(LectioModel));
     }
 

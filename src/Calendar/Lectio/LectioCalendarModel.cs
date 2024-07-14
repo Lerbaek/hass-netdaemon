@@ -14,7 +14,7 @@ namespace Lerbaek.Calendar.Lectio
   {
     private readonly LectioModel _lectioModel;
 
-    public LectioCalendarModel(LectioModel lectioModel) : base(lectioModel.Logger) => this._lectioModel = lectioModel;
+    public LectioCalendarModel(LectioModel lectioModel) : base(lectioModel.Logger) => _lectioModel = lectioModel;
 
     public override async Task<Result<IEnumerable<IEventModel>>> GetEvents()
     {

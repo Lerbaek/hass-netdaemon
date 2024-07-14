@@ -60,9 +60,9 @@ public class CarNotChargingAlarmApp
 
   public CarNotChargingAlarmApp(IHaContext haContext, ILogger<CarNotChargingAlarmApp> logger, INotificationBuilder notificationBuilder)
   {
-    this._haContext = haContext;
-    this._logger = logger;
-    this._notificationBuilder = notificationBuilder;
+    _haContext = haContext;
+    _logger = logger;
+    _notificationBuilder = notificationBuilder;
     _entities = new Entities(haContext);
     _services = new Services(haContext);
     _entities.Sensor.CeedLastUpdatedAt.StateChanges().Subscribe(CarNotChargingAlarm);

@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Lerbaek.RegEx;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static Lerbaek.Auctions.RegularExpressions;
 
 namespace Lerbaek.Auctions.CampenAuktioner
 {
@@ -114,7 +112,7 @@ namespace Lerbaek.Auctions.CampenAuktioner
       catch (Exception e) when (!(e is TaskCanceledException ||
                                   e is HttpRequestException))
       {
-        System.Diagnostics.Debugger.Break();
+        Debugger.Break();
         throw;
       }
     }

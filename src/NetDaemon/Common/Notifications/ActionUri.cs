@@ -4,7 +4,7 @@ public class ActionUri
 {
   private readonly string _uri;
 
-  private ActionUri(string uri) => this._uri = uri;
+  private ActionUri(string uri) => _uri = uri;
 
   public static ActionUri Lovelace(string dashboard) => new($"/lovelace/{dashboard}");
 

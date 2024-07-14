@@ -1,4 +1,6 @@
-﻿namespace Lerbaek.NetDaemon.Common.Logging;
+﻿using System.Diagnostics;
+
+namespace Lerbaek.NetDaemon.Common.Logging;
 
 internal static class Extensions
 {
@@ -7,7 +9,7 @@ internal static class Extensions
 
   internal static void DoWithStackParent(this Action<MethodBase> action)
   {
-    var stackTrace = new System.Diagnostics.StackTrace();
+    var stackTrace = new StackTrace();
     foreach (var methodBase in stackTrace.GetFrames().Skip(2).Select(sf => sf.GetMethod()))
     {
       var fullName = methodBase!.DeclaringType!.FullName!;

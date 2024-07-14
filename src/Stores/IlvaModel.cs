@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Lerbaek.Stores.RegularExpressions.Ilva;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using NMoneys;
-using Lerbaek.Stores.RegularExpressions.Ilva;
 
 namespace Lerbaek.Stores
 {
@@ -21,9 +21,9 @@ namespace Lerbaek.Stores
 
     protected IlvaModel(string productItemId, string variantErpId, HttpClient httpClient, ILogger logger) : base(logger)
     {
-      this._productItemId = productItemId;
-      this._variantErpId = variantErpId;
-      this._httpClient = httpClient;
+      _productItemId = productItemId;
+      _variantErpId = variantErpId;
+      _httpClient = httpClient;
       Refresh();
     }
 

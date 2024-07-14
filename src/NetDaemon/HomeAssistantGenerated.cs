@@ -18,13 +18,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
-using NetDaemon.HassModel;
-using NetDaemon.HassModel.Entities;
-using NetDaemon.HassModel.Entities.Core;
 
 namespace HomeAssistantGenerated;
 public static class GeneratedExtensions

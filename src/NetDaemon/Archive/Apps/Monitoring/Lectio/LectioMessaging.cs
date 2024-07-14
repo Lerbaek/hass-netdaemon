@@ -1,7 +1,6 @@
 ﻿using Lerbaek.Lectio;
 using Lerbaek.Messaging.Lectio;
 using Lerbaek.NetDaemon.Common.Logging;
-using Microsoft.Extensions.Configuration;
 
 namespace Lerbaek.NetDaemon.Archive.Apps.Monitoring.Lectio;
 
@@ -27,8 +26,8 @@ public class LectioMessaging : Lectio
     IHttpClientFactory httpClientFactory,
     INotificationBuilder notificationBuilder) : base(httpClientFactory)
   {
-    this._logger = logger;
-    this._notificationBuilder = notificationBuilder;
+    _logger = logger;
+    _notificationBuilder = notificationBuilder;
     var lectioModel = new LectioModel(appConfig.Value, logger, httpClientFactory);
     _messaging = new LectioMessagingModel(lectioModel);
     _notifyService = new NotifyServices(ha);

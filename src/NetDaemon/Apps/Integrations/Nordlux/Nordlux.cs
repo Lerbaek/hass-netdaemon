@@ -26,10 +26,10 @@ public class Nordlux : ServiceHandler
     IRequestHandler requestHandler)
     : base(haContext, "olivetreebranch")
   {
-    this._config = config.Value;
-    this._logger = logger;
-    this._apiManager = apiManager;
-    this._requestHandler = requestHandler;
+    _config = config.Value;
+    _logger = logger;
+    _apiManager = apiManager;
+    _requestHandler = requestHandler;
 
     RegisterServices();
   }

@@ -20,8 +20,8 @@ public class LectioCalendar
       IHttpClientFactory httpClientFactory,
       INotificationBuilder notificationBuilder)
     {
-        this._logger = logger;
-        this._notificationBuilder = notificationBuilder;
+        _logger = logger;
+        _notificationBuilder = notificationBuilder;
         var lectioModel = new LectioModel(config.Value, logger, httpClientFactory);
         _calendar = new LectioCalendarModel(lectioModel);
         _notifyServices = new NotifyServices(haContext);

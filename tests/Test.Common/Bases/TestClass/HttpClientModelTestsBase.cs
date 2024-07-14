@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using Xunit.Abstractions;
+﻿using Xunit.Abstractions;
 
 namespace Lerbaek.Test.Common.Bases.TestClass
 {
