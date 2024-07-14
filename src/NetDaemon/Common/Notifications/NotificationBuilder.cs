@@ -37,7 +37,7 @@ public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilde
   {
     base.DoReset();
     Message = null;
-    Actions = Array.Empty<IDictionary<string, string>>();
+    Actions = [];
   }
 
   public INotificationBuilder SetMessage(string message)

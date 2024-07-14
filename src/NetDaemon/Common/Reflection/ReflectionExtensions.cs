@@ -11,6 +11,6 @@ public static class ReflectionExtensions
           .GetMethod!
           .Invoke(
             entities,
-            Array.Empty<object>())!)
+            [])!)
       .OfType<TPropertyType>();
 }

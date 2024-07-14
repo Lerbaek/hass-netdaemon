@@ -51,7 +51,7 @@ public class ChestFreezer
 
       var knownPrices = attributes
         .Today!
-        .Concat(attributes.Tomorrow is IEnumerable<double> tomorrow ? tomorrow : Array.Empty<double>())
+        .Concat(attributes.Tomorrow is IEnumerable<double> tomorrow ? tomorrow : [])
         .ToArray();
 
       var nextHour = DateTime.Now.Hour + 1;
