@@ -53,9 +53,9 @@ namespace Lerbaek.Auctions.CampenAuktioner
         var page1 = await GetPage(1, cancellationToken);
 
         var pageCountToken = page1["pageCount"] ?? throw new HttpRequestException("No page count")
-          {
-            Source = GetApiLink(1)
-          };
+        {
+          Source = GetApiLink(1)
+        };
 
         cancellationToken.ThrowIfCancellationRequested();
 
@@ -76,11 +76,6 @@ namespace Lerbaek.Auctions.CampenAuktioner
         Logger.LogInformation(e, "Task cancelled because a new search was started");
         return Enumerable.Empty<CampenAuktionerItem>();
       }
-    }
-
-    private void LogPageRetrieved(int pageNo)
-    {
-      Logger.LogDebug("Retrieved page {page}", pageNo);
     }
 
     private async Task<CampenAuktionerItem[]> GetItemsAsync(int page, CancellationToken cancellationToken)
