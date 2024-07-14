@@ -70,7 +70,7 @@ public class LectioCalendar
             _logger.LogError("An error occurred while trying to update {Calendar}. Reason: {Reason}",
               nameof(LectioCalendar),
               string.Join(", ", result.Reasons.Select(r =>
-              $"{r.Message}" + (r.Metadata.Any() ? $": {string.Join(", ", r.Metadata.Values)}" : ""))));
+              $"{r.Message}" + (r.Metadata.Count != 0 ? $": {string.Join(", ", r.Metadata.Values)}" : ""))));
             SendNotification();
 
 #if DEPLOY
