@@ -7,6 +7,7 @@
   &lt;Assembly Path="C:\Users\Kristoffer\.nuget\packages\microsoft.extensions.logging\6.0.0\lib\netstandard2.1\Microsoft.Extensions.Logging.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\6.0.9\ref\net6.0\Microsoft.Extensions.Hosting.Abstractions.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\ztuff\.nuget\packages\joysoftware.netdaemon.extensions.logging\22.40.0\lib\net6.0\NetDaemon.Extensions.Logging.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\ztuff\source\repos\hass-netdaemon\src\NetDaemon\bin\Debug\net8.0\NetDaemon.Extensions.MqttEntityManager.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8544b3ee_002D58b8_002D451e_002D8878_002D571b9d77fee6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetMatches_SearchTermANotX_FewerItemsFound" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;

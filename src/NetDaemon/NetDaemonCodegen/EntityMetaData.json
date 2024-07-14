@@ -2182,7 +2182,7 @@
         },
         {
           "id": "device_tracker.galaxy_s9_6",
-          "friendlyName": "ROARS-GALAXY-S9",
+          "friendlyName": "GALAXY-S9",
           "cSharpName": "GalaxyS96"
         },
         {
@@ -2522,7 +2522,7 @@
         },
         {
           "id": "device_tracker.sc8bfaff5ce07e22cc_18b6",
-          "friendlyName": "Sc8bfaff5ce07e22cC 18B6",
+          "friendlyName": null,
           "cSharpName": "Sc8bfaff5ce07e22cc18b6"
         },
         {
@@ -2777,7 +2777,7 @@
         },
         {
           "id": "device_tracker.tuyaterrassekoleskab",
-          "friendlyName": "Garaged\u00F8r",
+          "friendlyName": "ESP_10269B",
           "cSharpName": "Tuyaterrassekoleskab"
         },
         {
@@ -3007,7 +3007,7 @@
         },
         {
           "id": "device_tracker.win_f8s9dtb7ecu",
-          "friendlyName": "WIN-F8S9DTB7ECU",
+          "friendlyName": "DESKTOP-CO5LNMA",
           "cSharpName": "WinF8s9dtb7ecu"
         },
         {
@@ -3283,11 +3283,6 @@
           "id": "input_boolean.bagkant_for_bilopladning_aktiveret",
           "friendlyName": "Bagkant for bilopladning aktiveret",
           "cSharpName": "BagkantForBilopladningAktiveret"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsIntegrationsNordluxNordlux"
         },
         {
           "id": "input_boolean.dorklokke",
@@ -8247,7 +8242,7 @@
         },
         {
           "id": "sensor.sc8bfaff5ce07e22cc_18b6_estimated_distance",
-          "friendlyName": "Sc8bfaff5ce07e22cC 18B6 Estimated distance",
+          "friendlyName": "Estimated distance",
           "cSharpName": "Sc8bfaff5ce07e22cc18b6EstimatedDistance"
         },
         {

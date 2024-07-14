@@ -33,11 +33,13 @@ public class LectioCalendar
     private async void UpdateCalendar()
     {
         // ReSharper disable once UnusedVariable because the usage is hidden by a compiler instruction
+#if DEPLOY
         const string calendarEndPath = "calendar";
+#endif
         const string calendarFilename = "gro-vuc.ics";
         var path = Path.Combine(
 #if DEPLOY
-      "/config", "www", calendarEndPath,
+          "/config", "www", calendarEndPath,
 #else
           Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)!,
 #endif
@@ -71,7 +73,7 @@ public class LectioCalendar
             SendNotification();
 
 #if DEPLOY
-      logger.LogInformation("Internet calendar {path} has been updated.", $"https://homeassistant.lerbaek.dk/local/{calendarEndPath}/{calendarFilename}");
+            logger.LogInformation("Internet calendar {path} has been updated.", $"https://homeassistant.lerbaek.dk/local/{calendarEndPath}/{calendarFilename}");
 #endif
         }
         catch (Exception e)
