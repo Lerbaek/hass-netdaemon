@@ -18,7 +18,7 @@ namespace Lerbaek.Messaging.Lectio
       this._lectioModel = lectioModel;
     }
 
-    public async Task<IEnumerable<LectioMessageModel>> GetMessagesAsync(TimeSpan timeSpan)
+    public async Task<IEnumerable<LectioMessageModel>> GetMessagesAsync()
     {
       var doc = new HtmlDocument();
       _lectioModel.Logger.LogDebug("Trying to get messages from Lectio.");

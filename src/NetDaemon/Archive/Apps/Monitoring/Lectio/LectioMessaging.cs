@@ -44,7 +44,7 @@ public class LectioMessaging : Lectio
   {
     try
     {
-      var messages = await _messaging.GetMessagesAsync(FromHours(1));
+      var messages = await _messaging.GetMessagesAsync();
       foreach (var message in messages)
       {
         _notificationBuilder
