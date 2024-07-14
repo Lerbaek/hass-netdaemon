@@ -12,7 +12,6 @@ public class ChestFreezer
   private readonly NumericSensorEntity _energySensor;
   private readonly SwitchEntity _chestFreezer;
   private readonly InputBooleanEntity _chestFreezerPaused;
-  private readonly NotifyServices _notifyServices;
 
   public ChestFreezer(IHaContext ha, INetDaemonScheduler scheduler, ILogger<ChestFreezer> logger, INotificationBuilder notificationBuilder)
   {
@@ -20,7 +19,6 @@ public class ChestFreezer
     _logger = logger;
     _notificationBuilder = notificationBuilder;
     var entities = new Entities(ha);
-    _notifyServices = new NotifyServices(ha);
     _energySensor = entities.Sensor.EnergiDataService;
     _chestFreezer = entities.Switch.Kummefryser;
     _chestFreezerPaused = entities.InputBoolean.KummefryserPaPause;
