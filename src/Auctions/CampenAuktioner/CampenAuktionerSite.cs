@@ -52,13 +52,11 @@ namespace Lerbaek.Auctions.CampenAuktioner
       
         var page1 = await GetPage(1, cancellationToken);
 
-        var pageCountToken = page1["pageCount"];
-        if (pageCountToken == null)
-          throw new HttpRequestException("No page count")
+        var pageCountToken = page1["pageCount"] ?? throw new HttpRequestException("No page count")
           {
             Source = GetApiLink(1)
           };
-      
+
         cancellationToken.ThrowIfCancellationRequested();
 
         var tasks = Enumerable
