@@ -31,11 +31,11 @@ public class ChestFreezer
     {
       if (!_energySensor.State.HasValue)
         throw new NullReferenceException($"Ingen øjebliksværdi fundet i {_energySensor.EntityId}");
-      var thresholds = EvaluateThresholds;
+      var (low, high) = EvaluateThresholds;
 
       var currentPrice = _energySensor.State!.Value;
-      var needsToggling = currentPrice > thresholds.High && _chestFreezer.IsOn() ||
-                          currentPrice < thresholds.Low && _chestFreezer.IsOff();
+      var needsToggling = currentPrice > high && _chestFreezer.IsOn() ||
+                          currentPrice < low && _chestFreezer.IsOff();
       var tooHigh = needsToggling ^ _chestFreezer.IsOff();
 
       if (needsToggling)
@@ -63,8 +63,8 @@ public class ChestFreezer
       var pricesOutsideThreshold = knownFuturePrices
         .Where(price =>
           tooHigh
-            ? price < thresholds.Low
-            : price > thresholds.High)
+            ? price < low
+            : price > high)
         .ToArray();
 
       if (pricesOutsideThreshold.Any())
