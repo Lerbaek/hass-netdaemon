@@ -1,0 +1,6 @@
+Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration.NordluxConfig:
+  AppCode: nordlux
+  AppVersion: v2.2.1
+  BulidV: 98
+  MobileSystemType: android
+  Version: v2.0.0

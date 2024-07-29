@@ -10,6 +10,7 @@
         <AppendTargetFrameworkToOutputPath Condition="'$(Configuration)' == 'Deploy'">false</AppendTargetFrameworkToOutputPath>
         <AppendRuntimeIdentifierToOutputPath Condition="'$(Configuration)' == 'Deploy'">false</AppendRuntimeIdentifierToOutputPath>
         <AssemblyName>Lerbaek.$(MSBuildProjectName)</AssemblyName>
+        <UserSecretsId>7167e23a-6c2a-4383-9729-6b5dca750868</UserSecretsId>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deploy|AnyCPU'">
