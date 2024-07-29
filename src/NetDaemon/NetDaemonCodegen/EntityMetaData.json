@@ -1434,7 +1434,7 @@
         },
         {
           "id": "button.grasputin_restart_baseboard",
-          "friendlyName": "Restart baseboard",
+          "friendlyName": "Grasputin Restart baseboard",
           "cSharpName": "GrasputinRestartBaseboard"
         },
         {
@@ -2187,7 +2187,7 @@
         },
         {
           "id": "device_tracker.galaxy_s9_6",
-          "friendlyName": "GALAXY-S9",
+          "friendlyName": "ROARS-GALAXY-S9",
           "cSharpName": "GalaxyS96"
         },
         {
@@ -2782,7 +2782,7 @@
         },
         {
           "id": "device_tracker.tuyaterrassekoleskab",
-          "friendlyName": "ESP_10269B",
+          "friendlyName": "Garaged\u00F8r",
           "cSharpName": "Tuyaterrassekoleskab"
         },
         {
@@ -2981,6 +2981,11 @@
           "cSharpName": "UnnamedDevice40"
         },
         {
+          "id": "device_tracker.unnamed_device_41",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice41"
+        },
+        {
           "id": "device_tracker.unnamed_device_5",
           "friendlyName": "unnamed device",
           "cSharpName": "UnnamedDevice5"
@@ -3012,7 +3017,7 @@
         },
         {
           "id": "device_tracker.win_f8s9dtb7ecu",
-          "friendlyName": "DESKTOP-CO5LNMA",
+          "friendlyName": "WIN-F8S9DTB7ECU",
           "cSharpName": "WinF8s9dtb7ecu"
         },
         {

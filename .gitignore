@@ -1,10 +1,8 @@
 obj
 bin
-#appsettings.json
 .vs
 *.gen
 .idea
 /appsettings.json
 /NetDaemon/appsettings.json
 /NetDaemon/alerted.txt
-*.yaml
