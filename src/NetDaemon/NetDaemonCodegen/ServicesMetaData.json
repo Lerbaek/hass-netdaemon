@@ -2587,68 +2587,6 @@
         }
       }
     },
-    "kristoffers_telefon": {
-      "name": "Send a notification with kristoffers_telefon",
-      "description": "Sends a notification message using the kristoffers_telefon service.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
-    "gros_telefon": {
-      "name": "Send a notification with gros_telefon",
-      "description": "Sends a notification message using the gros_telefon service.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
     "mobile_app_kristoffers_galaxy_s20_ultra": {
       "name": "Send a notification via mobile_app_kristoffers_galaxy_s20_ultra",
       "description": "Sends a notification message using the mobile_app_kristoffers_galaxy_s20_ultra integration.",
@@ -2900,6 +2838,68 @@
     "notify": {
       "name": "Send a notification with notify",
       "description": "Sends a notification message using the notify service.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "gros_telefon": {
+      "name": "Send a notification with gros_telefon",
+      "description": "Sends a notification message using the gros_telefon service.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "kristoffers_telefon": {
+      "name": "Send a notification with kristoffers_telefon",
+      "description": "Sends a notification message using the kristoffers_telefon service.",
       "fields": {
         "message": {
           "required": true,
