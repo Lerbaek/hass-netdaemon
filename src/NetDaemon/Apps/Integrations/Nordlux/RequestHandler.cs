@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Security.Cryptography;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
@@ -13,7 +14,10 @@ public class RequestHandler : IRequestHandler
   private readonly HttpClient _httpClient;
   private readonly Aes _aes;
 
-  public RequestHandler(IAppConfig<NordluxConfig> config, ILogger<NordluxConfig> logger, IHttpClientFactory httpClientFactory)
+  public RequestHandler(
+    IAppConfig<NordluxConfig> config,
+    ILogger<NordluxConfig> logger,
+    IHttpClientFactory httpClientFactory)
   {
     _config = config.Value;
     _logger = logger;
@@ -25,7 +29,9 @@ public class RequestHandler : IRequestHandler
     _aes.Mode = CipherMode.ECB;
   }
 
-  public async Task<HttpResponseMessage> Send(string body, string apiPath = ApiPath.Controller)
+  public async Task<HttpResponseMessage> Send(
+    string body,
+    string apiPath = ApiPath.Controller)
   {
     var encryptedBody = _aes.EncryptEcb(UTF8.GetBytes(body), PaddingMode.PKCS7);
     var cipher = Convert.ToHexString(encryptedBody);
@@ -33,7 +39,9 @@ public class RequestHandler : IRequestHandler
     return await SendAndLog(requestMessage);
   }
 
-  private async Task<HttpRequestMessage> GenerateRequestMessage(string cipher, string apiPath = ApiPath.Controller)
+  private async Task<HttpRequestMessage> GenerateRequestMessage(
+    string cipher,
+    string apiPath = ApiPath.Controller)
   {
     HttpRequestMessage requestMessage = new(
       HttpMethod.Post,
@@ -44,16 +52,24 @@ public class RequestHandler : IRequestHandler
         cipher
       })
     };
+
     requestMessage.Headers.Host = "api.yankon-xm.com";
     var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-    // ZDc4MGQ1ZjNjNzA2ODUxYWQzODZlN2Q3YWNkYWY2Zjc6MjAyMzExMTIyMjA2MjE=
-    var authorization = Convert.ToBase64String(UTF8.GetBytes($"{_config.AccessKey}:{timestamp}"));
-    requestMessage.Headers.TryAddWithoutValidation("authorization", authorization);
+
+    var authorization = Convert.ToBase64String(
+      UTF8.GetBytes($"{_config.AccessKey}:{timestamp}"));
+
+    requestMessage.Headers.TryAddWithoutValidation(nameof(HttpRequestHeaders.Authorization), authorization);
     var contentLength = (await requestMessage.Content.ReadAsStringAsync()).Length;
     requestMessage.Content.Headers.ContentLength = contentLength;
 
-    var sign = Convert.ToHexString(MD5.HashData(UTF8.GetBytes($"{_config.AccessKey}{_config.SecretKey}{timestamp}")));
+    var sign = Convert.ToHexString(
+      MD5.HashData(
+        UTF8.GetBytes(
+          $"{_config.AccessKey}{_config.SecretKey}{timestamp}")));
+
     requestMessage.Headers.Add("sign", sign);
+
     _logger.LogTrace("Generated request message.");
     _logger.LogTrace("URI: {RequestUri}", requestMessage.RequestUri!.OriginalString);
     _logger.LogTrace("Cipher: {Cipher}", cipher);
@@ -65,7 +81,12 @@ public class RequestHandler : IRequestHandler
   {
     _logger.LogTrace("Sending request");
     var response = await _httpClient.SendAsync(requestMessage);
-    _logger.LogTrace("Response: {StatusCode}({Status})", (int)response.StatusCode, response.StatusCode);
+
+    _logger.LogTrace(
+      "Response: {StatusCode}({Status})",
+      (int)response.StatusCode,
+      response.StatusCode);
+
     return response;
   }
 }

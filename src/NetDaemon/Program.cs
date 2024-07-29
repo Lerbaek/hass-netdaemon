@@ -11,18 +11,18 @@ using NetDaemon.Extensions.MqttEntityManager;
 try
 {
   await Host.CreateDefaultBuilder(args)
-        .UseNetDaemonAppSettings()
-        .UseNetDaemonRuntime()
-        .UseNetDaemonTextToSpeech()
-        .UseNetDaemonMqttEntityManagement()
-        .ConfigureServices(ServiceConfiguration)
-        .UseCustomLogging()
+    .UseNetDaemonAppSettings()
+    .UseNetDaemonRuntime()
+    .UseNetDaemonTextToSpeech()
+    .UseNetDaemonMqttEntityManagement()
+    .ConfigureServices(ServiceConfiguration)
+    .UseCustomLogging()
 #if DEBUG
-        .UseEnvironment("Development")
+    .UseEnvironment("Development")
 #endif
-        .Build()
-        .RunAsync()
-        .ConfigureAwait(false);
+    .Build()
+    .RunAsync()
+    .ConfigureAwait(false);
 }
 catch (Exception e)
 {
