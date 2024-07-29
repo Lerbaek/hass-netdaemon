@@ -1,3 +1,5 @@
+using static System.ArgumentOutOfRangeException;
+
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 
 public class Brightness : Con
@@ -7,8 +9,8 @@ public class Brightness : Con
 
   public static Brightness WithValue(int value)
   {
-    if (value is < 1 or > 100)
-      throw new ArgumentOutOfRangeException(nameof(value));
+    ThrowIfNegativeOrZero(value, nameof(value));
+    ThrowIfGreaterThan(100, value, nameof(value));
     return new Brightness(value);
   }
 }

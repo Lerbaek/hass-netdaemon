@@ -97,7 +97,7 @@ public class NightBrightness
         return;
       }
 
-      var currentBrightnessPercentage = ((int)light.Attributes!.Brightness!.Value).ShiftRange((0, 255), (0, MaxBrightnessPercentage));
+      var currentBrightnessPercentage = ((int)light.Attributes!.Brightness!.Value).ShiftRange(new Spectrum(0, 255), new Spectrum(0, MaxBrightnessPercentage));
 
       if (Math.Abs(currentBrightnessPercentage - brightnessPercentage) < 0.1)
       {

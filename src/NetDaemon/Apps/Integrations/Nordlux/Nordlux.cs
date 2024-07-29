@@ -1,8 +1,8 @@
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
+using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.ResponseModel;
 using Lerbaek.NetDaemon.Common;
 using Lerbaek.NetDaemon.Common.Converters;
 using Lerbaek.NetDaemon.Common.Entities;
-using Status = Lerbaek.NetDaemon.Apps.Integrations.Nordlux.ResponseModel.Status;
 
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 
@@ -34,9 +34,9 @@ public class Nordlux : ServiceHandler
     RegisterServices();
   }
 
-  private readonly (int, int) _percentageRange = (1, 100);
-  private readonly (int, int) _byteRange = (1, 255);
-  private readonly (int, int) _temperatureRange = (153, 500);
+  private readonly Spectrum _percentageSpectrum = new(1, 100);
+  private readonly Spectrum _byteSpectrum = new(1, 255);
+  private readonly Spectrum _temperatureSpectrum = new(153, 500);
 
   private void RegisterServices()
   {
@@ -77,7 +77,7 @@ public class Nordlux : ServiceHandler
   public async Task OliveTreeBranchSetBrightness(int brightness)
   {
     LogServiceCall(_logger, nameof(OliveTreeBranchSetBrightness));
-    var brightnessPercentage = brightness.ShiftRange(_byteRange, _percentageRange);
+    var brightnessPercentage = brightness.ShiftRange(_byteSpectrum, _percentageSpectrum);
     await HandlerSetterService(nameof(OliveTreeBranchSetBrightness), Brightness.WithValue(brightnessPercentage));
   }
 
@@ -85,7 +85,7 @@ public class Nordlux : ServiceHandler
   public async Task OliveTreeBranchSetColorTemperature(int temperature)
   {
     LogServiceCall(_logger, nameof(OliveTreeBranchSetColorTemperature));
-    var temperaturePercentage = temperature.ShiftRange(_temperatureRange, _percentageRange).Reverse(_percentageRange);
+    var temperaturePercentage = temperature.ShiftRange(_temperatureSpectrum, _percentageSpectrum).Reverse(_percentageSpectrum);
     await HandlerSetterService(nameof(OliveTreeBranchSetColorTemperature), Temperature.WithValue(temperaturePercentage));
   }
 
@@ -112,9 +112,9 @@ public class Nordlux : ServiceHandler
     var attributes = entity.Attributes;
     if (isOnline && attributes is not null)
     {
-      var brightness = ((int)onlineDevices.Average(d => d.Bri)!).ShiftRange(_percentageRange, _byteRange);
-      var temperature = ((int)onlineDevices.Average(d => d.Cct)! % 100).ShiftRange(_percentageRange, _temperatureRange)
-        .Reverse(_temperatureRange);
+      var brightness = ((int)onlineDevices.Average(d => d.Bri)!).ShiftRange(_percentageSpectrum, _byteSpectrum);
+      var temperature = ((int)onlineDevices.Average(d => d.Cct)! % 100).ShiftRange(_percentageSpectrum, _temperatureSpectrum)
+        .Reverse(_temperatureSpectrum);
       attributes = attributes.Set(brightness, colorTemp: temperature);
     }
 
