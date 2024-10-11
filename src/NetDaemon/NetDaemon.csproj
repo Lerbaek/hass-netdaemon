@@ -75,10 +75,6 @@
       <ProjectReference Include="..\Stores\Stores.csproj" />
     </ItemGroup>
         
-    <ItemGroup>
-      <Folder Include="Apps\Monitoring\Lectio\" />
-    </ItemGroup>
-        
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)' == 'Debug'">
       <Exec Command="nd-codegen" />
     </Target>

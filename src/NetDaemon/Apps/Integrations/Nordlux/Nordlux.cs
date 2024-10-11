@@ -78,7 +78,7 @@ public class Nordlux : ServiceHandler
   {
     LogServiceCall(_logger, nameof(OliveTreeBranchSetBrightness));
     var brightnessPercentage = brightness.ShiftRange(_byteSpectrum, _percentageSpectrum);
-    await HandlerSetterService(nameof(OliveTreeBranchSetBrightness), Brightness.WithValue(brightnessPercentage));
+    await HandlerSetterService(nameof(OliveTreeBranchSetBrightness), new Brightness(brightnessPercentage));
   }
 
   /// <param name="temperature">Range: 153 (cold) - 500 (warm)</param>
@@ -86,7 +86,7 @@ public class Nordlux : ServiceHandler
   {
     LogServiceCall(_logger, nameof(OliveTreeBranchSetColorTemperature));
     var temperaturePercentage = temperature.ShiftRange(_temperatureSpectrum, _percentageSpectrum).Reverse(_percentageSpectrum);
-    await HandlerSetterService(nameof(OliveTreeBranchSetColorTemperature), Temperature.WithValue(temperaturePercentage));
+    await HandlerSetterService(nameof(OliveTreeBranchSetColorTemperature), new Temperature(temperaturePercentage));
   }
 
   public async Task OliveTreeBranchGetStatus()
@@ -178,7 +178,7 @@ public class Nordlux : ServiceHandler
 
       var response = await _requestHandler.Send(
         getStatusBody,
-        ApiPath.GetBulbStatus);
+        ApiPathConstants.GetBulbStatus);
       
       var content = await response.Content.ReadAsStringAsync();
       _logger.LogTrace("Status:{NewLine}{Content}", NewLine, content);

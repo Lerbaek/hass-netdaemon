@@ -426,6 +426,11 @@
           "cSharpName": "AudiobookshelfConnected"
         },
         {
+          "id": "binary_sensor.aula_aulamessage",
+          "friendlyName": "Aula message",
+          "cSharpName": "AulaAulamessage"
+        },
+        {
           "id": "binary_sensor.badevaerelse_early_start",
           "friendlyName": "Badev\u00E6relse Early start",
           "cSharpName": "BadevaerelseEarlyStart"
@@ -969,6 +974,11 @@
           "id": "binary_sensor.underskabsbelysning_kontakt_update_available",
           "friendlyName": "Underskabsbelysning-kontakt",
           "cSharpName": "UnderskabsbelysningKontaktUpdateAvailable"
+        },
+        {
+          "id": "binary_sensor.unnamed_room_microphone",
+          "friendlyName": "K\u00F8kken Microphone",
+          "cSharpName": "UnnamedRoomMicrophone"
         },
         {
           "id": "binary_sensor.updater",
@@ -2081,6 +2091,11 @@
           "cSharpName": "Chromecast4"
         },
         {
+          "id": "device_tracker.desktop_9t1nt91",
+          "friendlyName": "DESKTOP-9T1NT91",
+          "cSharpName": "Desktop9t1nt91"
+        },
+        {
           "id": "device_tracker.desktop_9t9vauc",
           "friendlyName": "DESKTOP-9T9VAUC",
           "cSharpName": "Desktop9t9vauc"
@@ -2301,6 +2316,16 @@
           "cSharpName": "KristoffersGalaxyS20Ultra"
         },
         {
+          "id": "device_tracker.kristoffers_galaxy_s24_ultra",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra",
+          "cSharpName": "KristoffersGalaxyS24Ultra"
+        },
+        {
+          "id": "device_tracker.kristoffers_galaxy_s24_ultra_2",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra",
+          "cSharpName": "KristoffersGalaxyS24Ultra2"
+        },
+        {
           "id": "device_tracker.kristoffers_galaxy_s9",
           "friendlyName": "KRISTOFFERS-GALAXY-S9",
           "cSharpName": "KristoffersGalaxyS9"
@@ -2337,7 +2362,7 @@
         },
         {
           "id": "device_tracker.kristoffers_s20_ultra_3",
-          "friendlyName": "(null)",
+          "friendlyName": "KRISTOFFERS-S20-ULTRA",
           "cSharpName": "KristoffersS20Ultra3"
         },
         {
@@ -2409,6 +2434,26 @@
           "id": "device_tracker.null_4",
           "friendlyName": "(null)",
           "cSharpName": "Null4"
+        },
+        {
+          "id": "device_tracker.null_5",
+          "friendlyName": "(null)",
+          "cSharpName": "Null5"
+        },
+        {
+          "id": "device_tracker.null_6",
+          "friendlyName": "(null)",
+          "cSharpName": "Null6"
+        },
+        {
+          "id": "device_tracker.null_7",
+          "friendlyName": "(null)",
+          "cSharpName": "Null7"
+        },
+        {
+          "id": "device_tracker.null_8",
+          "friendlyName": "(null)",
+          "cSharpName": "Null8"
         },
         {
           "id": "device_tracker.oneplus_3t",
@@ -2502,7 +2547,7 @@
         },
         {
           "id": "device_tracker.samsung_2",
-          "friendlyName": "SAMSUNG",
+          "friendlyName": "[TV] Samsung 7 Series (65)",
           "cSharpName": "Samsung2"
         },
         {
@@ -2522,7 +2567,7 @@
         },
         {
           "id": "device_tracker.saphe",
-          "friendlyName": "Saphe",
+          "friendlyName": null,
           "cSharpName": "Saphe"
         },
         {
@@ -2564,6 +2609,11 @@
           "id": "device_tracker.sonoszp_2",
           "friendlyName": "SONOSZP",
           "cSharpName": "Sonoszp2"
+        },
+        {
+          "id": "device_tracker.sonoszp_3",
+          "friendlyName": "SONOSZP",
+          "cSharpName": "Sonoszp3"
         },
         {
           "id": "device_tracker.sove",
@@ -2984,6 +3034,21 @@
           "id": "device_tracker.unnamed_device_41",
           "friendlyName": "unnamed device",
           "cSharpName": "UnnamedDevice41"
+        },
+        {
+          "id": "device_tracker.unnamed_device_42",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice42"
+        },
+        {
+          "id": "device_tracker.unnamed_device_43",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice43"
+        },
+        {
+          "id": "device_tracker.unnamed_device_44",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice44"
         },
         {
           "id": "device_tracker.unnamed_device_5",
@@ -3655,6 +3720,11 @@
           "id": "input_text.underskabs_belysning_kontakt_last_action",
           "friendlyName": "Underskabs-belysning-kontakt, last action",
           "cSharpName": "UnderskabsBelysningKontaktLastAction"
+        },
+        {
+          "id": "input_text.walk_in_closet_shortcut_button",
+          "friendlyName": "Walk-in closet shortcut button",
+          "cSharpName": "WalkInClosetShortcutButton"
         }
       ],
       "attributes": [
@@ -4651,6 +4721,11 @@
           "id": "media_player.tv_samsung_7_series_65",
           "friendlyName": "[TV] Samsung 7 Series (65)",
           "cSharpName": "TvSamsung7Series65"
+        },
+        {
+          "id": "media_player.unnamed_room",
+          "friendlyName": "K\u00F8kken",
+          "cSharpName": "UnnamedRoom"
         }
       ],
       "attributes": [
@@ -4869,6 +4944,21 @@
           "id": "number.legevaerelse_treble",
           "friendlyName": "Legev\u00E6relse Treble",
           "cSharpName": "LegevaerelseTreble"
+        },
+        {
+          "id": "number.unnamed_room_balance",
+          "friendlyName": "K\u00F8kken Balance",
+          "cSharpName": "UnnamedRoomBalance"
+        },
+        {
+          "id": "number.unnamed_room_bass",
+          "friendlyName": "K\u00F8kken Bass",
+          "cSharpName": "UnnamedRoomBass"
+        },
+        {
+          "id": "number.unnamed_room_treble",
+          "friendlyName": "K\u00F8kken Treble",
+          "cSharpName": "UnnamedRoomTreble"
         },
         {
           "id": "number.wallbox_portal_max_charging_current",
@@ -6068,6 +6158,16 @@
           "cSharpName": "KristoffersGalaxyS20UltraWifiConnection"
         },
         {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_battery_state",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Battery state",
+          "cSharpName": "KristoffersGalaxyS24UltraBatteryState"
+        },
+        {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_charger_type",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Charger type",
+          "cSharpName": "KristoffersGalaxyS24UltraChargerType"
+        },
+        {
           "id": "sensor.lillebrors_vaerelse_tado_mode",
           "friendlyName": "Ebbes v\u00E6relse Tado mode",
           "cSharpName": "LillebrorsVaerelseTadoMode"
@@ -6524,7 +6624,7 @@
         },
         {
           "id": "sensor.renovation_emballage",
-          "friendlyName": "Renovation: Emballage",
+          "friendlyName": "Renovation: Plast/Emballage/Metal/Glas",
           "cSharpName": "RenovationEmballage"
         },
         {
@@ -6534,7 +6634,7 @@
         },
         {
           "id": "sensor.renovation_pap_papir",
-          "friendlyName": "Renovation: Pap \u0026 papir",
+          "friendlyName": "Renovation: Pap/Papir/Tekstil",
           "cSharpName": "RenovationPapPapir"
         },
         {
@@ -6544,7 +6644,7 @@
         },
         {
           "id": "sensor.renovation_restaffald",
-          "friendlyName": "Renovation: Restaffald",
+          "friendlyName": "Renovation: Restaffald/Madaffald",
           "cSharpName": "RenovationRestaffald"
         },
         {
@@ -6616,6 +6716,11 @@
           "id": "sensor.sovevaerelse_tado_mode",
           "friendlyName": "Sovev\u00E6relse Tado mode",
           "cSharpName": "SovevaerelseTadoMode"
+        },
+        {
+          "id": "sensor.stilling_skole_roar",
+          "friendlyName": "Stilling Skole Roar",
+          "cSharpName": "StillingSkoleRoar"
         },
         {
           "id": "sensor.stovsugerts004f_action",
@@ -7806,11 +7911,6 @@
           "cSharpName": "GrosGalaxyS20HighAccuracyUpdateInterval"
         },
         {
-          "id": "sensor.hacs",
-          "friendlyName": "hacs",
-          "cSharpName": "Hacs"
-        },
-        {
           "id": "sensor.havelamper_energy",
           "friendlyName": "Havelamper Energy",
           "cSharpName": "HavelamperEnergy"
@@ -7931,6 +8031,11 @@
           "cSharpName": "KristoffersGalaxyS20UltraSleepSegment"
         },
         {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_battery_level",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Battery level",
+          "cSharpName": "KristoffersGalaxyS24UltraBatteryLevel"
+        },
+        {
           "id": "sensor.kummefryser_energy",
           "friendlyName": "Kummefryser Energy",
           "cSharpName": "KummefryserEnergy"
@@ -8009,6 +8114,31 @@
           "id": "sensor.lys_paa_loftet_power",
           "friendlyName": "Lys p\u00E5 loftet Power",
           "cSharpName": "LysPaaLoftetPower"
+        },
+        {
+          "id": "sensor.mealie_categories",
+          "friendlyName": "Mealie Categories",
+          "cSharpName": "MealieCategories"
+        },
+        {
+          "id": "sensor.mealie_recipes",
+          "friendlyName": "Mealie Recipes",
+          "cSharpName": "MealieRecipes"
+        },
+        {
+          "id": "sensor.mealie_tags",
+          "friendlyName": "Mealie Tags",
+          "cSharpName": "MealieTags"
+        },
+        {
+          "id": "sensor.mealie_tools",
+          "friendlyName": "Mealie Tools",
+          "cSharpName": "MealieTools"
+        },
+        {
+          "id": "sensor.mealie_users",
+          "friendlyName": "Mealie Users",
+          "cSharpName": "MealieUsers"
         },
         {
           "id": "sensor.nordpool_kwh_dk1_dkk_3_10_025",
@@ -8252,7 +8382,7 @@
         },
         {
           "id": "sensor.saphe_estimated_distance",
-          "friendlyName": "Saphe Estimated distance",
+          "friendlyName": "Estimated distance",
           "cSharpName": "SapheEstimatedDistance"
         },
         {
@@ -9235,6 +9365,11 @@
       "domain": "switch",
       "entities": [
         {
+          "id": "switch.car_card_pre_release",
+          "friendlyName": "Car Card Pre-release",
+          "cSharpName": "CarCardPreRelease"
+        },
+        {
           "id": "switch.ceed_force_update",
           "friendlyName": "Ceed: Force update",
           "cSharpName": "CeedForceUpdate"
@@ -9313,6 +9448,11 @@
           "id": "switch.kummefryser",
           "friendlyName": "Kummefryser",
           "cSharpName": "Kummefryser"
+        },
+        {
+          "id": "switch.landroid_cloud_pre_release",
+          "friendlyName": "Landroid Cloud Pre-release",
+          "cSharpName": "LandroidCloudPreRelease"
         },
         {
           "id": "switch.legevaerelse_crossfade",
@@ -9493,6 +9633,16 @@
           "id": "switch.torretumbler",
           "friendlyName": "T\u00F8rretumbler",
           "cSharpName": "Torretumbler"
+        },
+        {
+          "id": "switch.unnamed_room_crossfade",
+          "friendlyName": "K\u00F8kken Crossfade",
+          "cSharpName": "UnnamedRoomCrossfade"
+        },
+        {
+          "id": "switch.unnamed_room_loudness",
+          "friendlyName": "K\u00F8kken Loudness",
+          "cSharpName": "UnnamedRoomLoudness"
         },
         {
           "id": "switch.vaskemaskine",
@@ -9734,9 +9884,39 @@
           "cSharpName": "AircastUpdate"
         },
         {
+          "id": "update.alarmo_update",
+          "friendlyName": "Alarmo update",
+          "cSharpName": "AlarmoUpdate"
+        },
+        {
+          "id": "update.android_tv_card_update",
+          "friendlyName": "Universal Remote Card update",
+          "cSharpName": "AndroidTvCardUpdate"
+        },
+        {
+          "id": "update.apexcharts_card_update",
+          "friendlyName": "apexcharts-card update",
+          "cSharpName": "ApexchartsCardUpdate"
+        },
+        {
           "id": "update.appdaemon_update",
           "friendlyName": "AppDaemon Update",
           "cSharpName": "AppdaemonUpdate"
+        },
+        {
+          "id": "update.audiobookshelf_update",
+          "friendlyName": "Audiobookshelf update",
+          "cSharpName": "AudiobookshelfUpdate"
+        },
+        {
+          "id": "update.aula_update",
+          "friendlyName": "Aula update",
+          "cSharpName": "AulaUpdate"
+        },
+        {
+          "id": "update.auto_entities_update",
+          "friendlyName": "auto-entities update",
+          "cSharpName": "AutoEntitiesUpdate"
         },
         {
           "id": "update.ballon",
@@ -9744,9 +9924,74 @@
           "cSharpName": "Ballon"
         },
         {
+          "id": "update.bar_card_update",
+          "friendlyName": "Bar Card update",
+          "cSharpName": "BarCardUpdate"
+        },
+        {
+          "id": "update.battery_state_card_entity_row_update",
+          "friendlyName": "Battery State Card / Entity Row update",
+          "cSharpName": "BatteryStateCardEntityRowUpdate"
+        },
+        {
+          "id": "update.browser_mod_update",
+          "friendlyName": "browser_mod update",
+          "cSharpName": "BrowserModUpdate"
+        },
+        {
           "id": "update.bryggers",
           "friendlyName": "Bryggers",
           "cSharpName": "Bryggers"
+        },
+        {
+          "id": "update.bubble_card_update",
+          "friendlyName": "Bubble Card update",
+          "cSharpName": "BubbleCardUpdate"
+        },
+        {
+          "id": "update.candy_simply_fi_update",
+          "friendlyName": "Candy Simply-Fi update",
+          "cSharpName": "CandySimplyFiUpdate"
+        },
+        {
+          "id": "update.car_card_update",
+          "friendlyName": "Car Card update",
+          "cSharpName": "CarCardUpdate"
+        },
+        {
+          "id": "update.card_mod_update",
+          "friendlyName": "card-mod update",
+          "cSharpName": "CardModUpdate"
+        },
+        {
+          "id": "update.card_tools_update",
+          "friendlyName": "card-tools update",
+          "cSharpName": "CardToolsUpdate"
+        },
+        {
+          "id": "update.charger_card_update",
+          "friendlyName": "Charger Card update",
+          "cSharpName": "ChargerCardUpdate"
+        },
+        {
+          "id": "update.collapsable_cards_update",
+          "friendlyName": "Collapsable cards update",
+          "cSharpName": "CollapsableCardsUpdate"
+        },
+        {
+          "id": "update.config_template_card_update",
+          "friendlyName": "Config Template Card update",
+          "cSharpName": "ConfigTemplateCardUpdate"
+        },
+        {
+          "id": "update.cupertino_icons_update",
+          "friendlyName": "cupertino-icons update",
+          "cSharpName": "CupertinoIconsUpdate"
+        },
+        {
+          "id": "update.custom_ui_update",
+          "friendlyName": "Custom-ui update",
+          "cSharpName": "CustomUiUpdate"
         },
         {
           "id": "update.duck_dns_update",
@@ -9759,6 +10004,21 @@
           "cSharpName": "EbbeKontakt"
         },
         {
+          "id": "update.eforsyning_update",
+          "friendlyName": "Eforsyning update",
+          "cSharpName": "EforsyningUpdate"
+        },
+        {
+          "id": "update.eloverblik_update",
+          "friendlyName": "Eloverblik update",
+          "cSharpName": "EloverblikUpdate"
+        },
+        {
+          "id": "update.energi_data_service_update",
+          "friendlyName": "Energi Data Service update",
+          "cSharpName": "EnergiDataServiceUpdate"
+        },
+        {
           "id": "update.esphome_update",
           "friendlyName": "ESPHome Update",
           "cSharpName": "EsphomeUpdate"
@@ -9769,14 +10029,49 @@
           "cSharpName": "EwelinkSmartHomeUpdate"
         },
         {
+          "id": "update.expose_camera_stream_source_update",
+          "friendlyName": "Expose Camera Stream Source update",
+          "cSharpName": "ExposeCameraStreamSourceUpdate"
+        },
+        {
+          "id": "update.facebook_messenger_update",
+          "friendlyName": "Facebook Messenger update",
+          "cSharpName": "FacebookMessengerUpdate"
+        },
+        {
           "id": "update.flowerpot_vp1",
           "friendlyName": "Flowerpot VP1",
           "cSharpName": "FlowerpotVp1"
         },
         {
+          "id": "update.fluid_level_background_card_update",
+          "friendlyName": "Fluid Level Background Card update",
+          "cSharpName": "FluidLevelBackgroundCardUpdate"
+        },
+        {
+          "id": "update.fold_entity_row_update",
+          "friendlyName": "fold-entity-row update",
+          "cSharpName": "FoldEntityRowUpdate"
+        },
+        {
+          "id": "update.frigate_card_update",
+          "friendlyName": "Frigate Card update",
+          "cSharpName": "FrigateCardUpdate"
+        },
+        {
           "id": "update.frigate_full_access_update",
           "friendlyName": "Frigate (Full Access) Update",
           "cSharpName": "FrigateFullAccessUpdate"
+        },
+        {
+          "id": "update.frigate_update",
+          "friendlyName": "Frigate update",
+          "cSharpName": "FrigateUpdate"
+        },
+        {
+          "id": "update.fuelprices_dk_update",
+          "friendlyName": "Fuelprices DK update",
+          "cSharpName": "FuelpricesDkUpdate"
         },
         {
           "id": "update.garage_lanterne",
@@ -9792,6 +10087,31 @@
           "id": "update.git_pull_update",
           "friendlyName": "Git pull Update",
           "cSharpName": "GitPullUpdate"
+        },
+        {
+          "id": "update.google_fit_update",
+          "friendlyName": "Google Fit update",
+          "cSharpName": "GoogleFitUpdate"
+        },
+        {
+          "id": "update.google_home_update",
+          "friendlyName": "Google Home update",
+          "cSharpName": "GoogleHomeUpdate"
+        },
+        {
+          "id": "update.google_photos_update",
+          "friendlyName": "Google Photos update",
+          "cSharpName": "GooglePhotosUpdate"
+        },
+        {
+          "id": "update.ha_floorplan_your_imagination_just_became_the_new_limit_update",
+          "friendlyName": "ha-floorplan \uD83D\uDD8C\uD83C\uDFA8 | Your imagination just became the new limit update",
+          "cSharpName": "HaFloorplanYourImaginationJustBecameTheNewLimitUpdate"
+        },
+        {
+          "id": "update.hacs_update",
+          "friendlyName": "HACS update",
+          "cSharpName": "HacsUpdate"
         },
         {
           "id": "update.havelamper",
@@ -9834,6 +10154,11 @@
           "cSharpName": "KaninAstronaut"
         },
         {
+          "id": "update.kia_uvo_hyundai_bluelink_update",
+          "friendlyName": "Kia Uvo / Hyundai Bluelink update",
+          "cSharpName": "KiaUvoHyundaiBluelinkUpdate"
+        },
+        {
           "id": "update.kokkenvask_kontakt",
           "friendlyName": "K\u00F8kkenvask-kontakt",
           "cSharpName": "KokkenvaskKontakt"
@@ -9842,6 +10167,21 @@
           "id": "update.kummefryser",
           "friendlyName": "Kummefryser",
           "cSharpName": "Kummefryser"
+        },
+        {
+          "id": "update.landroid_card_update",
+          "friendlyName": "Landroid Card update",
+          "cSharpName": "LandroidCardUpdate"
+        },
+        {
+          "id": "update.landroid_cloud_update",
+          "friendlyName": "Landroid Cloud update",
+          "cSharpName": "LandroidCloudUpdate"
+        },
+        {
+          "id": "update.local_tuya_update",
+          "friendlyName": "Local Tuya update",
+          "cSharpName": "LocalTuyaUpdate"
         },
         {
           "id": "update.lys_i_indkorslen",
@@ -9854,14 +10194,34 @@
           "cSharpName": "LysPaaLoftet"
         },
         {
+          "id": "update.mini_graph_card_update",
+          "friendlyName": "mini-graph-card update",
+          "cSharpName": "MiniGraphCardUpdate"
+        },
+        {
           "id": "update.mosquitto_broker_update",
           "friendlyName": "Mosquitto broker Update",
           "cSharpName": "MosquittoBrokerUpdate"
         },
         {
+          "id": "update.multiline_text_input_card_update",
+          "friendlyName": "Multiline Text Input Card update",
+          "cSharpName": "MultilineTextInputCardUpdate"
+        },
+        {
+          "id": "update.multiple_entity_row_update",
+          "friendlyName": "Multiple Entity Row update",
+          "cSharpName": "MultipleEntityRowUpdate"
+        },
+        {
           "id": "update.maane",
           "friendlyName": "M\u00E5ne",
           "cSharpName": "Maane"
+        },
+        {
+          "id": "update.netdaemon_update",
+          "friendlyName": "NetDaemon update",
+          "cSharpName": "NetdaemonUpdate"
         },
         {
           "id": "update.netdaemon_v3_1_net_7_update",
@@ -9882,6 +10242,16 @@
           "id": "update.node_red_update",
           "friendlyName": "Node-RED Update",
           "cSharpName": "NodeRedUpdate"
+        },
+        {
+          "id": "update.nordpool_update",
+          "friendlyName": "nordpool update",
+          "cSharpName": "NordpoolUpdate"
+        },
+        {
+          "id": "update.paper_buttons_row_update",
+          "friendlyName": "Paper Buttons Row update",
+          "cSharpName": "PaperButtonsRowUpdate"
         },
         {
           "id": "update.partial_alang_1",
@@ -9984,9 +10354,24 @@
           "cSharpName": "PartialToiletVindue"
         },
         {
+          "id": "update.places_update",
+          "friendlyName": "Places update",
+          "cSharpName": "PlacesUpdate"
+        },
+        {
           "id": "update.plex_media_server_seedbox",
           "friendlyName": "Plex Media Server (Seedbox)",
           "cSharpName": "PlexMediaServerSeedbox"
+        },
+        {
+          "id": "update.plotly_graph_card_update",
+          "friendlyName": "Plotly Graph Card update",
+          "cSharpName": "PlotlyGraphCardUpdate"
+        },
+        {
+          "id": "update.rgb_light_card_update",
+          "friendlyName": "RGB Light Card update",
+          "cSharpName": "RgbLightCardUpdate"
         },
         {
           "id": "update.roar_kontakt",
@@ -9999,9 +10384,59 @@
           "cSharpName": "SambaShareUpdate"
         },
         {
+          "id": "update.samsungtv_tizen_update",
+          "friendlyName": "SamsungTV Tizen update",
+          "cSharpName": "SamsungtvTizenUpdate"
+        },
+        {
+          "id": "update.scheduler_card_update",
+          "friendlyName": "Scheduler Card update",
+          "cSharpName": "SchedulerCardUpdate"
+        },
+        {
+          "id": "update.scheduler_component_update",
+          "friendlyName": "Scheduler component update",
+          "cSharpName": "SchedulerComponentUpdate"
+        },
+        {
+          "id": "update.secondaryinfo_entity_row_update",
+          "friendlyName": "Secondaryinfo Entity Row update",
+          "cSharpName": "SecondaryinfoEntityRowUpdate"
+        },
+        {
           "id": "update.seedbox",
           "friendlyName": "Seedbox",
           "cSharpName": "Seedbox"
+        },
+        {
+          "id": "update.shutter_card_update",
+          "friendlyName": "Shutter Card update",
+          "cSharpName": "ShutterCardUpdate"
+        },
+        {
+          "id": "update.shutter_row_update",
+          "friendlyName": "Shutter Row update",
+          "cSharpName": "ShutterRowUpdate"
+        },
+        {
+          "id": "update.slider_button_card_update",
+          "friendlyName": "Slider Button Card update",
+          "cSharpName": "SliderButtonCardUpdate"
+        },
+        {
+          "id": "update.slider_entity_row_update",
+          "friendlyName": "slider-entity-row update",
+          "cSharpName": "SliderEntityRowUpdate"
+        },
+        {
+          "id": "update.sonoff_lan_update",
+          "friendlyName": "Sonoff LAN update",
+          "cSharpName": "SonoffLanUpdate"
+        },
+        {
+          "id": "update.sonos_card_update",
+          "friendlyName": "Sonos Card update",
+          "cSharpName": "SonosCardUpdate"
         },
         {
           "id": "update.sqlite_web_update",
@@ -10019,9 +10454,34 @@
           "cSharpName": "StudioCodeServerUpdate"
         },
         {
+          "id": "update.swipe_card_update",
+          "friendlyName": "Swipe Card update",
+          "cSharpName": "SwipeCardUpdate"
+        },
+        {
+          "id": "update.switch_manager_update",
+          "friendlyName": "Switch Manager update",
+          "cSharpName": "SwitchManagerUpdate"
+        },
+        {
           "id": "update.terminal_ssh_update",
           "friendlyName": "Terminal \u0026 SSH Update",
           "cSharpName": "TerminalSshUpdate"
+        },
+        {
+          "id": "update.thermal_comfort_icons_update",
+          "friendlyName": "Thermal Comfort Icons update",
+          "cSharpName": "ThermalComfortIconsUpdate"
+        },
+        {
+          "id": "update.time_picker_card_update",
+          "friendlyName": "Time Picker Card update",
+          "cSharpName": "TimePickerCardUpdate"
+        },
+        {
+          "id": "update.timer_bar_card_update",
+          "friendlyName": "Timer Bar Card update",
+          "cSharpName": "TimerBarCardUpdate"
         },
         {
           "id": "update.toilet_kontakt",
@@ -10029,9 +10489,24 @@
           "cSharpName": "ToiletKontakt"
         },
         {
+          "id": "update.toogoodtogo_update",
+          "friendlyName": "TooGoodToGo update",
+          "cSharpName": "ToogoodtogoUpdate"
+        },
+        {
           "id": "update.torretumbler",
           "friendlyName": "T\u00F8rretumbler",
           "cSharpName": "Torretumbler"
+        },
+        {
+          "id": "update.trashcard_update",
+          "friendlyName": "TrashCard update",
+          "cSharpName": "TrashcardUpdate"
+        },
+        {
+          "id": "update.tv_remote_card_with_touchpad_and_haptic_feedback_update",
+          "friendlyName": "TV Remote Card (with touchpad and haptic feedback) update",
+          "cSharpName": "TvRemoteCardWithTouchpadAndHapticFeedbackUpdate"
         },
         {
           "id": "update.underskabsbelysning_kontakt",
@@ -10039,9 +10514,19 @@
           "cSharpName": "UnderskabsbelysningKontakt"
         },
         {
+          "id": "update.vacuum_card_update",
+          "friendlyName": "Vacuum Card update",
+          "cSharpName": "VacuumCardUpdate"
+        },
+        {
           "id": "update.valder",
           "friendlyName": "Valder",
           "cSharpName": "Valder"
+        },
+        {
+          "id": "update.variable_update",
+          "friendlyName": "Variable update",
+          "cSharpName": "VariableUpdate"
         },
         {
           "id": "update.vaskemaskine",
@@ -10072,6 +10557,21 @@
           "id": "update.walk_in_closet_shortcut",
           "friendlyName": "Walk-in-closet-shortcut",
           "cSharpName": "WalkInClosetShortcut"
+        },
+        {
+          "id": "update.webrtc_camera_update",
+          "friendlyName": "WebRTC Camera update",
+          "cSharpName": "WebrtcCameraUpdate"
+        },
+        {
+          "id": "update.xiaomi_cloud_map_extractor_update",
+          "friendlyName": "Xiaomi Cloud Map Extractor update",
+          "cSharpName": "XiaomiCloudMapExtractorUpdate"
+        },
+        {
+          "id": "update.xiaomi_vacuum_map_card_update",
+          "friendlyName": "Xiaomi Vacuum Map Card update",
+          "cSharpName": "XiaomiVacuumMapCardUpdate"
         },
         {
           "id": "update.xr500_update",
@@ -10627,6 +11127,11 @@
           "cSharpName": "DanskeBankEdwinRahrsVej"
         },
         {
+          "id": "zone.danske_bank_jaegergardsgade",
+          "friendlyName": "Danske Bank J\u00E6gerg\u00E5rdsgade",
+          "cSharpName": "DanskeBankJaegergardsgade"
+        },
+        {
           "id": "zone.home",
           "friendlyName": "Hjem",
           "cSharpName": "Home"
@@ -10665,6 +11170,21 @@
           "id": "zone.scu_hojvangen",
           "friendlyName": "SCU H\u00F8jvangen",
           "cSharpName": "ScuHojvangen"
+        },
+        {
+          "id": "zone.skanderborg_sundhedshus",
+          "friendlyName": "Skanderborg Sundhedshus",
+          "cSharpName": "SkanderborgSundhedshus"
+        },
+        {
+          "id": "zone.soauditorierne",
+          "friendlyName": "S\u00F8auditorierne",
+          "cSharpName": "Soauditorierne"
+        },
+        {
+          "id": "zone.universitetsparken_kantine",
+          "friendlyName": "Universitetsparken: Kantine",
+          "cSharpName": "UniversitetsparkenKantine"
         }
       ],
       "attributes": [
@@ -10732,6 +11252,11 @@
           "id": "calendar.mealie_side",
           "friendlyName": "Mealie Side",
           "cSharpName": "MealieSide"
+        },
+        {
+          "id": "calendar.skoleskema_roar_lerbaek_emkjaer",
+          "friendlyName": "Skoleskema Roar Lerb\u00E6k Emkj\u00E6r",
+          "cSharpName": "SkoleskemaRoarLerbaekEmkjaer"
         }
       ],
       "attributes": [
@@ -10785,6 +11310,11 @@
     {
       "domain": "todo",
       "entities": [
+        {
+          "id": "todo.mealie_indkobsliste",
+          "friendlyName": "Mealie Indk\u00F8bsliste",
+          "cSharpName": "MealieIndkobsliste"
+        },
         {
           "id": "todo.shopping_list",
           "friendlyName": "Shopping List",
@@ -10875,6 +11405,11 @@
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     }

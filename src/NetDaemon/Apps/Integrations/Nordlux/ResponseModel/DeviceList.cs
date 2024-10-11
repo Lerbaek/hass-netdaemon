@@ -1,14 +1,13 @@
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.ResponseModel;
 
-public class DeviceList
+public record DeviceList(
+    int? IsOnLine,
+    int? Cct,
+    int? RingNum,
+    int? Bri,
+    int? Power,
+    string? Rgb,
+    string? DeviceId)
 {
-  public int? IsOnLine { get; set; }
-  public int? Cct { get; set; }
-  public int? RingNum { get; set; }
-  public int? Bri { get; set; }
-  public int? Power { get; set; }
-  public string? Rgb { get; set; }
-  public string? DeviceId { get; set; }
-
-  public bool IsOnline() => IsOnLine == 1 && Power == 1;
+    public bool IsOnline() => IsOnLine == 1 && Power == 1;
 }

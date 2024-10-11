@@ -1,6 +1,3 @@
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.ResponseModel;
 
-public class Data
-{
-  public List<DeviceList>? DeviceList { get; set; }
-}
+public record Data(List<DeviceList>? DeviceList);

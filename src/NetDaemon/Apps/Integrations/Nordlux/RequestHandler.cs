@@ -31,7 +31,7 @@ public class RequestHandler : IRequestHandler
 
   public async Task<HttpResponseMessage> Send(
     string body,
-    string apiPath = ApiPath.Controller)
+    string apiPath = ApiPathConstants.Controller)
   {
     var encryptedBody = _aes.EncryptEcb(UTF8.GetBytes(body), PaddingMode.PKCS7);
     var cipher = Convert.ToHexString(encryptedBody);
@@ -41,7 +41,7 @@ public class RequestHandler : IRequestHandler
 
   private async Task<HttpRequestMessage> GenerateRequestMessage(
     string cipher,
-    string apiPath = ApiPath.Controller)
+    string apiPath = ApiPathConstants.Controller)
   {
     HttpRequestMessage requestMessage = new(
       HttpMethod.Post,
