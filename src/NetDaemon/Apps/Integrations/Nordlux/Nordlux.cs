@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Model;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Model.ActionData;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.ResponseModel;
 using Lerbaek.NetDaemon.Common;
 using Lerbaek.NetDaemon.Common.Converters;
+using Lerbaek.NetDaemon.Common.Logging;
 using static Lerbaek.NetDaemon.Common.Converters.SpectrumConverter;
 using Device = Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Model.Device;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -11,7 +13,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 
 /// <summary>
-/// Application to control Nordlux lights.
+/// Provides methods to register and handle the Nordlux bulbs in the <i>Olive Tree Branch</i> lamp.
 /// </summary>
 [Focus]
 [NetDaemonApp]
@@ -23,11 +25,28 @@ public class Nordlux : ServiceHandler
     private readonly NordluxConfig _config;
     private readonly LightEntities _lightEntities;
 
+    /// <summary>
+    /// Base payload for controller requests.
+    /// </summary>
     private readonly ControllerBleRequestBase _controllerBleRequest;
+
+    /// <summary>
+    /// Payload for status requests.
+    /// </summary>
     private readonly GetDeviceStatusRequest _getStatusBody;
 
+    /// <summary>
+    /// Latest known status of each device.
+    /// </summary>
     private Device[] _deviceList = [];
 
+    /// <inheritdoc cref="Nordlux"/>
+    /// <param name="haContext">The Home Assistant context.</param>
+    /// <param name="logger">Logger for the Nordlux class.</param>
+    /// <param name="apiManager">API manager for Home Assistant interactions.</param>
+    /// <param name="requestHandler">Handler for HTTP requests.</param>
+    /// <param name="config">Configuration for the Nordlux integration.</param>
+    /// <param name="lightEntities">Access point for entities representing lights in Home Assistant.</param>
     public Nordlux(IHaContext haContext,
         ILogger<Nordlux> logger,
         IHomeAssistantApiManager apiManager,
@@ -53,51 +72,101 @@ public class Nordlux : ServiceHandler
         RegisterService("getstatus", OliveTreeBranchUpdateStatus);
     }
 
+    /// <summary>
+    /// Turns off the Olive Tree Branch device.
+    /// </summary>
+    /// 
+    /// <example>
+    /// To call this method from Home Assistant, use the following service call:
+    ///   <code>
+    ///     action: netdaemon.olivetreebranch_turnoff
+    ///   </code>
+    /// </example>
     public async Task OliveTreeBranchTurnOff()
     {
-        using var logScope = CreateScope();
+        using var logScope = _logger.BeginScopeWithCorrelationId();
         LogServiceCall(_logger);
         await SetStatus(_controllerBleRequest.TurnOff());
     }
 
+    /// <summary>
+    /// Turns on the Olive Tree Branch device.
+    /// </summary>
+    /// 
+    /// <example>
+    /// To call this method from Home Assistant, use the following service call:
+    ///   <code>
+    ///     action: netdaemon.olivetreebranch_turnon
+    ///   </code>
+    /// </example>
     public async Task OliveTreeBranchTurnOn()
     {
-        using var logScope = CreateScope();
+        using var logScope = _logger.BeginScopeWithCorrelationId();
         LogServiceCall(_logger);
         await SetStatus(_controllerBleRequest.TurnOn());
     }
 
-    private IDisposable? CreateScope(params (string Field, object? Value)[] context)
-    {
-        context = [
-            .. context,
-            ("CorrelationId", Guid.NewGuid())];
-
-        return _logger.BeginScope(
-            context.ToDictionary(
-                c => c.Field,
-                c => c.Value));
-    }
-
+    /// <summary>
+    /// Sets the brightness of the Olive Tree Branch device.
+    /// </summary>
+    /// 
+    /// <param name="data">The brightness data containing the desired brightness level.</param>
+    /// 
+    /// <example>
+    /// To call this method from Home Assistant, use the following service call:
+    ///   <code>
+    ///     action: netdaemon.olivetreebranch_setbrightness
+    ///     data:
+    ///       Brightness: "{{ brightness }}"
+    ///   </code>
+    /// </example>
     public async Task OliveTreeBranchSetBrightness(BrightnessData data)
     {
-        using var logScope = CreateScope((nameof(data), data));
+        using var logScope = _logger.BeginScopeWithCorrelationId((nameof(data), data));
         LogServiceCall(_logger);
         var percentage = data.Brightness.ShiftRange(ByteSpectrum, PercentageSpectrum);
         await SetStatus(_controllerBleRequest.SetBrightness(percentage));
     }
 
+    /// <summary>
+    /// Sets the color temperature of the Olive Tree Branch device.
+    /// </summary>
+    /// 
+    /// <param name="data">The temperature data containing the desired color temperature.</param>
+    /// 
+    /// <remarks>
+    /// This method is called when the "olivetreebranch_setcolortemperature" service is invoked from Home Assistant.
+    /// </remarks>
+    /// 
+    /// <example>
+    /// To call this method from Home Assistant, use the following service call:
+    ///   <code>
+    ///     action: netdaemon.olivetreebranch_setcolortemperature
+    ///     data:
+    ///       Temperature: "{{ color_temp }}"
+    ///   </code>
+    /// </example>
     public async Task OliveTreeBranchSetColorTemperature(TemperatureData data)
     {
-        using var logScope = CreateScope((nameof(data), data));
+        using var logScope = _logger.BeginScopeWithCorrelationId((nameof(data), data));
         LogServiceCall(_logger);
         var percentage = data.Value.ShiftRange(TemperatureSpectrum, PercentageSpectrum).Reverse(PercentageSpectrum);
         await SetStatus(_controllerBleRequest.SetTemperature(percentage));
     }
 
+    /// <summary>
+    /// Retrieves the current status of the device and updates the status of the Olive Tree Branch light.
+    /// </summary>
+    /// 
+    /// <example>
+    /// To call this method from Home Assistant, use the following service call:
+    ///   <code>
+    ///     action: netdaemon.olivetreebranch_getstatus
+    ///   </code>
+    /// </example>
     public async Task OliveTreeBranchUpdateStatus()
     {
-        using var logScope = CreateScope();
+        using var logScope = _logger.BeginScopeWithCorrelationId();
         LogServiceCall(_logger);
         await GetStatus();
 
@@ -140,6 +209,16 @@ public class Nordlux : ServiceHandler
         await _apiManager.SetEntityStateAsync(entity.EntityId, state, attributes, CancellationToken.None);
     }
 
+    /// <summary>
+    /// Sets the status of the Olive Tree Branch device and updates its current state.
+    /// </summary>
+    /// 
+    /// <param name="setStatusBody">The request body containing the new status to be set. Can be created from a <see cref="ControllerBleRequestBase"/>.</param>
+    /// 
+    /// <remarks>
+    /// This method sends a request to update the device status and then retrieves
+    /// the updated status to ensure the internal state is synchronized.
+    /// </remarks>
     private async Task SetStatus(ControllerBleRequest setStatusBody)
     {
         LogServiceCall(_logger);
@@ -147,6 +226,20 @@ public class Nordlux : ServiceHandler
         await OliveTreeBranchUpdateStatus();
     }
 
+    /// <summary>
+    /// Reports the status of the devices after applying a configuration function.
+    /// </summary>
+    /// 
+    /// <param name="configureDevices">A function that configures each device setter.</param>
+    /// 
+    /// <remarks>
+    /// Reporting the status does not affect the lights, but it does update the internal provider
+    /// state, and will be returned when getting status again.
+    /// <br/>
+    /// The purpose of this method is to ensure that the server state reflects reality when
+    /// locally changing the state, for example through Bluetooth or local gateway communication.
+    /// </remarks>
+    [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Might come in handy")]
     private async Task ReportStatus(Func<DeviceSetter, DeviceSetter> configureDevices)
     {
         LogServiceCall(_logger);
@@ -159,6 +252,16 @@ public class Nordlux : ServiceHandler
         await OliveTreeBranchUpdateStatus();
     }
 
+    /// <summary>
+    /// Retrieves the current status of all devices.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// This method sends a request to get the device status, deserializes the response,
+    /// and populates the internal device list with non-gateway devices.
+    /// </remarks>
+    /// 
+    /// <exception cref="NordluxException">Thrown when the status deserialization fails.</exception>
     private async Task GetStatus()
     {
         var response = await _requestHandler.Send(
