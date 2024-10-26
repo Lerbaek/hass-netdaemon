@@ -22,6 +22,6 @@ public class ServiceHandler(IHaContext haContext, string prefix)
   [SuppressMessage("ReSharper", "ClassNeverInstantiated.Local", Justification = "Needed to register services without data")]
   private record Empty;
 
-  public static void LogServiceCall(ILogger logger, [CallerMemberName] string serviceName = "", params object[] args) =>
-    logger.LogTrace("{Method}({Args}) has been called", serviceName, string.Join(", ", args));
+  public static void LogServiceCall(ILogger logger, [CallerMemberName] string serviceName = "") =>
+    logger.LogTrace("{Method}() has been called", serviceName);
 }

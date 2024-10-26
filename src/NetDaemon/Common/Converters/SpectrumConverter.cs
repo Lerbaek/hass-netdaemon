@@ -5,7 +5,7 @@ namespace Lerbaek.NetDaemon.Common.Converters;
 public static class SpectrumConverter
 {
     public static readonly Spectrum PercentageSpectrum = new(1, 100);
-    public static readonly Spectrum ByteSpectrum = new(1, 255);
+    public static readonly Spectrum ByteSpectrum = new(3, 255);
     public static readonly Spectrum TemperatureSpectrum = new(153, 500);
 
     public static int ShiftRange<T>(this T input, Spectrum oldSpectrum, Spectrum newSpectrum) where T : INumber<T>
@@ -18,7 +18,7 @@ public static class SpectrumConverter
         var outputDelta = inputRatio * newRangeMax;                   // 0-based output value
         var output = outputDelta + newSpectrum.From;                  // Shifted output value
 
-        return Math.Max(newSpectrum.From, (int)output);               // Ensure that rounding error doesn't bring the value below the range
+        return Math.Max(newSpectrum.From, (int)Math.Round(output));   // Ensure that rounding error doesn't bring the value below the range
     }
 
     public static int Reverse(this int input, Spectrum spectrum)
