@@ -1,6 +1,6 @@
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 
-public class Power : Con
+public class Power : Configuration
 {
     private Power(State value) : base("cct", $"{(int)value}") { }
 

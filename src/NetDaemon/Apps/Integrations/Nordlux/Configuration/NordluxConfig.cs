@@ -1,16 +1,21 @@
+using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Validation;
+using Lerbaek.NetDaemon.Common.Validation.Annotations;
+using Version = System.Version;
+
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 
+[ValidateConfig<NordluxConfig, NordluxConfigValidator>]
 public class NordluxConfig
 {
-  public string? SecretKey { get; set; }
-  public string? AccessKey { get; set; }
-  public string? AccountId { get; set; }
-  public string? HouseId { get; set; }
-  public string? Token { get; set; }
-  public string? AppCode { get; set; }
-  public string? AppVersion { get; set; }
-  public int BulidV { get; set; }
-  public string? MobileSystemType { get; set; }
-  public string? UniqueIndication { get; set; }
-  public string? Version { get; set; }
+    public string SecretKey { get; set; } = string.Empty;
+    public string AccessKey { get; set; } = string.Empty;
+    public string AccountId { get; set; } = string.Empty;
+    public string HouseId { get; set; } = string.Empty;
+    public string Token { get; set; } = string.Empty;
+    public string AppCode { get; set; } = string.Empty;
+    public Version AppVersion { get; set; } = new(0, 0);
+    public int BuildVersion { get; set; } = -1;
+    public string MobileSystemType { get; set; } = string.Empty;
+    public string UniqueIndication { get; set; } = string.Empty;
+    public ApiVersions ApiVersions { get; set; } = new();
 }

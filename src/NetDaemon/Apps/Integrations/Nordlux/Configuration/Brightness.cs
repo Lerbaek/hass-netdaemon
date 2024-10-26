@@ -2,7 +2,7 @@ using static System.ArgumentOutOfRangeException;
 
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 
-public class Brightness : Con
+public class Brightness : Configuration
 {
     public Brightness(int value) : base("bri", $"{value}")
     {

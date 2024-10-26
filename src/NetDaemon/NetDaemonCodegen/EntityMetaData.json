@@ -204,6 +204,11 @@
           "cSharpName": "OliveTreeBranchHentStatus"
         },
         {
+          "id": "automation.reminder",
+          "friendlyName": "Reminder ved t\u00E6ndt sk\u00E6rm",
+          "cSharpName": "Reminder"
+        },
+        {
           "id": "automation.renovation_alarm",
           "friendlyName": "Renovation: Alarm",
           "cSharpName": "RenovationAlarm"
@@ -287,6 +292,11 @@
           "id": "automation.too_good_to_go",
           "friendlyName": "Too Good To Go",
           "cSharpName": "TooGoodToGo"
+        },
+        {
+          "id": "automation.ts0044_bryggers",
+          "friendlyName": "TS0044: Bryggers",
+          "cSharpName": "Ts0044Bryggers"
         },
         {
           "id": "automation.ude_sluk_alle_lys_ved_solopgang",
@@ -694,6 +704,11 @@
           "id": "binary_sensor.kristoffers_galaxy_s20_ultra_oplader",
           "friendlyName": "Kristoffers Galaxy S20 Ultra Is charging",
           "cSharpName": "KristoffersGalaxyS20UltraOplader"
+        },
+        {
+          "id": "binary_sensor.kristoffers_galaxy_s24_ultra_interactive",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Interactive",
+          "cSharpName": "KristoffersGalaxyS24UltraInteractive"
         },
         {
           "id": "binary_sensor.lillebrors_vaerelse_early_start",
@@ -1413,6 +1428,11 @@
       "domain": "button",
       "entities": [
         {
+          "id": "button.0x000b57fffe988b1e_identify",
+          "friendlyName": "0x000b57fffe988b1e Identify",
+          "cSharpName": "_0x000b57fffe988b1eIdentify"
+        },
+        {
           "id": "button.ballon_identify",
           "friendlyName": "Ballon Identify",
           "cSharpName": "BallonIdentify"
@@ -1444,7 +1464,7 @@
         },
         {
           "id": "button.grasputin_restart_baseboard",
-          "friendlyName": "Grasputin Restart baseboard",
+          "friendlyName": "Restart baseboard",
           "cSharpName": "GrasputinRestartBaseboard"
         },
         {
@@ -2202,7 +2222,7 @@
         },
         {
           "id": "device_tracker.galaxy_s9_6",
-          "friendlyName": "ROARS-GALAXY-S9",
+          "friendlyName": "GALAXY-S9",
           "cSharpName": "GalaxyS96"
         },
         {
@@ -2456,6 +2476,11 @@
           "cSharpName": "Null8"
         },
         {
+          "id": "device_tracker.null_9",
+          "friendlyName": "(null)",
+          "cSharpName": "Null9"
+        },
+        {
           "id": "device_tracker.oneplus_3t",
           "friendlyName": "ONEPLUS_3T",
           "cSharpName": "Oneplus3t"
@@ -2547,7 +2572,7 @@
         },
         {
           "id": "device_tracker.samsung_2",
-          "friendlyName": "[TV] Samsung 7 Series (65)",
+          "friendlyName": "SAMSUNG",
           "cSharpName": "Samsung2"
         },
         {
@@ -3082,7 +3107,7 @@
         },
         {
           "id": "device_tracker.win_f8s9dtb7ecu",
-          "friendlyName": "WIN-F8S9DTB7ECU",
+          "friendlyName": "DESKTOP-CO5LNMA",
           "cSharpName": "WinF8s9dtb7ecu"
         },
         {
@@ -3360,6 +3385,11 @@
           "cSharpName": "BagkantForBilopladningAktiveret"
         },
         {
+          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
+          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
+          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsAutomationsNightBrightness"
+        },
+        {
           "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
           "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
           "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsIntegrationsNordluxNordlux"
@@ -3420,11 +3450,6 @@
           "cSharpName": "NetdaemonLerbaekNetDaemonAppsMonitoringHumidity"
         },
         {
-          "id": "input_boolean.netdaemon_lerbaek_net_daemon_apps_monitoring_lectio_lectio_calendar",
-          "friendlyName": "netdaemon_lerbaek_net_daemon_apps_monitoring_lectio_lectio_calendar",
-          "cSharpName": "NetdaemonLerbaekNetDaemonAppsMonitoringLectioLectioCalendar"
-        },
-        {
           "id": "input_boolean.netdaemon_lerbaek_net_daemon_apps_monitoring_price_monitor_price_monitor",
           "friendlyName": "netdaemon_lerbaek_net_daemon_apps_monitoring_price_monitor_price_monitor",
           "cSharpName": "NetdaemonLerbaekNetDaemonAppsMonitoringPriceMonitorPriceMonitor"
@@ -3443,6 +3468,16 @@
           "id": "input_boolean.pap_og_papir",
           "friendlyName": "Pap og papir",
           "cSharpName": "PapOgPapir"
+        },
+        {
+          "id": "input_boolean.reminder_custom",
+          "friendlyName": "Reminder: Custom",
+          "cSharpName": "ReminderCustom"
+        },
+        {
+          "id": "input_boolean.reminder_idraet",
+          "friendlyName": "Reminder: Idr\u00E6t",
+          "cSharpName": "ReminderIdraet"
         },
         {
           "id": "input_boolean.restaffald",
@@ -3768,6 +3803,11 @@
     {
       "domain": "light",
       "entities": [
+        {
+          "id": "light.0x000b57fffe988b1e",
+          "friendlyName": "0x000b57fffe988b1e",
+          "cSharpName": "_0x000b57fffe988b1e"
+        },
         {
           "id": "light.alang",
           "friendlyName": "Al\u00E4ng",
@@ -4133,7 +4173,7 @@
         {
           "jsonName": "color_mode",
           "cSharpName": "ColorMode",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "icon",
@@ -4163,22 +4203,22 @@
         {
           "jsonName": "brightness",
           "cSharpName": "Brightness",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "hs_color",
           "cSharpName": "HsColor",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Double]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "rgb_color",
           "cSharpName": "RgbColor",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Double]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "xy_color",
           "cSharpName": "XyColor",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Double]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "entity_id",
@@ -4193,12 +4233,12 @@
         {
           "jsonName": "color_temp_kelvin",
           "cSharpName": "ColorTempKelvin",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "color_temp",
           "cSharpName": "ColorTemp",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "elapsed",
@@ -4576,6 +4616,11 @@
           "id": "media_player.plex_plex_for_android_mobile_galaxy_s20",
           "friendlyName": "Plex (Plex for Android (Mobile) - Galaxy S20\u002B)",
           "cSharpName": "PlexPlexForAndroidMobileGalaxyS20"
+        },
+        {
+          "id": "media_player.plex_plex_for_android_mobile_galaxy_tab_s3",
+          "friendlyName": "Plex (Plex for Android (Mobile) - Galaxy Tab S3)",
+          "cSharpName": "PlexPlexForAndroidMobileGalaxyTabS3"
         },
         {
           "id": "media_player.plex_plex_for_android_mobile_sm_g988b",
@@ -5170,6 +5215,11 @@
           "id": "scene.indkorsel_regnbue",
           "friendlyName": "Indk\u00F8rsel: Regnbue",
           "cSharpName": "IndkorselRegnbue"
+        },
+        {
+          "id": "scene.volume_before_doorbell",
+          "friendlyName": "volume_before_doorbell",
+          "cSharpName": "VolumeBeforeDoorbell"
         }
       ],
       "attributes": [
@@ -5345,6 +5395,11 @@
     {
       "domain": "select",
       "entities": [
+        {
+          "id": "select.0x000b57fffe988b1e_power_on_behavior",
+          "friendlyName": "0x000b57fffe988b1e Power-on behavior",
+          "cSharpName": "_0x000b57fffe988b1ePowerOnBehavior"
+        },
         {
           "id": "select.ballon_power_on_behavior",
           "friendlyName": "Ballon Power-on behavior",
@@ -6781,6 +6836,11 @@
           "id": "sensor.toilet_tado_mode",
           "friendlyName": "Toilet Tado mode",
           "cSharpName": "ToiletTadoMode"
+        },
+        {
+          "id": "sensor.tz3000_bryggers_action",
+          "friendlyName": "TS0044: Bryggers Action",
+          "cSharpName": "Tz3000BryggersAction"
         },
         {
           "id": "sensor.underskabsbelysning_kontakt_action",
@@ -8546,6 +8606,11 @@
           "cSharpName": "TorretumblerPower"
         },
         {
+          "id": "sensor.tz3000_bryggers_battery",
+          "friendlyName": "TS0044: Bryggers Battery",
+          "cSharpName": "Tz3000BryggersBattery"
+        },
+        {
           "id": "sensor.underskabsbelysning_kontakt_battery",
           "friendlyName": "Underskabsbelysning-kontakt Battery",
           "cSharpName": "UnderskabsbelysningKontaktBattery"
@@ -8790,37 +8855,37 @@
         {
           "jsonName": "average",
           "cSharpName": "Average",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "off_peak_1",
           "cSharpName": "OffPeak1",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "off_peak_2",
           "cSharpName": "OffPeak2",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "peak",
           "cSharpName": "Peak",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "min",
           "cSharpName": "Min",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "max",
           "cSharpName": "Max",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "mean",
           "cSharpName": "Mean",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "unit",
@@ -8845,12 +8910,12 @@
         {
           "jsonName": "low_price",
           "cSharpName": "LowPrice",
-          "clrType": "System.Boolean"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "price_percent_to_average",
           "cSharpName": "PricePercentToAverage",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "today",
@@ -8885,7 +8950,7 @@
         {
           "jsonName": "additional_costs_current_hour",
           "cSharpName": "AdditionalCostsCurrentHour",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "price_in_cents",
@@ -9878,6 +9943,11 @@
     {
       "domain": "update",
       "entities": [
+        {
+          "id": "update.0x000b57fffe988b1e",
+          "friendlyName": "0x000b57fffe988b1e",
+          "cSharpName": "_0x000b57fffe988b1e"
+        },
         {
           "id": "update.aircast_update",
           "friendlyName": "AirCast Update",

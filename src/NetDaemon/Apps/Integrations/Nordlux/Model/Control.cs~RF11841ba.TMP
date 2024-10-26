@@ -1,0 +1,16 @@
+using System.Text.Json.Serialization;
+using FluentValidation;
+using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Validation;
+
+namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Model;
+
+public class Control(string ControllerName, string ControllerValue) : IJsonOnSerializing
+{
+    [JsonPropertyName("conModel")]
+    public int ControllerModel => 4867;
+
+    public void OnSerializing()
+    {
+        ControllerValidator.Instance.ValidateAndThrow(this);
+    }
+}

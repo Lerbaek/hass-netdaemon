@@ -1,5 +1,7 @@
-﻿using Lerbaek.NetDaemon.Common.Converters;
+﻿using System.Text.Json;
+using Lerbaek.NetDaemon.Common.Converters;
 using Lerbaek.NetDaemon.Common.Logging;
+using static Lerbaek.NetDaemon.Common.Converters.SpectrumConverter;
 
 namespace Lerbaek.NetDaemon.Apps.Automations;
 
@@ -52,7 +54,7 @@ public class NightBrightness
     _logger = logger;
     _inputBooleans = new InputBooleanEntities(ha);
     _lights = new LightEntities(ha);
-    ha.StateChanges().Subscribe(SetBrightness);
+    ha.StateChanges().Where(SpecificBrightnessRequired).Subscribe(SetBrightness);
     _inputBooleans.NightMode.StateChanges().Subscribe(ResetBrightness);
   }
 
@@ -80,9 +82,6 @@ public class NightBrightness
   {
     try
     {
-      if (!SpecificBrightnessRequired(change))
-        return;
-
       var brightnessPercentage = _inputBooleans.NightMode.IsOn()
         ? NightBrightnessPercentage
         : MaxBrightnessPercentage;
@@ -97,9 +96,9 @@ public class NightBrightness
         return;
       }
 
-      var currentBrightnessPercentage = ((int)light.Attributes!.Brightness!.Value).ShiftRange(new Spectrum(0, 255), new Spectrum(0, MaxBrightnessPercentage));
+      var currentBrightnessPercentage = ((JsonElement)light.Attributes!.Brightness).GetInt32().ShiftRange(ByteSpectrum, PercentageSpectrum);
 
-      if (Math.Abs(currentBrightnessPercentage - brightnessPercentage) < 0.1)
+      if (currentBrightnessPercentage == brightnessPercentage)
       {
         _logger.LogTrace("{Name} is already at {BrightnessPercentage}%", name, brightnessPercentage);
         return;

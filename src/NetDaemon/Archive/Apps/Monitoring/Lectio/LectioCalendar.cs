@@ -74,7 +74,7 @@ public class LectioCalendar
             SendNotification();
 
 #if DEPLOY
-            logger.LogInformation("Internet calendar {path} has been updated.", $"https://homeassistant.lerbaek.dk/local/{calendarEndPath}/{calendarFilename}");
+            _logger.LogInformation("Internet calendar {Path} has been updated.", $"https://homeassistant.lerbaek.dk/local/{calendarEndPath}/{calendarFilename}");
 #endif
         }
         catch (Exception e)

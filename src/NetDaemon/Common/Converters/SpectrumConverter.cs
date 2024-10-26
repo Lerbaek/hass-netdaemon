@@ -1,21 +1,30 @@
-﻿namespace Lerbaek.NetDaemon.Common.Converters;
+﻿using System.Numerics;
 
-public record Spectrum(int From, int To);
+namespace Lerbaek.NetDaemon.Common.Converters;
 
 public static class SpectrumConverter
 {
-  public static int ShiftRange(this int input, Spectrum oldSpectrum, Spectrum newSpectrum)
-  {
-    var oldRangeLength = oldSpectrum.To - oldSpectrum.From; // Possible input values count
-    var inputDelta = input - oldSpectrum.From;              // 0-based input value
-    var per1 = (decimal)inputDelta / oldRangeLength;        // Input ratio (0 - 1)
+    public static readonly Spectrum PercentageSpectrum = new(1, 100);
+    public static readonly Spectrum ByteSpectrum = new(1, 255);
+    public static readonly Spectrum TemperatureSpectrum = new(153, 500);
 
-    var newRangeLength = newSpectrum.To - newSpectrum.From; // Possible output values count
-    var outputDelta = per1 * newRangeLength;                // 0-based output value
-    var output = outputDelta + newSpectrum.From;            // Shifted output value
+    public static int ShiftRange<T>(this T input, Spectrum oldSpectrum, Spectrum newSpectrum) where T : INumber<T>
+    {
+        var oldRangeMax = oldSpectrum.To - oldSpectrum.From;          // 0-based input spectrum maximum
+        var inputDelta = Convert.ToDecimal(input) - oldSpectrum.From; // 0-based input value
+        var inputRatio = inputDelta / (oldRangeMax);                  // Input ratio (0 - 1)
 
-    return (int)Math.Ceiling(output);                       // Rounded output value, avoiding 0 by using Ceiling
-  }
+        var newRangeMax = newSpectrum.To - newSpectrum.From;          // 0-based output spectrum maximum
+        var outputDelta = inputRatio * newRangeMax;                   // 0-based output value
+        var output = outputDelta + newSpectrum.From;                  // Shifted output value
 
-  public static int Reverse(this int input, Spectrum spectrum) => spectrum.From + spectrum.To - input;
+        return Math.Max(newSpectrum.From, (int)output);               // Ensure that rounding error doesn't bring the value below the range
+    }
+
+    public static int Reverse(this int input, Spectrum spectrum)
+    {
+        ArgumentOutOfRangeException.ThrowIfLessThan(input, spectrum.From);
+        ArgumentOutOfRangeException.ThrowIfGreaterThan(input, spectrum.To);
+        return spectrum.From + spectrum.To - input;
+    }
 }

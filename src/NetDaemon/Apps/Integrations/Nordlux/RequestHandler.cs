@@ -2,91 +2,111 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Security.Cryptography;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
+using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Model;
 using static System.Text.Encoding;
 using Convert = System.Convert;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 
 public class RequestHandler : IRequestHandler
 {
-  private readonly NordluxConfig _config;
-  private readonly ILogger _logger;
-  private readonly HttpClient _httpClient;
-  private readonly Aes _aes;
+    private readonly NordluxConfig _config;
+    private readonly ILogger _logger;
+    private readonly HttpClient _httpClient;
+    private readonly Aes _aes;
 
-  public RequestHandler(
-    IAppConfig<NordluxConfig> config,
-    ILogger<NordluxConfig> logger,
-    IHttpClientFactory httpClientFactory)
-  {
-    _config = config.Value;
-    _logger = logger;
-    _httpClient = httpClientFactory.CreateClient(nameof(Nordlux));
-
-    _aes = Aes.Create();
-    _aes.KeySize = 128;
-    _aes.Key = config.Value.SecretKey!.Select(Convert.ToByte).ToArray();
-    _aes.Mode = CipherMode.ECB;
-  }
-
-  public async Task<HttpResponseMessage> Send(
-    string body,
-    string apiPath = ApiPathConstants.Controller)
-  {
-    var encryptedBody = _aes.EncryptEcb(UTF8.GetBytes(body), PaddingMode.PKCS7);
-    var cipher = Convert.ToHexString(encryptedBody);
-    using var requestMessage = await GenerateRequestMessage(cipher, apiPath);
-    return await SendAndLog(requestMessage);
-  }
-
-  private async Task<HttpRequestMessage> GenerateRequestMessage(
-    string cipher,
-    string apiPath = ApiPathConstants.Controller)
-  {
-    HttpRequestMessage requestMessage = new(
-      HttpMethod.Post,
-      $"https://api.yankon-xm.com:443/smartLight/{apiPath}")
+    public RequestHandler(
+      IAppConfig<NordluxConfig> config,
+      ILogger<NordluxConfig> logger,
+      IHttpClientFactory httpClientFactory)
     {
-      Content = JsonContent.Create(new
-      {
-        cipher
-      })
-    };
+        _config = config.Value;
+        _logger = logger;
+        _httpClient = httpClientFactory.CreateClient(nameof(Nordlux));
 
-    requestMessage.Headers.Host = "api.yankon-xm.com";
-    var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+        _aes = Aes.Create();
+        _aes.KeySize = 128;
+        _aes.Key = config.Value.SecretKey.Select(Convert.ToByte).ToArray();
+        _aes.Mode = CipherMode.ECB;
+    }
 
-    var authorization = Convert.ToBase64String(
-      UTF8.GetBytes($"{_config.AccessKey}:{timestamp}"));
+    public async Task<HttpResponseMessage> Send<T>(
+      T body,
+      string apiService = ApiPathConstants.ControllerBle) where T : RequestBase
+    {
+        try
+        {
+            var serializedBody = JsonSerializer.Serialize(body);
+            var encryptedBody = _aes.EncryptEcb(UTF8.GetBytes(serializedBody), PaddingMode.PKCS7);
+            var cipher = Convert.ToHexString(encryptedBody);
+            using var requestMessage = await GenerateRequestMessage(cipher, apiService);
+            return await SendAndLog(requestMessage);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 
-    requestMessage.Headers.TryAddWithoutValidation(nameof(HttpRequestHeaders.Authorization), authorization);
-    var contentLength = (await requestMessage.Content.ReadAsStringAsync()).Length;
-    requestMessage.Content.Headers.ContentLength = contentLength;
+    private async Task<HttpRequestMessage> GenerateRequestMessage(
+      string cipher,
+      string apiService)
+    {
+        HttpRequestMessage requestMessage = new(
+          HttpMethod.Post,
+          $"https://api.yankon-xm.com:443/smartLight/api/device/{apiService}")
+        {
+            Content = JsonContent.Create(new
+            {
+                cipher
+            })
+        };
 
-    var sign = Convert.ToHexString(
-      MD5.HashData(
-        UTF8.GetBytes(
-          $"{_config.AccessKey}{_config.SecretKey}{timestamp}")));
+        requestMessage.Headers.Host = "api.yankon-xm.com";
+        var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-    requestMessage.Headers.Add("sign", sign);
+        var authorization = Convert.ToBase64String(
+          UTF8.GetBytes($"{_config.AccessKey}:{timestamp}"));
 
-    _logger.LogTrace("Generated request message.");
-    _logger.LogTrace("URI: {RequestUri}", requestMessage.RequestUri!.OriginalString);
-    _logger.LogTrace("Cipher: {Cipher}", cipher);
+        requestMessage.Headers.TryAddWithoutValidation(nameof(HttpRequestHeaders.Authorization), authorization);
+        var contentLength = (await requestMessage.Content.ReadAsStringAsync()).Length;
+        requestMessage.Content.Headers.ContentLength = contentLength;
 
-    return requestMessage;
-  }
+        var sign = Convert.ToHexString(
+          MD5.HashData(
+            UTF8.GetBytes(
+              $"{_config.AccessKey}{_config.SecretKey}{timestamp}")));
 
-  private async Task<HttpResponseMessage> SendAndLog(HttpRequestMessage requestMessage)
-  {
-    _logger.LogTrace("Sending request");
-    var response = await _httpClient.SendAsync(requestMessage);
+        requestMessage.Headers.Add("sign", sign);
 
-    _logger.LogTrace(
-      "Response: {StatusCode}({Status})",
-      (int)response.StatusCode,
-      response.StatusCode);
+        _logger.LogTrace("Generated request message.");
+        _logger.LogTrace("URI: {RequestUri}", requestMessage.RequestUri!.OriginalString);
+        _logger.LogTrace("Cipher: {Cipher}", cipher);
 
-    return response;
-  }
+        return requestMessage;
+    }
+
+    private async Task<HttpResponseMessage> SendAndLog(HttpRequestMessage requestMessage)
+    {
+        HttpResponseMessage response;
+        try
+        {
+            _logger.LogTrace("Sending request");
+            response = await _httpClient.SendAsync(requestMessage);
+
+            _logger.LogTrace(
+                "Response: {StatusCode}({Status})",
+                (int)response.StatusCode,
+                response.StatusCode);
+
+            return response;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 }
