@@ -1,5 +1,7 @@
+using System.Runtime.CompilerServices;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Model;
+using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Model.ActionData;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.ResponseModel;
 using Lerbaek.NetDaemon.Common;
 using Lerbaek.NetDaemon.Common.Converters;
@@ -16,90 +18,71 @@ namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 [NetDaemonApp]
 public class Nordlux : ServiceHandler
 {
-    private readonly IHomeAssistantApiManager _apiManager;
     private readonly ILogger<Nordlux> _logger;
+    private readonly IHomeAssistantApiManager _apiManager;
     private readonly IRequestHandler _requestHandler;
     private readonly NordluxConfig _config;
+    private readonly LightEntities _lightEntities;
 
+    private readonly ControllerBleRequestBase _controllerBleRequest;
     private readonly GetDeviceStatusRequest _getStatusBody;
-    private readonly ControllerBleRequestBase _controllerBleRequestBase;
 
     private Device[] _deviceList = [];
 
-    public Nordlux(
-    IHaContext haContext,
-    IAppConfig<NordluxConfig> config,
-    ILogger<Nordlux> logger,
-    IHomeAssistantApiManager apiManager,
-    IRequestHandler requestHandler)
+    public Nordlux(IHaContext haContext,
+        ILogger<Nordlux> logger,
+        IHomeAssistantApiManager apiManager,
+        IRequestHandler requestHandler,
+        IAppConfig<NordluxConfig> config,
+        LightEntities lightEntities)
     : base(haContext, "olivetreebranch")
     {
         _config = config.Value;
         _logger = logger;
         _apiManager = apiManager;
         _requestHandler = requestHandler;
+        _lightEntities = lightEntities;
 
+        _controllerBleRequest = new ControllerBleRequestBase(_config);
         _getStatusBody = new GetDeviceStatusRequest(_config);
-        _controllerBleRequestBase = new ControllerBleRequestBase(_config);
 
-        RegisterServices();
-    }
-
-    private void RegisterServices()
-    {
-        RegisterService<BrightnessData>(
-            "setbrightness",
-            data => OliveTreeBranchSetBrightness(data.Brightness));
-
-        RegisterService<TemperatureData>(
-            "setcolortemperature",
-            data => OliveTreeBranchSetColorTemperature(data.Value));
+        RegisterService<BrightnessData>("setbrightness", OliveTreeBranchSetBrightness);
+        RegisterService<TemperatureData>("setcolortemperature", OliveTreeBranchSetColorTemperature);
 
         RegisterService("turnon", OliveTreeBranchTurnOn);
         RegisterService("turnoff", OliveTreeBranchTurnOff);
-        RegisterService("getstatus", OliveTreeBranchGetStatus);
+        RegisterService("getstatus", OliveTreeBranchUpdateStatus);
     }
-
-    #region Records
-
-    public record BrightnessData(int Brightness);
-
-    public record TemperatureData(int Value);
-
-    #endregion
-
-    #region Actions
 
     public async Task OliveTreeBranchTurnOff()
     {
-        LogServiceCall(_logger, nameof(OliveTreeBranchTurnOff));
-        await SetStatus(nameof(OliveTreeBranchTurnOff), _controllerBleRequestBase.TurnOff());
+        LogServiceCall(_logger);
+        await SetStatus(_controllerBleRequest.TurnOff());
     }
 
     public async Task OliveTreeBranchTurnOn()
     {
-        LogServiceCall(_logger, nameof(OliveTreeBranchTurnOn));
-        await SetStatus(nameof(OliveTreeBranchTurnOn), _controllerBleRequestBase.TurnOn());
+        LogServiceCall(_logger);
+        await SetStatus(_controllerBleRequest.TurnOn());
     }
 
-    public async Task OliveTreeBranchSetBrightness(int brightness)
+    public async Task OliveTreeBranchSetBrightness(BrightnessData data)
     {
-        LogServiceCall(_logger, nameof(OliveTreeBranchSetBrightness));
-        var percentage = brightness.ShiftRange(ByteSpectrum, PercentageSpectrum);
-        await SetStatus(nameof(OliveTreeBranchSetBrightness), _controllerBleRequestBase.SetBrightness(percentage));
+        LogServiceCall(_logger);
+        var percentage = data.Brightness.ShiftRange(ByteSpectrum, PercentageSpectrum);
+        await SetStatus(_controllerBleRequest.SetBrightness(percentage));
     }
 
-    /// <param name="temperature">Range: 153 (cold) - 500 (warm)</param>
-    public async Task OliveTreeBranchSetColorTemperature(int temperature)
+    public async Task OliveTreeBranchSetColorTemperature(TemperatureData data)
     {
-        LogServiceCall(_logger, nameof(OliveTreeBranchSetColorTemperature));
-        var percentage = temperature.ShiftRange(TemperatureSpectrum, PercentageSpectrum).Reverse(PercentageSpectrum);
-        await SetStatus(nameof(OliveTreeBranchSetBrightness), _controllerBleRequestBase.SetTemperature(percentage));
+        LogServiceCall(_logger);
+        var percentage = data.Value.ShiftRange(TemperatureSpectrum, PercentageSpectrum).Reverse(PercentageSpectrum);
+        await SetStatus(_controllerBleRequest.SetTemperature(percentage));
     }
 
-    public async Task OliveTreeBranchGetStatus()
+    public async Task OliveTreeBranchUpdateStatus()
     {
-        LogServiceCall(_logger, nameof(OliveTreeBranchGetStatus));
+        LogServiceCall(_logger);
         await GetStatus();
 
         if (_deviceList is { Length: 0 })
@@ -108,13 +91,13 @@ public class Nordlux : ServiceHandler
             return;
         }
 
-        var entity = new LightEntities(HaContext).OliveTreeBranch;
+        var entity = _lightEntities.OliveTreeBranch;
 
         var onlineDevices = _deviceList.Where(dl => dl.IsOnline).ToArray();
         var anyOn = onlineDevices.Any(device => device.Power);
-        var anyOnline = onlineDevices is { Length: > 0 };
+        //var anyOnline = onlineDevices is { Length: > 0 }; // Temporarily disabled due to provider faultily reporting devices offline
 
-        var state = //anyOnline ? Temporarily disabled due to provider faultily reporting devices offline
+        var state = //anyOnline ?
             anyOn
                 ? "on"
                 : "off";
@@ -140,29 +123,23 @@ public class Nordlux : ServiceHandler
         await _apiManager.SetEntityStateAsync(entity.EntityId, state, attributes, CancellationToken.None);
     }
 
-    private async Task SetStatus(string serviceName, ControllerBleRequest setStatusBody)
+    private async Task SetStatus(ControllerBleRequest setStatusBody, [CallerMemberName] string serviceName = "")
     {
         LogServiceCall(_logger, serviceName);
         await _requestHandler.Send(setStatusBody);
-        await OliveTreeBranchGetStatus();
+        await OliveTreeBranchUpdateStatus();
     }
 
-    /// <summary>
-    /// Set
-    /// </summary>
-    /// <param name="serviceName"></param>
-    /// <param name="configureDevices"></param>
-    /// <returns></returns>
-    private async Task ReportStatus(string serviceName, Func<DeviceSetter, DeviceSetter> configureDevices)
+    private async Task ReportStatus(Func<DeviceSetter, DeviceSetter> configureDevices, [CallerMemberName] string serviceName = "")
     {
+        LogServiceCall(_logger, serviceName);
         if (_deviceList is { Length: 0 })
             await GetStatus();
 
         var setStatusBody = new ReportBulbStatusRequest(_config, _deviceList.Select(configureDevices));
 
-        LogServiceCall(_logger, serviceName);
         await _requestHandler.Send(setStatusBody, ApiPathConstants.ReportBulbStatus);
-        await OliveTreeBranchGetStatus();
+        await OliveTreeBranchUpdateStatus();
     }
 
     private async Task GetStatus()
@@ -179,5 +156,4 @@ public class Nordlux : ServiceHandler
 
         _deviceList = status.Data.DeviceList.Where(device => device.ThingType != ThingType.Gateway).ToArray();
     }
-    #endregion
 }

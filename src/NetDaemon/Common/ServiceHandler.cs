@@ -1,3 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+
 namespace Lerbaek.NetDaemon.Common;
 
 public class ServiceHandler(IHaContext haContext, string prefix)
@@ -16,8 +19,9 @@ public class ServiceHandler(IHaContext haContext, string prefix)
     HaContext.RegisterServiceCallBack<Empty>(_nameGenerator.Service(serviceName), _ => service());
   }
 
+  [SuppressMessage("ReSharper", "ClassNeverInstantiated.Local", Justification = "Needed to register services without data")]
   private record Empty;
 
-  public static void LogServiceCall(ILogger logger, string serviceName, params object[] args) =>
+  public static void LogServiceCall(ILogger logger, [CallerMemberName] string serviceName = "", params object[] args) =>
     logger.LogTrace("{Method}({Args}) has been called", serviceName, string.Join(", ", args));
 }

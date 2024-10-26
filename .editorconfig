@@ -2,3 +2,7 @@
 
 # Use PascalCase for named placeholders
 dotnet_diagnostic.CA1727.severity = error
+
+# Disable warnings about unnecessary ReSharper warning suppressions
+dotnet_diagnostic.IDE0079.severity = none
+dotnet_diagnostic.IDE0079.category = ReSharper

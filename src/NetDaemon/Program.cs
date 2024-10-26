@@ -39,7 +39,8 @@ static void ServiceConfiguration(IServiceCollection services)
 {
   services.AddAppsFromAssembly(Assembly.GetExecutingAssembly())
     .AddNetDaemonStateManager()
-    .AddNetDaemonScheduler();
+    .AddNetDaemonScheduler()
+    .AddHomeAssistantGenerated();
 
   services
     .AddHttpClient<Nordlux>(nameof(Nordlux))
