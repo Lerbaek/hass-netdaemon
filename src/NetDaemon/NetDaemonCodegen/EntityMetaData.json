@@ -39,6 +39,11 @@
           "cSharpName": "BilenBurdeLade"
         },
         {
+          "id": "automation.bilopladning_i_specifikke_tidsrum",
+          "friendlyName": "Bilopladning i specifikke tidsrum",
+          "cSharpName": "BilopladningISpecifikkeTidsrum"
+        },
+        {
           "id": "automation.bryggers_kontakt_med_fire_knapper",
           "friendlyName": "Bryggers: TS004F",
           "cSharpName": "BryggersKontaktMedFireKnapper"
@@ -57,6 +62,11 @@
           "id": "automation.dorklokke_nulstil_lydstyrke",
           "friendlyName": "D\u00F8rklokke: Nulstil lydstyrke",
           "cSharpName": "DorklokkeNulstilLydstyrke"
+        },
+        {
+          "id": "automation.dorklokke_video_ved_tryk",
+          "friendlyName": "D\u00F8rklokke: Video ved tryk",
+          "cSharpName": "DorklokkeVideoVedTryk"
         },
         {
           "id": "automation.ebbe_abent_vindue_stop_radiator",
@@ -79,9 +89,19 @@
           "cSharpName": "GarageToggle"
         },
         {
+          "id": "automation.glemt_arbejds_pc",
+          "friendlyName": "Glemt arbejds-PC",
+          "cSharpName": "GlemtArbejdsPc"
+        },
+        {
           "id": "automation.grasputin_kor_afbrudt_i_et_dogn",
           "friendlyName": "Grasputin: K\u00F8r afbrudt",
           "cSharpName": "GrasputinKorAfbrudtIEtDogn"
+        },
+        {
+          "id": "automation.halloween_cleanup",
+          "friendlyName": "Halloween: Cleanup",
+          "cSharpName": "HalloweenCleanup"
         },
         {
           "id": "automation.halloween_pulserende_rodt_lys_cleanup",
@@ -294,6 +314,11 @@
           "cSharpName": "TooGoodToGo"
         },
         {
+          "id": "automation.tordenskrald",
+          "friendlyName": "Tordenskrald!",
+          "cSharpName": "Tordenskrald"
+        },
+        {
           "id": "automation.ts0044_bryggers",
           "friendlyName": "TS0044: Bryggers",
           "cSharpName": "Ts0044Bryggers"
@@ -431,11 +456,6 @@
       "domain": "binary_sensor",
       "entities": [
         {
-          "id": "binary_sensor.audiobookshelf_connected",
-          "friendlyName": "audiobookshelf_connected",
-          "cSharpName": "AudiobookshelfConnected"
-        },
-        {
           "id": "binary_sensor.aula_aulamessage",
           "friendlyName": "Aula message",
           "cSharpName": "AulaAulamessage"
@@ -489,6 +509,21 @@
           "id": "binary_sensor.bryggers_update_available",
           "friendlyName": "Bryggers",
           "cSharpName": "BryggersUpdateAvailable"
+        },
+        {
+          "id": "binary_sensor.cast",
+          "friendlyName": "CAST",
+          "cSharpName": "Cast"
+        },
+        {
+          "id": "binary_sensor.cast_browser_dark_mode",
+          "friendlyName": "CAST Browser dark mode",
+          "cSharpName": "CastBrowserDarkMode"
+        },
+        {
+          "id": "binary_sensor.cast_browser_fullykiosk",
+          "friendlyName": "CAST Browser FullyKiosk",
+          "cSharpName": "CastBrowserFullykiosk"
         },
         {
           "id": "binary_sensor.ceed_air_conditioner",
@@ -641,6 +676,26 @@
           "cSharpName": "GrosGalaxyS20IsCharging"
         },
         {
+          "id": "binary_sensor.hp850g5",
+          "friendlyName": "HP850G5",
+          "cSharpName": "Hp850g5"
+        },
+        {
+          "id": "binary_sensor.hp850g5_browser_charging",
+          "friendlyName": "HP850G5 Browser charging",
+          "cSharpName": "Hp850g5BrowserCharging"
+        },
+        {
+          "id": "binary_sensor.hp850g5_browser_dark_mode",
+          "friendlyName": "HP850G5 Browser dark mode",
+          "cSharpName": "Hp850g5BrowserDarkMode"
+        },
+        {
+          "id": "binary_sensor.hp850g5_browser_fullykiosk",
+          "friendlyName": "HP850G5 Browser FullyKiosk",
+          "cSharpName": "Hp850g5BrowserFullykiosk"
+        },
+        {
           "id": "binary_sensor.ib3356497408_connection_state",
           "friendlyName": "IB3356497408 Connection state",
           "cSharpName": "Ib3356497408ConnectionState"
@@ -706,6 +761,16 @@
           "cSharpName": "KristoffersGalaxyS20UltraOplader"
         },
         {
+          "id": "binary_sensor.kristoffers_galaxy_s24_ultra_android_auto",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Android Auto",
+          "cSharpName": "KristoffersGalaxyS24UltraAndroidAuto"
+        },
+        {
+          "id": "binary_sensor.kristoffers_galaxy_s24_ultra_bluetooth_state",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Bluetooth state",
+          "cSharpName": "KristoffersGalaxyS24UltraBluetoothState"
+        },
+        {
           "id": "binary_sensor.kristoffers_galaxy_s24_ultra_interactive",
           "friendlyName": "Kristoffers Galaxy S24 Ultra Interactive",
           "cSharpName": "KristoffersGalaxyS24UltraInteractive"
@@ -734,6 +799,11 @@
           "id": "binary_sensor.lillebrors_vaerelse_power",
           "friendlyName": "Ebbes v\u00E6relse Power",
           "cSharpName": "LillebrorsVaerelsePower"
+        },
+        {
+          "id": "binary_sensor.monta_gro_kristoffers_ladestander_cable_plugged_in",
+          "friendlyName": "Cable Plugged In",
+          "cSharpName": "MontaGroKristoffersLadestanderCablePluggedIn"
         },
         {
           "id": "binary_sensor.nextcloud_system_debug",
@@ -832,12 +902,12 @@
         },
         {
           "id": "binary_sensor.roborock_s5_max_mop_attached",
-          "friendlyName": "Mop attached",
+          "friendlyName": "Roborock S5 Max Mop attached",
           "cSharpName": "RoborockS5MaxMopAttached"
         },
         {
           "id": "binary_sensor.roborock_s5_max_water_box_attached",
-          "friendlyName": "Water box attached",
+          "friendlyName": "Roborock S5 Max Mop attached",
           "cSharpName": "RoborockS5MaxWaterBoxAttached"
         },
         {
@@ -1059,11 +1129,6 @@
           "id": "binary_sensor.va3228506624_connection_state",
           "friendlyName": "Termostat p\u00E5 toilet connection state",
           "cSharpName": "Va3228506624ConnectionState"
-        },
-        {
-          "id": "binary_sensor.valder_update_available",
-          "friendlyName": "Valder",
-          "cSharpName": "ValderUpdateAvailable"
         },
         {
           "id": "binary_sensor.vindue_bryggers_contact",
@@ -1421,6 +1486,31 @@
           "jsonName": "motor_speed",
           "cSharpName": "MotorSpeed",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "connection_type",
+          "cSharpName": "ConnectionType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "type",
+          "cSharpName": "Type",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "browserID",
+          "cSharpName": "BrowserID",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "data",
+          "cSharpName": "Data",
+          "clrType": "System.String"
         }
       ]
     },
@@ -1569,22 +1659,22 @@
         },
         {
           "id": "button.roborock_s5_max_reset_filter",
-          "friendlyName": "Reset filter",
+          "friendlyName": "Roborock S5 Max Reset filter",
           "cSharpName": "RoborockS5MaxResetFilter"
         },
         {
           "id": "button.roborock_s5_max_reset_main_brush",
-          "friendlyName": "Reset main brush",
+          "friendlyName": "Roborock S5 Max Reset main brush",
           "cSharpName": "RoborockS5MaxResetMainBrush"
         },
         {
           "id": "button.roborock_s5_max_reset_sensor_dirty",
-          "friendlyName": "Reset sensor dirty",
+          "friendlyName": "Roborock S5 Max Reset sensor dirty",
           "cSharpName": "RoborockS5MaxResetSensorDirty"
         },
         {
           "id": "button.roborock_s5_max_reset_side_brush",
-          "friendlyName": "Reset side brush",
+          "friendlyName": "Roborock S5 Max Reset side brush",
           "cSharpName": "RoborockS5MaxResetSideBrush"
         },
         {
@@ -2071,6 +2161,11 @@
           "cSharpName": "Annalinasiphone"
         },
         {
+          "id": "device_tracker.arbejds_pc_rygsak",
+          "friendlyName": "Arbejds-PC-rygs\u00E6k",
+          "cSharpName": "ArbejdsPcRygsak"
+        },
+        {
           "id": "device_tracker.bornenes_telefon",
           "friendlyName": "B\u00F8rnenes telefon",
           "cSharpName": "BornenesTelefon"
@@ -2222,7 +2317,7 @@
         },
         {
           "id": "device_tracker.galaxy_s9_6",
-          "friendlyName": "GALAXY-S9",
+          "friendlyName": "ROARS-GALAXY-S9",
           "cSharpName": "GalaxyS96"
         },
         {
@@ -2239,6 +2334,11 @@
           "id": "device_tracker.galaxy_watch4_wlsw",
           "friendlyName": "Galaxy Watch4 (WLSW)",
           "cSharpName": "GalaxyWatch4Wlsw"
+        },
+        {
+          "id": "device_tracker.galaxy_watch4_wlsw_2",
+          "friendlyName": "Galaxy Watch4 (WLSW)",
+          "cSharpName": "GalaxyWatch4Wlsw2"
         },
         {
           "id": "device_tracker.gamergro",
@@ -2324,6 +2424,11 @@
           "id": "device_tracker.iphone",
           "friendlyName": "IPHONE",
           "cSharpName": "Iphone"
+        },
+        {
+          "id": "device_tracker.iphone_2",
+          "friendlyName": "IPHONE",
+          "cSharpName": "Iphone2"
         },
         {
           "id": "device_tracker.kristoffer_iphone",
@@ -2551,28 +2656,13 @@
           "cSharpName": "RoboticMower2"
         },
         {
-          "id": "device_tracker.s6937930a15c675acc_bdda",
-          "friendlyName": null,
-          "cSharpName": "S6937930a15c675accBdda"
-        },
-        {
-          "id": "device_tracker.s78f354bf382f3aa3c_81fc",
-          "friendlyName": null,
-          "cSharpName": "S78f354bf382f3aa3c81fc"
-        },
-        {
-          "id": "device_tracker.s9fc1e43d898f31bac_db8a",
-          "friendlyName": null,
-          "cSharpName": "S9fc1e43d898f31bacDb8a"
-        },
-        {
           "id": "device_tracker.samsung",
           "friendlyName": "SAMSUNG",
           "cSharpName": "Samsung"
         },
         {
           "id": "device_tracker.samsung_2",
-          "friendlyName": "SAMSUNG",
+          "friendlyName": "[TV] Samsung 7 Series (65)",
           "cSharpName": "Samsung2"
         },
         {
@@ -2591,19 +2681,9 @@
           "cSharpName": "SamsungGalaxyS8"
         },
         {
-          "id": "device_tracker.saphe",
-          "friendlyName": null,
-          "cSharpName": "Saphe"
-        },
-        {
           "id": "device_tracker.sc8bfaff5ce07e22cc_18b6",
           "friendlyName": "Sc8bfaff5ce07e22cC 18B6",
           "cSharpName": "Sc8bfaff5ce07e22cc18b6"
-        },
-        {
-          "id": "device_tracker.sd01db6144334011bc_998a",
-          "friendlyName": "Sd01db6144334011bC 998A",
-          "cSharpName": "Sd01db6144334011bc998a"
         },
         {
           "id": "device_tracker.seedbox",
@@ -2857,7 +2937,7 @@
         },
         {
           "id": "device_tracker.tuyaterrassekoleskab",
-          "friendlyName": "Garaged\u00F8r",
+          "friendlyName": "ESP_10269B",
           "cSharpName": "Tuyaterrassekoleskab"
         },
         {
@@ -2874,6 +2954,11 @@
           "id": "device_tracker.tv_samsung_7_series_65",
           "friendlyName": "[TV] Samsung 7 Series (65)",
           "cSharpName": "TvSamsung7Series65"
+        },
+        {
+          "id": "device_tracker.twinkly_c3b6c5",
+          "friendlyName": "TWINKLY-C3B6C5",
+          "cSharpName": "TwinklyC3b6c5"
         },
         {
           "id": "device_tracker.twinkly_eda359",
@@ -3107,7 +3192,7 @@
         },
         {
           "id": "device_tracker.win_f8s9dtb7ecu",
-          "friendlyName": "DESKTOP-CO5LNMA",
+          "friendlyName": "WIN-F8S9DTB7ECU",
           "cSharpName": "WinF8s9dtb7ecu"
         },
         {
@@ -3385,16 +3470,6 @@
           "cSharpName": "BagkantForBilopladningAktiveret"
         },
         {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsAutomationsNightBrightness"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsIntegrationsNordluxNordlux"
-        },
-        {
           "id": "input_boolean.dorklokke",
           "friendlyName": "D\u00F8rklokke: Tryk",
           "cSharpName": "Dorklokke"
@@ -3423,6 +3498,126 @@
           "id": "input_boolean.kummefryser_pa_pause",
           "friendlyName": "Kummefryser p\u00E5 pause",
           "cSharpName": "KummefryserPaPause"
+        },
+        {
+          "id": "input_boolean.monta_00",
+          "friendlyName": "00",
+          "cSharpName": "Monta00"
+        },
+        {
+          "id": "input_boolean.monta_01",
+          "friendlyName": "01",
+          "cSharpName": "Monta01"
+        },
+        {
+          "id": "input_boolean.monta_02",
+          "friendlyName": "02",
+          "cSharpName": "Monta02"
+        },
+        {
+          "id": "input_boolean.monta_03",
+          "friendlyName": "03",
+          "cSharpName": "Monta03"
+        },
+        {
+          "id": "input_boolean.monta_04",
+          "friendlyName": "04",
+          "cSharpName": "Monta04"
+        },
+        {
+          "id": "input_boolean.monta_05",
+          "friendlyName": "05",
+          "cSharpName": "Monta05"
+        },
+        {
+          "id": "input_boolean.monta_06",
+          "friendlyName": "06",
+          "cSharpName": "Monta06"
+        },
+        {
+          "id": "input_boolean.monta_07",
+          "friendlyName": "07",
+          "cSharpName": "Monta07"
+        },
+        {
+          "id": "input_boolean.monta_08",
+          "friendlyName": "08",
+          "cSharpName": "Monta08"
+        },
+        {
+          "id": "input_boolean.monta_09",
+          "friendlyName": "09",
+          "cSharpName": "Monta09"
+        },
+        {
+          "id": "input_boolean.monta_10",
+          "friendlyName": "10",
+          "cSharpName": "Monta10"
+        },
+        {
+          "id": "input_boolean.monta_11",
+          "friendlyName": "11",
+          "cSharpName": "Monta11"
+        },
+        {
+          "id": "input_boolean.monta_12",
+          "friendlyName": "12",
+          "cSharpName": "Monta12"
+        },
+        {
+          "id": "input_boolean.monta_13",
+          "friendlyName": "13",
+          "cSharpName": "Monta13"
+        },
+        {
+          "id": "input_boolean.monta_14",
+          "friendlyName": "14",
+          "cSharpName": "Monta14"
+        },
+        {
+          "id": "input_boolean.monta_15",
+          "friendlyName": "15",
+          "cSharpName": "Monta15"
+        },
+        {
+          "id": "input_boolean.monta_16",
+          "friendlyName": "16",
+          "cSharpName": "Monta16"
+        },
+        {
+          "id": "input_boolean.monta_17",
+          "friendlyName": "17",
+          "cSharpName": "Monta17"
+        },
+        {
+          "id": "input_boolean.monta_18",
+          "friendlyName": "18",
+          "cSharpName": "Monta18"
+        },
+        {
+          "id": "input_boolean.monta_19",
+          "friendlyName": "19",
+          "cSharpName": "Monta19"
+        },
+        {
+          "id": "input_boolean.monta_20",
+          "friendlyName": "20",
+          "cSharpName": "Monta20"
+        },
+        {
+          "id": "input_boolean.monta_21",
+          "friendlyName": "21",
+          "cSharpName": "Monta21"
+        },
+        {
+          "id": "input_boolean.monta_22",
+          "friendlyName": "22",
+          "cSharpName": "Monta22"
+        },
+        {
+          "id": "input_boolean.monta_23",
+          "friendlyName": "23",
+          "cSharpName": "Monta23"
         },
         {
           "id": "input_boolean.netdaemon_lerbaek_net_daemon_apps_automations_chest_freezer_chest_freezer",
@@ -3488,6 +3683,11 @@
           "id": "input_boolean.storskrald",
           "friendlyName": "Storskrald",
           "cSharpName": "Storskrald"
+        },
+        {
+          "id": "input_boolean.tordenskrald",
+          "friendlyName": "Tordenskrald!",
+          "cSharpName": "Tordenskrald"
         },
         {
           "id": "input_boolean.walk_in_closet_gardin_position_aendret",
@@ -3752,6 +3952,11 @@
           "cSharpName": "NetdaemonError"
         },
         {
+          "id": "input_text.ny_reminder_navn",
+          "friendlyName": "Ny reminder: Navn",
+          "cSharpName": "NyReminderNavn"
+        },
+        {
           "id": "input_text.underskabs_belysning_kontakt_last_action",
           "friendlyName": "Underskabs-belysning-kontakt, last action",
           "cSharpName": "UnderskabsBelysningKontaktLastAction"
@@ -3834,6 +4039,11 @@
           "cSharpName": "Bryggers"
         },
         {
+          "id": "light.cast_screen",
+          "friendlyName": "CAST Screen",
+          "cSharpName": "CastScreen"
+        },
+        {
           "id": "light.entre",
           "friendlyName": "Entr\u00E9",
           "cSharpName": "Entre"
@@ -3854,6 +4064,11 @@
           "cSharpName": "Fordelingsgang"
         },
         {
+          "id": "light.forhave_250",
+          "friendlyName": "Forhave (250)",
+          "cSharpName": "Forhave250"
+        },
+        {
           "id": "light.garage_lanterne",
           "friendlyName": "Garage-lanterne",
           "cSharpName": "GarageLanterne"
@@ -3867,6 +4082,11 @@
           "id": "light.hjorneterrasse",
           "friendlyName": "Hj\u00F8rneterrasse",
           "cSharpName": "Hjorneterrasse"
+        },
+        {
+          "id": "light.hp850g5_screen",
+          "friendlyName": "HP850G5 Screen",
+          "cSharpName": "Hp850g5Screen"
         },
         {
           "id": "light.indkorsel",
@@ -4314,6 +4534,16 @@
           "jsonName": "last_seen",
           "cSharpName": "LastSeen",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "type",
+          "cSharpName": "Type",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "browserID",
+          "cSharpName": "BrowserID",
+          "clrType": "System.String"
         }
       ]
     },
@@ -4458,6 +4688,11 @@
       "domain": "media_player",
       "entities": [
         {
+          "id": "media_player.cast",
+          "friendlyName": "CAST",
+          "cSharpName": "Cast"
+        },
+        {
           "id": "media_player.cc_sovevaerelse",
           "friendlyName": "CC Sovev\u00E6relse",
           "cSharpName": "CcSovevaerelse"
@@ -4501,6 +4736,11 @@
           "id": "media_player.chrometv_2",
           "friendlyName": "ChromeTV",
           "cSharpName": "Chrometv2"
+        },
+        {
+          "id": "media_player.hp850g5",
+          "friendlyName": "HP850G5",
+          "cSharpName": "Hp850g5"
         },
         {
           "id": "media_player.legevaerelse",
@@ -4948,6 +5188,21 @@
           "jsonName": "dynamic_range",
           "cSharpName": "DynamicRange",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_playlist",
+          "cSharpName": "MediaPlaylist",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "type",
+          "cSharpName": "Type",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "browserID",
+          "cSharpName": "BrowserID",
+          "clrType": "System.String"
         }
       ]
     },
@@ -5215,11 +5470,6 @@
           "id": "scene.indkorsel_regnbue",
           "friendlyName": "Indk\u00F8rsel: Regnbue",
           "cSharpName": "IndkorselRegnbue"
-        },
-        {
-          "id": "scene.volume_before_doorbell",
-          "friendlyName": "volume_before_doorbell",
-          "cSharpName": "VolumeBeforeDoorbell"
         }
       ],
       "attributes": [
@@ -5282,6 +5532,11 @@
           "id": "script.lightning",
           "friendlyName": "Halloween: Torden",
           "cSharpName": "Lightning"
+        },
+        {
+          "id": "script.notification_reminder",
+          "friendlyName": "Notification: Reminder",
+          "cSharpName": "NotificationReminder"
         },
         {
           "id": "script.roar_daemp_loftlys_hvis_taendt",
@@ -5923,11 +6178,6 @@
       "domain": "sensor",
       "entities": [
         {
-          "id": "sensor.audiobookshelf_sessions",
-          "friendlyName": "audiobookshelf_sessions",
-          "cSharpName": "AudiobookshelfSessions"
-        },
-        {
           "id": "sensor.awesome",
           "friendlyName": "awesome",
           "cSharpName": "Awesome"
@@ -5964,8 +6214,28 @@
         },
         {
           "id": "sensor.canon_ts5300_series",
-          "friendlyName": "Canon TS5300 series",
+          "friendlyName": null,
           "cSharpName": "CanonTs5300Series"
+        },
+        {
+          "id": "sensor.cast_browser_path",
+          "friendlyName": "CAST Browser path",
+          "cSharpName": "CastBrowserPath"
+        },
+        {
+          "id": "sensor.cast_browser_user",
+          "friendlyName": "CAST Browser user",
+          "cSharpName": "CastBrowserUser"
+        },
+        {
+          "id": "sensor.cast_browser_useragent",
+          "friendlyName": "CAST Browser userAgent",
+          "cSharpName": "CastBrowserUseragent"
+        },
+        {
+          "id": "sensor.cast_browser_visibility",
+          "friendlyName": "CAST Browser visibility",
+          "cSharpName": "CastBrowserVisibility"
         },
         {
           "id": "sensor.ceed_data",
@@ -6001,6 +6271,11 @@
           "id": "sensor.ceed_last_updated_at",
           "friendlyName": "CEED Last Updated At",
           "cSharpName": "CeedLastUpdatedAt"
+        },
+        {
+          "id": "sensor.date",
+          "friendlyName": "Date",
+          "cSharpName": "Date"
         },
         {
           "id": "sensor.dor_stue_power_outage_count",
@@ -6048,9 +6323,19 @@
           "cSharpName": "GalaxyWatch4WlswBatteryState"
         },
         {
+          "id": "sensor.galaxy_watch4_wlsw_battery_state_2",
+          "friendlyName": "Galaxy Watch4 (WLSW) Battery state",
+          "cSharpName": "GalaxyWatch4WlswBatteryState2"
+        },
+        {
           "id": "sensor.galaxy_watch4_wlsw_charger_type",
           "friendlyName": "Galaxy Watch4 (WLSW) Charger type",
           "cSharpName": "GalaxyWatch4WlswChargerType"
+        },
+        {
+          "id": "sensor.galaxy_watch4_wlsw_charger_type_2",
+          "friendlyName": "Galaxy Watch4 (WLSW) Charger type",
+          "cSharpName": "GalaxyWatch4WlswChargerType2"
         },
         {
           "id": "sensor.garage_lanterne_color_options",
@@ -6116,6 +6401,26 @@
           "id": "sensor.gros_galaxy_s20_wifi_connection",
           "friendlyName": "Gros Galaxy S20\u002B WiFi connection",
           "cSharpName": "GrosGalaxyS20WifiConnection"
+        },
+        {
+          "id": "sensor.hp850g5_browser_path",
+          "friendlyName": "HP850G5 Browser path",
+          "cSharpName": "Hp850g5BrowserPath"
+        },
+        {
+          "id": "sensor.hp850g5_browser_user",
+          "friendlyName": "HP850G5 Browser user",
+          "cSharpName": "Hp850g5BrowserUser"
+        },
+        {
+          "id": "sensor.hp850g5_browser_useragent",
+          "friendlyName": "HP850G5 Browser userAgent",
+          "cSharpName": "Hp850g5BrowserUseragent"
+        },
+        {
+          "id": "sensor.hp850g5_browser_visibility",
+          "friendlyName": "HP850G5 Browser visibility",
+          "cSharpName": "Hp850g5BrowserVisibility"
         },
         {
           "id": "sensor.kokken_gang_tado_mode",
@@ -6218,9 +6523,24 @@
           "cSharpName": "KristoffersGalaxyS24UltraBatteryState"
         },
         {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_beacon_monitor",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Beacon monitor",
+          "cSharpName": "KristoffersGalaxyS24UltraBeaconMonitor"
+        },
+        {
           "id": "sensor.kristoffers_galaxy_s24_ultra_charger_type",
           "friendlyName": "Kristoffers Galaxy S24 Ultra Charger type",
           "cSharpName": "KristoffersGalaxyS24UltraChargerType"
+        },
+        {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_geocoded_location",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Geocoded location",
+          "cSharpName": "KristoffersGalaxyS24UltraGeocodedLocation"
+        },
+        {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_wifi_connection",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra WiFi connection",
+          "cSharpName": "KristoffersGalaxyS24UltraWifiConnection"
         },
         {
           "id": "sensor.lillebrors_vaerelse_tado_mode",
@@ -6231,6 +6551,31 @@
           "id": "sensor.mane_color_options",
           "friendlyName": "M\u00E5ne Color options",
           "cSharpName": "ManeColorOptions"
+        },
+        {
+          "id": "sensor.monta_gro_kristoffers_ladestander_last_charge",
+          "friendlyName": "Last Charge",
+          "cSharpName": "MontaGroKristoffersLadestanderLastCharge"
+        },
+        {
+          "id": "sensor.monta_gro_kristoffers_ladestander_state",
+          "friendlyName": "State",
+          "cSharpName": "MontaGroKristoffersLadestanderState"
+        },
+        {
+          "id": "sensor.monta_gro_kristoffers_ladestander_type",
+          "friendlyName": "Type",
+          "cSharpName": "MontaGroKristoffersLadestanderType"
+        },
+        {
+          "id": "sensor.monta_gro_kristoffers_ladestander_visibility",
+          "friendlyName": "Visibility",
+          "cSharpName": "MontaGroKristoffersLadestanderVisibility"
+        },
+        {
+          "id": "sensor.monta_personal_wallet",
+          "friendlyName": "Personal Wallet",
+          "cSharpName": "MontaPersonalWallet"
         },
         {
           "id": "sensor.netdaemon_status",
@@ -6739,12 +7084,12 @@
         },
         {
           "id": "sensor.roborock_s5_max_last_clean_end",
-          "friendlyName": "Last clean end",
+          "friendlyName": "Roborock S5 Max Last clean end",
           "cSharpName": "RoborockS5MaxLastCleanEnd"
         },
         {
           "id": "sensor.roborock_s5_max_last_clean_start",
-          "friendlyName": "Last clean start",
+          "friendlyName": "Roborock S5 Max Last clean start",
           "cSharpName": "RoborockS5MaxLastCleanStart"
         },
         {
@@ -6766,6 +7111,11 @@
           "id": "sensor.samsung_galaxy_s8_charger_type",
           "friendlyName": "Samsung Galaxy S8 Charger type",
           "cSharpName": "SamsungGalaxyS8ChargerType"
+        },
+        {
+          "id": "sensor.sc8bfaff5ce07e22cc_18b6_vendor",
+          "friendlyName": "Sc8bfaff5ce07e22cC 18B6 Vendor",
+          "cSharpName": "Sc8bfaff5ce07e22cc18b6Vendor"
         },
         {
           "id": "sensor.sovevaerelse_tado_mode",
@@ -7583,6 +7933,176 @@
           "jsonName": "motor_speed",
           "cSharpName": "MotorSpeed",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "chargePointId",
+          "cSharpName": "ChargePointId",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "createdAt",
+          "cSharpName": "CreatedAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "updatedAt",
+          "cSharpName": "UpdatedAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "cablePluggedInAt",
+          "cSharpName": "CablePluggedInAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "startedAt",
+          "cSharpName": "StartedAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "stoppedAt",
+          "cSharpName": "StoppedAt",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "fullyChargedAt",
+          "cSharpName": "FullyChargedAt",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "failedAt",
+          "cSharpName": "FailedAt",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "timeoutAt",
+          "cSharpName": "TimeoutAt",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "state",
+          "cSharpName": "State",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "consumedKwh",
+          "cSharpName": "ConsumedKwh",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "kwhLimit",
+          "cSharpName": "KwhLimit",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "startMeterKwh",
+          "cSharpName": "StartMeterKwh",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "endMeterKwh",
+          "cSharpName": "EndMeterKwh",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "cost",
+          "cSharpName": "Cost",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "price",
+          "cSharpName": "Price",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "priceLimit",
+          "cSharpName": "PriceLimit",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "averagePricePerKwh",
+          "cSharpName": "AveragePricePerKwh",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "averageCo2PerKwh",
+          "cSharpName": "AverageCo2PerKwh",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "averageRenewablePerKwh",
+          "cSharpName": "AverageRenewablePerKwh",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "failureReason",
+          "cSharpName": "FailureReason",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "stopReason",
+          "cSharpName": "StopReason",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "note",
+          "cSharpName": "Note",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "currency",
+          "cSharpName": "Currency",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "soc",
+          "cSharpName": "Soc",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "socLimit",
+          "cSharpName": "SocLimit",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "transactions",
+          "cSharpName": "Transactions",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "mu_opgaver",
+          "cSharpName": "MuOpgaver",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "mu_opgaver_next",
+          "cSharpName": "MuOpgaverNext",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "type",
+          "cSharpName": "Type",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "browserID",
+          "cSharpName": "BrowserID",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "pathSegments",
+          "cSharpName": "PathSegments",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "userAgent",
+          "cSharpName": "UserAgent",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "userData",
+          "cSharpName": "UserData",
+          "clrType": "System.Object"
         }
       ]
     },
@@ -7590,6 +8110,86 @@
       "domain": "sensor",
       "isNumeric": true,
       "entities": [
+        {
+          "id": "sensor.arbejds_pc_rygsak_estimated_distance",
+          "friendlyName": "Arbejds-PC-rygs\u00E6k Estimated distance",
+          "cSharpName": "ArbejdsPcRygsakEstimatedDistance"
+        },
+        {
+          "id": "sensor.audiobookshelf_dansk_duration",
+          "friendlyName": "Audiobookshelf Dansk Duration",
+          "cSharpName": "AudiobookshelfDanskDuration"
+        },
+        {
+          "id": "sensor.audiobookshelf_dansk_items",
+          "friendlyName": "Audiobookshelf Dansk Items",
+          "cSharpName": "AudiobookshelfDanskItems"
+        },
+        {
+          "id": "sensor.audiobookshelf_dansk_size",
+          "friendlyName": "Audiobookshelf Dansk Size",
+          "cSharpName": "AudiobookshelfDanskSize"
+        },
+        {
+          "id": "sensor.audiobookshelf_engelsk_duration",
+          "friendlyName": "Audiobookshelf Engelsk Duration",
+          "cSharpName": "AudiobookshelfEngelskDuration"
+        },
+        {
+          "id": "sensor.audiobookshelf_engelsk_items",
+          "friendlyName": "Audiobookshelf Engelsk Items",
+          "cSharpName": "AudiobookshelfEngelskItems"
+        },
+        {
+          "id": "sensor.audiobookshelf_engelsk_size",
+          "friendlyName": "Audiobookshelf Engelsk Size",
+          "cSharpName": "AudiobookshelfEngelskSize"
+        },
+        {
+          "id": "sensor.audiobookshelf_forelaesninger_duration",
+          "friendlyName": "Audiobookshelf Forel\u00E6sninger Duration",
+          "cSharpName": "AudiobookshelfForelaesningerDuration"
+        },
+        {
+          "id": "sensor.audiobookshelf_forelaesninger_items",
+          "friendlyName": "Audiobookshelf Forel\u00E6sninger Items",
+          "cSharpName": "AudiobookshelfForelaesningerItems"
+        },
+        {
+          "id": "sensor.audiobookshelf_forelaesninger_size",
+          "friendlyName": "Audiobookshelf Forel\u00E6sninger Size",
+          "cSharpName": "AudiobookshelfForelaesningerSize"
+        },
+        {
+          "id": "sensor.audiobookshelf_libraries",
+          "friendlyName": "Audiobookshelf Libraries",
+          "cSharpName": "AudiobookshelfLibraries"
+        },
+        {
+          "id": "sensor.audiobookshelf_nota_duration",
+          "friendlyName": "Audiobookshelf Nota Duration",
+          "cSharpName": "AudiobookshelfNotaDuration"
+        },
+        {
+          "id": "sensor.audiobookshelf_nota_items",
+          "friendlyName": "Audiobookshelf Nota Items",
+          "cSharpName": "AudiobookshelfNotaItems"
+        },
+        {
+          "id": "sensor.audiobookshelf_nota_size",
+          "friendlyName": "Audiobookshelf Nota Size",
+          "cSharpName": "AudiobookshelfNotaSize"
+        },
+        {
+          "id": "sensor.audiobookshelf_open_sessions",
+          "friendlyName": "Audiobookshelf Open Sessions",
+          "cSharpName": "AudiobookshelfOpenSessions"
+        },
+        {
+          "id": "sensor.audiobookshelf_users",
+          "friendlyName": "Audiobookshelf Users",
+          "cSharpName": "AudiobookshelfUsers"
+        },
         {
           "id": "sensor.badevaerelse_heating",
           "friendlyName": "Badev\u00E6relse Heating",
@@ -7627,13 +8227,23 @@
         },
         {
           "id": "sensor.canon_ts5300_series_black",
-          "friendlyName": "Canon TS5300 series Black",
+          "friendlyName": "Black",
           "cSharpName": "CanonTs5300SeriesBlack"
         },
         {
           "id": "sensor.canon_ts5300_series_color",
-          "friendlyName": "Canon TS5300 series Color",
+          "friendlyName": "Color",
           "cSharpName": "CanonTs5300SeriesColor"
+        },
+        {
+          "id": "sensor.cast_browser_height",
+          "friendlyName": "CAST Browser height",
+          "cSharpName": "CastBrowserHeight"
+        },
+        {
+          "id": "sensor.cast_browser_width",
+          "friendlyName": "CAST Browser width",
+          "cSharpName": "CastBrowserWidth"
         },
         {
           "id": "sensor.ceed_car_battery_level",
@@ -7846,6 +8456,11 @@
           "cSharpName": "GalaxyWatch4WlswBatteryLevel"
         },
         {
+          "id": "sensor.galaxy_watch4_wlsw_battery_level_2",
+          "friendlyName": "Galaxy Watch4 (WLSW) Battery level",
+          "cSharpName": "GalaxyWatch4WlswBatteryLevel2"
+        },
+        {
           "id": "sensor.garageport_knap_bil_battery",
           "friendlyName": "Garageport-knap, bil Battery",
           "cSharpName": "GarageportKnapBilBattery"
@@ -7991,6 +8606,21 @@
           "cSharpName": "HjorneterrassePower"
         },
         {
+          "id": "sensor.hp850g5_browser_battery",
+          "friendlyName": "HP850G5 Browser battery",
+          "cSharpName": "Hp850g5BrowserBattery"
+        },
+        {
+          "id": "sensor.hp850g5_browser_height",
+          "friendlyName": "HP850G5 Browser height",
+          "cSharpName": "Hp850g5BrowserHeight"
+        },
+        {
+          "id": "sensor.hp850g5_browser_width",
+          "friendlyName": "HP850G5 Browser width",
+          "cSharpName": "Hp850g5BrowserWidth"
+        },
+        {
           "id": "sensor.ilvapricemonitor_1055729_5642100692",
           "friendlyName": "Woodstock Sofabord 120 x 47 x 60 cm ",
           "cSharpName": "Ilvapricemonitor10557295642100692"
@@ -8096,6 +8726,11 @@
           "cSharpName": "KristoffersGalaxyS24UltraBatteryLevel"
         },
         {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_bluetooth_connection",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Bluetooth connection",
+          "cSharpName": "KristoffersGalaxyS24UltraBluetoothConnection"
+        },
+        {
           "id": "sensor.kummefryser_energy",
           "friendlyName": "Kummefryser Energy",
           "cSharpName": "KummefryserEnergy"
@@ -8199,6 +8834,11 @@
           "id": "sensor.mealie_users",
           "friendlyName": "Mealie Users",
           "cSharpName": "MealieUsers"
+        },
+        {
+          "id": "sensor.monta_gro_kristoffers_ladestander_last_meter_reading",
+          "friendlyName": "Last Meter Reading",
+          "cSharpName": "MontaGroKristoffersLadestanderLastMeterReading"
         },
         {
           "id": "sensor.nordpool_kwh_dk1_dkk_3_10_025",
@@ -8382,58 +9022,43 @@
         },
         {
           "id": "sensor.roborock_s5_max_current_clean_area",
-          "friendlyName": "Current clean area",
+          "friendlyName": "Roborock S5 Max Current clean area",
           "cSharpName": "RoborockS5MaxCurrentCleanArea"
         },
         {
           "id": "sensor.roborock_s5_max_current_clean_duration",
-          "friendlyName": "Current clean duration",
+          "friendlyName": "Roborock S5 Max Current clean duration",
           "cSharpName": "RoborockS5MaxCurrentCleanDuration"
         },
         {
           "id": "sensor.roborock_s5_max_filter_left",
-          "friendlyName": "Filter left",
+          "friendlyName": "Roborock S5 Max Filter remaining",
           "cSharpName": "RoborockS5MaxFilterLeft"
         },
         {
           "id": "sensor.roborock_s5_max_last_clean_area",
-          "friendlyName": "Last clean area",
+          "friendlyName": "Roborock S5 Max Last clean area",
           "cSharpName": "RoborockS5MaxLastCleanArea"
         },
         {
           "id": "sensor.roborock_s5_max_last_clean_duration",
-          "friendlyName": "Last clean duration",
+          "friendlyName": "Roborock S5 Max Last clean duration",
           "cSharpName": "RoborockS5MaxLastCleanDuration"
         },
         {
           "id": "sensor.roborock_s5_max_main_brush_left",
-          "friendlyName": "Main brush left",
+          "friendlyName": "Roborock S5 Max Main brush remaining",
           "cSharpName": "RoborockS5MaxMainBrushLeft"
         },
         {
           "id": "sensor.roborock_s5_max_sensor_dirty_left",
-          "friendlyName": "Sensor dirty left",
+          "friendlyName": "Roborock S5 Max Sensor dirty remaining",
           "cSharpName": "RoborockS5MaxSensorDirtyLeft"
         },
         {
           "id": "sensor.roborock_s5_max_side_brush_left",
-          "friendlyName": "Side brush left",
+          "friendlyName": "Roborock S5 Max Side brush remaining",
           "cSharpName": "RoborockS5MaxSideBrushLeft"
-        },
-        {
-          "id": "sensor.s6937930a15c675acc_bdda_estimated_distance",
-          "friendlyName": "Estimated distance",
-          "cSharpName": "S6937930a15c675accBddaEstimatedDistance"
-        },
-        {
-          "id": "sensor.s78f354bf382f3aa3c_81fc_estimated_distance",
-          "friendlyName": "Estimated Distance",
-          "cSharpName": "S78f354bf382f3aa3c81fcEstimatedDistance"
-        },
-        {
-          "id": "sensor.s9fc1e43d898f31bac_db8a_estimated_distance",
-          "friendlyName": "Estimated Distance",
-          "cSharpName": "S9fc1e43d898f31bacDb8aEstimatedDistance"
         },
         {
           "id": "sensor.samsung_galaxy_s8_battery_level",
@@ -8441,19 +9066,9 @@
           "cSharpName": "SamsungGalaxyS8BatteryLevel"
         },
         {
-          "id": "sensor.saphe_estimated_distance",
-          "friendlyName": "Estimated distance",
-          "cSharpName": "SapheEstimatedDistance"
-        },
-        {
           "id": "sensor.sc8bfaff5ce07e22cc_18b6_estimated_distance",
           "friendlyName": "Sc8bfaff5ce07e22cC 18B6 Estimated distance",
           "cSharpName": "Sc8bfaff5ce07e22cc18b6EstimatedDistance"
-        },
-        {
-          "id": "sensor.sd01db6144334011bc_998a_estimated_distance",
-          "friendlyName": "Sd01db6144334011bC 998A Estimated distance",
-          "cSharpName": "Sd01db6144334011bc998aEstimatedDistance"
         },
         {
           "id": "sensor.seedbox_energy",
@@ -9361,6 +9976,101 @@
           "jsonName": "motor_speed",
           "cSharpName": "MotorSpeed",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "users",
+          "cSharpName": "Users",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "usersOnline",
+          "cSharpName": "UsersOnline",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "openSessions",
+          "cSharpName": "OpenSessions",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "7f7da9d1-371e-45e9-97e1-b7ca0b7b02e3",
+          "cSharpName": "_7f7da9d1371e45e997e1b7ca0b7b02e3",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "28526bc6-5a56-4320-9512-3f68c221f721",
+          "cSharpName": "_28526bc65a56432095123f68c221f721",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "1ecdb194-7e29-44a8-b25d-ed62d7a5478d",
+          "cSharpName": "_1ecdb1947e2944a8b25ded62d7a5478d",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "a58d1820-477d-4049-b957-be64596d44b7",
+          "cSharpName": "A58d1820477d4049b957be64596d44b7",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "largestItems",
+          "cSharpName": "LargestItems",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "totalAuthors",
+          "cSharpName": "TotalAuthors",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "authorsWithCount",
+          "cSharpName": "AuthorsWithCount",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "totalGenres",
+          "cSharpName": "TotalGenres",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "genresWithCount",
+          "cSharpName": "GenresWithCount",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "totalItems",
+          "cSharpName": "TotalItems",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "longestItems",
+          "cSharpName": "LongestItems",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "totalSize",
+          "cSharpName": "TotalSize",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "totalDuration",
+          "cSharpName": "TotalDuration",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "numAudioTracks",
+          "cSharpName": "NumAudioTracks",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "type",
+          "cSharpName": "Type",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "browserID",
+          "cSharpName": "BrowserID",
+          "clrType": "System.String"
         }
       ]
     },
@@ -9538,6 +10248,11 @@
           "id": "switch.lys_paa_loftet",
           "friendlyName": "Lys p\u00E5 loftet",
           "cSharpName": "LysPaaLoftet"
+        },
+        {
+          "id": "switch.monta_gro_kristoffers_ladestander_start_stop",
+          "friendlyName": "Start/stop",
+          "cSharpName": "MontaGroKristoffersLadestanderStartStop"
         },
         {
           "id": "switch.netdaemon_campenauktioner",
@@ -9915,6 +10630,11 @@
           "jsonName": "test_alarm_result",
           "cSharpName": "TestAlarmResult",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
+          "clrType": "System.String"
         }
       ]
     },
@@ -9923,12 +10643,12 @@
       "entities": [
         {
           "id": "tts.google_da_dk",
-          "friendlyName": "Google da dk",
+          "friendlyName": "Google Translate da dk",
           "cSharpName": "GoogleDaDk"
         },
         {
           "id": "tts.google_en_com",
-          "friendlyName": "Google en com",
+          "friendlyName": "Google Translate en com",
           "cSharpName": "GoogleEnCom"
         }
       ],
@@ -9972,6 +10692,11 @@
           "id": "update.appdaemon_update",
           "friendlyName": "AppDaemon Update",
           "cSharpName": "AppdaemonUpdate"
+        },
+        {
+          "id": "update.attribute_as_sensor_update",
+          "friendlyName": "Attribute as Sensor update",
+          "cSharpName": "AttributeAsSensorUpdate"
         },
         {
           "id": "update.audiobookshelf_update",
@@ -10064,6 +10789,16 @@
           "cSharpName": "CustomUiUpdate"
         },
         {
+          "id": "update.daily_schedule_update",
+          "friendlyName": "Daily Schedule update",
+          "cSharpName": "DailyScheduleUpdate"
+        },
+        {
+          "id": "update.decluttering_card_update",
+          "friendlyName": "Decluttering Card update",
+          "cSharpName": "DeclutteringCardUpdate"
+        },
+        {
           "id": "update.duck_dns_update",
           "friendlyName": "Duck DNS Update",
           "cSharpName": "DuckDnsUpdate"
@@ -10079,6 +10814,11 @@
           "cSharpName": "EforsyningUpdate"
         },
         {
+          "id": "update.elasticsearch_update",
+          "friendlyName": "Elasticsearch update",
+          "cSharpName": "ElasticsearchUpdate"
+        },
+        {
           "id": "update.eloverblik_update",
           "friendlyName": "Eloverblik update",
           "cSharpName": "EloverblikUpdate"
@@ -10090,7 +10830,7 @@
         },
         {
           "id": "update.esphome_update",
-          "friendlyName": "ESPHome Update",
+          "friendlyName": "ESPHome Device Compiler Update",
           "cSharpName": "EsphomeUpdate"
         },
         {
@@ -10267,6 +11007,11 @@
           "id": "update.mini_graph_card_update",
           "friendlyName": "mini-graph-card update",
           "cSharpName": "MiniGraphCardUpdate"
+        },
+        {
+          "id": "update.monta_update",
+          "friendlyName": "Monta update",
+          "cSharpName": "MontaUpdate"
         },
         {
           "id": "update.mosquitto_broker_update",
@@ -10629,6 +11374,11 @@
           "cSharpName": "WalkInClosetShortcut"
         },
         {
+          "id": "update.waste_collection_schedule_update",
+          "friendlyName": "Waste Collection Schedule update",
+          "cSharpName": "WasteCollectionScheduleUpdate"
+        },
+        {
           "id": "update.webrtc_camera_update",
           "friendlyName": "WebRTC Camera update",
           "cSharpName": "WebrtcCameraUpdate"
@@ -10854,6 +11604,16 @@
           "jsonName": "restored",
           "cSharpName": "Restored",
           "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "display_precision",
+          "cSharpName": "DisplayPrecision",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "update_percentage",
+          "cSharpName": "UpdatePercentage",
+          "clrType": "System.Object"
         }
       ]
     },
@@ -10862,7 +11622,7 @@
       "entities": [
         {
           "id": "vacuum.roborock_s5_max",
-          "friendlyName": null,
+          "friendlyName": "Roborock S5 Max",
           "cSharpName": "RoborockS5Max"
         }
       ],
@@ -11061,6 +11821,11 @@
           "id": "var.campen_watchlist",
           "friendlyName": "Watchlist for Campen Auktioner",
           "cSharpName": "CampenWatchlist"
+        },
+        {
+          "id": "var.reminders",
+          "friendlyName": "Reminders",
+          "cSharpName": "Reminders"
         }
       ],
       "attributes": [
@@ -11184,6 +11949,11 @@
         {
           "jsonName": "dew_point",
           "cSharpName": "DewPoint",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "uv_index",
+          "cSharpName": "UvIndex",
           "clrType": "System.Double"
         }
       ]
@@ -11386,6 +12156,11 @@
           "cSharpName": "MealieIndkobsliste"
         },
         {
+          "id": "todo.reminders",
+          "friendlyName": "Reminders",
+          "cSharpName": "Reminders"
+        },
+        {
           "id": "todo.shopping_list",
           "friendlyName": "Shopping List",
           "cSharpName": "ShoppingList"
@@ -11480,6 +12255,48 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "event",
+      "entities": [
+        {
+          "id": "event.dorklokke_chime",
+          "friendlyName": "D\u00F8rklokke Chime",
+          "cSharpName": "DorklokkeChime"
+        },
+        {
+          "id": "event.dorklokke_motion",
+          "friendlyName": "D\u00F8rklokke Motion",
+          "cSharpName": "DorklokkeMotion"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "event_types",
+          "cSharpName": "EventTypes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "event_type",
+          "cSharpName": "EventType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "nest_event_id",
+          "cSharpName": "NestEventId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "device_class",
+          "cSharpName": "DeviceClass",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
         }
       ]
     }

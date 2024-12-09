@@ -22,6 +22,7 @@ public class NightBrightness
     _lights.Ballon,
     _lights.FelenaTassel,
     _lights.FelenaTassel,
+    _lights.Forhave250,
     _lights.GarageLanterne,
     _lights.Indkorsel,
     _lights.LysForanGaragen,
@@ -37,11 +38,14 @@ public class NightBrightness
     _lights.LysPaSovevaerelset,
     _lights.LysPaToilettet,
     _lights.Maane,
+    _lights.PartialGarageportHojre,
+    _lights.PartialGarageportVenstre,
     _lights.PartialIndkorsel1,
     _lights.PartialIndkorsel2,
     _lights.PartialIndkorsel3,
     _lights.PartialIndkorsel4,
     _lights.PartialIndkorsel5,
+    _lights.Terrasse,
     _lights.Toilet,
   ];
 

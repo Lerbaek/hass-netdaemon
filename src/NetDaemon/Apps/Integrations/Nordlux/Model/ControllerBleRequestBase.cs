@@ -61,8 +61,8 @@ public record ControllerBleRequestBase : RequestBase
         return Set(new Control("cct", $"{temperature}"));
     }
 
-    public ControllerBleRequest TurnOn() => SetPowerState(true);
-    public ControllerBleRequest TurnOff() => SetPowerState(false);
+    public ControllerBleRequest TurnOn() => SetPowerState(on: true);
+    public ControllerBleRequest TurnOff() => SetPowerState(on: false);
 
     private ControllerBleRequest SetPowerState(bool on)
     {

@@ -1,6 +1,6 @@
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 
-public static class ApiPathConstants
+public static class ApiServiceConstants
 {
     /// <summary>
     /// For reporting the status of bulbs after local changes.

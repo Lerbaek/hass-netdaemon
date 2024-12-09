@@ -239,7 +239,8 @@ public class Nordlux : ServiceHandler
     /// The purpose of this method is to ensure that the server state reflects reality when
     /// locally changing the state, for example through Bluetooth or local gateway communication.
     /// </remarks>
-    [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Might come in handy")]
+    [SuppressMessage("ReSharper", "UnusedMember.Local")]
+    [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Might come in handy")]
     private async Task ReportStatus(Func<DeviceSetter, DeviceSetter> configureDevices)
     {
         LogServiceCall(_logger);
@@ -248,7 +249,7 @@ public class Nordlux : ServiceHandler
 
         var setStatusBody = new ReportBulbStatusRequest(_config, _deviceList.Select(configureDevices));
 
-        await _requestHandler.Send(setStatusBody, ApiPathConstants.ReportBulbStatus);
+        await _requestHandler.Send(setStatusBody, ApiServiceConstants.ReportBulbStatus);
         await OliveTreeBranchUpdateStatus();
     }
 
@@ -266,7 +267,7 @@ public class Nordlux : ServiceHandler
     {
         var response = await _requestHandler.Send(
             _getStatusBody,
-            ApiPathConstants.GetDeviceStatus);
+            ApiServiceConstants.GetDeviceStatus);
 
         var content = await response.Content.ReadAsStringAsync();
         _logger.LogTrace("Status: {Status}", content);

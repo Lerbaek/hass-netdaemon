@@ -33,21 +33,13 @@ public class RequestHandler : IRequestHandler
 
     public async Task<HttpResponseMessage> Send<T>(
       T body,
-      string apiService = ApiPathConstants.ControllerBle) where T : RequestBase
+      string apiService = ApiServiceConstants.ControllerBle) where T : RequestBase
     {
-        try
-        {
-            var serializedBody = JsonSerializer.Serialize(body);
-            var encryptedBody = _aes.EncryptEcb(UTF8.GetBytes(serializedBody), PaddingMode.PKCS7);
-            var cipher = Convert.ToHexString(encryptedBody);
-            using var requestMessage = await GenerateRequestMessage(cipher, apiService);
-            return await SendAndLog(requestMessage);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
+        var serializedBody = JsonSerializer.Serialize(body);
+        var encryptedBody = _aes.EncryptEcb(UTF8.GetBytes(serializedBody), PaddingMode.PKCS7);
+        var cipher = Convert.ToHexString(encryptedBody);
+        using var requestMessage = await GenerateRequestMessage(cipher, apiService);
+        return await SendAndLog(requestMessage);
     }
 
     private async Task<HttpRequestMessage> GenerateRequestMessage(
@@ -81,32 +73,27 @@ public class RequestHandler : IRequestHandler
 
         requestMessage.Headers.Add("sign", sign);
 
-        _logger.LogTrace("Generated request message.");
-        _logger.LogTrace("URI: {RequestUri}", requestMessage.RequestUri!.OriginalString);
-        _logger.LogTrace("Cipher: {Cipher}", cipher);
+        using var logScope = _logger.BeginScope(new Dictionary<string, object?>
+        {
+            ["URI"] = requestMessage.RequestUri!.OriginalString,
+            ["Cipher"] = cipher
+        });
+
+        _logger.LogTrace("Request message generated.");
 
         return requestMessage;
     }
 
     private async Task<HttpResponseMessage> SendAndLog(HttpRequestMessage requestMessage)
     {
-        HttpResponseMessage response;
-        try
-        {
-            _logger.LogTrace("Sending request");
-            response = await _httpClient.SendAsync(requestMessage);
+        _logger.LogTrace("Sending request");
+        var response = await _httpClient.SendAsync(requestMessage);
 
-            _logger.LogTrace(
-                "Response: {StatusCode}({Status})",
-                (int)response.StatusCode,
-                response.StatusCode);
+        _logger.LogTrace(
+            "Response: {StatusCode}({Status})",
+            (int)response.StatusCode,
+            response.StatusCode);
 
-            return response;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
+        return response;
     }
 }
