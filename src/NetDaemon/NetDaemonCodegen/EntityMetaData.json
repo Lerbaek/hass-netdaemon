@@ -512,17 +512,17 @@
         },
         {
           "id": "binary_sensor.cast",
-          "friendlyName": "CAST",
+          "friendlyName": null,
           "cSharpName": "Cast"
         },
         {
           "id": "binary_sensor.cast_browser_dark_mode",
-          "friendlyName": "CAST Browser dark mode",
+          "friendlyName": "Browser dark mode",
           "cSharpName": "CastBrowserDarkMode"
         },
         {
           "id": "binary_sensor.cast_browser_fullykiosk",
-          "friendlyName": "CAST Browser FullyKiosk",
+          "friendlyName": "Browser FullyKiosk",
           "cSharpName": "CastBrowserFullykiosk"
         },
         {
@@ -704,6 +704,11 @@
           "id": "binary_sensor.indkorsel_motion",
           "friendlyName": "Motion",
           "cSharpName": "IndkorselMotion"
+        },
+        {
+          "id": "binary_sensor.is_halloween",
+          "friendlyName": "Det er Halloween",
+          "cSharpName": "IsHalloween"
         },
         {
           "id": "binary_sensor.kokken_gang_early_start",
@@ -902,12 +907,12 @@
         },
         {
           "id": "binary_sensor.roborock_s5_max_mop_attached",
-          "friendlyName": "Roborock S5 Max Mop attached",
+          "friendlyName": "Mop attached",
           "cSharpName": "RoborockS5MaxMopAttached"
         },
         {
           "id": "binary_sensor.roborock_s5_max_water_box_attached",
-          "friendlyName": "Roborock S5 Max Mop attached",
+          "friendlyName": "Mop attached",
           "cSharpName": "RoborockS5MaxWaterBoxAttached"
         },
         {
@@ -1543,6 +1548,11 @@
           "cSharpName": "FlowerpotVp1Identify2"
         },
         {
+          "id": "button.flowerpotvp3_identify",
+          "friendlyName": "FlowerpotVP3 Identify",
+          "cSharpName": "Flowerpotvp3Identify"
+        },
+        {
           "id": "button.garage_lanterne_identify",
           "friendlyName": "Garage-lanterne Identify",
           "cSharpName": "GarageLanterneIdentify"
@@ -1659,22 +1669,22 @@
         },
         {
           "id": "button.roborock_s5_max_reset_filter",
-          "friendlyName": "Roborock S5 Max Reset filter",
+          "friendlyName": "Reset filter",
           "cSharpName": "RoborockS5MaxResetFilter"
         },
         {
           "id": "button.roborock_s5_max_reset_main_brush",
-          "friendlyName": "Roborock S5 Max Reset main brush",
+          "friendlyName": "Reset main brush",
           "cSharpName": "RoborockS5MaxResetMainBrush"
         },
         {
           "id": "button.roborock_s5_max_reset_sensor_dirty",
-          "friendlyName": "Roborock S5 Max Reset sensor dirty",
+          "friendlyName": "Reset sensor dirty",
           "cSharpName": "RoborockS5MaxResetSensorDirty"
         },
         {
           "id": "button.roborock_s5_max_reset_side_brush",
-          "friendlyName": "Roborock S5 Max Reset side brush",
+          "friendlyName": "Reset side brush",
           "cSharpName": "RoborockS5MaxResetSideBrush"
         },
         {
@@ -2159,6 +2169,11 @@
           "id": "device_tracker.annalinasiphone",
           "friendlyName": "ANNALINASIPHONE",
           "cSharpName": "Annalinasiphone"
+        },
+        {
+          "id": "device_tracker.annalinasiphone_2",
+          "friendlyName": "ANNALINASIPHONE",
+          "cSharpName": "Annalinasiphone2"
         },
         {
           "id": "device_tracker.arbejds_pc_rygsak",
@@ -2662,7 +2677,7 @@
         },
         {
           "id": "device_tracker.samsung_2",
-          "friendlyName": "[TV] Samsung 7 Series (65)",
+          "friendlyName": "SAMSUNG",
           "cSharpName": "Samsung2"
         },
         {
@@ -2682,7 +2697,7 @@
         },
         {
           "id": "device_tracker.sc8bfaff5ce07e22cc_18b6",
-          "friendlyName": "Sc8bfaff5ce07e22cC 18B6",
+          "friendlyName": null,
           "cSharpName": "Sc8bfaff5ce07e22cc18b6"
         },
         {
@@ -2937,7 +2952,7 @@
         },
         {
           "id": "device_tracker.tuyaterrassekoleskab",
-          "friendlyName": "ESP_10269B",
+          "friendlyName": "Garaged\u00F8r",
           "cSharpName": "Tuyaterrassekoleskab"
         },
         {
@@ -2954,6 +2969,11 @@
           "id": "device_tracker.tv_samsung_7_series_65",
           "friendlyName": "[TV] Samsung 7 Series (65)",
           "cSharpName": "TvSamsung7Series65"
+        },
+        {
+          "id": "device_tracker.twinkly_654e69",
+          "friendlyName": "TWINKLY_654E69",
+          "cSharpName": "Twinkly654e69"
         },
         {
           "id": "device_tracker.twinkly_c3b6c5",
@@ -3159,6 +3179,16 @@
           "id": "device_tracker.unnamed_device_44",
           "friendlyName": "unnamed device",
           "cSharpName": "UnnamedDevice44"
+        },
+        {
+          "id": "device_tracker.unnamed_device_45",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice45"
+        },
+        {
+          "id": "device_tracker.unnamed_device_46",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice46"
         },
         {
           "id": "device_tracker.unnamed_device_5",
@@ -3468,6 +3498,16 @@
           "id": "input_boolean.bagkant_for_bilopladning_aktiveret",
           "friendlyName": "Bagkant for bilopladning aktiveret",
           "cSharpName": "BagkantForBilopladningAktiveret"
+        },
+        {
+          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
+          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
+          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsAutomationsNightBrightness"
+        },
+        {
+          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
+          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
+          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsIntegrationsNordluxNordlux"
         },
         {
           "id": "input_boolean.dorklokke",
@@ -4040,7 +4080,7 @@
         },
         {
           "id": "light.cast_screen",
-          "friendlyName": "CAST Screen",
+          "friendlyName": "Screen",
           "cSharpName": "CastScreen"
         },
         {
@@ -4057,6 +4097,11 @@
           "id": "light.flowerpot_vp1",
           "friendlyName": "Flowerpot VP1",
           "cSharpName": "FlowerpotVp1"
+        },
+        {
+          "id": "light.flowerpotvp3",
+          "friendlyName": "FlowerpotVP3",
+          "cSharpName": "Flowerpotvp3"
         },
         {
           "id": "light.fordelingsgang",
@@ -4097,6 +4142,11 @@
           "id": "light.julelys",
           "friendlyName": "Julelys",
           "cSharpName": "Julelys"
+        },
+        {
+          "id": "light.juletrae",
+          "friendlyName": "Juletr\u00E6",
+          "cSharpName": "Juletrae"
         },
         {
           "id": "light.kanin_astronaut",
@@ -4689,7 +4739,7 @@
       "entities": [
         {
           "id": "media_player.cast",
-          "friendlyName": "CAST",
+          "friendlyName": null,
           "cSharpName": "Cast"
         },
         {
@@ -5470,6 +5520,11 @@
           "id": "scene.indkorsel_regnbue",
           "friendlyName": "Indk\u00F8rsel: Regnbue",
           "cSharpName": "IndkorselRegnbue"
+        },
+        {
+          "id": "scene.volume_before_doorbell",
+          "friendlyName": "volume_before_doorbell",
+          "cSharpName": "VolumeBeforeDoorbell"
         }
       ],
       "attributes": [
@@ -5524,6 +5579,11 @@
           "cSharpName": "HjemGodnat"
         },
         {
+          "id": "script.julemanden_ringer_pa",
+          "friendlyName": "Julemanden ringer p\u00E5",
+          "cSharpName": "JulemandenRingerPa"
+        },
+        {
           "id": "script.kokken_stovsuger_pitstop",
           "friendlyName": "St\u00F8vsuger: Pit-stop",
           "cSharpName": "KokkenStovsugerPitstop"
@@ -5557,6 +5617,11 @@
           "id": "script.scene_sluk_alle_indendors_lys",
           "friendlyName": "Hjem: Sluk indend\u00F8rs lys",
           "cSharpName": "SceneSlukAlleIndendorsLys"
+        },
+        {
+          "id": "script.start_opladning_nar_forbundet",
+          "friendlyName": "Start opladning n\u00E5r forbundet",
+          "cSharpName": "StartOpladningNarForbundet"
         },
         {
           "id": "script.stovsuger_ebbes_mad",
@@ -5679,6 +5744,11 @@
           "id": "select.flowerpot_vp1_power_on_behavior",
           "friendlyName": "Flowerpot VP1 Power-on behavior",
           "cSharpName": "FlowerpotVp1PowerOnBehavior"
+        },
+        {
+          "id": "select.flowerpotvp3_power_on_behavior",
+          "friendlyName": "FlowerpotVP3 Power-on behavior",
+          "cSharpName": "Flowerpotvp3PowerOnBehavior"
         },
         {
           "id": "select.garage_lanterne_power_on_behavior",
@@ -6214,27 +6284,27 @@
         },
         {
           "id": "sensor.canon_ts5300_series",
-          "friendlyName": null,
+          "friendlyName": "Canon TS5300 series",
           "cSharpName": "CanonTs5300Series"
         },
         {
           "id": "sensor.cast_browser_path",
-          "friendlyName": "CAST Browser path",
+          "friendlyName": "Browser path",
           "cSharpName": "CastBrowserPath"
         },
         {
           "id": "sensor.cast_browser_user",
-          "friendlyName": "CAST Browser user",
+          "friendlyName": "Browser user",
           "cSharpName": "CastBrowserUser"
         },
         {
           "id": "sensor.cast_browser_useragent",
-          "friendlyName": "CAST Browser userAgent",
+          "friendlyName": "Browser userAgent",
           "cSharpName": "CastBrowserUseragent"
         },
         {
           "id": "sensor.cast_browser_visibility",
-          "friendlyName": "CAST Browser visibility",
+          "friendlyName": "Browser visibility",
           "cSharpName": "CastBrowserVisibility"
         },
         {
@@ -7084,12 +7154,12 @@
         },
         {
           "id": "sensor.roborock_s5_max_last_clean_end",
-          "friendlyName": "Roborock S5 Max Last clean end",
+          "friendlyName": "Last clean end",
           "cSharpName": "RoborockS5MaxLastCleanEnd"
         },
         {
           "id": "sensor.roborock_s5_max_last_clean_start",
-          "friendlyName": "Roborock S5 Max Last clean start",
+          "friendlyName": "Last clean start",
           "cSharpName": "RoborockS5MaxLastCleanStart"
         },
         {
@@ -7114,7 +7184,7 @@
         },
         {
           "id": "sensor.sc8bfaff5ce07e22cc_18b6_vendor",
-          "friendlyName": "Sc8bfaff5ce07e22cC 18B6 Vendor",
+          "friendlyName": "Vendor",
           "cSharpName": "Sc8bfaff5ce07e22cc18b6Vendor"
         },
         {
@@ -8227,22 +8297,22 @@
         },
         {
           "id": "sensor.canon_ts5300_series_black",
-          "friendlyName": "Black",
+          "friendlyName": "Canon TS5300 series Black",
           "cSharpName": "CanonTs5300SeriesBlack"
         },
         {
           "id": "sensor.canon_ts5300_series_color",
-          "friendlyName": "Color",
+          "friendlyName": "Canon TS5300 series Color",
           "cSharpName": "CanonTs5300SeriesColor"
         },
         {
           "id": "sensor.cast_browser_height",
-          "friendlyName": "CAST Browser height",
+          "friendlyName": "Browser height",
           "cSharpName": "CastBrowserHeight"
         },
         {
           "id": "sensor.cast_browser_width",
-          "friendlyName": "CAST Browser width",
+          "friendlyName": "Browser width",
           "cSharpName": "CastBrowserWidth"
         },
         {
@@ -9022,42 +9092,42 @@
         },
         {
           "id": "sensor.roborock_s5_max_current_clean_area",
-          "friendlyName": "Roborock S5 Max Current clean area",
+          "friendlyName": "Current clean area",
           "cSharpName": "RoborockS5MaxCurrentCleanArea"
         },
         {
           "id": "sensor.roborock_s5_max_current_clean_duration",
-          "friendlyName": "Roborock S5 Max Current clean duration",
+          "friendlyName": "Current clean duration",
           "cSharpName": "RoborockS5MaxCurrentCleanDuration"
         },
         {
           "id": "sensor.roborock_s5_max_filter_left",
-          "friendlyName": "Roborock S5 Max Filter remaining",
+          "friendlyName": "Filter remaining",
           "cSharpName": "RoborockS5MaxFilterLeft"
         },
         {
           "id": "sensor.roborock_s5_max_last_clean_area",
-          "friendlyName": "Roborock S5 Max Last clean area",
+          "friendlyName": "Last clean area",
           "cSharpName": "RoborockS5MaxLastCleanArea"
         },
         {
           "id": "sensor.roborock_s5_max_last_clean_duration",
-          "friendlyName": "Roborock S5 Max Last clean duration",
+          "friendlyName": "Last clean duration",
           "cSharpName": "RoborockS5MaxLastCleanDuration"
         },
         {
           "id": "sensor.roborock_s5_max_main_brush_left",
-          "friendlyName": "Roborock S5 Max Main brush remaining",
+          "friendlyName": "Main brush remaining",
           "cSharpName": "RoborockS5MaxMainBrushLeft"
         },
         {
           "id": "sensor.roborock_s5_max_sensor_dirty_left",
-          "friendlyName": "Roborock S5 Max Sensor dirty remaining",
+          "friendlyName": "Sensor dirty remaining",
           "cSharpName": "RoborockS5MaxSensorDirtyLeft"
         },
         {
           "id": "sensor.roborock_s5_max_side_brush_left",
-          "friendlyName": "Roborock S5 Max Side brush remaining",
+          "friendlyName": "Side brush remaining",
           "cSharpName": "RoborockS5MaxSideBrushLeft"
         },
         {
@@ -9067,7 +9137,7 @@
         },
         {
           "id": "sensor.sc8bfaff5ce07e22cc_18b6_estimated_distance",
-          "friendlyName": "Sc8bfaff5ce07e22cC 18B6 Estimated distance",
+          "friendlyName": "Estimated distance",
           "cSharpName": "Sc8bfaff5ce07e22cc18b6EstimatedDistance"
         },
         {
@@ -10071,6 +10141,11 @@
           "jsonName": "browserID",
           "cSharpName": "BrowserID",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "entity_picture",
+          "cSharpName": "EntityPicture",
+          "clrType": "System.String"
         }
       ]
     },
@@ -10635,6 +10710,11 @@
           "jsonName": "attribution",
           "cSharpName": "Attribution",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "entity_picture",
+          "cSharpName": "EntityPicture",
+          "clrType": "System.String"
         }
       ]
     },
@@ -10779,6 +10859,11 @@
           "cSharpName": "ConfigTemplateCardUpdate"
         },
         {
+          "id": "update.copenhagen_trackers_update",
+          "friendlyName": "Copenhagen Trackers update",
+          "cSharpName": "CopenhagenTrackersUpdate"
+        },
+        {
           "id": "update.cupertino_icons_update",
           "friendlyName": "cupertino-icons update",
           "cSharpName": "CupertinoIconsUpdate"
@@ -10792,11 +10877,6 @@
           "id": "update.daily_schedule_update",
           "friendlyName": "Daily Schedule update",
           "cSharpName": "DailyScheduleUpdate"
-        },
-        {
-          "id": "update.decluttering_card_update",
-          "friendlyName": "Decluttering Card update",
-          "cSharpName": "DeclutteringCardUpdate"
         },
         {
           "id": "update.duck_dns_update",
@@ -10830,7 +10910,7 @@
         },
         {
           "id": "update.esphome_update",
-          "friendlyName": "ESPHome Device Compiler Update",
+          "friendlyName": "ESPHome Device Builder Update",
           "cSharpName": "EsphomeUpdate"
         },
         {
@@ -10852,6 +10932,11 @@
           "id": "update.flowerpot_vp1",
           "friendlyName": "Flowerpot VP1",
           "cSharpName": "FlowerpotVp1"
+        },
+        {
+          "id": "update.flowerpotvp3",
+          "friendlyName": "FlowerpotVP3",
+          "cSharpName": "Flowerpotvp3"
         },
         {
           "id": "update.fluid_level_background_card_update",
@@ -11052,6 +11137,11 @@
           "id": "update.netdaemon_v4_net_8_update",
           "friendlyName": "NetDaemon V4 (.NET 8) Update",
           "cSharpName": "NetdaemonV4Net8Update"
+        },
+        {
+          "id": "update.netdaemon_v5_net_9_update",
+          "friendlyName": "NetDaemon V5 (.NET 9) Update",
+          "cSharpName": "NetdaemonV5Net9Update"
         },
         {
           "id": "update.node_red_update",
@@ -11264,6 +11354,11 @@
           "cSharpName": "SshWebTerminalUpdate"
         },
         {
+          "id": "update.streamline_card_update",
+          "friendlyName": "Streamline Card update",
+          "cSharpName": "StreamlineCardUpdate"
+        },
+        {
           "id": "update.studio_code_server_update",
           "friendlyName": "Studio Code Server Update",
           "cSharpName": "StudioCodeServerUpdate"
@@ -11312,6 +11407,11 @@
           "id": "update.torretumbler",
           "friendlyName": "T\u00F8rretumbler",
           "cSharpName": "Torretumbler"
+        },
+        {
+          "id": "update.traccar_update",
+          "friendlyName": "Traccar Update",
+          "cSharpName": "TraccarUpdate"
         },
         {
           "id": "update.trashcard_update",
@@ -11622,7 +11722,7 @@
       "entities": [
         {
           "id": "vacuum.roborock_s5_max",
-          "friendlyName": "Roborock S5 Max",
+          "friendlyName": null,
           "cSharpName": "RoborockS5Max"
         }
       ],

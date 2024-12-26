@@ -15,7 +15,7 @@ namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 /// <summary>
 /// Provides methods to register and handle the Nordlux bulbs in the <i>Olive Tree Branch</i> lamp.
 /// </summary>
-[Focus]
+//[Focus]
 [NetDaemonApp]
 public class Nordlux : ServiceHandler
 {
