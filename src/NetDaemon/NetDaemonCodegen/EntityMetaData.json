@@ -160,7 +160,7 @@
         },
         {
           "id": "automation.kokken_styr_entre_med_kontakt",
-          "friendlyName": "K\u00F8kken: Styr entr\u00E9 med kontakt",
+          "friendlyName": "K\u00F8kken: Styr Olive Tree Branch med kontakt",
           "cSharpName": "KokkenStyrEntreMedKontakt"
         },
         {
@@ -1181,6 +1181,11 @@
           "cSharpName": "Zigbee2mqttBridgeConnectionState"
         },
         {
+          "id": "binary_sensor.zoe_can_update",
+          "friendlyName": "Zoe can update",
+          "cSharpName": "ZoeCanUpdate"
+        },
+        {
           "id": "binary_sensor.zoe_charging",
           "friendlyName": "Renault Zoe Charging",
           "cSharpName": "ZoeCharging"
@@ -1194,6 +1199,11 @@
           "id": "binary_sensor.zoe_plugged_in",
           "friendlyName": "Renault Zoe Plug",
           "cSharpName": "ZoePluggedIn"
+        },
+        {
+          "id": "binary_sensor.zoe_should_update",
+          "friendlyName": "Zoe should update",
+          "cSharpName": "ZoeShouldUpdate"
         }
       ],
       "attributes": [
@@ -2677,7 +2687,7 @@
         },
         {
           "id": "device_tracker.samsung_2",
-          "friendlyName": "SAMSUNG",
+          "friendlyName": "[TV] Samsung 7 Series (65)",
           "cSharpName": "Samsung2"
         },
         {
@@ -2952,7 +2962,7 @@
         },
         {
           "id": "device_tracker.tuyaterrassekoleskab",
-          "friendlyName": "Garaged\u00F8r",
+          "friendlyName": "ESP_10269B",
           "cSharpName": "Tuyaterrassekoleskab"
         },
         {
@@ -2972,12 +2982,12 @@
         },
         {
           "id": "device_tracker.twinkly_654e69",
-          "friendlyName": "TWINKLY_654E69",
+          "friendlyName": "TWINKLY-654E69",
           "cSharpName": "Twinkly654e69"
         },
         {
           "id": "device_tracker.twinkly_c3b6c5",
-          "friendlyName": "TWINKLY-C3B6C5",
+          "friendlyName": "TWINKLY_C3B6C5",
           "cSharpName": "TwinklyC3b6c5"
         },
         {
@@ -3222,7 +3232,7 @@
         },
         {
           "id": "device_tracker.win_f8s9dtb7ecu",
-          "friendlyName": "WIN-F8S9DTB7ECU",
+          "friendlyName": "DESKTOP-CO5LNMA",
           "cSharpName": "WinF8s9dtb7ecu"
         },
         {
@@ -3500,14 +3510,9 @@
           "cSharpName": "BagkantForBilopladningAktiveret"
         },
         {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsAutomationsNightBrightness"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsIntegrationsNordluxNordlux"
+          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_monitoring_humidity",
+          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_monitoring_humidity",
+          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsMonitoringHumidity"
         },
         {
           "id": "input_boolean.dorklokke",
@@ -5520,11 +5525,6 @@
           "id": "scene.indkorsel_regnbue",
           "friendlyName": "Indk\u00F8rsel: Regnbue",
           "cSharpName": "IndkorselRegnbue"
-        },
-        {
-          "id": "scene.volume_before_doorbell",
-          "friendlyName": "volume_before_doorbell",
-          "cSharpName": "VolumeBeforeDoorbell"
         }
       ],
       "attributes": [
@@ -7353,14 +7353,29 @@
           "cSharpName": "ZoeChargeState"
         },
         {
+          "id": "sensor.zoe_geolocation",
+          "friendlyName": "Zoe geolocation",
+          "cSharpName": "ZoeGeolocation"
+        },
+        {
           "id": "sensor.zoe_hvac_last_activity",
           "friendlyName": "Renault Zoe Last HVAC activity",
           "cSharpName": "ZoeHvacLastActivity"
         },
         {
+          "id": "sensor.zoe_location",
+          "friendlyName": "Zoe location",
+          "cSharpName": "ZoeLocation"
+        },
+        {
           "id": "sensor.zoe_plug_state",
           "friendlyName": "Renault Zoe Plug state",
           "cSharpName": "ZoePlugState"
+        },
+        {
+          "id": "sensor.zoe_profile_name",
+          "friendlyName": "Zoe profile name",
+          "cSharpName": "ZoeProfileName"
         }
       ],
       "attributes": [
@@ -8016,7 +8031,12 @@
         },
         {
           "jsonName": "updatedAt",
-          "cSharpName": "UpdatedAt",
+          "cSharpName": "UpdatedAt_0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "updated_at",
+          "cSharpName": "UpdatedAt_1",
           "clrType": "System.String"
         },
         {
@@ -8173,6 +8193,11 @@
           "jsonName": "userData",
           "cSharpName": "UserData",
           "clrType": "System.Object"
+        },
+        {
+          "jsonName": "description",
+          "cSharpName": "Description",
+          "clrType": "System.String"
         }
       ]
     },
@@ -9436,6 +9461,11 @@
           "cSharpName": "ZoeBatteryLevel"
         },
         {
+          "id": "sensor.zoe_battery_percentage",
+          "friendlyName": "Zoe battery percentage",
+          "cSharpName": "ZoeBatteryPercentage"
+        },
+        {
           "id": "sensor.zoe_battery_temperature",
           "friendlyName": "Renault Zoe Battery temperature",
           "cSharpName": "ZoeBatteryTemperature"
@@ -9464,6 +9494,11 @@
           "id": "sensor.zoe_outside_temperature",
           "friendlyName": "Renault Zoe Outside temperature",
           "cSharpName": "ZoeOutsideTemperature"
+        },
+        {
+          "id": "sensor.zoe_signal_strength",
+          "friendlyName": "Zoe signal strength",
+          "cSharpName": "ZoeSignalStrength"
         }
       ],
       "attributes": [
@@ -10146,6 +10181,21 @@
           "jsonName": "entity_picture",
           "cSharpName": "EntityPicture",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "uuid",
+          "cSharpName": "Uuid",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "major",
+          "cSharpName": "Major",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "minor",
+          "cSharpName": "Minor",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -10518,6 +10568,11 @@
           "id": "switch.zigbee2mqtt_permit_join",
           "friendlyName": "zigbee2mqtt: Permit join",
           "cSharpName": "Zigbee2mqttPermitJoin"
+        },
+        {
+          "id": "switch.zoe_force_update",
+          "friendlyName": "Zoe force update",
+          "cSharpName": "ZoeForceUpdate"
         }
       ],
       "attributes": [

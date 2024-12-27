@@ -20,7 +20,7 @@ namespace Lerbaek.Calendar.Lectio
 
     public async Task<Result<Ical.Net.Calendar>> CreateCalendar(string name, string description = null)
     {
-      Logger.LogInformation("Creating calendar \"{name}\"", name);
+      Logger.LogInformation("Creating calendar \"{Name}\"", name);
 
       var scheduleResult = await GetEvents();
       if (scheduleResult.IsFailed)
@@ -59,7 +59,7 @@ namespace Lerbaek.Calendar.Lectio
       var serializer = new CalendarSerializer();
       var serializedCalendar = serializer.SerializeToString(calendar);
       File.WriteAllText(path, serializedCalendar);
-      Logger.LogInformation("Calendar saved to {path}", path);
+      Logger.LogInformation("Calendar saved to {Path}", path);
 
       return calendar;
     }

@@ -87,7 +87,7 @@ namespace Lerbaek.Auctions.CampenAuktioner
       }
       catch (Exception e) when (!(e is OperationCanceledException))
       {
-        Logger.LogWarning(e, "Failed to get page {page}", page);
+        Logger.LogWarning(e, "Failed to get page {Page}", page);
         throw;
       }
     }

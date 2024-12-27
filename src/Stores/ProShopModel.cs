@@ -81,7 +81,7 @@ namespace Lerbaek.Stores
         }
         catch (Exception e)
         {
-          Logger.LogError(e, "An error occurred while parsing JSON string from {requestUri}", requestUri);
+          Logger.LogError(e, "An error occurred while parsing JSON string from {RequestUri}", requestUri);
           throw;
         }
       });

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <RootNamespace>Lerbaek.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
         <Configurations>Debug;Release;Deploy</Configurations>
@@ -43,29 +43,29 @@
     </Target>
         
     <ItemGroup>
-        <PackageReference Include="FluentValidation" Version="11.10.0" />
-        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
-        <PackageReference Include="NetDaemon.AppModel" Version="24.42.0" />
-        <PackageReference Include="NetDaemon.Extensions.Mqtt" Version="24.42.0" />
-        <PackageReference Include="NetDaemon.Runtime" Version="24.42.0" />
-        <PackageReference Include="NetDaemon.HassModel" Version="24.42.0" />
-        <PackageReference Include="NetDaemon.Client" Version="24.42.0" />
-        <PackageReference Include="NetDaemon.Extensions.Scheduling" Version="24.42.0" />
-        <PackageReference Include="NetDaemon.Extensions.Logging" Version="24.42.0" />
-        <PackageReference Include="NetDaemon.Extensions.Tts" Version="24.42.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
-        <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="8.0.10" />
+        <PackageReference Include="FluentValidation" Version="11.11.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+        <PackageReference Include="NetDaemon.AppModel" Version="24.52.0" />
+        <PackageReference Include="NetDaemon.Extensions.Mqtt" Version="24.52.0" />
+        <PackageReference Include="NetDaemon.Runtime" Version="24.52.0" />
+        <PackageReference Include="NetDaemon.HassModel" Version="24.52.0" />
+        <PackageReference Include="NetDaemon.Client" Version="24.52.0" />
+        <PackageReference Include="NetDaemon.Extensions.Scheduling" Version="24.52.0" />
+        <PackageReference Include="NetDaemon.Extensions.Logging" Version="24.52.0" />
+        <PackageReference Include="NetDaemon.Extensions.Tts" Version="24.52.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="9.0.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="NMoneys" Version="6.1.2" />
-        <PackageReference Include="Polly" Version="8.4.2" />
+        <PackageReference Include="NMoneys" Version="7.3.0" />
+        <PackageReference Include="Polly" Version="8.5.0" />
         <PackageReference Include="Polly.Contrib.WaitAndRetry" Version="1.1.1" />
-        <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+        <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
         <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="5.0.0" />
-        <PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
-        <PackageReference Include="System.IO.Abstractions" Version="21.0.29" />
+        <PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
+        <PackageReference Include="System.IO.Abstractions" Version="21.1.7" />
         <PackageReference Include="System.Reactive" Version="6.0.1" />
-        <PackageReference Include="System.Text.Json" Version="9.0.0-rc.2.24473.5" />
+        <PackageReference Include="System.Text.Json" Version="9.0.0" />
     </ItemGroup>
         
     <ItemGroup>

@@ -6,7 +6,7 @@ using static Lerbaek.NetDaemon.Common.Converters.SpectrumConverter;
 namespace Lerbaek.NetDaemon.Apps.Automations;
 
 [NetDaemonApp]
-[Focus]
+//[Focus]
 public class NightBrightness
 {
     private const int NightBrightnessPercentage = 1;

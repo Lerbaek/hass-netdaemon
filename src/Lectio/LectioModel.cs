@@ -36,9 +36,9 @@ namespace Lerbaek.Lectio
         ("m$Content$password", _config.Password)
       }.Select(tuple => new KeyValuePair<string, string>(tuple.key, tuple.value)));
 
-      Logger.LogInformation("Logging in to LectioModel with user: {username}", _config.Username);
+      Logger.LogInformation("Logging in to LectioModel with user: {Username}", _config.Username);
       var response = await HttpClient.PostAsync("https://www.lectio.dk/lectio/560/login.aspx", content);
-      Logger.LogDebug("Status code: {statusCode}", response.StatusCode);
+      Logger.LogDebug("Status code: {StatusCode}", response.StatusCode);
       var doc = new HtmlDocument();
       doc.Load(await response.Content.ReadAsStreamAsync());
 
@@ -55,7 +55,7 @@ namespace Lerbaek.Lectio
 
       Logger.LogDebug("Student ID resolved to {StudentId}", $"{StudentId}");
 
-      Logger.LogTrace("Response: {msg}", doc.ParsedText);
+      Logger.LogTrace("Response: {Msg}", doc.ParsedText);
 
       return Result.Ok();
     }

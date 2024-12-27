@@ -42,7 +42,7 @@ namespace Lerbaek.Calendar.Lectio
             .Extract<string>("(?<=holdelementid=)\\d*")))
         .ToArray();
 
-      Logger.LogTrace("Class ID's:{newLine}{classIds}", Environment.NewLine, string.Join(Environment.NewLine, classIds));
+      Logger.LogTrace("Class ID's:{NewLine}{ClassIds}", Environment.NewLine, string.Join(Environment.NewLine, classIds));
 
       Logger.LogDebug("Getting class schedules in parallel.");
       var tasks = classIds.Select(id => Task.Run(async () =>
