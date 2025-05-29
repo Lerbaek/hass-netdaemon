@@ -5,7 +5,6 @@ using Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Validation;
 using Lerbaek.NetDaemon.Archive.Apps.Monitoring.Lectio;
-using Lerbaek.NetDaemon.Common.Logging;
 using Lerbaek.NetDaemon.Common.Validation;
 using Microsoft.Extensions.Options;
 using NetDaemon.Extensions.MqttEntityManager;
@@ -21,7 +20,7 @@ try
     .UseNetDaemonTextToSpeech()
     .UseNetDaemonMqttEntityManagement()
     .ConfigureServices(ServiceConfiguration)
-    .UseCustomLogging()
+    .UseNetDaemonDefaultLogging()
 #if DEBUG
     .UseEnvironment("Development")
 #endif
