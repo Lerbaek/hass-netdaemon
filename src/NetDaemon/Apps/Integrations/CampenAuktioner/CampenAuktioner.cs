@@ -3,7 +3,7 @@
 namespace Lerbaek.NetDaemon.Apps.Integrations.CampenAuktioner;
 
 //[Focus]
-[NetDaemonApp]
+//[NetDaemonApp]
 public class CampenAuktioner
 {
   private readonly IFileSystem _fileSystem;
