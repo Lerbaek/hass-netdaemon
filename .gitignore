@@ -6,3 +6,4 @@ bin
 /appsettings.json
 /NetDaemon/appsettings.json
 /NetDaemon/alerted.txt
+/src/NetDaemon/appsettings.Development.json

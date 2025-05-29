@@ -24,13 +24,13 @@
     </ItemGroup>
     
     <ItemGroup>
-        <None Update="$(MSBuildProjectDir)appsettings.Development.json">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-        </None>        
-        <None Update="$(MSBuildProjectDir)appsettings.json">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>        
+        <Content Include="appsettings.json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="appsettings.*.json">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+          <DependentUpon>appsettings.json</DependentUpon>
+        </Content>
         <None Update="Apps\Integrations\Nordlux\Configuration\NordluxConfig.yaml">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
@@ -38,9 +38,6 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
-    <Target Name="AfterPublishMessage" AfterTargets="Publish">
-        <Message Text="Publish done! Copy all content in directory: $(PublishDir) to the `/config/netdaemon3' folder for add-on or your custom folder to deplpoy" Importance="high" />
-    </Target>
         
     <ItemGroup>
         <PackageReference Include="FluentValidation" Version="11.11.0" />
