@@ -1,9 +1,8 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using Lerbaek.Stores.RegularExpressions.ProShop;
 using Microsoft.Extensions.Logging;
 using NMoneys;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Lerbaek.Stores.Test.Component;
 

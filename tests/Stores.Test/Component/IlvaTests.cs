@@ -1,11 +1,10 @@
 ﻿using System.Net;
 using System.Web;
-using FluentAssertions;
+using AwesomeAssertions;
 using Lerbaek.Test.Common.Factories.FakeHttpClient;
 using Microsoft.Extensions.Logging;
 using NMoneys;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Lerbaek.Stores.Test.Component;
 

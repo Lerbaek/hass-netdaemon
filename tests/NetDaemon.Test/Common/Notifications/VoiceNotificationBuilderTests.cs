@@ -1,9 +1,8 @@
-﻿using FluentAssertions;
-using FluentAssertions.Execution;
+﻿using AwesomeAssertions;
+using AwesomeAssertions.Execution;
 using Lerbaek.NetDaemon.Common.Notifications;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Xunit;
-using Xunit.Abstractions;
 using static Lerbaek.NetDaemon.Common.Notifications.Configuration;
 using static Lerbaek.NetDaemon.Common.Notifications.VoiceNotificationVolume;
 

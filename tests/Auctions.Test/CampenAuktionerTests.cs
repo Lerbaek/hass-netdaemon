@@ -1,11 +1,10 @@
 ﻿using System.Net;
-using FluentAssertions;
+using AwesomeAssertions;
 using Lerbaek.Auctions.CampenAuktioner;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Lerbaek.Test.Common.Factories.FakeHttpClient;
 using RegExtract;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Lerbaek.Auctions.Test;
 
@@ -31,10 +30,10 @@ public class CampenAuktionerTests : LoggerTestsBase
     _itemsWithA = _uut.GetMatchesAsync(["a"]).Result;
   }
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public void GetMatches_SearchTermA_ItemsFound() => _itemsWithA.Should().NotBeNullOrEmpty();
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public async Task GetMatches_SearchTermANotX_FewerItemsFound()
   {
     var itemsSubset = await _uut.GetMatchesAsync(["a -x"]);

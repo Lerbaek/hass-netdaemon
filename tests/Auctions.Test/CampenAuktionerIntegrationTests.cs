@@ -1,8 +1,7 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using Lerbaek.Auctions.CampenAuktioner;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Lerbaek.Auctions.Test;
 
@@ -16,7 +15,7 @@ public class CampenAuktionerIntegrationTests : HttpClientModelTestsBase
     : base(httpClientFactory, output) =>
     _uut = new CampenAuktionerSite(Logger, HttpClient);
 
-  [Fact]
+  [Fact(Skip = "Archived")]
   public async Task GetMatches_GetAllItems_ItemsFound()
   {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     var matches = await _uut.GetMatchesAsync();

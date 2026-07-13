@@ -1,18 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Lerbaek.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <AssemblyName>Lerbaek.$(MSBuildProjectName)</AssemblyName>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.5.1" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
-    <PackageReference Include="Xunit.DependencyInjection" Version="9.7.1" />
-    <PackageReference Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.9" />
+    <PackageReference Include="xunit.v3.extensibility.core" Version="3.2.2" />
+    <PackageReference Include="Xunit.DependencyInjection" Version="11.3.0" />
+    <PackageReference Include="Xunit.DependencyInjection.Logging" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>

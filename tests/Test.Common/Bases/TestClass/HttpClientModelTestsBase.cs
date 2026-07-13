@@ -1,4 +1,4 @@
-﻿using Xunit.Abstractions;
+﻿using Xunit;
 
 namespace Lerbaek.Test.Common.Bases.TestClass
 {

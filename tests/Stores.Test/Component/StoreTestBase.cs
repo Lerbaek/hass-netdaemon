@@ -1,9 +1,9 @@
 ﻿using System.Net;
-using FluentAssertions;
+using AwesomeAssertions;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Lerbaek.Test.Common.Factories.FakeHttpClient;
 using Microsoft.Extensions.Logging;
-using Xunit.Abstractions;
+using Xunit;
 
 namespace Lerbaek.Stores.Test.Component;
 

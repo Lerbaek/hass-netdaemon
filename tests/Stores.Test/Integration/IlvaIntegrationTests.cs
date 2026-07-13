@@ -1,8 +1,7 @@
 ﻿using System.Text.Json.Nodes;
-using FluentAssertions;
+using AwesomeAssertions;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Lerbaek.Stores.Test.Integration;
 

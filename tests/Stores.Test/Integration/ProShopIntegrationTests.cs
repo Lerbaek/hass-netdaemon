@@ -1,9 +1,8 @@
 ﻿using System.Text.RegularExpressions;
-using FluentAssertions;
+using AwesomeAssertions;
 using HtmlAgilityPack;
 using Lerbaek.Test.Common.Bases.TestClass;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Lerbaek.Stores.Test.Integration;
 
