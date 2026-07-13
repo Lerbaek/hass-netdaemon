@@ -24,5 +24,5 @@ public class ServiceHandler(IHaContext haContext, string prefix)
     }
 
     public static void LogServiceCall(ILogger logger, [CallerMemberName] string serviceName = "") =>
-      logger.LogTrace("{Method}() has been called", serviceName);
+      logger.LogInformation("{Method}() has been called", serviceName);
 }
