@@ -79,6 +79,11 @@
           "cSharpName": "EbbeNatlys"
         },
         {
+          "id": "automation.fuld_knald_pa_julelys",
+          "friendlyName": "Fuld knald p\u00E5 julelys",
+          "cSharpName": "FuldKnaldPaJulelys"
+        },
+        {
           "id": "automation.garage_toggle",
           "friendlyName": "Garage: Toggle",
           "cSharpName": "GarageToggle"
@@ -92,6 +97,11 @@
           "id": "automation.grasputin_kor_afbrudt_i_et_dogn",
           "friendlyName": "Grasputin: K\u00F8r afbrudt",
           "cSharpName": "GrasputinKorAfbrudtIEtDogn"
+        },
+        {
+          "id": "automation.grasputin_reload_integration",
+          "friendlyName": "Grasputin: Reload integration",
+          "cSharpName": "GrasputinReloadIntegration"
         },
         {
           "id": "automation.halloween_cleanup",
@@ -284,6 +294,16 @@
           "cSharpName": "SlukLysetPaLoftetEfterEnTime"
         },
         {
+          "id": "automation.start_opladning_med_det_samme",
+          "friendlyName": "Start opladning med det samme",
+          "cSharpName": "StartOpladningMedDetSamme"
+        },
+        {
+          "id": "automation.start_opladning_med_det_samme_2",
+          "friendlyName": "Start opladning med det samme",
+          "cSharpName": "StartOpladningMedDetSamme2"
+        },
+        {
           "id": "automation.stovsuger_smid_moppen",
           "friendlyName": "St\u00F8vsuger: Smid moppen",
           "cSharpName": "StovsugerSmidMoppen"
@@ -431,13 +451,63 @@
       "domain": "binary_sensor",
       "entities": [
         {
+          "id": "binary_sensor.a1_bambi_ams_1_active",
+          "friendlyName": "A1 Bambi AMS 1 Active",
+          "cSharpName": "A1BambiAms1Active"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_developer_lan_mode",
+          "friendlyName": "A1 Bambi Developer Lan Mode",
+          "cSharpName": "A1BambiDeveloperLanMode"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_external_spool_active",
+          "friendlyName": "A1 Bambi External Spool Active",
+          "cSharpName": "A1BambiExternalSpoolActive"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_extruder_filament_state",
+          "friendlyName": "A1 Bambi Extruder filament state",
+          "cSharpName": "A1BambiExtruderFilamentState"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_hms_errors",
+          "friendlyName": "A1 Bambi HMS errors",
+          "cSharpName": "A1BambiHmsErrors"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_hybrid_mqtt_blocks_control",
+          "friendlyName": "A1 Bambi Hybrid MQTT blocks control",
+          "cSharpName": "A1BambiHybridMqttBlocksControl"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_mqtt_encryption_firmware",
+          "friendlyName": "A1 Bambi MQTT encryption firmware",
+          "cSharpName": "A1BambiMqttEncryptionFirmware"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_online",
+          "friendlyName": "A1 Bambi Online",
+          "cSharpName": "A1BambiOnline"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_print_error",
+          "friendlyName": "A1 Bambi Print error",
+          "cSharpName": "A1BambiPrintError"
+        },
+        {
+          "id": "binary_sensor.a1_bambi_recording_timelapse",
+          "friendlyName": "A1 Bambi Recording timelapse",
+          "cSharpName": "A1BambiRecordingTimelapse"
+        },
+        {
           "id": "binary_sensor.alarm_glemt_arbejds_pc",
           "friendlyName": "Alarm: Glemt arbejds-PC",
           "cSharpName": "AlarmGlemtArbejdsPc"
         },
         {
           "id": "binary_sensor.aula_aulamessage",
-          "friendlyName": "Aula message",
+          "friendlyName": null,
           "cSharpName": "AulaAulamessage"
         },
         {
@@ -464,6 +534,11 @@
           "id": "binary_sensor.badevaerelse_power",
           "friendlyName": "Badev\u00E6relse Power",
           "cSharpName": "BadevaerelsePower"
+        },
+        {
+          "id": "binary_sensor.baghave_grasputin_mqtt",
+          "friendlyName": "Grasputin MQTT",
+          "cSharpName": "BaghaveGrasputinMqtt"
         },
         {
           "id": "binary_sensor.bevaegelse_i_saunaen_battery_low",
@@ -494,21 +569,6 @@
           "id": "binary_sensor.bevaegelse_pa_ebbes_vaerelse_occupancy",
           "friendlyName": "Bev\u00E6gelse p\u00E5 Ebbes v\u00E6relse Occupancy",
           "cSharpName": "BevaegelsePaEbbesVaerelseOccupancy"
-        },
-        {
-          "id": "binary_sensor.cast",
-          "friendlyName": null,
-          "cSharpName": "Cast"
-        },
-        {
-          "id": "binary_sensor.cast_browser_dark_mode",
-          "friendlyName": "Browser dark mode",
-          "cSharpName": "CastBrowserDarkMode"
-        },
-        {
-          "id": "binary_sensor.cast_browser_fullykiosk",
-          "friendlyName": "Browser FullyKiosk",
-          "cSharpName": "CastBrowserFullykiosk"
         },
         {
           "id": "binary_sensor.ceed_air_conditioner",
@@ -552,12 +612,12 @@
         },
         {
           "id": "binary_sensor.ceed_ev_first_scheduled_departure",
-          "friendlyName": "CEED EV First Scheduled Departure",
+          "friendlyName": "CEED EV Scheduled Departure 1",
           "cSharpName": "CeedEvFirstScheduledDeparture"
         },
         {
           "id": "binary_sensor.ceed_ev_second_scheduled_departure",
-          "friendlyName": "CEED EV Second Scheduled Departure",
+          "friendlyName": "CEED EV Scheduled Departure 2",
           "cSharpName": "CeedEvSecondScheduledDeparture"
         },
         {
@@ -581,6 +641,11 @@
           "cSharpName": "CeedHood"
         },
         {
+          "id": "binary_sensor.ceed_locked",
+          "friendlyName": "CEED Locked",
+          "cSharpName": "CeedLocked"
+        },
+        {
           "id": "binary_sensor.ceed_steering_wheel_heater",
           "friendlyName": "CEED Steering Wheel Heater",
           "cSharpName": "CeedSteeringWheelHeater"
@@ -597,7 +662,7 @@
         },
         {
           "id": "binary_sensor.ceed_tire_pressure_front_right",
-          "friendlyName": "CEED Tire Pressure - Front right",
+          "friendlyName": "CEED Tire Pressure - Front Right",
           "cSharpName": "CeedTirePressureFrontRight"
         },
         {
@@ -646,9 +711,69 @@
           "cSharpName": "GarageportTiltSensorVibration"
         },
         {
+          "id": "binary_sensor.glostrup_android_auto",
+          "friendlyName": "Gros Galaxy S24 Android Auto",
+          "cSharpName": "GlostrupAndroidAuto"
+        },
+        {
+          "id": "binary_sensor.glostrup_device_locked",
+          "friendlyName": "Gros Galaxy S24 Device locked",
+          "cSharpName": "GlostrupDeviceLocked"
+        },
+        {
+          "id": "binary_sensor.glostrup_headphones",
+          "friendlyName": "Gros Galaxy S24 Headphones",
+          "cSharpName": "GlostrupHeadphones"
+        },
+        {
+          "id": "binary_sensor.glostrup_interactive",
+          "friendlyName": "Gros Galaxy S24 Interactive",
+          "cSharpName": "GlostrupInteractive"
+        },
+        {
+          "id": "binary_sensor.glostrup_is_charging",
+          "friendlyName": "Gros Galaxy S24 Is charging",
+          "cSharpName": "GlostrupIsCharging"
+        },
+        {
+          "id": "binary_sensor.glostrup_mobile_data",
+          "friendlyName": "Gros Galaxy S24 Mobile data",
+          "cSharpName": "GlostrupMobileData"
+        },
+        {
+          "id": "binary_sensor.glostrup_music_active",
+          "friendlyName": "Gros Galaxy S24 Music active",
+          "cSharpName": "GlostrupMusicActive"
+        },
+        {
+          "id": "binary_sensor.glostrup_wi_fi_state",
+          "friendlyName": "Gros Galaxy S24 Wi-Fi state",
+          "cSharpName": "GlostrupWiFiState"
+        },
+        {
+          "id": "binary_sensor.google_find_hub_service_connection_status",
+          "friendlyName": "Google Find Hub Service FCM Connection Status",
+          "cSharpName": "GoogleFindHubServiceConnectionStatus"
+        },
+        {
+          "id": "binary_sensor.google_find_hub_service_nova_api_authentication_status",
+          "friendlyName": "Google Find Hub Service Nova API authentication status",
+          "cSharpName": "GoogleFindHubServiceNovaApiAuthenticationStatus"
+        },
+        {
+          "id": "binary_sensor.google_find_hub_service_polling",
+          "friendlyName": "Google Find Hub Service Polling",
+          "cSharpName": "GoogleFindHubServicePolling"
+        },
+        {
           "id": "binary_sensor.grasputin_battery_charging",
           "friendlyName": "Grasputin Battery Charging",
           "cSharpName": "GrasputinBatteryCharging"
+        },
+        {
+          "id": "binary_sensor.grasputin_charging",
+          "friendlyName": "Grasputin Charging",
+          "cSharpName": "GrasputinCharging"
         },
         {
           "id": "binary_sensor.grasputin_online",
@@ -676,6 +801,26 @@
           "cSharpName": "Hp850g5"
         },
         {
+          "id": "binary_sensor.hp850g5_brave",
+          "friendlyName": "HP850G5 - Brave",
+          "cSharpName": "Hp850g5Brave"
+        },
+        {
+          "id": "binary_sensor.hp850g5_brave_browser_charging",
+          "friendlyName": "HP850G5 - Brave Browser charging",
+          "cSharpName": "Hp850g5BraveBrowserCharging"
+        },
+        {
+          "id": "binary_sensor.hp850g5_brave_browser_dark_mode",
+          "friendlyName": "HP850G5 - Brave Browser dark mode",
+          "cSharpName": "Hp850g5BraveBrowserDarkMode"
+        },
+        {
+          "id": "binary_sensor.hp850g5_brave_browser_fullykiosk",
+          "friendlyName": "HP850G5 - Brave Browser FullyKiosk",
+          "cSharpName": "Hp850g5BraveBrowserFullykiosk"
+        },
+        {
           "id": "binary_sensor.hp850g5_browser_charging",
           "friendlyName": "HP850G5 Browser charging",
           "cSharpName": "Hp850g5BrowserCharging"
@@ -696,9 +841,39 @@
           "cSharpName": "Ib3356497408ConnectionState"
         },
         {
+          "id": "binary_sensor.indkorsel_debug_device",
+          "friendlyName": "Indk\u00F8rsel Debug (device)",
+          "cSharpName": "IndkorselDebugDevice"
+        },
+        {
+          "id": "binary_sensor.indkorsel_debug_station",
+          "friendlyName": "Indk\u00F8rsel Debug (station)",
+          "cSharpName": "IndkorselDebugStation"
+        },
+        {
           "id": "binary_sensor.indkorsel_motion",
-          "friendlyName": "Motion",
+          "friendlyName": "Indkorsel Motion",
           "cSharpName": "IndkorselMotion"
+        },
+        {
+          "id": "binary_sensor.indkorsel_motion_detected",
+          "friendlyName": "Indk\u00F8rsel Motion detected",
+          "cSharpName": "IndkorselMotionDetected"
+        },
+        {
+          "id": "binary_sensor.indkorsel_person_detected",
+          "friendlyName": "Indk\u00F8rsel Person detected",
+          "cSharpName": "IndkorselPersonDetected"
+        },
+        {
+          "id": "binary_sensor.indkorsel_ringing",
+          "friendlyName": "Indk\u00F8rsel Ringing",
+          "cSharpName": "IndkorselRinging"
+        },
+        {
+          "id": "binary_sensor.indkorsel_snooze",
+          "friendlyName": "Indk\u00F8rsel Snooze",
+          "cSharpName": "IndkorselSnooze"
         },
         {
           "id": "binary_sensor.is_halloween",
@@ -771,6 +946,11 @@
           "cSharpName": "KristoffersGalaxyS24UltraInteractive"
         },
         {
+          "id": "binary_sensor.kristoffers_galaxy_s24_ultra_is_charging",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Is charging",
+          "cSharpName": "KristoffersGalaxyS24UltraIsCharging"
+        },
+        {
           "id": "binary_sensor.lillebrors_vaerelse_early_start",
           "friendlyName": "Ebbes v\u00E6relse Early start",
           "cSharpName": "LillebrorsVaerelseEarlyStart"
@@ -827,7 +1007,7 @@
         },
         {
           "id": "binary_sensor.olive_tree_branch_state",
-          "friendlyName": "olive_tree_branch_state",
+          "friendlyName": "NetDaemon olive_tree_branch_state",
           "cSharpName": "OliveTreeBranchState"
         },
         {
@@ -844,6 +1024,11 @@
           "id": "binary_sensor.renovation_notifikationer_udsat",
           "friendlyName": "Renovation: Notifikationer udsat",
           "cSharpName": "RenovationNotifikationerUdsat"
+        },
+        {
+          "id": "binary_sensor.roar_ugeplan_update",
+          "friendlyName": "Aula Roar: Ugeplan (Update)",
+          "cSharpName": "RoarUgeplanUpdate"
         },
         {
           "id": "binary_sensor.roars_vaerelse_early_start",
@@ -897,7 +1082,7 @@
         },
         {
           "id": "binary_sensor.rpi_power_status",
-          "friendlyName": "RPi Power status",
+          "friendlyName": "Raspberry Pi Power status",
           "cSharpName": "RpiPowerStatus"
         },
         {
@@ -1027,7 +1212,7 @@
         },
         {
           "id": "binary_sensor.unnamed_room_microphone",
-          "friendlyName": "Microphone",
+          "friendlyName": "K\u00F8kken Microphone",
           "cSharpName": "UnnamedRoomMicrophone"
         },
         {
@@ -1481,12 +1666,87 @@
           "jsonName": "next_update",
           "cSharpName": "NextUpdate",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "nova_api_status",
+          "cSharpName": "NovaApiStatus",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "nova_api_status_reason",
+          "cSharpName": "NovaApiStatusReason",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "nova_api_status_changed_at",
+          "cSharpName": "NovaApiStatusChangedAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "nova_fcm_status",
+          "cSharpName": "NovaFcmStatus",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "nova_fcm_status_changed_at",
+          "cSharpName": "NovaFcmStatusChangedAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "properties",
+          "cSharpName": "Properties",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "commands",
+          "cSharpName": "Commands",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "voices",
+          "cSharpName": "Voices",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "last_poll_result",
+          "cSharpName": "LastPollResult",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "consecutive_timeouts",
+          "cSharpName": "ConsecutiveTimeouts",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "fcm_connected_at",
+          "cSharpName": "FcmConnectedAt",
+          "clrType": "System.String"
         }
       ]
     },
     {
       "domain": "button",
       "entities": [
+        {
+          "id": "button.a1_bambi_force_refresh_data",
+          "friendlyName": "A1 Bambi Force refresh data",
+          "cSharpName": "A1BambiForceRefreshData"
+        },
+        {
+          "id": "button.a1_bambi_pause_printing",
+          "friendlyName": "A1 Bambi Pause printing",
+          "cSharpName": "A1BambiPausePrinting"
+        },
+        {
+          "id": "button.a1_bambi_resume_printing",
+          "friendlyName": "A1 Bambi Resume printing",
+          "cSharpName": "A1BambiResumePrinting"
+        },
+        {
+          "id": "button.a1_bambi_stop_printing",
+          "friendlyName": "A1 Bambi Stop printing",
+          "cSharpName": "A1BambiStopPrinting"
+        },
         {
           "id": "button.ballon_identify",
           "friendlyName": "Ballon Identify",
@@ -1496,6 +1756,41 @@
           "id": "button.bryggers_identify_2",
           "friendlyName": "Bryggers Identify",
           "cSharpName": "BryggersIdentify2"
+        },
+        {
+          "id": "button.ceed_force_refresh",
+          "friendlyName": "CEED Force Refresh",
+          "cSharpName": "CeedForceRefresh"
+        },
+        {
+          "id": "button.ebbe_cykel_ebbe_cykel_play_sound",
+          "friendlyName": "Ebbe: Cykel Play sound",
+          "cSharpName": "EbbeCykelEbbeCykelPlaySound"
+        },
+        {
+          "id": "button.ebbe_cykel_locate_now",
+          "friendlyName": "Ebbe: Cykel Locate now",
+          "cSharpName": "EbbeCykelLocateNow"
+        },
+        {
+          "id": "button.ebbe_cykel_locate_now_2",
+          "friendlyName": "Ebbe: Cykel Locate now",
+          "cSharpName": "EbbeCykelLocateNow2"
+        },
+        {
+          "id": "button.ebbe_cykel_play_sound",
+          "friendlyName": "Ebbe: Cykel Play sound",
+          "cSharpName": "EbbeCykelPlaySound"
+        },
+        {
+          "id": "button.ebbe_cykel_stop_sound",
+          "friendlyName": "Ebbe: Cykel Stop sound",
+          "cSharpName": "EbbeCykelStopSound"
+        },
+        {
+          "id": "button.ebbe_cykel_stop_sound_2",
+          "friendlyName": "Ebbe: Cykel Stop sound",
+          "cSharpName": "EbbeCykelStopSound2"
         },
         {
           "id": "button.ebbe_kontakt_identify",
@@ -1513,14 +1808,59 @@
           "cSharpName": "Flowerpotvp3Identify"
         },
         {
+          "id": "button.galaxy_s24_ultra_locate_now",
+          "friendlyName": "Galaxy S24 Ultra Locate now",
+          "cSharpName": "GalaxyS24UltraLocateNow"
+        },
+        {
+          "id": "button.galaxy_s24_ultra_locate_now_2",
+          "friendlyName": "Galaxy S24 Ultra Locate now",
+          "cSharpName": "GalaxyS24UltraLocateNow2"
+        },
+        {
+          "id": "button.galaxy_s24_ultra_play_sound",
+          "friendlyName": "Galaxy S24 Ultra Play sound",
+          "cSharpName": "GalaxyS24UltraPlaySound"
+        },
+        {
+          "id": "button.galaxy_s24_ultra_play_sound_2",
+          "friendlyName": "Galaxy S24 Ultra Play sound",
+          "cSharpName": "GalaxyS24UltraPlaySound2"
+        },
+        {
+          "id": "button.galaxy_s24_ultra_stop_sound",
+          "friendlyName": "Galaxy S24 Ultra Stop sound",
+          "cSharpName": "GalaxyS24UltraStopSound"
+        },
+        {
+          "id": "button.galaxy_s24_ultra_stop_sound_2",
+          "friendlyName": "Galaxy S24 Ultra Stop sound",
+          "cSharpName": "GalaxyS24UltraStopSound2"
+        },
+        {
           "id": "button.garage_lanterne_identify",
           "friendlyName": "Garage-lanterne Identify",
           "cSharpName": "GarageLanterneIdentify"
         },
         {
+          "id": "button.garage_wallbox_pulsarplus_sn_268384_resume_schedule",
+          "friendlyName": "Wallbox PulsarPlus SN 268384 Resume schedule",
+          "cSharpName": "GarageWallboxPulsarplusSn268384ResumeSchedule"
+        },
+        {
           "id": "button.garageport_knap_bil_identify",
           "friendlyName": "Garageport-knap, bil Identify",
           "cSharpName": "GarageportKnapBilIdentify"
+        },
+        {
+          "id": "button.google_find_hub_service_regenerate_adm_token",
+          "friendlyName": "Google Find Hub Service Regenerate ADM Token",
+          "cSharpName": "GoogleFindHubServiceRegenerateAdmToken"
+        },
+        {
+          "id": "button.google_find_hub_service_reset_statistics",
+          "friendlyName": "Google Find Hub Service Reset Statistics",
+          "cSharpName": "GoogleFindHubServiceResetStatistics"
         },
         {
           "id": "button.grasputin_reset_blade_time",
@@ -1551,6 +1891,36 @@
           "id": "button.kokkenvask_kontakt_identify",
           "friendlyName": "K\u00F8kkenvask-kontakt Identify",
           "cSharpName": "KokkenvaskKontaktIdentify"
+        },
+        {
+          "id": "button.kristoffers_nogler_locate_now",
+          "friendlyName": "Kristoffers n\u00F8gler Locate now",
+          "cSharpName": "KristoffersNoglerLocateNow"
+        },
+        {
+          "id": "button.kristoffers_nogler_play_sound",
+          "friendlyName": "Kristoffers n\u00F8gler Play sound",
+          "cSharpName": "KristoffersNoglerPlaySound"
+        },
+        {
+          "id": "button.kristoffers_nogler_stop_sound",
+          "friendlyName": "Kristoffers n\u00F8gler Stop sound",
+          "cSharpName": "KristoffersNoglerStopSound"
+        },
+        {
+          "id": "button.locatag_locate_now",
+          "friendlyName": "Kristoffers n\u00F8gler Locate now",
+          "cSharpName": "LocatagLocateNow"
+        },
+        {
+          "id": "button.locatag_play_sound",
+          "friendlyName": "Kristoffers n\u00F8gler Play sound",
+          "cSharpName": "LocatagPlaySound"
+        },
+        {
+          "id": "button.locatag_stop_sound",
+          "friendlyName": "Kristoffers n\u00F8gler Stop sound",
+          "cSharpName": "LocatagStopSound"
         },
         {
           "id": "button.mane_identify",
@@ -1588,19 +1958,19 @@
           "cSharpName": "PartialEntreStueIdentify"
         },
         {
-          "id": "button.partial_felena_tassel_rgbw_1_identify",
-          "friendlyName": "Partial: Felena Tassel RGBW 1 Identify",
-          "cSharpName": "PartialFelenaTasselRgbw1Identify"
+          "id": "button.partial_felena_tassel_1_identify",
+          "friendlyName": "Partial: Felena Tassel 1 Identify",
+          "cSharpName": "PartialFelenaTassel1Identify"
         },
         {
-          "id": "button.partial_felena_tassel_rgbw_2_identify",
-          "friendlyName": "Partial: Felena Tassel RGBW 2 Identify",
-          "cSharpName": "PartialFelenaTasselRgbw2Identify"
+          "id": "button.partial_felena_tassel_2_identify",
+          "friendlyName": "Partial: Felena Tassel 2 Identify",
+          "cSharpName": "PartialFelenaTassel2Identify"
         },
         {
-          "id": "button.partial_felena_tassel_rgbw_3_identify",
-          "friendlyName": "Partial: Felena Tassel RGBW 3 Identify",
-          "cSharpName": "PartialFelenaTasselRgbw3Identify"
+          "id": "button.partial_felena_tassel_3_identify",
+          "friendlyName": "Partial: Felena Tassel 3 Identify",
+          "cSharpName": "PartialFelenaTassel3Identify"
         },
         {
           "id": "button.partial_fordelingsgang_kokken_identify",
@@ -1643,9 +2013,79 @@
           "cSharpName": "PartialSaunaNaerIdentify"
         },
         {
+          "id": "button.renault_zoe_flash_lights",
+          "friendlyName": "Renault Zoe Flash lights",
+          "cSharpName": "RenaultZoeFlashLights"
+        },
+        {
+          "id": "button.renault_zoe_sound_horn",
+          "friendlyName": "Renault Zoe Sound horn",
+          "cSharpName": "RenaultZoeSoundHorn"
+        },
+        {
+          "id": "button.roar_cykel_locate_now",
+          "friendlyName": "Roar: Cykel Locate now",
+          "cSharpName": "RoarCykelLocateNow"
+        },
+        {
+          "id": "button.roar_cykel_locate_now_2",
+          "friendlyName": "Roar: Cykel Locate now",
+          "cSharpName": "RoarCykelLocateNow2"
+        },
+        {
+          "id": "button.roar_cykel_play_sound",
+          "friendlyName": "Roar: Cykel Play sound",
+          "cSharpName": "RoarCykelPlaySound"
+        },
+        {
+          "id": "button.roar_cykel_roar_cykel_play_sound",
+          "friendlyName": "Roar: Cykel Play sound",
+          "cSharpName": "RoarCykelRoarCykelPlaySound"
+        },
+        {
+          "id": "button.roar_cykel_stop_sound",
+          "friendlyName": "Roar: Cykel Stop sound",
+          "cSharpName": "RoarCykelStopSound"
+        },
+        {
+          "id": "button.roar_cykel_stop_sound_2",
+          "friendlyName": "Roar: Cykel Stop sound",
+          "cSharpName": "RoarCykelStopSound2"
+        },
+        {
           "id": "button.roar_kontakt_identify",
           "friendlyName": "Roar-kontakt Identify",
           "cSharpName": "RoarKontaktIdentify"
+        },
+        {
+          "id": "button.roar_taske_locate_now",
+          "friendlyName": "Roar: Taske Locate now",
+          "cSharpName": "RoarTaskeLocateNow"
+        },
+        {
+          "id": "button.roar_taske_locate_now_2",
+          "friendlyName": "Roar: Taske Locate now",
+          "cSharpName": "RoarTaskeLocateNow2"
+        },
+        {
+          "id": "button.roar_taske_play_sound",
+          "friendlyName": "Roar: Taske Play sound",
+          "cSharpName": "RoarTaskePlaySound"
+        },
+        {
+          "id": "button.roar_taske_roar_taske_play_sound",
+          "friendlyName": "Roar: Taske Play sound",
+          "cSharpName": "RoarTaskeRoarTaskePlaySound"
+        },
+        {
+          "id": "button.roar_taske_stop_sound",
+          "friendlyName": "Roar: Taske Stop sound",
+          "cSharpName": "RoarTaskeStopSound"
+        },
+        {
+          "id": "button.roar_taske_stop_sound_2",
+          "friendlyName": "Roar: Taske Stop sound",
+          "cSharpName": "RoarTaskeStopSound2"
         },
         {
           "id": "button.roborock_s5_max_reset_filter",
@@ -1688,6 +2128,16 @@
           "cSharpName": "StopCharge"
         },
         {
+          "id": "button.stovsugerts004f_identify",
+          "friendlyName": "St\u00F8vsugerTS004F Identify",
+          "cSharpName": "Stovsugerts004fIdentify"
+        },
+        {
+          "id": "button.stuets004f_identify",
+          "friendlyName": "StueTS004F Identify",
+          "cSharpName": "Stuets004fIdentify"
+        },
+        {
           "id": "button.synchronize_devices",
           "friendlyName": "Google Assistant Synchronize devices",
           "cSharpName": "SynchronizeDevices"
@@ -1711,6 +2161,16 @@
           "id": "button.vinke_astronaut_identify",
           "friendlyName": "Vinke-astronaut Identify",
           "cSharpName": "VinkeAstronautIdentify"
+        },
+        {
+          "id": "button.virtuel_deepseek_reset_usage",
+          "friendlyName": "DeepSeek Reset usage",
+          "cSharpName": "VirtuelDeepseekResetUsage"
+        },
+        {
+          "id": "button.virtuel_google_find_hub_service_regenerate_fcm_token",
+          "friendlyName": "Google Find Hub Service Regenerate FCM Token",
+          "cSharpName": "VirtuelGoogleFindHubServiceRegenerateFcmToken"
         },
         {
           "id": "button.walk_in_closet_identify",
@@ -1843,6 +2303,11 @@
           "jsonName": "elapsed",
           "cSharpName": "Elapsed",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "cooldown_seconds",
+          "cSharpName": "CooldownSeconds",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -1850,18 +2315,28 @@
       "domain": "camera",
       "entities": [
         {
+          "id": "camera.a1_bambi_camera",
+          "friendlyName": "A1 Bambi Camera",
+          "cSharpName": "A1BambiCamera"
+        },
+        {
           "id": "camera.hoveddor",
           "friendlyName": "D\u00F8rklokke",
           "cSharpName": "Hoveddor"
         },
         {
+          "id": "camera.indkorsel",
+          "friendlyName": "Indk\u00F8rsel",
+          "cSharpName": "Indkorsel"
+        },
+        {
           "id": "camera.indkorsel_clear",
-          "friendlyName": "Clear",
+          "friendlyName": "Indkorsel Clear",
           "cSharpName": "IndkorselClear"
         },
         {
           "id": "camera.indkorsel_fluent",
-          "friendlyName": "Fluent",
+          "friendlyName": "Indkorsel Fluent",
           "cSharpName": "IndkorselFluent"
         },
         {
@@ -1930,6 +2405,11 @@
           "jsonName": "restored",
           "cSharpName": "Restored",
           "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "stream_debug",
+          "cSharpName": "StreamDebug",
+          "clrType": null
         }
       ]
     },
@@ -1940,6 +2420,11 @@
           "id": "climate.badevaerelse",
           "friendlyName": "Badev\u00E6relse",
           "cSharpName": "Badevaerelse"
+        },
+        {
+          "id": "climate.ceed_climate_control",
+          "friendlyName": "CEED Climate Control",
+          "cSharpName": "CeedClimateControl"
         },
         {
           "id": "climate.kokken_gang",
@@ -2052,6 +2537,21 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "unit_of_measurement",
+          "cSharpName": "UnitOfMeasurement",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
         }
       ]
     },
@@ -2139,6 +2639,11 @@
           "jsonName": "motor_speed",
           "cSharpName": "MotorSpeed",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "is_closed",
+          "cSharpName": "IsClosed",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -2157,12 +2662,12 @@
         },
         {
           "id": "device_tracker.arbejds_pc_rygsak",
-          "friendlyName": null,
+          "friendlyName": "Arbejds-PC-rygs\u00E6k",
           "cSharpName": "ArbejdsPcRygsak"
         },
         {
           "id": "device_tracker.bornenes_telefon",
-          "friendlyName": "B\u00F8rnenes Galaxy S9",
+          "friendlyName": "B\u00F8rnenes telefon",
           "cSharpName": "BornenesTelefon"
         },
         {
@@ -2236,6 +2741,16 @@
           "cSharpName": "DkKleFuryz152"
         },
         {
+          "id": "device_tracker.ebbe_cykel",
+          "friendlyName": "Ebbe: Cykel",
+          "cSharpName": "EbbeCykel"
+        },
+        {
+          "id": "device_tracker.ebbe_cykel_last_location",
+          "friendlyName": "Ebbe: Cykel Last Location",
+          "cSharpName": "EbbeCykelLastLocation"
+        },
+        {
           "id": "device_tracker.erik_ipad",
           "friendlyName": "ERIK--IPAD",
           "cSharpName": "ErikIpad"
@@ -2286,9 +2801,29 @@
           "cSharpName": "EspEb80f3"
         },
         {
+          "id": "device_tracker.eufy_device",
+          "friendlyName": "EUFY DEVICE",
+          "cSharpName": "EufyDevice"
+        },
+        {
           "id": "device_tracker.galaxy_s20",
           "friendlyName": "GALAXY-S20",
           "cSharpName": "GalaxyS20"
+        },
+        {
+          "id": "device_tracker.galaxy_s24",
+          "friendlyName": "GALAXY-S24",
+          "cSharpName": "GalaxyS24"
+        },
+        {
+          "id": "device_tracker.galaxy_s24_ultra",
+          "friendlyName": "Galaxy S24 Ultra",
+          "cSharpName": "GalaxyS24Ultra"
+        },
+        {
+          "id": "device_tracker.galaxy_s24_ultra_last_location",
+          "friendlyName": "Galaxy S24 Ultra Last Location",
+          "cSharpName": "GalaxyS24UltraLastLocation"
         },
         {
           "id": "device_tracker.galaxy_s8",
@@ -2322,12 +2857,12 @@
         },
         {
           "id": "device_tracker.galaxy_s9_6",
-          "friendlyName": "GALAXY-S9",
+          "friendlyName": "GALAXY-S9 ROARS-GALAXY-S9",
           "cSharpName": "GalaxyS96"
         },
         {
           "id": "device_tracker.galaxy_tab_a9",
-          "friendlyName": "(null)",
+          "friendlyName": "GALAXY-TAB-A9",
           "cSharpName": "GalaxyTabA9"
         },
         {
@@ -2356,6 +2891,11 @@
           "cSharpName": "Gamergro"
         },
         {
+          "id": "device_tracker.glostrup",
+          "friendlyName": "Gros Galaxy S24",
+          "cSharpName": "Glostrup"
+        },
+        {
           "id": "device_tracker.gro",
           "friendlyName": "Gro",
           "cSharpName": "Gro"
@@ -2371,6 +2911,11 @@
           "cSharpName": "GrosBackupTelefon2"
         },
         {
+          "id": "device_tracker.gros_galaxy_s24",
+          "friendlyName": "Gros Galaxy S24",
+          "cSharpName": "GrosGalaxyS24"
+        },
+        {
           "id": "device_tracker.gros_galaxy_s9",
           "friendlyName": "GROS-GALAXY-S9",
           "cSharpName": "GrosGalaxyS9"
@@ -2384,6 +2929,16 @@
           "id": "device_tracker.gros_s20_2",
           "friendlyName": "GROS-S20",
           "cSharpName": "GrosS202"
+        },
+        {
+          "id": "device_tracker.gros_s24",
+          "friendlyName": "GROS-S24",
+          "cSharpName": "GrosS24"
+        },
+        {
+          "id": "device_tracker.gros_s24_2",
+          "friendlyName": "GROS-S24",
+          "cSharpName": "GrosS242"
         },
         {
           "id": "device_tracker.hf_lpb100",
@@ -2431,6 +2986,11 @@
           "cSharpName": "Ingemlsiphone2"
         },
         {
+          "id": "device_tracker.ipad",
+          "friendlyName": "IPAD",
+          "cSharpName": "Ipad"
+        },
+        {
           "id": "device_tracker.iphone",
           "friendlyName": "IPHONE",
           "cSharpName": "Iphone"
@@ -2439,6 +2999,36 @@
           "id": "device_tracker.iphone_2",
           "friendlyName": "IPHONE",
           "cSharpName": "Iphone2"
+        },
+        {
+          "id": "device_tracker.iphone_3",
+          "friendlyName": "IPHONE",
+          "cSharpName": "Iphone3"
+        },
+        {
+          "id": "device_tracker.iphone_4",
+          "friendlyName": "IPHONE",
+          "cSharpName": "Iphone4"
+        },
+        {
+          "id": "device_tracker.iphone_5",
+          "friendlyName": "IPHONE",
+          "cSharpName": "Iphone5"
+        },
+        {
+          "id": "device_tracker.iphone_6",
+          "friendlyName": "IPHONE",
+          "cSharpName": "Iphone6"
+        },
+        {
+          "id": "device_tracker.iphone_7",
+          "friendlyName": "IPHONE",
+          "cSharpName": "Iphone7"
+        },
+        {
+          "id": "device_tracker.iphone_8",
+          "friendlyName": "IPHONE",
+          "cSharpName": "Iphone8"
         },
         {
           "id": "device_tracker.kristoffer_iphone",
@@ -2481,6 +3071,11 @@
           "cSharpName": "KristoffersGalaxyS94"
         },
         {
+          "id": "device_tracker.kristoffers_nogler_last_location",
+          "friendlyName": "Kristoffers n\u00F8gler Last Location",
+          "cSharpName": "KristoffersNoglerLastLocation"
+        },
+        {
           "id": "device_tracker.kristoffers_s20",
           "friendlyName": "Kristoffers S20",
           "cSharpName": "KristoffersS20"
@@ -2501,6 +3096,11 @@
           "cSharpName": "KristoffersS20Ultra3"
         },
         {
+          "id": "device_tracker.kristoffers_s24",
+          "friendlyName": "Kristoffers S24",
+          "cSharpName": "KristoffersS24"
+        },
+        {
           "id": "device_tracker.kristoffers_s9",
           "friendlyName": "Kristoffers S9",
           "cSharpName": "KristoffersS9"
@@ -2509,6 +3109,11 @@
           "id": "device_tracker.linda",
           "friendlyName": "LINDA",
           "cSharpName": "Linda"
+        },
+        {
+          "id": "device_tracker.locatag",
+          "friendlyName": "Kristoffers n\u00F8gler",
+          "cSharpName": "Locatag"
         },
         {
           "id": "device_tracker.louiselsiphone",
@@ -2559,6 +3164,21 @@
           "id": "device_tracker.null_10",
           "friendlyName": "(null)",
           "cSharpName": "Null10"
+        },
+        {
+          "id": "device_tracker.null_11",
+          "friendlyName": "(null)",
+          "cSharpName": "Null11"
+        },
+        {
+          "id": "device_tracker.null_12",
+          "friendlyName": "(null)",
+          "cSharpName": "Null12"
+        },
+        {
+          "id": "device_tracker.null_13",
+          "friendlyName": "(null)",
+          "cSharpName": "Null13"
         },
         {
           "id": "device_tracker.null_2",
@@ -2637,7 +3257,7 @@
         },
         {
           "id": "device_tracker.plexsovevaerelse_2",
-          "friendlyName": "PlexSovevaerelse",
+          "friendlyName": "PlexSovevaerelse unnamed device",
           "cSharpName": "Plexsovevaerelse2"
         },
         {
@@ -2661,6 +3281,26 @@
           "cSharpName": "Re4502"
         },
         {
+          "id": "device_tracker.roar_cykel",
+          "friendlyName": "Roar: Cykel",
+          "cSharpName": "RoarCykel"
+        },
+        {
+          "id": "device_tracker.roar_cykel_last_location",
+          "friendlyName": "Roar: Cykel Last Location",
+          "cSharpName": "RoarCykelLastLocation"
+        },
+        {
+          "id": "device_tracker.roar_taske",
+          "friendlyName": "Roar: Taske",
+          "cSharpName": "RoarTaske"
+        },
+        {
+          "id": "device_tracker.roar_taske_last_location",
+          "friendlyName": "Roar: Taske Last Location",
+          "cSharpName": "RoarTaskeLastLocation"
+        },
+        {
           "id": "device_tracker.roars_galaxy_s9",
           "friendlyName": "ROARS-GALAXY-S9",
           "cSharpName": "RoarsGalaxyS9"
@@ -2672,8 +3312,13 @@
         },
         {
           "id": "device_tracker.robotic_mower_2",
-          "friendlyName": "ROBOTIC-MOWER",
+          "friendlyName": "Grasputin",
           "cSharpName": "RoboticMower2"
+        },
+        {
+          "id": "device_tracker.robotic_mower_3",
+          "friendlyName": "ROBOTIC-MOWER",
+          "cSharpName": "RoboticMower3"
         },
         {
           "id": "device_tracker.samsung",
@@ -2682,7 +3327,7 @@
         },
         {
           "id": "device_tracker.samsung_2",
-          "friendlyName": "SAMSUNG",
+          "friendlyName": "[TV] Samsung 7 Series (65) SAMSUNG",
           "cSharpName": "Samsung2"
         },
         {
@@ -2702,7 +3347,7 @@
         },
         {
           "id": "device_tracker.saphe_d0c9",
-          "friendlyName": null,
+          "friendlyName": "Saphe D0C9",
           "cSharpName": "SapheD0c9"
         },
         {
@@ -2737,7 +3382,7 @@
         },
         {
           "id": "device_tracker.sonoszp_2",
-          "friendlyName": "SONOSZP",
+          "friendlyName": "Legev\u00E6relse SONOSZP",
           "cSharpName": "Sonoszp2"
         },
         {
@@ -2802,7 +3447,7 @@
         },
         {
           "id": "device_tracker.tuyaledroarsseng_2",
-          "friendlyName": "THINGSTURN_35A3",
+          "friendlyName": "TuyaLEDRoarsSeng THINGSTURN_35A3",
           "cSharpName": "Tuyaledroarsseng2"
         },
         {
@@ -2981,6 +3626,11 @@
           "cSharpName": "TvSamsung7Series65"
         },
         {
+          "id": "device_tracker.twinkly_2f2f45",
+          "friendlyName": "TWINKLY_2F2F45",
+          "cSharpName": "Twinkly2f2f45"
+        },
+        {
           "id": "device_tracker.twinkly_654e69",
           "friendlyName": "TWINKLY_654E69",
           "cSharpName": "Twinkly654e69"
@@ -2992,7 +3642,7 @@
         },
         {
           "id": "device_tracker.twinkly_eda359",
-          "friendlyName": "TWINKLY-EDA359",
+          "friendlyName": "TWINKLY_EDA359 TWINKLY-EDA359",
           "cSharpName": "TwinklyEda359"
         },
         {
@@ -3022,7 +3672,7 @@
         },
         {
           "id": "device_tracker.unnamed_device_14",
-          "friendlyName": "CHROMETV",
+          "friendlyName": "unnamed device TV",
           "cSharpName": "UnnamedDevice14"
         },
         {
@@ -3097,7 +3747,7 @@
         },
         {
           "id": "device_tracker.unnamed_device_28",
-          "friendlyName": "IPHONE",
+          "friendlyName": "unnamed device",
           "cSharpName": "UnnamedDevice28"
         },
         {
@@ -3206,13 +3856,23 @@
           "cSharpName": "UnnamedDevice47"
         },
         {
+          "id": "device_tracker.unnamed_device_48",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice48"
+        },
+        {
+          "id": "device_tracker.unnamed_device_49",
+          "friendlyName": "unnamed device",
+          "cSharpName": "UnnamedDevice49"
+        },
+        {
           "id": "device_tracker.unnamed_device_5",
           "friendlyName": "unnamed device",
           "cSharpName": "UnnamedDevice5"
         },
         {
           "id": "device_tracker.unnamed_device_6",
-          "friendlyName": "Nintendo Switch",
+          "friendlyName": "unnamed device Nintendo Switch",
           "cSharpName": "UnnamedDevice6"
         },
         {
@@ -3242,7 +3902,7 @@
         },
         {
           "id": "device_tracker.win_f8s9dtb7ecu",
-          "friendlyName": "DESKTOP-CO5LNMA",
+          "friendlyName": "WIN-F8S9DTB7ECU",
           "cSharpName": "WinF8s9dtb7ecu"
         },
         {
@@ -3327,7 +3987,7 @@
         },
         {
           "id": "device_tracker.xiaomiroborocks5max",
-          "friendlyName": "unnamed device",
+          "friendlyName": "Roborock S5 Max",
           "cSharpName": "Xiaomiroborocks5max"
         }
       ],
@@ -3436,6 +4096,91 @@
           "jsonName": "battery_level",
           "cSharpName": "BatteryLevel",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "in_zones",
+          "cSharpName": "InZones",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "attribution",
+          "cSharpName": "Attribution",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "tracking_type",
+          "cSharpName": "TrackingType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "status",
+          "cSharpName": "Status",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "last_seen",
+          "cSharpName": "LastSeen",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "last_seen_utc",
+          "cSharpName": "LastSeenUtc",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "source_label",
+          "cSharpName": "SourceLabel",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "source_rank",
+          "cSharpName": "SourceRank",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "is_own_report",
+          "cSharpName": "IsOwnReport",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "accuracy_m",
+          "cSharpName": "AccuracyM",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "altitude_m",
+          "cSharpName": "AltitudeM",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "accuracy_estimated",
+          "cSharpName": "AccuracyEstimated",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "google_device_id",
+          "cSharpName": "GoogleDeviceId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "location_age",
+          "cSharpName": "LocationAge",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "location_status",
+          "cSharpName": "LocationStatus",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "last_latitude",
+          "cSharpName": "LastLatitude",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "last_longitude",
+          "cSharpName": "LastLongitude",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -3518,36 +4263,6 @@
           "id": "input_boolean.bagkant_for_bilopladning_aktiveret",
           "friendlyName": "Bagkant for bilopladning aktiveret",
           "cSharpName": "BagkantForBilopladningAktiveret"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_automations_chest_freezer_chest_freezer",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_automations_chest_freezer_chest_freezer",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsAutomationsChestFreezerChestFreezer"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsAutomationsNightBrightness"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_integrations_campen_auktioner_campen_auktioner",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_integrations_campen_auktioner_campen_auktioner",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsIntegrationsCampenAuktionerCampenAuktioner"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsIntegrationsNordluxNordlux"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_monitoring_humidity",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_monitoring_humidity",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsMonitoringHumidity"
-        },
-        {
-          "id": "input_boolean.dev_netdaemon_lerbaek_net_daemon_apps_monitoring_price_monitor_price_monitor",
-          "friendlyName": "dev_netdaemon_lerbaek_net_daemon_apps_monitoring_price_monitor_price_monitor",
-          "cSharpName": "DevNetdaemonLerbaekNetDaemonAppsMonitoringPriceMonitorPriceMonitor"
         },
         {
           "id": "input_boolean.dorklokke",
@@ -3718,11 +4433,6 @@
           "id": "input_boolean.netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
           "friendlyName": "netdaemon_lerbaek_net_daemon_apps_automations_night_brightness",
           "cSharpName": "NetdaemonLerbaekNetDaemonAppsAutomationsNightBrightness"
-        },
-        {
-          "id": "input_boolean.netdaemon_lerbaek_net_daemon_apps_integrations_campen_auktioner_campen_auktioner",
-          "friendlyName": "netdaemon_lerbaek_net_daemon_apps_integrations_campen_auktioner_campen_auktioner",
-          "cSharpName": "NetdaemonLerbaekNetDaemonAppsIntegrationsCampenAuktionerCampenAuktioner"
         },
         {
           "id": "input_boolean.netdaemon_lerbaek_net_daemon_apps_integrations_nordlux_nordlux",
@@ -4124,6 +4834,11 @@
       "domain": "light",
       "entities": [
         {
+          "id": "light.a1_bambi_chamber_light",
+          "friendlyName": "A1 Bambi Chamber light",
+          "cSharpName": "A1BambiChamberLight"
+        },
+        {
           "id": "light.alang",
           "friendlyName": "Al\u00E4ng",
           "cSharpName": "Alang"
@@ -4149,9 +4864,9 @@
           "cSharpName": "Bryggers"
         },
         {
-          "id": "light.cast_screen",
-          "friendlyName": "Screen",
-          "cSharpName": "CastScreen"
+          "id": "light.busk_400",
+          "friendlyName": "Busk 400",
+          "cSharpName": "Busk400"
         },
         {
           "id": "light.entre",
@@ -4180,7 +4895,7 @@
         },
         {
           "id": "light.forhave_250",
-          "friendlyName": null,
+          "friendlyName": "Forhave (250)",
           "cSharpName": "Forhave250"
         },
         {
@@ -4212,11 +4927,6 @@
           "id": "light.julelys",
           "friendlyName": "Julelys",
           "cSharpName": "Julelys"
-        },
-        {
-          "id": "light.juletrae",
-          "friendlyName": null,
-          "cSharpName": "Juletrae"
         },
         {
           "id": "light.kanin_astronaut",
@@ -4300,7 +5010,7 @@
         },
         {
           "id": "light.lys_under_roars_seng",
-          "friendlyName": "Lys under Roars seng",
+          "friendlyName": "Lys under sengen Lys under Roars seng",
           "cSharpName": "LysUnderRoarsSeng"
         },
         {
@@ -4359,19 +5069,19 @@
           "cSharpName": "PartialEntreStue"
         },
         {
-          "id": "light.partial_felena_tassel_rgbw_1",
-          "friendlyName": "Partial: Felena Tassel RGBW 1",
-          "cSharpName": "PartialFelenaTasselRgbw1"
+          "id": "light.partial_felena_tassel_1",
+          "friendlyName": "Partial: Felena Tassel 1",
+          "cSharpName": "PartialFelenaTassel1"
         },
         {
-          "id": "light.partial_felena_tassel_rgbw_2",
-          "friendlyName": "Partial: Felena Tassel RGBW 2",
-          "cSharpName": "PartialFelenaTasselRgbw2"
+          "id": "light.partial_felena_tassel_2",
+          "friendlyName": "Partial: Felena Tassel 2",
+          "cSharpName": "PartialFelenaTassel2"
         },
         {
-          "id": "light.partial_felena_tassel_rgbw_3",
-          "friendlyName": "Partial: Felena Tassel RGBW 3",
-          "cSharpName": "PartialFelenaTasselRgbw3"
+          "id": "light.partial_felena_tassel_3",
+          "friendlyName": "Partial: Felena Tassel 3",
+          "cSharpName": "PartialFelenaTassel3"
         },
         {
           "id": "light.partial_fordelingsgang_kokken",
@@ -4479,6 +5189,11 @@
           "cSharpName": "Toilet"
         },
         {
+          "id": "light.traeer_250",
+          "friendlyName": "Tr\u00E6er 250",
+          "cSharpName": "Traeer250"
+        },
+        {
           "id": "light.underskabsbelysning",
           "friendlyName": "Underskabsbelysning",
           "cSharpName": "Underskabsbelysning"
@@ -4553,7 +5268,7 @@
         {
           "jsonName": "effect_list",
           "cSharpName": "EffectList",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "brightness",
@@ -4679,6 +5394,11 @@
           "jsonName": "browserID",
           "cSharpName": "BrowserID",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "group_entities",
+          "cSharpName": "GroupEntities",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
         }
       ]
     },
@@ -4771,17 +5491,17 @@
           "jsonName": "last_seen",
           "cSharpName": "LastSeen",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     },
     {
       "domain": "media_player",
       "entities": [
-        {
-          "id": "media_player.cast",
-          "friendlyName": null,
-          "cSharpName": "Cast"
-        },
         {
           "id": "media_player.cc_sovevaerelse",
           "friendlyName": "CC Sovev\u00E6relse",
@@ -4794,7 +5514,7 @@
         },
         {
           "id": "media_player.ccsovevaerelse",
-          "friendlyName": null,
+          "friendlyName": "CCSovev\u00E6relse",
           "cSharpName": "Ccsovevaerelse"
         },
         {
@@ -4814,7 +5534,7 @@
         },
         {
           "id": "media_player.chromecast7792",
-          "friendlyName": null,
+          "friendlyName": "Chromecast7792",
           "cSharpName": "Chromecast7792"
         },
         {
@@ -4833,6 +5553,11 @@
           "cSharpName": "Hp850g5"
         },
         {
+          "id": "media_player.hp850g5_brave",
+          "friendlyName": "HP850G5 - Brave",
+          "cSharpName": "Hp850g5Brave"
+        },
+        {
           "id": "media_player.legevaerelse",
           "friendlyName": "Legev\u00E6relse",
           "cSharpName": "Legevaerelse"
@@ -4841,6 +5566,196 @@
           "id": "media_player.plex_kasperemkjr_plex_for_android_tv_chromecast_google_tv_hd",
           "friendlyName": "Plex (kasperemkjr - Plex for Android (TV) - Chromecast Google TV (HD))",
           "cSharpName": "PlexKasperemkjrPlexForAndroidTvChromecastGoogleTvHd"
+        },
+        {
+          "id": "media_player.plex_kasperemkjr_plex_for_android_tv_smart_tv_pro",
+          "friendlyName": "Plex (kasperemkjr - Plex for Android (TV) - Smart TV Pro)",
+          "cSharpName": "PlexKasperemkjrPlexForAndroidTvSmartTvPro"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_10",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast10"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_11",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast11"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_12",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast12"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_13",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast13"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_14",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast14"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_15",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast15"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_16",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast16"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_17",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast17"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_18",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast18"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_19",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast19"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_2",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast2"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_20",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast20"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_21",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast21"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_22",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast22"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_23",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast23"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_24",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast24"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_25",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast25"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_26",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast26"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_27",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast27"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_28",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast28"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_29",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast29"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_3",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast3"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_30",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast30"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_31",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast31"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_32",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast32"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_33",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast33"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_34",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast34"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_35",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast35"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_36",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast36"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_4",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast4"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_5",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast5"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_6",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast6"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_7",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast7"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_8",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast8"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_cast_chromecast_9",
+          "friendlyName": "Plex (kors25 - Plex Cast - Chromecast)",
+          "cSharpName": "PlexKors25PlexCastChromecast9"
+        },
+        {
+          "id": "media_player.plex_kors25_plex_for_android_mobile_pixel_8",
+          "friendlyName": "Plex (kors25 - Plex for Android (Mobile) - Pixel 8)",
+          "cSharpName": "PlexKors25PlexForAndroidMobilePixel8"
         },
         {
           "id": "media_player.plex_linda_emkjaer_gmail_com_plex_for_ios_anna_lindas_iphone",
@@ -4858,9 +5773,19 @@
           "cSharpName": "PlexLouiseP8PlexForAndroidTvAllente1"
         },
         {
+          "id": "media_player.plex_louise_p8_plex_for_ios_ipad",
+          "friendlyName": "Plex (louise.p8 - Plex for iOS - iPad)",
+          "cSharpName": "PlexLouiseP8PlexForIosIpad"
+        },
+        {
           "id": "media_player.plex_louise_p8_plex_for_samsung_tv_ue22h5600",
           "friendlyName": "Plex (louise.p8 - Plex for Samsung - TV UE22H5600)",
           "cSharpName": "PlexLouiseP8PlexForSamsungTvUe22h5600"
+        },
+        {
+          "id": "media_player.plex_louise_p8_plex_for_smart_tvs_generic",
+          "friendlyName": "Plex (louise.p8 - Plex for Smart TVs - Generic)",
+          "cSharpName": "PlexLouiseP8PlexForSmartTvsGeneric"
         },
         {
           "id": "media_player.plex_louise_pedersen_gmail_com_plex_cast_chromecast",
@@ -4879,12 +5804,12 @@
         },
         {
           "id": "media_player.plex_louise_pedersen_gmail_com_plex_web_chrome_osx",
-          "friendlyName": "Plex (louise.pedersen@gmail.com - Plex Web - Chrome - OSX)",
+          "friendlyName": "Plex Client Service Plex (louise.pedersen@gmail.com - Plex Web - Chrome - OSX)",
           "cSharpName": "PlexLouisePedersenGmailComPlexWebChromeOsx"
         },
         {
           "id": "media_player.plex_louise_pedersen_gmail_com_plex_web_chrome_windows",
-          "friendlyName": "Plex (louise.p8 - Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (louise.p8 - Plex Web - Chrome - Windows)",
           "cSharpName": "PlexLouisePedersenGmailComPlexWebChromeWindows"
         },
         {
@@ -4894,12 +5819,12 @@
         },
         {
           "id": "media_player.plex_mail147_plex_web_chrome_windows",
-          "friendlyName": "Plex (mail147 - Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (mail147 - Plex Web - Chrome - Windows)",
           "cSharpName": "PlexMail147PlexWebChromeWindows"
         },
         {
           "id": "media_player.plex_mail147_plex_web_microsoft_edge_windows",
-          "friendlyName": "Plex (mail147 - Plex Web - Microsoft Edge - Windows)",
+          "friendlyName": "Plex Client Service Plex (mail147 - Plex Web - Microsoft Edge - Windows)",
           "cSharpName": "PlexMail147PlexWebMicrosoftEdgeWindows"
         },
         {
@@ -4914,7 +5839,7 @@
         },
         {
           "id": "media_player.plex_mail2eep_gmail_com_plex_web_chrome_windows",
-          "friendlyName": "Plex (mail2eep@gmail.com - Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (mail2eep@gmail.com - Plex Web - Chrome - Windows)",
           "cSharpName": "PlexMail2eepGmailComPlexWebChromeWindows"
         },
         {
@@ -4964,7 +5889,7 @@
         },
         {
           "id": "media_player.plex_plex_for_android_mobile_galaxy_tab_a9",
-          "friendlyName": "Plex (Plex for Android (Mobile) - Galaxy Tab A9\u002B)",
+          "friendlyName": "Plex (Plex for Android (Mobile) - Kristoffers Tab A9\u002B)",
           "cSharpName": "PlexPlexForAndroidMobileGalaxyTabA9"
         },
         {
@@ -4973,9 +5898,29 @@
           "cSharpName": "PlexPlexForAndroidMobileGalaxyTabS3"
         },
         {
+          "id": "media_player.plex_plex_for_android_mobile_galaxy_tab_s3_2",
+          "friendlyName": "Plex (Plex for Android (Mobile) - Galaxy Tab S3)",
+          "cSharpName": "PlexPlexForAndroidMobileGalaxyTabS32"
+        },
+        {
+          "id": "media_player.plex_plex_for_android_mobile_gros_s24",
+          "friendlyName": "Plex (Plex for Android (Mobile) - Gros S24)",
+          "cSharpName": "PlexPlexForAndroidMobileGrosS24"
+        },
+        {
+          "id": "media_player.plex_plex_for_android_mobile_kristoffers_s24_ultra",
+          "friendlyName": "Plex (Plex for Android (Mobile) - Kristoffers S24 Ultra)",
+          "cSharpName": "PlexPlexForAndroidMobileKristoffersS24Ultra"
+        },
+        {
           "id": "media_player.plex_plex_for_android_mobile_kristoffers_tab_a9",
           "friendlyName": "Plex (Plex for Android (Mobile) - Kristoffers Tab A9\u002B)",
           "cSharpName": "PlexPlexForAndroidMobileKristoffersTabA9"
+        },
+        {
+          "id": "media_player.plex_plex_for_android_mobile_kristoffers_tab_a9_2",
+          "friendlyName": "Plex (Plex for Android (Mobile) - Kristoffers Tab A9\u002B)",
+          "cSharpName": "PlexPlexForAndroidMobileKristoffersTabA92"
         },
         {
           "id": "media_player.plex_plex_for_android_mobile_sm_g988b",
@@ -5049,68 +5994,93 @@
         },
         {
           "id": "media_player.plex_plex_web_chrome",
-          "friendlyName": "Plex (Plex Web - Chrome)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome)",
           "cSharpName": "PlexPlexWebChrome"
         },
         {
           "id": "media_player.plex_plex_web_chrome_2",
-          "friendlyName": "Plex (Plex Web - Chrome - Android)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Android)",
           "cSharpName": "PlexPlexWebChrome2"
         },
         {
           "id": "media_player.plex_plex_web_chrome_3",
-          "friendlyName": "Plex (Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Windows)",
           "cSharpName": "PlexPlexWebChrome3"
         },
         {
           "id": "media_player.plex_plex_web_chrome_android",
-          "friendlyName": "Plex (Plex Web - Chrome - Android)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Android)",
           "cSharpName": "PlexPlexWebChromeAndroid"
         },
         {
           "id": "media_player.plex_plex_web_chrome_android_2",
-          "friendlyName": "Plex (Plex Web - Chrome - Android)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Android)",
           "cSharpName": "PlexPlexWebChromeAndroid2"
         },
         {
           "id": "media_player.plex_plex_web_chrome_android_3",
-          "friendlyName": "Plex (Plex Web - Chrome - Android)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Android)",
           "cSharpName": "PlexPlexWebChromeAndroid3"
         },
         {
           "id": "media_player.plex_plex_web_chrome_android_4",
-          "friendlyName": "Plex (Plex Web - Chrome - Android)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Android)",
           "cSharpName": "PlexPlexWebChromeAndroid4"
         },
         {
+          "id": "media_player.plex_plex_web_chrome_android_5",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Android)",
+          "cSharpName": "PlexPlexWebChromeAndroid5"
+        },
+        {
+          "id": "media_player.plex_plex_web_chrome_android_6",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Android)",
+          "cSharpName": "PlexPlexWebChromeAndroid6"
+        },
+        {
           "id": "media_player.plex_plex_web_chrome_windows",
-          "friendlyName": "Plex (Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Windows)",
           "cSharpName": "PlexPlexWebChromeWindows"
         },
         {
           "id": "media_player.plex_plex_web_chrome_windows_2",
-          "friendlyName": "Plex (Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Windows)",
           "cSharpName": "PlexPlexWebChromeWindows2"
         },
         {
           "id": "media_player.plex_plex_web_chrome_windows_3",
-          "friendlyName": "Plex (Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Windows)",
           "cSharpName": "PlexPlexWebChromeWindows3"
         },
         {
           "id": "media_player.plex_plex_web_chrome_windows_4",
-          "friendlyName": "Plex (Plex Web - Chrome)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome)",
           "cSharpName": "PlexPlexWebChromeWindows4"
         },
         {
           "id": "media_player.plex_plex_web_chrome_windows_5",
-          "friendlyName": "Plex (Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Windows)",
           "cSharpName": "PlexPlexWebChromeWindows5"
         },
         {
           "id": "media_player.plex_plex_web_chrome_windows_6",
-          "friendlyName": "Plex (Plex Web - Chrome - Windows)",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Windows)",
           "cSharpName": "PlexPlexWebChromeWindows6"
+        },
+        {
+          "id": "media_player.plex_plex_web_chrome_windows_7",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Windows)",
+          "cSharpName": "PlexPlexWebChromeWindows7"
+        },
+        {
+          "id": "media_player.plex_plex_web_chrome_windows_8",
+          "friendlyName": "Plex Client Service Plex (Plex Web - Chrome - Windows)",
+          "cSharpName": "PlexPlexWebChromeWindows8"
+        },
+        {
+          "id": "media_player.plex_pm4k_snuggles",
+          "friendlyName": "Plex (PM4K - Snuggles)",
+          "cSharpName": "PlexPm4kSnuggles"
         },
         {
           "id": "media_player.plex_stadsg_plex_for_apple_tv_apple_tv",
@@ -5139,7 +6109,7 @@
         },
         {
           "id": "media_player.unnamed_room",
-          "friendlyName": null,
+          "friendlyName": "K\u00F8kken",
           "cSharpName": "UnnamedRoom"
         }
       ],
@@ -5333,6 +6303,31 @@
           "jsonName": "browserID",
           "cSharpName": "BrowserID",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "app_id",
+          "cSharpName": "AppId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "app_name",
+          "cSharpName": "AppName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "entity_picture_local",
+          "cSharpName": "EntityPictureLocal",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "video_interaction_required",
+          "cSharpName": "VideoInteractionRequired",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "audio_interaction_required",
+          "cSharpName": "AudioInteractionRequired",
+          "clrType": "System.Object"
         }
       ]
     },
@@ -5340,6 +6335,16 @@
       "domain": "number",
       "isNumeric": true,
       "entities": [
+        {
+          "id": "number.a1_bambi_bed_target_temperature",
+          "friendlyName": "A1 Bambi Bed target temperature",
+          "cSharpName": "A1BambiBedTargetTemperature"
+        },
+        {
+          "id": "number.a1_bambi_nozzle_target_temperature",
+          "friendlyName": "A1 Bambi Nozzle target temperature",
+          "cSharpName": "A1BambiNozzleTargetTemperature"
+        },
         {
           "id": "number.garageport_tilt_sensor_sensitivity",
           "friendlyName": "Garageport-tilt-sensor Sensitivity",
@@ -5361,9 +6366,44 @@
           "cSharpName": "GrasputinTorque"
         },
         {
+          "id": "number.havelamper_countdown",
+          "friendlyName": "Havelamper Countdown",
+          "cSharpName": "HavelamperCountdown"
+        },
+        {
+          "id": "number.hjorneterrasse_countdown",
+          "friendlyName": "Hj\u00F8rneterrasse Countdown",
+          "cSharpName": "HjorneterrasseCountdown"
+        },
+        {
+          "id": "number.indkorsel_homebase_chime_ringtone_volume",
+          "friendlyName": "Indk\u00F8rsel Homebase Chime Ringtone Volume",
+          "cSharpName": "IndkorselHomebaseChimeRingtoneVolume"
+        },
+        {
+          "id": "number.indkorsel_motion_detection_sensitivity",
+          "friendlyName": "Indk\u00F8rsel Motion Detection Sensitivity",
+          "cSharpName": "IndkorselMotionDetectionSensitivity"
+        },
+        {
           "id": "number.indkorsel_motion_sensitivity",
-          "friendlyName": "Motion sensitivity",
+          "friendlyName": "Indkorsel Motion sensitivity",
           "cSharpName": "IndkorselMotionSensitivity"
+        },
+        {
+          "id": "number.indkorsel_speaker_volume",
+          "friendlyName": "Indk\u00F8rsel Speaker Volume",
+          "cSharpName": "IndkorselSpeakerVolume"
+        },
+        {
+          "id": "number.julelys_countdown",
+          "friendlyName": "Julelys Countdown",
+          "cSharpName": "JulelysCountdown"
+        },
+        {
+          "id": "number.kummefryser_countdown",
+          "friendlyName": "Kummefryser Countdown",
+          "cSharpName": "KummefryserCountdown"
         },
         {
           "id": "number.legevaerelse_balance",
@@ -5381,19 +6421,44 @@
           "cSharpName": "LegevaerelseTreble"
         },
         {
+          "id": "number.lys_i_indkorslen_countdown",
+          "friendlyName": "Lys i indk\u00F8rslen Countdown",
+          "cSharpName": "LysIIndkorslenCountdown"
+        },
+        {
+          "id": "number.lys_pa_loftet_countdown",
+          "friendlyName": "Lys p\u00E5 loftet Countdown",
+          "cSharpName": "LysPaLoftetCountdown"
+        },
+        {
+          "id": "number.seedbox_countdown",
+          "friendlyName": "Seedbox Countdown",
+          "cSharpName": "SeedboxCountdown"
+        },
+        {
+          "id": "number.torretumbler_countdown",
+          "friendlyName": "T\u00F8rretumbler Countdown",
+          "cSharpName": "TorretumblerCountdown"
+        },
+        {
           "id": "number.unnamed_room_balance",
-          "friendlyName": "Balance",
+          "friendlyName": "K\u00F8kken Balance",
           "cSharpName": "UnnamedRoomBalance"
         },
         {
           "id": "number.unnamed_room_bass",
-          "friendlyName": "Bass",
+          "friendlyName": "K\u00F8kken Bass",
           "cSharpName": "UnnamedRoomBass"
         },
         {
           "id": "number.unnamed_room_treble",
-          "friendlyName": "Treble",
+          "friendlyName": "K\u00F8kken Treble",
           "cSharpName": "UnnamedRoomTreble"
+        },
+        {
+          "id": "number.vaskemaskine_countdown",
+          "friendlyName": "Vaskemaskine Countdown",
+          "cSharpName": "VaskemaskineCountdown"
         },
         {
           "id": "number.wallbox_portal_max_charging_current",
@@ -5463,6 +6528,11 @@
       "domain": "person",
       "entities": [
         {
+          "id": "person.ebbe_cykel",
+          "friendlyName": "Ebbe: Cykel",
+          "cSharpName": "EbbeCykel"
+        },
+        {
           "id": "person.erik",
           "friendlyName": "Erik Ejler Pedersen",
           "cSharpName": "Erik"
@@ -5501,6 +6571,16 @@
           "id": "person.renault_zoe",
           "friendlyName": "Renault Zoe",
           "cSharpName": "RenaultZoe"
+        },
+        {
+          "id": "person.roar_cykel",
+          "friendlyName": "Roar: Cykel",
+          "cSharpName": "RoarCykel"
+        },
+        {
+          "id": "person.roar_skoletaske",
+          "friendlyName": "Roar: Skoletaske",
+          "cSharpName": "RoarSkoletaske"
         }
       ],
       "attributes": [
@@ -5553,6 +6633,11 @@
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "in_zones",
+          "cSharpName": "InZones",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
         }
       ]
     },
@@ -5606,6 +6691,16 @@
     {
       "domain": "scene",
       "entities": [
+        {
+          "id": "scene.felena_tassel_0_scene_0",
+          "friendlyName": "Felena Tassel Scene 0",
+          "cSharpName": "FelenaTassel0Scene0"
+        },
+        {
+          "id": "scene.indkorsel_jul",
+          "friendlyName": "Indk\u00F8rsel: Jul",
+          "cSharpName": "IndkorselJul"
+        },
         {
           "id": "scene.indkorsel_regnbue",
           "friendlyName": "Indk\u00F8rsel: Regnbue",
@@ -5826,6 +6921,11 @@
       "domain": "select",
       "entities": [
         {
+          "id": "select.a1_bambi_printing_speed",
+          "friendlyName": "A1 Bambi Printing speed",
+          "cSharpName": "A1BambiPrintingSpeed"
+        },
+        {
           "id": "select.ballon_power_on_behavior",
           "friendlyName": "Ballon Power-on behavior",
           "cSharpName": "BallonPowerOnBehavior"
@@ -5834,6 +6934,11 @@
           "id": "select.bryggers_power_on_behavior",
           "friendlyName": "Bryggers Power-on behavior",
           "cSharpName": "BryggersPowerOnBehavior"
+        },
+        {
+          "id": "select.busk_400_mode",
+          "friendlyName": "Busk 400 Mode",
+          "cSharpName": "Busk400Mode"
         },
         {
           "id": "select.charge_mode",
@@ -5852,7 +6957,7 @@
         },
         {
           "id": "select.forhave_250_mode",
-          "friendlyName": "Mode",
+          "friendlyName": "Forhave (250) Mode",
           "cSharpName": "Forhave250Mode"
         },
         {
@@ -5887,8 +6992,33 @@
         },
         {
           "id": "select.indkorsel_day_night_mode",
-          "friendlyName": "Day night mode",
+          "friendlyName": "Indkorsel Day night mode",
           "cSharpName": "IndkorselDayNightMode"
+        },
+        {
+          "id": "select.indkorsel_guard_mode",
+          "friendlyName": "Indk\u00F8rsel Guard Mode",
+          "cSharpName": "IndkorselGuardMode"
+        },
+        {
+          "id": "select.indkorsel_motion_detection_type",
+          "friendlyName": "Indk\u00F8rsel Motion Detection Type",
+          "cSharpName": "IndkorselMotionDetectionType"
+        },
+        {
+          "id": "select.indkorsel_nightvision",
+          "friendlyName": "Indk\u00F8rsel Nightvision",
+          "cSharpName": "IndkorselNightvision"
+        },
+        {
+          "id": "select.indkorsel_video_recording_quality",
+          "friendlyName": "Indk\u00F8rsel Video Recording Quality",
+          "cSharpName": "IndkorselVideoRecordingQuality"
+        },
+        {
+          "id": "select.indkorsel_video_streaming_quality",
+          "friendlyName": "Indk\u00F8rsel Video Streaming Quality",
+          "cSharpName": "IndkorselVideoStreamingQuality"
         },
         {
           "id": "select.julelys_indicator_mode",
@@ -5971,19 +7101,19 @@
           "cSharpName": "PartialEntreStuePowerOnBehavior"
         },
         {
-          "id": "select.partial_felena_tassel_rgbw_1_power_on_behavior",
-          "friendlyName": "Partial: Felena Tassel RGBW 1 Power-on behavior",
-          "cSharpName": "PartialFelenaTasselRgbw1PowerOnBehavior"
+          "id": "select.partial_felena_tassel_1_power_on_behavior",
+          "friendlyName": "Partial: Felena Tassel 1 Power-on behavior",
+          "cSharpName": "PartialFelenaTassel1PowerOnBehavior"
         },
         {
-          "id": "select.partial_felena_tassel_rgbw_2_power_on_behavior",
-          "friendlyName": "Partial: Felena Tassel RGBW 2 Power-on behavior",
-          "cSharpName": "PartialFelenaTasselRgbw2PowerOnBehavior"
+          "id": "select.partial_felena_tassel_2_power_on_behavior",
+          "friendlyName": "Partial: Felena Tassel 2 Power-on behavior",
+          "cSharpName": "PartialFelenaTassel2PowerOnBehavior"
         },
         {
-          "id": "select.partial_felena_tassel_rgbw_3_power_on_behavior",
-          "friendlyName": "Partial: Felena Tassel RGBW 3 Power-on behavior",
-          "cSharpName": "PartialFelenaTasselRgbw3PowerOnBehavior"
+          "id": "select.partial_felena_tassel_3_power_on_behavior",
+          "friendlyName": "Partial: Felena Tassel 3 Power-on behavior",
+          "cSharpName": "PartialFelenaTassel3PowerOnBehavior"
         },
         {
           "id": "select.partial_fordelingsgang_kokken_power_on_behavior",
@@ -6006,9 +7136,19 @@
           "cSharpName": "PartialGarageportHojreColorPowerOnBehavior"
         },
         {
+          "id": "select.partial_garageport_hojre_power_on_behavior",
+          "friendlyName": "Partial: Garageport (h\u00F8jre) Power-on behavior",
+          "cSharpName": "PartialGarageportHojrePowerOnBehavior"
+        },
+        {
           "id": "select.partial_garageport_venstre_color_power_on_behavior",
           "friendlyName": "Partial: Garageport (venstre) Color power on behavior",
           "cSharpName": "PartialGarageportVenstreColorPowerOnBehavior"
+        },
+        {
+          "id": "select.partial_garageport_venstre_power_on_behavior",
+          "friendlyName": "Partial: Garageport (venstre) Power-on behavior",
+          "cSharpName": "PartialGarageportVenstrePowerOnBehavior"
         },
         {
           "id": "select.partial_indkorsel_1_color_power_on_behavior",
@@ -6016,9 +7156,19 @@
           "cSharpName": "PartialIndkorsel1ColorPowerOnBehavior"
         },
         {
+          "id": "select.partial_indkorsel_1_power_on_behavior",
+          "friendlyName": "Partial: Indk\u00F8rsel 1 Power-on behavior",
+          "cSharpName": "PartialIndkorsel1PowerOnBehavior"
+        },
+        {
           "id": "select.partial_indkorsel_2_color_power_on_behavior",
           "friendlyName": "Partial: Indk\u00F8rsel 2 Color power on behavior",
           "cSharpName": "PartialIndkorsel2ColorPowerOnBehavior"
+        },
+        {
+          "id": "select.partial_indkorsel_2_power_on_behavior",
+          "friendlyName": "Partial: Indk\u00F8rsel 2 Power-on behavior",
+          "cSharpName": "PartialIndkorsel2PowerOnBehavior"
         },
         {
           "id": "select.partial_indkorsel_3_color_power_on_behavior",
@@ -6026,14 +7176,29 @@
           "cSharpName": "PartialIndkorsel3ColorPowerOnBehavior"
         },
         {
+          "id": "select.partial_indkorsel_3_power_on_behavior",
+          "friendlyName": "Partial: Indk\u00F8rsel 3 Power-on behavior",
+          "cSharpName": "PartialIndkorsel3PowerOnBehavior"
+        },
+        {
           "id": "select.partial_indkorsel_4_color_power_on_behavior",
           "friendlyName": "Partial: Indk\u00F8rsel 4 Color power on behavior",
           "cSharpName": "PartialIndkorsel4ColorPowerOnBehavior"
         },
         {
+          "id": "select.partial_indkorsel_4_power_on_behavior",
+          "friendlyName": "Partial: Indk\u00F8rsel 4 Power-on behavior",
+          "cSharpName": "PartialIndkorsel4PowerOnBehavior"
+        },
+        {
           "id": "select.partial_indkorsel_5_color_power_on_behavior",
           "friendlyName": "Partial: Indk\u00F8rsel 5 Color power on behavior",
           "cSharpName": "PartialIndkorsel5ColorPowerOnBehavior"
+        },
+        {
+          "id": "select.partial_indkorsel_5_power_on_behavior",
+          "friendlyName": "Partial: Indk\u00F8rsel 5 Power-on behavior",
+          "cSharpName": "PartialIndkorsel5PowerOnBehavior"
         },
         {
           "id": "select.partial_kokkenvask_1_power_on_behavior",
@@ -6096,6 +7261,11 @@
           "cSharpName": "TorretumblerPowerOutageMemory"
         },
         {
+          "id": "select.traeer_250_mode",
+          "friendlyName": "Tr\u00E6er 250 Mode",
+          "cSharpName": "Traeer250Mode"
+        },
+        {
           "id": "select.valder_power_on_behavior",
           "friendlyName": "Valder Power-on behavior",
           "cSharpName": "ValderPowerOnBehavior"
@@ -6124,6 +7294,11 @@
           "id": "select.walk_in_closet_power_on_behavior",
           "friendlyName": "Walk-in-closet Power-on behavior",
           "cSharpName": "WalkInClosetPowerOnBehavior"
+        },
+        {
+          "id": "select.wallbox_pulsarplus_sn_268384_solar_charging",
+          "friendlyName": "Wallbox PulsarPlus SN 268384 Solar charging",
+          "cSharpName": "WallboxPulsarplusSn268384SolarCharging"
         },
         {
           "id": "select.zigbee2mqtt_bridge_log_level",
@@ -6368,14 +7543,149 @@
       "domain": "sensor",
       "entities": [
         {
+          "id": "sensor.a1_bambi_active_tray",
+          "friendlyName": "A1 Bambi Active tray",
+          "cSharpName": "A1BambiActiveTray"
+        },
+        {
+          "id": "sensor.a1_bambi_ams_1_humidity_index",
+          "friendlyName": "A1 Bambi AMS 1 Humidity index",
+          "cSharpName": "A1BambiAms1HumidityIndex"
+        },
+        {
+          "id": "sensor.a1_bambi_ams_1_tray_1",
+          "friendlyName": "A1 Bambi AMS 1 Tray 1",
+          "cSharpName": "A1BambiAms1Tray1"
+        },
+        {
+          "id": "sensor.a1_bambi_ams_1_tray_2",
+          "friendlyName": "A1 Bambi AMS 1 Tray 2",
+          "cSharpName": "A1BambiAms1Tray2"
+        },
+        {
+          "id": "sensor.a1_bambi_ams_1_tray_3",
+          "friendlyName": "A1 Bambi AMS 1 Tray 3",
+          "cSharpName": "A1BambiAms1Tray3"
+        },
+        {
+          "id": "sensor.a1_bambi_ams_1_tray_4",
+          "friendlyName": "A1 Bambi AMS 1 Tray 4",
+          "cSharpName": "A1BambiAms1Tray4"
+        },
+        {
+          "id": "sensor.a1_bambi_current_layer",
+          "friendlyName": "A1 Bambi Current layer",
+          "cSharpName": "A1BambiCurrentLayer"
+        },
+        {
+          "id": "sensor.a1_bambi_current_stage",
+          "friendlyName": "A1 Bambi Current stage",
+          "cSharpName": "A1BambiCurrentStage"
+        },
+        {
+          "id": "sensor.a1_bambi_end_time",
+          "friendlyName": "A1 Bambi End time",
+          "cSharpName": "A1BambiEndTime"
+        },
+        {
+          "id": "sensor.a1_bambi_external_spool_external_spool",
+          "friendlyName": "A1 Bambi External Spool External spool",
+          "cSharpName": "A1BambiExternalSpoolExternalSpool"
+        },
+        {
+          "id": "sensor.a1_bambi_gcode_file_downloaded",
+          "friendlyName": "A1 Bambi Gcode file downloaded",
+          "cSharpName": "A1BambiGcodeFileDownloaded"
+        },
+        {
+          "id": "sensor.a1_bambi_gcode_filename",
+          "friendlyName": "A1 Bambi Gcode filename",
+          "cSharpName": "A1BambiGcodeFilename"
+        },
+        {
+          "id": "sensor.a1_bambi_ip_address",
+          "friendlyName": "A1 Bambi IP address",
+          "cSharpName": "A1BambiIpAddress"
+        },
+        {
+          "id": "sensor.a1_bambi_mqtt_connection_mode",
+          "friendlyName": "A1 Bambi MQTT connection mode",
+          "cSharpName": "A1BambiMqttConnectionMode"
+        },
+        {
+          "id": "sensor.a1_bambi_nozzle_type",
+          "friendlyName": "A1 Bambi Nozzle type",
+          "cSharpName": "A1BambiNozzleType"
+        },
+        {
+          "id": "sensor.a1_bambi_print_bed_type",
+          "friendlyName": "A1 Bambi Print bed type",
+          "cSharpName": "A1BambiPrintBedType"
+        },
+        {
+          "id": "sensor.a1_bambi_print_status",
+          "friendlyName": "A1 Bambi Print status",
+          "cSharpName": "A1BambiPrintStatus"
+        },
+        {
+          "id": "sensor.a1_bambi_print_type",
+          "friendlyName": "A1 Bambi Print type",
+          "cSharpName": "A1BambiPrintType"
+        },
+        {
+          "id": "sensor.a1_bambi_printable_objects",
+          "friendlyName": "A1 Bambi Printable objects",
+          "cSharpName": "A1BambiPrintableObjects"
+        },
+        {
+          "id": "sensor.a1_bambi_printer_name",
+          "friendlyName": "A1 Bambi Printer name",
+          "cSharpName": "A1BambiPrinterName"
+        },
+        {
+          "id": "sensor.a1_bambi_sd_card_status",
+          "friendlyName": "A1 Bambi SD card status",
+          "cSharpName": "A1BambiSdCardStatus"
+        },
+        {
+          "id": "sensor.a1_bambi_skipped_objects",
+          "friendlyName": "A1 Bambi Skipped objects",
+          "cSharpName": "A1BambiSkippedObjects"
+        },
+        {
+          "id": "sensor.a1_bambi_speed_profile",
+          "friendlyName": "A1 Bambi Speed profile",
+          "cSharpName": "A1BambiSpeedProfile"
+        },
+        {
+          "id": "sensor.a1_bambi_start_time",
+          "friendlyName": "A1 Bambi Start time",
+          "cSharpName": "A1BambiStartTime"
+        },
+        {
+          "id": "sensor.a1_bambi_task_name",
+          "friendlyName": "A1 Bambi Task name",
+          "cSharpName": "A1BambiTaskName"
+        },
+        {
+          "id": "sensor.a1_bambi_total_layer_count",
+          "friendlyName": "A1 Bambi Total layer count",
+          "cSharpName": "A1BambiTotalLayerCount"
+        },
+        {
           "id": "sensor.awesome",
-          "friendlyName": "awesome",
+          "friendlyName": "NetDaemon awesome",
           "cSharpName": "Awesome"
         },
         {
           "id": "sensor.backup_backup_manager_state",
           "friendlyName": "Backup Backup Manager state",
           "cSharpName": "BackupBackupManagerState"
+        },
+        {
+          "id": "sensor.backup_last_attempted_automatic_backup",
+          "friendlyName": "Backup Last attempted automatic backup",
+          "cSharpName": "BackupLastAttemptedAutomaticBackup"
         },
         {
           "id": "sensor.backup_last_successful_automatic_backup",
@@ -6398,18 +7708,23 @@
           "cSharpName": "BallonColorOptions"
         },
         {
-          "id": "sensor.bornenes_galaxy_s9_battery_state",
-          "friendlyName": "B\u00F8rnenes Galaxy S9 Battery state",
-          "cSharpName": "BornenesGalaxyS9BatteryState"
+          "id": "sensor.bornenes_telefon_battery_state",
+          "friendlyName": "B\u00F8rnenes telefon Battery state",
+          "cSharpName": "BornenesTelefonBatteryState"
         },
         {
-          "id": "sensor.bornenes_galaxy_s9_charger_type",
-          "friendlyName": "B\u00F8rnenes Galaxy S9 Charger type",
-          "cSharpName": "BornenesGalaxyS9ChargerType"
+          "id": "sensor.bornenes_telefon_charger_type",
+          "friendlyName": "B\u00F8rnenes telefon Charger type",
+          "cSharpName": "BornenesTelefonChargerType"
+        },
+        {
+          "id": "sensor.bubble_card_modules",
+          "friendlyName": "Bubble Card Modules",
+          "cSharpName": "BubbleCardModules"
         },
         {
           "id": "sensor.campen_watchlist",
-          "friendlyName": "campen_watchlist",
+          "friendlyName": "NetDaemon campen_watchlist",
           "cSharpName": "CampenWatchlist"
         },
         {
@@ -6418,24 +7733,9 @@
           "cSharpName": "CanonTs5300Series"
         },
         {
-          "id": "sensor.cast_browser_path",
-          "friendlyName": "Browser path",
-          "cSharpName": "CastBrowserPath"
-        },
-        {
-          "id": "sensor.cast_browser_user",
-          "friendlyName": "Browser user",
-          "cSharpName": "CastBrowserUser"
-        },
-        {
-          "id": "sensor.cast_browser_useragent",
-          "friendlyName": "Browser userAgent",
-          "cSharpName": "CastBrowserUseragent"
-        },
-        {
-          "id": "sensor.cast_browser_visibility",
-          "friendlyName": "Browser visibility",
-          "cSharpName": "CastBrowserVisibility"
+          "id": "sensor.ceed",
+          "friendlyName": "CEED",
+          "cSharpName": "Ceed"
         },
         {
           "id": "sensor.ceed_data",
@@ -6444,7 +7744,7 @@
         },
         {
           "id": "sensor.ceed_ev_first_scheduled_departure_time",
-          "friendlyName": "CEED EV First Scheduled Departure Time",
+          "friendlyName": "CEED First departure time",
           "cSharpName": "CeedEvFirstScheduledDepartureTime"
         },
         {
@@ -6459,8 +7759,13 @@
         },
         {
           "id": "sensor.ceed_ev_second_scheduled_departure_time",
-          "friendlyName": "CEED EV Second Scheduled Departure Time",
+          "friendlyName": "CEED Second departure time",
           "cSharpName": "CeedEvSecondScheduledDepartureTime"
+        },
+        {
+          "id": "sensor.ceed_first_departure_days",
+          "friendlyName": "CEED First departure days",
+          "cSharpName": "CeedFirstDepartureDays"
         },
         {
           "id": "sensor.ceed_geocoded_location",
@@ -6471,6 +7776,16 @@
           "id": "sensor.ceed_last_updated_at",
           "friendlyName": "CEED Last Updated At",
           "cSharpName": "CeedLastUpdatedAt"
+        },
+        {
+          "id": "sensor.ceed_location_last_updated",
+          "friendlyName": "CEED Location Last Updated",
+          "cSharpName": "CeedLocationLastUpdated"
+        },
+        {
+          "id": "sensor.ceed_second_departure_days",
+          "friendlyName": "CEED Second departure days",
+          "cSharpName": "CeedSecondDepartureDays"
         },
         {
           "id": "sensor.ceed_vehicle_identification_number",
@@ -6503,9 +7818,9 @@
           "cSharpName": "DorStuePowerOutageCount"
         },
         {
-          "id": "sensor.electricity_fees",
-          "friendlyName": "Hourly Electricity Cost",
-          "cSharpName": "ElectricityFees"
+          "id": "sensor.ebbe_cykel_last_seen",
+          "friendlyName": "Ebbe: Cykel Last Seen",
+          "cSharpName": "EbbeCykelLastSeen"
         },
         {
           "id": "sensor.fam_lerbaek_emkjaer_automatic_geofencing",
@@ -6528,6 +7843,11 @@
           "cSharpName": "FamLerbaekEmkjaerWeatherCondition"
         },
         {
+          "id": "sensor.galaxy_s24_ultra_last_seen",
+          "friendlyName": "Galaxy S24 Ultra Last Seen",
+          "cSharpName": "GalaxyS24UltraLastSeen"
+        },
+        {
           "id": "sensor.galaxy_watch4_wlsw_battery_state",
           "friendlyName": "Galaxy Watch4 (WLSW) Battery state",
           "cSharpName": "GalaxyWatch4WlswBatteryState"
@@ -6546,6 +7866,11 @@
           "id": "sensor.galaxy_watch4_wlsw_charger_type_2",
           "friendlyName": "Galaxy Watch4 (WLSW) Charger type",
           "cSharpName": "GalaxyWatch4WlswChargerType2"
+        },
+        {
+          "id": "sensor.garage_ceed_last_scanned_at",
+          "friendlyName": "CEED Last Scanned At",
+          "cSharpName": "GarageCeedLastScannedAt"
         },
         {
           "id": "sensor.garage_lanterne_color_options",
@@ -6573,9 +7898,99 @@
           "cSharpName": "GarageportTiltSensorZAxis"
         },
         {
+          "id": "sensor.glostrup_audio_mode",
+          "friendlyName": "Gros Galaxy S24 Audio mode",
+          "cSharpName": "GlostrupAudioMode"
+        },
+        {
+          "id": "sensor.glostrup_battery_state",
+          "friendlyName": "Gros Galaxy S24 Battery state",
+          "cSharpName": "GlostrupBatteryState"
+        },
+        {
+          "id": "sensor.glostrup_charger_type",
+          "friendlyName": "Gros Galaxy S24 Charger type",
+          "cSharpName": "GlostrupChargerType"
+        },
+        {
+          "id": "sensor.glostrup_do_not_disturb_sensor",
+          "friendlyName": "Gros Galaxy S24 Do Not Disturb sensor",
+          "cSharpName": "GlostrupDoNotDisturbSensor"
+        },
+        {
+          "id": "sensor.glostrup_geocoded_location",
+          "friendlyName": "Gros Galaxy S24 Geocoded location",
+          "cSharpName": "GlostrupGeocodedLocation"
+        },
+        {
+          "id": "sensor.glostrup_network_type",
+          "friendlyName": "Gros Galaxy S24 Network type",
+          "cSharpName": "GlostrupNetworkType"
+        },
+        {
+          "id": "sensor.glostrup_next_alarm",
+          "friendlyName": "Gros Galaxy S24 Next alarm",
+          "cSharpName": "GlostrupNextAlarm"
+        },
+        {
+          "id": "sensor.glostrup_public_ip_address",
+          "friendlyName": "Gros Galaxy S24 Public IP address",
+          "cSharpName": "GlostrupPublicIpAddress"
+        },
+        {
+          "id": "sensor.glostrup_ringer_mode",
+          "friendlyName": "Gros Galaxy S24 Ringer mode",
+          "cSharpName": "GlostrupRingerMode"
+        },
+        {
+          "id": "sensor.glostrup_volume_level_alarm",
+          "friendlyName": "Gros Galaxy S24 Volume level alarm",
+          "cSharpName": "GlostrupVolumeLevelAlarm"
+        },
+        {
+          "id": "sensor.glostrup_volume_level_music",
+          "friendlyName": "Gros Galaxy S24 Volume level music",
+          "cSharpName": "GlostrupVolumeLevelMusic"
+        },
+        {
+          "id": "sensor.glostrup_volume_level_notification",
+          "friendlyName": "Gros Galaxy S24 Volume level notification",
+          "cSharpName": "GlostrupVolumeLevelNotification"
+        },
+        {
+          "id": "sensor.glostrup_volume_level_ringer",
+          "friendlyName": "Gros Galaxy S24 Volume level ringer",
+          "cSharpName": "GlostrupVolumeLevelRinger"
+        },
+        {
+          "id": "sensor.glostrup_volume_level_system",
+          "friendlyName": "Gros Galaxy S24 Volume level system",
+          "cSharpName": "GlostrupVolumeLevelSystem"
+        },
+        {
+          "id": "sensor.glostrup_wi_fi_connection",
+          "friendlyName": "Gros Galaxy S24 Wi-Fi connection",
+          "cSharpName": "GlostrupWiFiConnection"
+        },
+        {
+          "id": "sensor.glostrup_wi_fi_ip_address",
+          "friendlyName": "Gros Galaxy S24 Wi-Fi IP address",
+          "cSharpName": "GlostrupWiFiIpAddress"
+        },
+        {
+          "id": "sensor.google_find_hub_service_semantic_labels",
+          "friendlyName": "Google Find Hub Service Semantic labels",
+          "cSharpName": "GoogleFindHubServiceSemanticLabels"
+        },
+        {
           "id": "sensor.grasputin_error",
           "friendlyName": "Grasputin Error",
           "cSharpName": "GrasputinError"
+        },
+        {
+          "id": "sensor.grasputin_error_2",
+          "friendlyName": "Grasputin Error",
+          "cSharpName": "GrasputinError2"
         },
         {
           "id": "sensor.grasputin_last_update",
@@ -6633,6 +8048,31 @@
           "cSharpName": "GrosPlacering"
         },
         {
+          "id": "sensor.hp850g5_brave_browser_path",
+          "friendlyName": "HP850G5 - Brave Browser path",
+          "cSharpName": "Hp850g5BraveBrowserPath"
+        },
+        {
+          "id": "sensor.hp850g5_brave_browser_user",
+          "friendlyName": "HP850G5 - Brave Browser user",
+          "cSharpName": "Hp850g5BraveBrowserUser"
+        },
+        {
+          "id": "sensor.hp850g5_brave_browser_useragent",
+          "friendlyName": "HP850G5 - Brave Browser userAgent",
+          "cSharpName": "Hp850g5BraveBrowserUseragent"
+        },
+        {
+          "id": "sensor.hp850g5_brave_browser_visibility",
+          "friendlyName": "HP850G5 - Brave Browser visibility",
+          "cSharpName": "Hp850g5BraveBrowserVisibility"
+        },
+        {
+          "id": "sensor.hp850g5_browser_id",
+          "friendlyName": "HP850G5 Browser ID",
+          "cSharpName": "Hp850g5BrowserId"
+        },
+        {
           "id": "sensor.hp850g5_browser_path",
           "friendlyName": "HP850G5 Browser path",
           "cSharpName": "Hp850g5BrowserPath"
@@ -6651,6 +8091,21 @@
           "id": "sensor.hp850g5_browser_visibility",
           "friendlyName": "HP850G5 Browser visibility",
           "cSharpName": "Hp850g5BrowserVisibility"
+        },
+        {
+          "id": "sensor.hp850g5_panel",
+          "friendlyName": "HP850G5 Panel",
+          "cSharpName": "Hp850g5Panel"
+        },
+        {
+          "id": "sensor.indkorsel_current_mode",
+          "friendlyName": "Indk\u00F8rsel Current Mode",
+          "cSharpName": "IndkorselCurrentMode"
+        },
+        {
+          "id": "sensor.indkorsel_person_name",
+          "friendlyName": "Indk\u00F8rsel Person Name",
+          "cSharpName": "IndkorselPersonName"
         },
         {
           "id": "sensor.kokken_gang_tado_mode",
@@ -6768,14 +8223,29 @@
           "cSharpName": "KristoffersGalaxyS24UltraChargerType"
         },
         {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_do_not_disturb_sensor",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Do Not Disturb sensor",
+          "cSharpName": "KristoffersGalaxyS24UltraDoNotDisturbSensor"
+        },
+        {
           "id": "sensor.kristoffers_galaxy_s24_ultra_geocoded_location",
           "friendlyName": "Kristoffers Galaxy S24 Ultra Geocoded location",
           "cSharpName": "KristoffersGalaxyS24UltraGeocodedLocation"
         },
         {
+          "id": "sensor.kristoffers_galaxy_s24_ultra_next_alarm",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra Next alarm",
+          "cSharpName": "KristoffersGalaxyS24UltraNextAlarm"
+        },
+        {
           "id": "sensor.kristoffers_galaxy_s24_ultra_wifi_connection",
           "friendlyName": "Kristoffers Galaxy S24 Ultra Wi-Fi connection",
           "cSharpName": "KristoffersGalaxyS24UltraWifiConnection"
+        },
+        {
+          "id": "sensor.kristoffers_nogler_last_seen",
+          "friendlyName": "Kristoffers n\u00F8gler Last Seen",
+          "cSharpName": "KristoffersNoglerLastSeen"
         },
         {
           "id": "sensor.kristoffers_placering",
@@ -6784,12 +8254,12 @@
         },
         {
           "id": "sensor.l3fh2at_backup_backup",
-          "friendlyName": "L3FH2AT Backup Backup",
+          "friendlyName": "Syncthing (http://192.168.1.2:8384) L3FH2AT Backup Backup",
           "cSharpName": "L3fh2atBackupBackup"
         },
         {
           "id": "sensor.l3fh2at_default_default_folder",
-          "friendlyName": "L3FH2AT default Default Folder",
+          "friendlyName": "Syncthing (http://192.168.1.2:8384) L3FH2AT default Default Folder",
           "cSharpName": "L3fh2atDefaultDefaultFolder"
         },
         {
@@ -6864,7 +8334,7 @@
         },
         {
           "id": "sensor.netdaemon_status",
-          "friendlyName": "netdaemon_status",
+          "friendlyName": "NetDaemon netdaemon_status",
           "cSharpName": "NetdaemonStatus"
         },
         {
@@ -7194,7 +8664,7 @@
         },
         {
           "id": "sensor.openweathermap_weather_code",
-          "friendlyName": "OpenWeatherMap Weather Code",
+          "friendlyName": "OpenWeatherMap Weather code",
           "cSharpName": "OpenweathermapWeatherCode"
         },
         {
@@ -7218,19 +8688,19 @@
           "cSharpName": "PartialEntreStueColorOptions"
         },
         {
-          "id": "sensor.partial_felena_tassel_rgbw_1_color_options",
-          "friendlyName": "Partial: Felena Tassel RGBW 1 Color options",
-          "cSharpName": "PartialFelenaTasselRgbw1ColorOptions"
+          "id": "sensor.partial_felena_tassel_1_color_options",
+          "friendlyName": "Partial: Felena Tassel 1 Color options",
+          "cSharpName": "PartialFelenaTassel1ColorOptions"
         },
         {
-          "id": "sensor.partial_felena_tassel_rgbw_2_color_options",
-          "friendlyName": "Partial: Felena Tassel RGBW 2 Color options",
-          "cSharpName": "PartialFelenaTasselRgbw2ColorOptions"
+          "id": "sensor.partial_felena_tassel_2_color_options",
+          "friendlyName": "Partial: Felena Tassel 2 Color options",
+          "cSharpName": "PartialFelenaTassel2ColorOptions"
         },
         {
-          "id": "sensor.partial_felena_tassel_rgbw_3_color_options",
-          "friendlyName": "Partial: Felena Tassel RGBW 3 Color options",
-          "cSharpName": "PartialFelenaTasselRgbw3ColorOptions"
+          "id": "sensor.partial_felena_tassel_3_color_options",
+          "friendlyName": "Partial: Felena Tassel 3 Color options",
+          "cSharpName": "PartialFelenaTassel3ColorOptions"
         },
         {
           "id": "sensor.partial_fordelingsgang_kokken_color_options",
@@ -7268,54 +8738,29 @@
           "cSharpName": "PlastEmballageMetalGlas"
         },
         {
-          "id": "sensor.rd_30_ar_15_dk0004619467",
-          "friendlyName": "RD 30 \u00E5r / 1,5 % (DK0004619467)",
-          "cSharpName": "Rd30Ar15Dk0004619467"
+          "id": "sensor.rd_30_ar_35",
+          "friendlyName": "RD 30 \u00E5r / 3,5 %",
+          "cSharpName": "Rd30Ar35"
         },
         {
-          "id": "sensor.rd_30_ar_20_dk0004622099",
-          "friendlyName": "RD 30 \u00E5r / 2,0 % (DK0004622099)",
-          "cSharpName": "Rd30Ar20Dk0004622099"
+          "id": "sensor.rd_30_ar_40",
+          "friendlyName": "RD 30 \u00E5r / 4,0 %",
+          "cSharpName": "Rd30Ar40"
         },
         {
-          "id": "sensor.rd_30_ar_25_dk0004622842",
-          "friendlyName": "RD 30 \u00E5r / 2,5 % (DK0004622842)",
-          "cSharpName": "Rd30Ar25Dk0004622842"
-        },
-        {
-          "id": "sensor.rd_30_ar_30_dk0004622925",
-          "friendlyName": "RD 30 \u00E5r / 3,0 % (DK0004622925)",
-          "cSharpName": "Rd30Ar30Dk0004622925"
-        },
-        {
-          "id": "sensor.rd_30_ar_40_dk0004623659",
-          "friendlyName": "RD 30 \u00E5r / 4,0 % (DK0004623659)",
-          "cSharpName": "Rd30Ar40Dk0004623659"
-        },
-        {
-          "id": "sensor.rd_30_ar_40_dk0004627130",
-          "friendlyName": "RD 30 \u00E5r / 4,0 % (DK0004627130)",
-          "cSharpName": "Rd30Ar40Dk0004627130"
-        },
-        {
-          "id": "sensor.rd_30_ar_50_dk0004623816",
-          "friendlyName": "RD 30 \u00E5r / 5,0 % (DK0004623816)",
-          "cSharpName": "Rd30Ar50Dk0004623816"
-        },
-        {
-          "id": "sensor.rd_30_ar_50_dk0004626918",
-          "friendlyName": "RD 30 \u00E5r / 5,0 % (DK0004626918)",
-          "cSharpName": "Rd30Ar50Dk0004626918"
-        },
-        {
-          "id": "sensor.rd_30_ar_60_dk0004624467",
-          "friendlyName": "RD 30 \u00E5r / 6,0 % (DK0004624467)",
-          "cSharpName": "Rd30Ar60Dk0004624467"
+          "id": "sensor.rd_30_ar_50",
+          "friendlyName": "RD 30 \u00E5r / 5,0 %",
+          "cSharpName": "Rd30Ar50"
         },
         {
           "id": "sensor.remote_engine_start",
-          "friendlyName": "Remote engine start",
+          "friendlyName": "Renault Zoe Remote engine start",
           "cSharpName": "RemoteEngineStart"
+        },
+        {
+          "id": "sensor.renault_zoe_charging_mode",
+          "friendlyName": "Renault Zoe Charging mode",
+          "cSharpName": "RenaultZoeChargingMode"
         },
         {
           "id": "sensor.renovation_emballage_formatted",
@@ -7351,6 +8796,21 @@
           "id": "sensor.rest_madaffald",
           "friendlyName": "Rest-/Madaffald",
           "cSharpName": "RestMadaffald"
+        },
+        {
+          "id": "sensor.roar_cykel_last_seen",
+          "friendlyName": "Roar: Cykel Last Seen",
+          "cSharpName": "RoarCykelLastSeen"
+        },
+        {
+          "id": "sensor.roar_soffen",
+          "friendlyName": "Aula Roar: Soffen",
+          "cSharpName": "RoarSoffen"
+        },
+        {
+          "id": "sensor.roar_taske_last_seen",
+          "friendlyName": "Roar: Taske Last Seen",
+          "cSharpName": "RoarTaskeLastSeen"
         },
         {
           "id": "sensor.roars_vaerelse_tado_mode",
@@ -7481,6 +8941,11 @@
           "id": "sensor.vindue_roar_power_outage_count",
           "friendlyName": "Vindue: Roar Power outage count",
           "cSharpName": "VindueRoarPowerOutageCount"
+        },
+        {
+          "id": "sensor.virtuel_google_find_hub_service_encryption_key_status",
+          "friendlyName": "Google Find Hub Service Encryption Key Status",
+          "cSharpName": "VirtuelGoogleFindHubServiceEncryptionKeyStatus"
         },
         {
           "id": "sensor.walk_in_closet_gardin_motor_state",
@@ -8377,22 +9842,22 @@
         {
           "jsonName": "current_latitude",
           "cSharpName": "CurrentLatitude",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "current_longitude",
           "cSharpName": "CurrentLongitude",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "previous_latitude",
           "cSharpName": "PreviousLatitude",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "previous_longitude",
           "cSharpName": "PreviousLongitude",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "devicetracker_entityid",
@@ -8417,12 +9882,12 @@
         {
           "jsonName": "home_latitude",
           "cSharpName": "HomeLatitude",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "home_longitude",
           "cSharpName": "HomeLongitude",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "distance_from_home_km",
@@ -8688,6 +10153,91 @@
           "jsonName": "neighbourhood",
           "cSharpName": "Neighbourhood",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "Package",
+          "cSharpName": "Package",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "modules",
+          "cSharpName": "Modules",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "max",
+          "cSharpName": "Max",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "min",
+          "cSharpName": "Min",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "entity_id",
+          "cSharpName": "EntityId",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "status",
+          "cSharpName": "Status",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "last_seen_utc",
+          "cSharpName": "LastSeenUtc",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "source_label",
+          "cSharpName": "SourceLabel",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "source_rank",
+          "cSharpName": "SourceRank",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "is_own_report",
+          "cSharpName": "IsOwnReport",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "accuracy_m",
+          "cSharpName": "AccuracyM",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "altitude_m",
+          "cSharpName": "AltitudeM",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "accuracy_estimated",
+          "cSharpName": "AccuracyEstimated",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "labels",
+          "cSharpName": "Labels",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "observations",
+          "cSharpName": "Observations",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "changed_at",
+          "cSharpName": "ChangedAt",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "consecutive_decrypt_failures",
+          "cSharpName": "ConsecutiveDecryptFailures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -8696,13 +10246,93 @@
       "isNumeric": true,
       "entities": [
         {
+          "id": "sensor.a1_bambi_ams_1_humidity",
+          "friendlyName": "A1 Bambi AMS 1 Humidity",
+          "cSharpName": "A1BambiAms1Humidity"
+        },
+        {
+          "id": "sensor.a1_bambi_ams_1_temperature",
+          "friendlyName": "A1 Bambi AMS 1 Temperature",
+          "cSharpName": "A1BambiAms1Temperature"
+        },
+        {
+          "id": "sensor.a1_bambi_bed_target_temperature",
+          "friendlyName": "A1 Bambi Bed target temperature",
+          "cSharpName": "A1BambiBedTargetTemperature"
+        },
+        {
+          "id": "sensor.a1_bambi_bed_temperature",
+          "friendlyName": "A1 Bambi Bed temperature",
+          "cSharpName": "A1BambiBedTemperature"
+        },
+        {
+          "id": "sensor.a1_bambi_cooling_fan_speed",
+          "friendlyName": "A1 Bambi Cooling fan speed",
+          "cSharpName": "A1BambiCoolingFanSpeed"
+        },
+        {
+          "id": "sensor.a1_bambi_heatbreak_fan_speed",
+          "friendlyName": "A1 Bambi Heatbreak fan speed",
+          "cSharpName": "A1BambiHeatbreakFanSpeed"
+        },
+        {
+          "id": "sensor.a1_bambi_model_download",
+          "friendlyName": "A1 Bambi Model download",
+          "cSharpName": "A1BambiModelDownload"
+        },
+        {
+          "id": "sensor.a1_bambi_nozzle_size",
+          "friendlyName": "A1 Bambi Nozzle size",
+          "cSharpName": "A1BambiNozzleSize"
+        },
+        {
+          "id": "sensor.a1_bambi_nozzle_target_temperature",
+          "friendlyName": "A1 Bambi Nozzle target temperature",
+          "cSharpName": "A1BambiNozzleTargetTemperature"
+        },
+        {
+          "id": "sensor.a1_bambi_nozzle_temperature",
+          "friendlyName": "A1 Bambi Nozzle temperature",
+          "cSharpName": "A1BambiNozzleTemperature"
+        },
+        {
+          "id": "sensor.a1_bambi_print_length",
+          "friendlyName": "A1 Bambi Print length",
+          "cSharpName": "A1BambiPrintLength"
+        },
+        {
+          "id": "sensor.a1_bambi_print_progress",
+          "friendlyName": "A1 Bambi Print progress",
+          "cSharpName": "A1BambiPrintProgress"
+        },
+        {
+          "id": "sensor.a1_bambi_print_weight",
+          "friendlyName": "A1 Bambi Print weight",
+          "cSharpName": "A1BambiPrintWeight"
+        },
+        {
+          "id": "sensor.a1_bambi_remaining_time",
+          "friendlyName": "A1 Bambi Remaining time",
+          "cSharpName": "A1BambiRemainingTime"
+        },
+        {
+          "id": "sensor.a1_bambi_total_usage",
+          "friendlyName": "A1 Bambi Total usage",
+          "cSharpName": "A1BambiTotalUsage"
+        },
+        {
+          "id": "sensor.a1_bambi_wi_fi_signal",
+          "friendlyName": "A1 Bambi Wi-Fi signal",
+          "cSharpName": "A1BambiWiFiSignal"
+        },
+        {
           "id": "sensor.arbejds_pc_afstand",
-          "friendlyName": "Arbejds-PC: Afstand",
+          "friendlyName": "Arbejds-PC-rygs\u00E6k Arbejds-PC: Afstand",
           "cSharpName": "ArbejdsPcAfstand"
         },
         {
           "id": "sensor.arbejds_pc_rygsak_estimated_distance",
-          "friendlyName": "Estimated distance",
+          "friendlyName": "Arbejds-PC-rygs\u00E6k Estimated distance",
           "cSharpName": "ArbejdsPcRygsakEstimatedDistance"
         },
         {
@@ -8896,9 +10526,9 @@
           "cSharpName": "BevaegelsePaEbbesVaerelseBattery"
         },
         {
-          "id": "sensor.bornenes_galaxy_s9_battery_level",
-          "friendlyName": "B\u00F8rnenes Galaxy S9 Battery level",
-          "cSharpName": "BornenesGalaxyS9BatteryLevel"
+          "id": "sensor.bornenes_telefon_battery_level",
+          "friendlyName": "B\u00F8rnenes telefon Battery level",
+          "cSharpName": "BornenesTelefonBatteryLevel"
         },
         {
           "id": "sensor.canon_ts5300_series_black",
@@ -8909,16 +10539,6 @@
           "id": "sensor.canon_ts5300_series_color",
           "friendlyName": "Canon TS5300 series Color",
           "cSharpName": "CanonTs5300SeriesColor"
-        },
-        {
-          "id": "sensor.cast_browser_height",
-          "friendlyName": "Browser height",
-          "cSharpName": "CastBrowserHeight"
-        },
-        {
-          "id": "sensor.cast_browser_width",
-          "friendlyName": "Browser width",
-          "cSharpName": "CastBrowserWidth"
         },
         {
           "id": "sensor.ceed_car_battery_level",
@@ -9032,7 +10652,7 @@
         },
         {
           "id": "sensor.eforsyning_energy_total_used_cost",
-          "friendlyName": "EForsyning Energy total-used Cost",
+          "friendlyName": "sensor Cost",
           "cSharpName": "EforsyningEnergyTotalUsedCost"
         },
         {
@@ -9047,7 +10667,7 @@
         },
         {
           "id": "sensor.eforsyning_energy_used_cost",
-          "friendlyName": "EForsyning Energy used Cost",
+          "friendlyName": "sensor Cost",
           "cSharpName": "EforsyningEnergyUsedCost"
         },
         {
@@ -9186,9 +10806,69 @@
           "cSharpName": "GennemsnitligTemperatur"
         },
         {
+          "id": "sensor.glostrup_battery_level",
+          "friendlyName": "Gros Galaxy S24 Battery level",
+          "cSharpName": "GlostrupBatteryLevel"
+        },
+        {
+          "id": "sensor.glostrup_bluetooth_connection",
+          "friendlyName": "Gros Galaxy S24 Bluetooth connection",
+          "cSharpName": "GlostrupBluetoothConnection"
+        },
+        {
+          "id": "sensor.glostrup_internal_storage",
+          "friendlyName": "Gros Galaxy S24 Internal storage",
+          "cSharpName": "GlostrupInternalStorage"
+        },
+        {
+          "id": "sensor.glostrup_light_sensor",
+          "friendlyName": "Gros Galaxy S24 Light sensor",
+          "cSharpName": "GlostrupLightSensor"
+        },
+        {
+          "id": "sensor.google_find_hub_service_background_updates",
+          "friendlyName": "Google Find Hub Service Background updates",
+          "cSharpName": "GoogleFindHubServiceBackgroundUpdates"
+        },
+        {
+          "id": "sensor.google_find_hub_service_crowd_sourced_updates",
+          "friendlyName": "Google Find Hub Service Crowd-sourced updates",
+          "cSharpName": "GoogleFindHubServiceCrowdSourcedUpdates"
+        },
+        {
+          "id": "sensor.google_find_hub_service_fused_location_updates",
+          "friendlyName": "Google Find Hub Service Fused location updates",
+          "cSharpName": "GoogleFindHubServiceFusedLocationUpdates"
+        },
+        {
+          "id": "sensor.google_find_hub_service_historical_fallbacks",
+          "friendlyName": "Google Find Hub Service Historical fallbacks",
+          "cSharpName": "GoogleFindHubServiceHistoricalFallbacks"
+        },
+        {
+          "id": "sensor.google_find_hub_service_invalid_coordinates",
+          "friendlyName": "Google Find Hub Service Invalid coordinates",
+          "cSharpName": "GoogleFindHubServiceInvalidCoordinates"
+        },
+        {
+          "id": "sensor.google_find_hub_service_polled_updates",
+          "friendlyName": "Google Find Hub Service Polled updates",
+          "cSharpName": "GoogleFindHubServicePolledUpdates"
+        },
+        {
+          "id": "sensor.google_find_hub_service_timeouts",
+          "friendlyName": "Google Find Hub Service Timeouts",
+          "cSharpName": "GoogleFindHubServiceTimeouts"
+        },
+        {
           "id": "sensor.grasputin_battery",
           "friendlyName": "Grasputin Battery",
           "cSharpName": "GrasputinBattery"
+        },
+        {
+          "id": "sensor.grasputin_battery_2",
+          "friendlyName": "Grasputin Battery",
+          "cSharpName": "GrasputinBattery2"
         },
         {
           "id": "sensor.grasputin_battery_temperature",
@@ -9201,34 +10881,14 @@
           "cSharpName": "GrasputinBatteryTotalChargeCycles"
         },
         {
-          "id": "sensor.grasputin_battery_voltage_dead",
-          "friendlyName": "Battery Voltage",
-          "cSharpName": "GrasputinBatteryVoltageDead"
-        },
-        {
           "id": "sensor.grasputin_blades_current_on_time",
           "friendlyName": "Grasputin Blades Current On Time",
           "cSharpName": "GrasputinBladesCurrentOnTime"
         },
         {
-          "id": "sensor.grasputin_blades_reset_at_dead",
-          "friendlyName": "Blades Reset At",
-          "cSharpName": "GrasputinBladesResetAtDead"
-        },
-        {
-          "id": "sensor.grasputin_blades_reset_at_hours_dead",
-          "friendlyName": "Blades Reset At Hours",
-          "cSharpName": "GrasputinBladesResetAtHoursDead"
-        },
-        {
           "id": "sensor.grasputin_blades_total_on_time",
           "friendlyName": "Grasputin Blades Total On Time",
           "cSharpName": "GrasputinBladesTotalOnTime"
-        },
-        {
-          "id": "sensor.grasputin_daily_progress_dead",
-          "friendlyName": "Daily Progress",
-          "cSharpName": "GrasputinDailyProgressDead"
         },
         {
           "id": "sensor.grasputin_distance_driven",
@@ -9239,16 +10899,6 @@
           "id": "sensor.grasputin_pitch",
           "friendlyName": "Grasputin Pitch",
           "cSharpName": "GrasputinPitch"
-        },
-        {
-          "id": "sensor.grasputin_rainsensor_delay",
-          "friendlyName": "Rainsensor Delay",
-          "cSharpName": "GrasputinRainsensorDelay"
-        },
-        {
-          "id": "sensor.grasputin_rainsensor_remaining_dead",
-          "friendlyName": "Rainsensor Remaining",
-          "cSharpName": "GrasputinRainsensorRemainingDead"
         },
         {
           "id": "sensor.grasputin_roll",
@@ -9316,6 +10966,21 @@
           "cSharpName": "HjorneterrassePower"
         },
         {
+          "id": "sensor.hp850g5_brave_browser_battery",
+          "friendlyName": "HP850G5 - Brave Browser battery",
+          "cSharpName": "Hp850g5BraveBrowserBattery"
+        },
+        {
+          "id": "sensor.hp850g5_brave_browser_height",
+          "friendlyName": "HP850G5 - Brave Browser height",
+          "cSharpName": "Hp850g5BraveBrowserHeight"
+        },
+        {
+          "id": "sensor.hp850g5_brave_browser_width",
+          "friendlyName": "HP850G5 - Brave Browser width",
+          "cSharpName": "Hp850g5BraveBrowserWidth"
+        },
+        {
           "id": "sensor.hp850g5_browser_battery",
           "friendlyName": "HP850G5 Browser battery",
           "cSharpName": "Hp850g5BrowserBattery"
@@ -9334,6 +10999,11 @@
           "id": "sensor.ilvapricemonitor_1055729_5642100692",
           "friendlyName": "Woodstock Sofabord 120 x 47 x 60 cm ",
           "cSharpName": "Ilvapricemonitor10557295642100692"
+        },
+        {
+          "id": "sensor.indkorsel_snooze_time",
+          "friendlyName": "Indk\u00F8rsel Snooze Time",
+          "cSharpName": "IndkorselSnoozeTime"
         },
         {
           "id": "sensor.julelys_energy",
@@ -9447,12 +11117,12 @@
         },
         {
           "id": "sensor.kummefryser_forbrug",
-          "friendlyName": "Kummefryser-forbrug",
+          "friendlyName": "Kummefryser Forbrug",
           "cSharpName": "KummefryserForbrug"
         },
         {
           "id": "sensor.kummefryser_forbrug_kwh",
-          "friendlyName": "Kummefryser-forbrug, kWh",
+          "friendlyName": "Kummefryser Forbrug, kWh",
           "cSharpName": "KummefryserForbrugKwh"
         },
         {
@@ -9494,6 +11164,11 @@
           "id": "sensor.lerbaek_hass_copenhagen_trackers_issues",
           "friendlyName": "Lerbaek/hass-copenhagen-trackers Issues",
           "cSharpName": "LerbaekHassCopenhagenTrackersIssues"
+        },
+        {
+          "id": "sensor.lerbaek_hass_copenhagen_trackers_merged_pull_requests",
+          "friendlyName": "Lerbaek/hass-copenhagen-trackers Merged pull requests",
+          "cSharpName": "LerbaekHassCopenhagenTrackersMergedPullRequests"
         },
         {
           "id": "sensor.lerbaek_hass_copenhagen_trackers_pull_requests",
@@ -9637,12 +11312,12 @@
         },
         {
           "id": "sensor.openweathermap_dew_point",
-          "friendlyName": "OpenWeatherMap Dew Point",
+          "friendlyName": "OpenWeatherMap Dew point temperature",
           "cSharpName": "OpenweathermapDewPoint"
         },
         {
           "id": "sensor.openweathermap_feels_like_temperature",
-          "friendlyName": "OpenWeatherMap Feels like temperature",
+          "friendlyName": "OpenWeatherMap Apparent temperature",
           "cSharpName": "OpenweathermapFeelsLikeTemperature"
         },
         {
@@ -9702,12 +11377,12 @@
         },
         {
           "id": "sensor.openweathermap_rain",
-          "friendlyName": "OpenWeatherMap Rain",
+          "friendlyName": "OpenWeatherMap Rain intensity",
           "cSharpName": "OpenweathermapRain"
         },
         {
           "id": "sensor.openweathermap_snow",
-          "friendlyName": "OpenWeatherMap Snow",
+          "friendlyName": "OpenWeatherMap Snow intensity",
           "cSharpName": "OpenweathermapSnow"
         },
         {
@@ -9717,7 +11392,7 @@
         },
         {
           "id": "sensor.openweathermap_uv_index",
-          "friendlyName": "OpenWeatherMap UV Index",
+          "friendlyName": "OpenWeatherMap UV index",
           "cSharpName": "OpenweathermapUvIndex"
         },
         {
@@ -9727,8 +11402,13 @@
         },
         {
           "id": "sensor.openweathermap_wind_bearing",
-          "friendlyName": "OpenWeatherMap Wind bearing",
+          "friendlyName": "OpenWeatherMap Wind direction",
           "cSharpName": "OpenweathermapWindBearing"
+        },
+        {
+          "id": "sensor.openweathermap_wind_gust",
+          "friendlyName": "OpenWeatherMap Wind gust speed",
+          "cSharpName": "OpenweathermapWindGust"
         },
         {
           "id": "sensor.openweathermap_wind_speed",
@@ -9737,7 +11417,7 @@
         },
         {
           "id": "sensor.orico_hdd_docking_station_battery",
-          "friendlyName": "Battery",
+          "friendlyName": "Orico HDD docking station Battery",
           "cSharpName": "OricoHddDockingStationBattery"
         },
         {
@@ -9827,7 +11507,7 @@
         },
         {
           "id": "sensor.saphe_d0c9_estimated_distance",
-          "friendlyName": "Estimated distance",
+          "friendlyName": "Saphe D0C9 Estimated distance",
           "cSharpName": "SapheD0c9EstimatedDistance"
         },
         {
@@ -9881,6 +11561,11 @@
           "cSharpName": "Stovsugerts004fBattery"
         },
         {
+          "id": "sensor.stovsugerts004f_voltage",
+          "friendlyName": "St\u00F8vsugerTS004F Voltage",
+          "cSharpName": "Stovsugerts004fVoltage"
+        },
+        {
           "id": "sensor.stue_heating",
           "friendlyName": "Stue Heating",
           "cSharpName": "StueHeating"
@@ -9901,9 +11586,9 @@
           "cSharpName": "Stuets004fBattery"
         },
         {
-          "id": "sensor.temperature_badevaerelse",
-          "friendlyName": "Temperatur p\u00E5 badev\u00E6relset",
-          "cSharpName": "TemperatureBadevaerelse"
+          "id": "sensor.stuets004f_voltage",
+          "friendlyName": "StueTS004F Voltage",
+          "cSharpName": "Stuets004fVoltage"
         },
         {
           "id": "sensor.test_date_dage_til_naeste_tomning",
@@ -9996,6 +11681,11 @@
           "cSharpName": "TorretumblerPower"
         },
         {
+          "id": "sensor.ts0044_bryggers_voltage",
+          "friendlyName": "TS0044: Bryggers Voltage",
+          "cSharpName": "Ts0044BryggersVoltage"
+        },
+        {
           "id": "sensor.tz3000_bryggers_battery",
           "friendlyName": "TS0044: Bryggers Battery",
           "cSharpName": "Tz3000BryggersBattery"
@@ -10044,6 +11734,46 @@
           "id": "sensor.vindue_roar_device_temperature",
           "friendlyName": "Vindue: Roar Temperature",
           "cSharpName": "VindueRoarDeviceTemperature"
+        },
+        {
+          "id": "sensor.virtuel_deepseek_api_requests",
+          "friendlyName": "DeepSeek API requests",
+          "cSharpName": "VirtuelDeepseekApiRequests"
+        },
+        {
+          "id": "sensor.virtuel_deepseek_completion_tokens",
+          "friendlyName": "DeepSeek Completion tokens",
+          "cSharpName": "VirtuelDeepseekCompletionTokens"
+        },
+        {
+          "id": "sensor.virtuel_deepseek_last_request_completion_tokens",
+          "friendlyName": "DeepSeek Last request completion tokens",
+          "cSharpName": "VirtuelDeepseekLastRequestCompletionTokens"
+        },
+        {
+          "id": "sensor.virtuel_deepseek_last_request_prompt_tokens",
+          "friendlyName": "DeepSeek Last request prompt tokens",
+          "cSharpName": "VirtuelDeepseekLastRequestPromptTokens"
+        },
+        {
+          "id": "sensor.virtuel_deepseek_last_request_tokens",
+          "friendlyName": "DeepSeek Last request tokens",
+          "cSharpName": "VirtuelDeepseekLastRequestTokens"
+        },
+        {
+          "id": "sensor.virtuel_deepseek_prompt_tokens",
+          "friendlyName": "DeepSeek Prompt tokens",
+          "cSharpName": "VirtuelDeepseekPromptTokens"
+        },
+        {
+          "id": "sensor.virtuel_deepseek_reasoning_tokens",
+          "friendlyName": "DeepSeek Reasoning tokens",
+          "cSharpName": "VirtuelDeepseekReasoningTokens"
+        },
+        {
+          "id": "sensor.virtuel_deepseek_total_tokens",
+          "friendlyName": "DeepSeek Total tokens",
+          "cSharpName": "VirtuelDeepseekTotalTokens"
         },
         {
           "id": "sensor.walk_in_closet_gardin_battery",
@@ -10109,6 +11839,16 @@
           "id": "sensor.wallbox_portal_state_of_charge",
           "friendlyName": "Wallbox PulsarPlus SN 268384 State of charge",
           "cSharpName": "WallboxPortalStateOfCharge"
+        },
+        {
+          "id": "sensor.wallbox_pulsarplus_sn_268384_added_green_energy",
+          "friendlyName": "Wallbox PulsarPlus SN 268384 Added green energy",
+          "cSharpName": "WallboxPulsarplusSn268384AddedGreenEnergy"
+        },
+        {
+          "id": "sensor.wallbox_pulsarplus_sn_268384_added_grid_energy",
+          "friendlyName": "Wallbox PulsarPlus SN 268384 Added grid energy",
+          "cSharpName": "WallboxPulsarplusSn268384AddedGridEnergy"
         },
         {
           "id": "sensor.xr500_gateway_download_speed",
@@ -10876,6 +12616,41 @@
           "jsonName": "credit",
           "cSharpName": "Credit",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Free internal storage",
+          "cSharpName": "Freeinternalstorage",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Total internal storage",
+          "cSharpName": "Totalinternalstorage",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Lerb\u00E6k - Plex for Android (TV)",
+          "cSharpName": "LerbkPlexforAndroidTV",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "today_remaining_min",
+          "cSharpName": "TodayRemainingMin",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "today_remaining_max",
+          "cSharpName": "TodayRemainingMax",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "today_remaining_mean",
+          "cSharpName": "TodayRemainingMean",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "entity_id",
+          "cSharpName": "EntityId",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
         }
       ]
     },
@@ -10945,14 +12720,64 @@
       "domain": "switch",
       "entities": [
         {
+          "id": "switch.a1_bambi_allow_prompt_sound",
+          "friendlyName": "A1 Bambi Allow Prompt Sound",
+          "cSharpName": "A1BambiAllowPromptSound"
+        },
+        {
+          "id": "switch.a1_bambi_enable_camera",
+          "friendlyName": "A1 Bambi Enable camera",
+          "cSharpName": "A1BambiEnableCamera"
+        },
+        {
+          "id": "switch.a1_bambi_use_image_sensor_camera",
+          "friendlyName": "A1 Bambi Use image sensor camera",
+          "cSharpName": "A1BambiUseImageSensorCamera"
+        },
+        {
           "id": "switch.car_card_pre_release",
           "friendlyName": "Car Card Pre-release",
           "cSharpName": "CarCardPreRelease"
         },
         {
+          "id": "switch.ceed_climate",
+          "friendlyName": "CEED Climate",
+          "cSharpName": "CeedClimate"
+        },
+        {
+          "id": "switch.ceed_ev_charging",
+          "friendlyName": "CEED EV Charging",
+          "cSharpName": "CeedEvCharging"
+        },
+        {
+          "id": "switch.ceed_ev_scheduled_departure_1",
+          "friendlyName": "CEED EV Scheduled Departure 1",
+          "cSharpName": "CeedEvScheduledDeparture1"
+        },
+        {
+          "id": "switch.ceed_ev_scheduled_departure_2",
+          "friendlyName": "CEED EV Scheduled Departure 2",
+          "cSharpName": "CeedEvScheduledDeparture2"
+        },
+        {
+          "id": "switch.ceed_first_departure_climate",
+          "friendlyName": "CEED First departure climate",
+          "cSharpName": "CeedFirstDepartureClimate"
+        },
+        {
           "id": "switch.ceed_force_update",
           "friendlyName": "Ceed: Force update",
           "cSharpName": "CeedForceUpdate"
+        },
+        {
+          "id": "switch.ceed_scheduled_charging",
+          "friendlyName": "CEED Scheduled charging",
+          "cSharpName": "CeedScheduledCharging"
+        },
+        {
+          "id": "switch.ceed_second_departure_climate",
+          "friendlyName": "CEED Second departure climate",
+          "cSharpName": "CeedSecondDepartureClimate"
         },
         {
           "id": "switch.ceed_toggle_charging",
@@ -10980,9 +12805,9 @@
           "cSharpName": "Garageport"
         },
         {
-          "id": "switch.grasputin_locked_dead",
-          "friendlyName": "Locked",
-          "cSharpName": "GrasputinLockedDead"
+          "id": "switch.grasputin_acs",
+          "friendlyName": "Grasputin ACS",
+          "cSharpName": "GrasputinAcs"
         },
         {
           "id": "switch.grasputin_party_mode",
@@ -11010,34 +12835,64 @@
           "cSharpName": "HjorneterrasseChildLock"
         },
         {
+          "id": "switch.indkorsel_audio_recording",
+          "friendlyName": "Indk\u00F8rsel Audio Recording",
+          "cSharpName": "IndkorselAudioRecording"
+        },
+        {
+          "id": "switch.indkorsel_camera_enabled",
+          "friendlyName": "Indk\u00F8rsel Camera enabled",
+          "cSharpName": "IndkorselCameraEnabled"
+        },
+        {
           "id": "switch.indkorsel_email_on_event",
-          "friendlyName": "Email on event",
+          "friendlyName": "Indkorsel Email on event",
           "cSharpName": "IndkorselEmailOnEvent"
         },
         {
           "id": "switch.indkorsel_ftp_upload",
-          "friendlyName": "FTP upload",
+          "friendlyName": "Indkorsel FTP upload",
           "cSharpName": "IndkorselFtpUpload"
         },
         {
+          "id": "switch.indkorsel_indoor_chime_enabled",
+          "friendlyName": "Indk\u00F8rsel Indoor Chime Enabled",
+          "cSharpName": "IndkorselIndoorChimeEnabled"
+        },
+        {
           "id": "switch.indkorsel_infra_red_lights_in_night_mode",
-          "friendlyName": "Infra red lights in night mode",
+          "friendlyName": "Indkorsel Infra red lights in night mode",
           "cSharpName": "IndkorselInfraRedLightsInNightMode"
         },
         {
+          "id": "switch.indkorsel_microphone",
+          "friendlyName": "Indk\u00F8rsel Microphone",
+          "cSharpName": "IndkorselMicrophone"
+        },
+        {
+          "id": "switch.indkorsel_motion_detection",
+          "friendlyName": "Indk\u00F8rsel Motion Detection",
+          "cSharpName": "IndkorselMotionDetection"
+        },
+        {
           "id": "switch.indkorsel_push_notifications",
-          "friendlyName": "Push notifications",
+          "friendlyName": "Indkorsel Push notifications",
           "cSharpName": "IndkorselPushNotifications"
         },
         {
           "id": "switch.indkorsel_record",
-          "friendlyName": "Record",
+          "friendlyName": "Indkorsel Record",
           "cSharpName": "IndkorselRecord"
         },
         {
           "id": "switch.indkorsel_record_audio",
-          "friendlyName": "Record audio",
+          "friendlyName": "Indkorsel Record audio",
           "cSharpName": "IndkorselRecordAudio"
+        },
+        {
+          "id": "switch.indkorsel_status_led",
+          "friendlyName": "Indk\u00F8rsel Status LED",
+          "cSharpName": "IndkorselStatusLed"
         },
         {
           "id": "switch.julelys",
@@ -11053,6 +12908,16 @@
           "id": "switch.kokken_gang_child_lock",
           "friendlyName": "K\u00F8kken / Gang Child lock",
           "cSharpName": "KokkenGangChildLock"
+        },
+        {
+          "id": "switch.kokken_tv_autoplay",
+          "friendlyName": "K\u00F8kken TV autoplay",
+          "cSharpName": "KokkenTvAutoplay"
+        },
+        {
+          "id": "switch.kokken_ungroup_on_autoplay",
+          "friendlyName": "K\u00F8kken Ungroup on autoplay",
+          "cSharpName": "KokkenUngroupOnAutoplay"
         },
         {
           "id": "switch.kummefryser",
@@ -11078,6 +12943,16 @@
           "id": "switch.legevaerelse_loudness",
           "friendlyName": "Legev\u00E6relse Loudness",
           "cSharpName": "LegevaerelseLoudness"
+        },
+        {
+          "id": "switch.legevaerelse_tv_autoplay",
+          "friendlyName": "Legev\u00E6relse TV autoplay",
+          "cSharpName": "LegevaerelseTvAutoplay"
+        },
+        {
+          "id": "switch.legevaerelse_ungroup_on_autoplay",
+          "friendlyName": "Legev\u00E6relse Ungroup on autoplay",
+          "cSharpName": "LegevaerelseUngroupOnAutoplay"
         },
         {
           "id": "switch.lys_i_indkorslen",
@@ -11106,87 +12981,87 @@
         },
         {
           "id": "switch.netdaemon_campenauktioner",
-          "friendlyName": "netdaemon_campenauktioner",
+          "friendlyName": "NetDaemon netdaemon_campenauktioner",
           "cSharpName": "NetdaemonCampenauktioner"
         },
         {
           "id": "switch.netdaemon_car_not_charging_alarm_app",
-          "friendlyName": "netdaemon_car_not_charging_alarm_app",
+          "friendlyName": "NetDaemon netdaemon_car_not_charging_alarm_app",
           "cSharpName": "NetdaemonCarNotChargingAlarmApp"
         },
         {
           "id": "switch.netdaemon_carnotchargingalarmapp",
-          "friendlyName": "netdaemon_carnotchargingalarmapp",
+          "friendlyName": "NetDaemon netdaemon_carnotchargingalarmapp",
           "cSharpName": "NetdaemonCarnotchargingalarmapp"
         },
         {
           "id": "switch.netdaemon_garbage_collection_alarm_app",
-          "friendlyName": "netdaemon_garbage_collection_alarm_app",
+          "friendlyName": "NetDaemon netdaemon_garbage_collection_alarm_app",
           "cSharpName": "NetdaemonGarbageCollectionAlarmApp"
         },
         {
           "id": "switch.netdaemon_garbagecollectionalarmapp",
-          "friendlyName": "netdaemon_garbagecollectionalarmapp",
+          "friendlyName": "NetDaemon netdaemon_garbagecollectionalarmapp",
           "cSharpName": "NetdaemonGarbagecollectionalarmapp"
         },
         {
           "id": "switch.netdaemon_generatedappbase",
-          "friendlyName": "netdaemon_generatedappbase",
+          "friendlyName": "NetDaemon netdaemon_generatedappbase",
           "cSharpName": "NetdaemonGeneratedappbase"
         },
         {
           "id": "switch.netdaemon_hello_world_app",
-          "friendlyName": "netdaemon_hello_world_app",
+          "friendlyName": "NetDaemon netdaemon_hello_world_app",
           "cSharpName": "NetdaemonHelloWorldApp"
         },
         {
           "id": "switch.netdaemon_helloappcontext",
-          "friendlyName": "netdaemon_helloappcontext",
+          "friendlyName": "NetDaemon netdaemon_helloappcontext",
           "cSharpName": "NetdaemonHelloappcontext"
         },
         {
           "id": "switch.netdaemon_helloworldapp",
-          "friendlyName": "netdaemon_helloworldapp",
+          "friendlyName": "NetDaemon netdaemon_helloworldapp",
           "cSharpName": "NetdaemonHelloworldapp"
         },
         {
           "id": "switch.netdaemon_lightonmovement",
-          "friendlyName": "netdaemon_lightonmovement",
+          "friendlyName": "NetDaemon netdaemon_lightonmovement",
           "cSharpName": "NetdaemonLightonmovement"
         },
         {
           "id": "switch.netdaemon_nordlux_integration",
-          "friendlyName": "netdaemon_nordlux_integration",
+          "friendlyName": "NetDaemon netdaemon_nordlux_integration",
           "cSharpName": "NetdaemonNordluxIntegration"
         },
         {
           "id": "switch.netdaemon_reset_lights_app",
-          "friendlyName": "netdaemon_reset_lights_app",
+          "friendlyName": "NetDaemon netdaemon_reset_lights_app",
           "cSharpName": "NetdaemonResetLightsApp"
         },
         {
           "id": "switch.netdaemon_schedulingapp",
-          "friendlyName": "netdaemon_schedulingapp",
+          "friendlyName": "NetDaemon netdaemon_schedulingapp",
           "cSharpName": "NetdaemonSchedulingapp"
         },
         {
           "id": "switch.netdaemon_voice_alarm_app",
-          "friendlyName": "netdaemon_voice_alarm_app",
+          "friendlyName": "NetDaemon netdaemon_voice_alarm_app",
           "cSharpName": "NetdaemonVoiceAlarmApp"
         },
         {
           "id": "switch.netdaemon_voicealarmapp",
-          "friendlyName": "netdaemon_voicealarmapp",
+          "friendlyName": "NetDaemon netdaemon_voicealarmapp",
           "cSharpName": "NetdaemonVoicealarmapp"
         },
         {
           "id": "switch.netdaemon_yaml_config_app",
-          "friendlyName": "netdaemon_yaml_config_app",
+          "friendlyName": "NetDaemon netdaemon_yaml_config_app",
           "cSharpName": "NetdaemonYamlConfigApp"
         },
         {
           "id": "switch.orico_hdd_docking_station",
-          "friendlyName": null,
+          "friendlyName": "Orico HDD docking station",
           "cSharpName": "OricoHddDockingStation"
         },
         {
@@ -11296,12 +13171,12 @@
         },
         {
           "id": "switch.unnamed_room_crossfade",
-          "friendlyName": "Crossfade",
+          "friendlyName": "K\u00F8kken Crossfade",
           "cSharpName": "UnnamedRoomCrossfade"
         },
         {
           "id": "switch.unnamed_room_loudness",
-          "friendlyName": "Loudness",
+          "friendlyName": "K\u00F8kken Loudness",
           "cSharpName": "UnnamedRoomLoudness"
         },
         {
@@ -11313,6 +13188,11 @@
           "id": "switch.vaskemaskine_child_lock",
           "friendlyName": "Vaskemaskine Child lock",
           "cSharpName": "VaskemaskineChildLock"
+        },
+        {
+          "id": "switch.walk_in_closet_gardin_reverse_direction",
+          "friendlyName": "Walk-in-closet-gardin Reverse direction",
+          "cSharpName": "WalkInClosetGardinReverseDirection"
         },
         {
           "id": "switch.wallbox_portal_pause_resume",
@@ -11533,8 +13413,13 @@
       "entities": [
         {
           "id": "tts.elevenlabs",
-          "friendlyName": "ElevenLabs",
+          "friendlyName": "ElevenLabs Text-to-speech",
           "cSharpName": "Elevenlabs"
+        },
+        {
+          "id": "tts.google_ai_tts",
+          "friendlyName": "Google AI TTS",
+          "cSharpName": "GoogleAiTts"
         },
         {
           "id": "tts.google_da_dk",
@@ -11545,6 +13430,16 @@
           "id": "tts.google_en_com",
           "friendlyName": "Google Translate en com",
           "cSharpName": "GoogleEnCom"
+        },
+        {
+          "id": "tts.openai_tts",
+          "friendlyName": "OpenAI TTS",
+          "cSharpName": "OpenaiTts"
+        },
+        {
+          "id": "tts.piper",
+          "friendlyName": "piper",
+          "cSharpName": "Piper"
         }
       ],
       "attributes": [
@@ -11559,23 +13454,28 @@
       "domain": "update",
       "entities": [
         {
+          "id": "update.a1_bambi_firmware_update",
+          "friendlyName": "A1 Bambi Firmware update",
+          "cSharpName": "A1BambiFirmwareUpdate"
+        },
+        {
           "id": "update.aircast_update",
           "friendlyName": "AirCast Update",
           "cSharpName": "AircastUpdate"
         },
         {
           "id": "update.alarmo_update",
-          "friendlyName": "Alarmo update",
+          "friendlyName": "Alarmo Update",
           "cSharpName": "AlarmoUpdate"
         },
         {
           "id": "update.android_tv_card_update",
-          "friendlyName": "Universal Remote Card update",
+          "friendlyName": "Universal Remote Card Update",
           "cSharpName": "AndroidTvCardUpdate"
         },
         {
           "id": "update.apexcharts_card_update",
-          "friendlyName": "apexcharts-card update",
+          "friendlyName": "apexcharts-card Update",
           "cSharpName": "ApexchartsCardUpdate"
         },
         {
@@ -11585,22 +13485,22 @@
         },
         {
           "id": "update.attribute_as_sensor_update",
-          "friendlyName": "Attribute as Sensor update",
+          "friendlyName": "Attribute as Sensor Update",
           "cSharpName": "AttributeAsSensorUpdate"
         },
         {
           "id": "update.audiobookshelf_update",
-          "friendlyName": "Audiobookshelf update",
+          "friendlyName": "Audiobookshelf Update",
           "cSharpName": "AudiobookshelfUpdate"
         },
         {
           "id": "update.aula_update",
-          "friendlyName": "Aula update",
+          "friendlyName": "Aula Update",
           "cSharpName": "AulaUpdate"
         },
         {
           "id": "update.auto_entities_update",
-          "friendlyName": "auto-entities update",
+          "friendlyName": "auto-entities Update",
           "cSharpName": "AutoEntitiesUpdate"
         },
         {
@@ -11609,18 +13509,18 @@
           "cSharpName": "Ballon"
         },
         {
-          "id": "update.bar_card_update",
-          "friendlyName": "Bar Card update",
-          "cSharpName": "BarCardUpdate"
+          "id": "update.bambu_lab_update",
+          "friendlyName": "Bambu Lab Update",
+          "cSharpName": "BambuLabUpdate"
         },
         {
           "id": "update.battery_state_card_entity_row_update",
-          "friendlyName": "Battery State Card / Entity Row update",
+          "friendlyName": "Battery State Card / Entity Row Update",
           "cSharpName": "BatteryStateCardEntityRowUpdate"
         },
         {
           "id": "update.browser_mod_update",
-          "friendlyName": "browser_mod update",
+          "friendlyName": "browser_mod Update",
           "cSharpName": "BrowserModUpdate"
         },
         {
@@ -11630,63 +13530,83 @@
         },
         {
           "id": "update.bubble_card_update",
-          "friendlyName": "Bubble Card update",
+          "friendlyName": "Bubble Card Update",
           "cSharpName": "BubbleCardUpdate"
         },
         {
+          "id": "update.button_card_update",
+          "friendlyName": "button-card Update",
+          "cSharpName": "ButtonCardUpdate"
+        },
+        {
           "id": "update.candy_simply_fi_update",
-          "friendlyName": "Candy Simply-Fi update",
+          "friendlyName": "Candy Simply-Fi Update",
           "cSharpName": "CandySimplyFiUpdate"
         },
         {
           "id": "update.car_card_update",
-          "friendlyName": "Car Card update",
+          "friendlyName": "Car Card Update",
           "cSharpName": "CarCardUpdate"
         },
         {
           "id": "update.card_mod_update",
-          "friendlyName": "card-mod update",
+          "friendlyName": "card-mod Update",
           "cSharpName": "CardModUpdate"
         },
         {
           "id": "update.card_tools_update",
-          "friendlyName": "card-tools update",
+          "friendlyName": "card-tools Update",
           "cSharpName": "CardToolsUpdate"
         },
         {
           "id": "update.charger_card_update",
-          "friendlyName": "Charger Card update",
+          "friendlyName": "Charger Card Update",
           "cSharpName": "ChargerCardUpdate"
         },
         {
           "id": "update.collapsable_cards_update",
-          "friendlyName": "Collapsable cards update",
+          "friendlyName": "Collapsable cards Update",
           "cSharpName": "CollapsableCardsUpdate"
         },
         {
           "id": "update.config_template_card_update",
-          "friendlyName": "Config Template Card update",
+          "friendlyName": "Config Template Card Update",
           "cSharpName": "ConfigTemplateCardUpdate"
         },
         {
           "id": "update.copenhagen_trackers_update",
-          "friendlyName": "Copenhagen Trackers update",
+          "friendlyName": "Copenhagen Trackers Update",
           "cSharpName": "CopenhagenTrackersUpdate"
         },
         {
           "id": "update.cupertino_icons_update",
-          "friendlyName": "cupertino-icons update",
+          "friendlyName": "cupertino-icons Update",
           "cSharpName": "CupertinoIconsUpdate"
         },
         {
+          "id": "update.custom_icons_update",
+          "friendlyName": "Custom Icons Update",
+          "cSharpName": "CustomIconsUpdate"
+        },
+        {
+          "id": "update.custom_templates_update",
+          "friendlyName": "Custom Templates Update",
+          "cSharpName": "CustomTemplatesUpdate"
+        },
+        {
           "id": "update.custom_ui_update",
-          "friendlyName": "Custom-ui update",
+          "friendlyName": "Custom-ui Update",
           "cSharpName": "CustomUiUpdate"
         },
         {
           "id": "update.daily_schedule_update",
-          "friendlyName": "Daily Schedule update",
+          "friendlyName": "Daily Schedule Update",
           "cSharpName": "DailyScheduleUpdate"
+        },
+        {
+          "id": "update.deepseek_conversation_update",
+          "friendlyName": "DeepSeek Conversation Update",
+          "cSharpName": "DeepseekConversationUpdate"
         },
         {
           "id": "update.duck_dns_update",
@@ -11700,28 +13620,38 @@
         },
         {
           "id": "update.eforsyning_update",
-          "friendlyName": "Eforsyning update",
+          "friendlyName": "Eforsyning Update",
           "cSharpName": "EforsyningUpdate"
         },
         {
           "id": "update.elasticsearch_update",
-          "friendlyName": "Elasticsearch update",
+          "friendlyName": "Elasticsearch Update",
           "cSharpName": "ElasticsearchUpdate"
         },
         {
           "id": "update.eloverblik_update",
-          "friendlyName": "Eloverblik update",
+          "friendlyName": "Eloverblik Update",
           "cSharpName": "EloverblikUpdate"
         },
         {
           "id": "update.energi_data_service_update",
-          "friendlyName": "Energi Data Service update",
+          "friendlyName": "Energi Data Service Update",
           "cSharpName": "EnergiDataServiceUpdate"
         },
         {
-          "id": "update.esphome_update",
-          "friendlyName": "ESPHome Device Builder Update",
-          "cSharpName": "EsphomeUpdate"
+          "id": "update.enhanced_shutter_card_update",
+          "friendlyName": "Enhanced Shutter Card Update",
+          "cSharpName": "EnhancedShutterCardUpdate"
+        },
+        {
+          "id": "update.eufy_security_update",
+          "friendlyName": "Eufy Security Update",
+          "cSharpName": "EufySecurityUpdate"
+        },
+        {
+          "id": "update.eufy_security_ws_update",
+          "friendlyName": "eufy-security-ws Update",
+          "cSharpName": "EufySecurityWsUpdate"
         },
         {
           "id": "update.ewelink_smart_home_update",
@@ -11730,12 +13660,12 @@
         },
         {
           "id": "update.expose_camera_stream_source_update",
-          "friendlyName": "Expose Camera Stream Source update",
+          "friendlyName": "Expose Camera Stream Source Update",
           "cSharpName": "ExposeCameraStreamSourceUpdate"
         },
         {
           "id": "update.facebook_messenger_update",
-          "friendlyName": "Facebook Messenger update",
+          "friendlyName": "Facebook Messenger Update",
           "cSharpName": "FacebookMessengerUpdate"
         },
         {
@@ -11755,17 +13685,17 @@
         },
         {
           "id": "update.fluid_level_background_card_update",
-          "friendlyName": "Fluid Level Background Card update",
+          "friendlyName": "Fluid Level Background Card Update",
           "cSharpName": "FluidLevelBackgroundCardUpdate"
         },
         {
           "id": "update.fold_entity_row_update",
-          "friendlyName": "fold-entity-row update",
+          "friendlyName": "fold-entity-row Update",
           "cSharpName": "FoldEntityRowUpdate"
         },
         {
           "id": "update.frigate_card_update",
-          "friendlyName": "Advanced Camera Card update",
+          "friendlyName": "Advanced Camera Card Update",
           "cSharpName": "FrigateCardUpdate"
         },
         {
@@ -11775,12 +13705,12 @@
         },
         {
           "id": "update.frigate_update",
-          "friendlyName": "Frigate update",
+          "friendlyName": "Frigate Update",
           "cSharpName": "FrigateUpdate"
         },
         {
           "id": "update.fuelprices_dk_update",
-          "friendlyName": "Fuelprices DK update",
+          "friendlyName": "Fuelprices DK Update",
           "cSharpName": "FuelpricesDkUpdate"
         },
         {
@@ -11799,18 +13729,28 @@
           "cSharpName": "GitPullUpdate"
         },
         {
+          "id": "update.google_find_my_device_update",
+          "friendlyName": "Google Find My Device Update",
+          "cSharpName": "GoogleFindMyDeviceUpdate"
+        },
+        {
           "id": "update.google_home_update",
-          "friendlyName": "Google Home update",
+          "friendlyName": "Google Home Update",
           "cSharpName": "GoogleHomeUpdate"
         },
         {
+          "id": "update.grasputin_firmware",
+          "friendlyName": "Grasputin Firmware",
+          "cSharpName": "GrasputinFirmware"
+        },
+        {
           "id": "update.ha_floorplan_your_imagination_just_became_the_new_limit_update",
-          "friendlyName": "ha-floorplan \uD83D\uDD8C\uD83C\uDFA8 | Your imagination (almost) defines the limits update",
+          "friendlyName": "ha-floorplan \uD83D\uDD8C\uD83C\uDFA8 | Your imagination (almost) defines the limits Update",
           "cSharpName": "HaFloorplanYourImaginationJustBecameTheNewLimitUpdate"
         },
         {
           "id": "update.hacs_update",
-          "friendlyName": "HACS update",
+          "friendlyName": "HACS Update",
           "cSharpName": "HacsUpdate"
         },
         {
@@ -11839,8 +13779,13 @@
           "cSharpName": "HomeAssistantSupervisorUpdate"
         },
         {
+          "id": "update.hui_element_update",
+          "friendlyName": "hui-element Update",
+          "cSharpName": "HuiElementUpdate"
+        },
+        {
           "id": "update.indkorsel_firmware",
-          "friendlyName": "Firmware",
+          "friendlyName": "Indkorsel Firmware",
           "cSharpName": "IndkorselFirmware"
         },
         {
@@ -11855,7 +13800,7 @@
         },
         {
           "id": "update.kia_uvo_hyundai_bluelink_update",
-          "friendlyName": "Kia Uvo / Hyundai Bluelink update",
+          "friendlyName": "Kia Uvo / Hyundai Bluelink Update",
           "cSharpName": "KiaUvoHyundaiBluelinkUpdate"
         },
         {
@@ -11870,17 +13815,22 @@
         },
         {
           "id": "update.landroid_card_update",
-          "friendlyName": "Landroid Card update",
+          "friendlyName": "Landroid Card Update",
           "cSharpName": "LandroidCardUpdate"
         },
         {
           "id": "update.landroid_cloud_update",
-          "friendlyName": "Landroid Cloud update",
+          "friendlyName": "Landroid Cloud Update",
           "cSharpName": "LandroidCloudUpdate"
         },
         {
+          "id": "update.layout_card_update",
+          "friendlyName": "layout-card Update",
+          "cSharpName": "LayoutCardUpdate"
+        },
+        {
           "id": "update.local_tuya_update",
-          "friendlyName": "Local Tuya update",
+          "friendlyName": "Local Tuya Update",
           "cSharpName": "LocalTuyaUpdate"
         },
         {
@@ -11895,12 +13845,12 @@
         },
         {
           "id": "update.mini_graph_card_update",
-          "friendlyName": "mini-graph-card update",
+          "friendlyName": "mini-graph-card Update",
           "cSharpName": "MiniGraphCardUpdate"
         },
         {
           "id": "update.monta_update",
-          "friendlyName": "Monta update",
+          "friendlyName": "Monta Update",
           "cSharpName": "MontaUpdate"
         },
         {
@@ -11910,13 +13860,23 @@
         },
         {
           "id": "update.multiline_text_input_card_update",
-          "friendlyName": "Multiline Text Input Card update",
+          "friendlyName": "Multiline Text Input Card Update",
           "cSharpName": "MultilineTextInputCardUpdate"
         },
         {
           "id": "update.multiple_entity_row_update",
-          "friendlyName": "Multiple Entity Row update",
+          "friendlyName": "Multiple Entity Row Update",
           "cSharpName": "MultipleEntityRowUpdate"
+        },
+        {
+          "id": "update.mushroom_update",
+          "friendlyName": "Mushroom Update",
+          "cSharpName": "MushroomUpdate"
+        },
+        {
+          "id": "update.music_assistant_update",
+          "friendlyName": "Music Assistant Update",
+          "cSharpName": "MusicAssistantUpdate"
         },
         {
           "id": "update.maane",
@@ -11925,7 +13885,7 @@
         },
         {
           "id": "update.netdaemon_update",
-          "friendlyName": "NetDaemon update",
+          "friendlyName": "NetDaemon Update",
           "cSharpName": "NetdaemonUpdate"
         },
         {
@@ -11934,9 +13894,9 @@
           "cSharpName": "NetdaemonV5Net9Update"
         },
         {
-          "id": "update.nintendo_switch_parental_controls_update",
-          "friendlyName": "Nintendo Switch Parental Controls update",
-          "cSharpName": "NintendoSwitchParentalControlsUpdate"
+          "id": "update.netdaemon_v6_net_10_update",
+          "friendlyName": "NetDaemon V6 (.NET 10) Update",
+          "cSharpName": "NetdaemonV6Net10Update"
         },
         {
           "id": "update.node_red_update",
@@ -11945,12 +13905,12 @@
         },
         {
           "id": "update.nordpool_update",
-          "friendlyName": "nordpool update",
+          "friendlyName": "nordpool Update",
           "cSharpName": "NordpoolUpdate"
         },
         {
           "id": "update.paper_buttons_row_update",
-          "friendlyName": "Paper Buttons Row update",
+          "friendlyName": "Paper Buttons Row Update",
           "cSharpName": "PaperButtonsRowUpdate"
         },
         {
@@ -11999,19 +13959,19 @@
           "cSharpName": "PartialEntreStue"
         },
         {
-          "id": "update.partial_felena_tassel_rgbw_1",
-          "friendlyName": "Partial: Felena Tassel RGBW 1",
-          "cSharpName": "PartialFelenaTasselRgbw1"
+          "id": "update.partial_felena_tassel_1",
+          "friendlyName": "Partial: Felena Tassel 1",
+          "cSharpName": "PartialFelenaTassel1"
         },
         {
-          "id": "update.partial_felena_tassel_rgbw_2",
-          "friendlyName": "Partial: Felena Tassel RGBW 2",
-          "cSharpName": "PartialFelenaTasselRgbw2"
+          "id": "update.partial_felena_tassel_2",
+          "friendlyName": "Partial: Felena Tassel 2",
+          "cSharpName": "PartialFelenaTassel2"
         },
         {
-          "id": "update.partial_felena_tassel_rgbw_3",
-          "friendlyName": "Partial: Felena Tassel RGBW 3",
-          "cSharpName": "PartialFelenaTasselRgbw3"
+          "id": "update.partial_felena_tassel_3",
+          "friendlyName": "Partial: Felena Tassel 3",
+          "cSharpName": "PartialFelenaTassel3"
         },
         {
           "id": "update.partial_fordelingsgang_kokken",
@@ -12070,7 +14030,7 @@
         },
         {
           "id": "update.places_update",
-          "friendlyName": "Places update",
+          "friendlyName": "Places Update",
           "cSharpName": "PlacesUpdate"
         },
         {
@@ -12080,12 +14040,17 @@
         },
         {
           "id": "update.plotly_graph_card_update",
-          "friendlyName": "Plotly Graph Card update",
+          "friendlyName": "Plotly Graph Card Update",
           "cSharpName": "PlotlyGraphCardUpdate"
         },
         {
+          "id": "update.raspberry_pi_4_firmware",
+          "friendlyName": "Raspberry Pi 4 Firmware",
+          "cSharpName": "RaspberryPi4Firmware"
+        },
+        {
           "id": "update.rgb_light_card_update",
-          "friendlyName": "RGB Light Card update",
+          "friendlyName": "RGB Light Card Update",
           "cSharpName": "RgbLightCardUpdate"
         },
         {
@@ -12100,22 +14065,22 @@
         },
         {
           "id": "update.samsungtv_tizen_update",
-          "friendlyName": "SamsungTV Tizen update",
+          "friendlyName": "SamsungTV Tizen Update",
           "cSharpName": "SamsungtvTizenUpdate"
         },
         {
           "id": "update.scheduler_card_update",
-          "friendlyName": "Scheduler Card update",
+          "friendlyName": "Scheduler Card Update",
           "cSharpName": "SchedulerCardUpdate"
         },
         {
           "id": "update.scheduler_component_update",
-          "friendlyName": "Scheduler component update",
+          "friendlyName": "Scheduler component Update",
           "cSharpName": "SchedulerComponentUpdate"
         },
         {
           "id": "update.secondaryinfo_entity_row_update",
-          "friendlyName": "Secondaryinfo Entity Row update",
+          "friendlyName": "Secondaryinfo Entity Row Update",
           "cSharpName": "SecondaryinfoEntityRowUpdate"
         },
         {
@@ -12124,33 +14089,23 @@
           "cSharpName": "Seedbox"
         },
         {
-          "id": "update.shutter_card_update",
-          "friendlyName": "Shutter Card update",
-          "cSharpName": "ShutterCardUpdate"
-        },
-        {
-          "id": "update.shutter_row_update",
-          "friendlyName": "Shutter Row update",
-          "cSharpName": "ShutterRowUpdate"
-        },
-        {
           "id": "update.slider_button_card_update",
-          "friendlyName": "Slider Button Card update",
+          "friendlyName": "Slider Button Card Update",
           "cSharpName": "SliderButtonCardUpdate"
         },
         {
           "id": "update.slider_entity_row_update",
-          "friendlyName": "slider-entity-row update",
+          "friendlyName": "slider-entity-row Update",
           "cSharpName": "SliderEntityRowUpdate"
         },
         {
           "id": "update.sonoff_lan_update",
-          "friendlyName": "Sonoff LAN update",
+          "friendlyName": "Sonoff LAN Update",
           "cSharpName": "SonoffLanUpdate"
         },
         {
           "id": "update.sonos_card_update",
-          "friendlyName": "Sonos Card update",
+          "friendlyName": "Sonos Card Update",
           "cSharpName": "SonosCardUpdate"
         },
         {
@@ -12165,7 +14120,7 @@
         },
         {
           "id": "update.streamline_card_update",
-          "friendlyName": "Streamline Card update",
+          "friendlyName": "Streamline Card Update",
           "cSharpName": "StreamlineCardUpdate"
         },
         {
@@ -12175,17 +14130,17 @@
         },
         {
           "id": "update.swipe_card_update",
-          "friendlyName": "Swipe Card update",
+          "friendlyName": "Swipe Card Update",
           "cSharpName": "SwipeCardUpdate"
         },
         {
           "id": "update.switch_manager_update",
-          "friendlyName": "Switch Manager update",
+          "friendlyName": "Switch Manager Update",
           "cSharpName": "SwitchManagerUpdate"
         },
         {
           "id": "update.template_entity_row_update",
-          "friendlyName": "template-entity-row update",
+          "friendlyName": "template-entity-row Update",
           "cSharpName": "TemplateEntityRowUpdate"
         },
         {
@@ -12195,17 +14150,17 @@
         },
         {
           "id": "update.thermal_comfort_icons_update",
-          "friendlyName": "Thermal Comfort Icons update",
+          "friendlyName": "Thermal Comfort Icons Update",
           "cSharpName": "ThermalComfortIconsUpdate"
         },
         {
           "id": "update.time_picker_card_update",
-          "friendlyName": "Time Picker Card update",
+          "friendlyName": "Time Picker Card Update",
           "cSharpName": "TimePickerCardUpdate"
         },
         {
           "id": "update.timer_bar_card_update",
-          "friendlyName": "Timer Bar Card update",
+          "friendlyName": "Timer Bar Card Update",
           "cSharpName": "TimerBarCardUpdate"
         },
         {
@@ -12215,7 +14170,7 @@
         },
         {
           "id": "update.toogoodtogo_update",
-          "friendlyName": "TooGoodToGo update",
+          "friendlyName": "TooGoodToGo Update",
           "cSharpName": "ToogoodtogoUpdate"
         },
         {
@@ -12230,17 +14185,17 @@
         },
         {
           "id": "update.trashcard_update",
-          "friendlyName": "TrashCard update",
+          "friendlyName": "TrashCard Update",
           "cSharpName": "TrashcardUpdate"
         },
         {
           "id": "update.tv_remote_card_with_touchpad_and_haptic_feedback_update",
-          "friendlyName": "TV Remote Card (with touchpad and haptic feedback) update",
+          "friendlyName": "TV Remote Card (with touchpad and haptic feedback) Update",
           "cSharpName": "TvRemoteCardWithTouchpadAndHapticFeedbackUpdate"
         },
         {
           "id": "update.ultra_vehicle_card_update",
-          "friendlyName": "Ultra Vehicle Card update",
+          "friendlyName": "Ultra Vehicle Card Update",
           "cSharpName": "UltraVehicleCardUpdate"
         },
         {
@@ -12250,7 +14205,7 @@
         },
         {
           "id": "update.vacuum_card_update",
-          "friendlyName": "Vacuum Card update",
+          "friendlyName": "Vacuum Card Update",
           "cSharpName": "VacuumCardUpdate"
         },
         {
@@ -12260,13 +14215,18 @@
         },
         {
           "id": "update.variable_update",
-          "friendlyName": "Variable update",
+          "friendlyName": "Variable Update",
           "cSharpName": "VariableUpdate"
         },
         {
           "id": "update.vaskemaskine",
           "friendlyName": "Vaskemaskine",
           "cSharpName": "Vaskemaskine"
+        },
+        {
+          "id": "update.vaultwarden_update",
+          "friendlyName": "Vaultwarden Update",
+          "cSharpName": "VaultwardenUpdate"
         },
         {
           "id": "update.vinke_astronaut",
@@ -12295,22 +14255,27 @@
         },
         {
           "id": "update.waste_collection_schedule_update",
-          "friendlyName": "Waste Collection Schedule update",
+          "friendlyName": "Waste Collection Schedule Update",
           "cSharpName": "WasteCollectionScheduleUpdate"
         },
         {
           "id": "update.webrtc_camera_update",
-          "friendlyName": "WebRTC Camera update",
+          "friendlyName": "WebRTC Camera Update",
           "cSharpName": "WebrtcCameraUpdate"
         },
         {
+          "id": "update.whisper_update",
+          "friendlyName": "Whisper Update",
+          "cSharpName": "WhisperUpdate"
+        },
+        {
           "id": "update.xiaomi_cloud_map_extractor_update",
-          "friendlyName": "Xiaomi Cloud Map Extractor update",
+          "friendlyName": "Xiaomi Cloud Map Extractor Update",
           "cSharpName": "XiaomiCloudMapExtractorUpdate"
         },
         {
           "id": "update.xiaomi_vacuum_map_card_update",
-          "friendlyName": "Xiaomi Vacuum Map Card update",
+          "friendlyName": "Xiaomi Vacuum Map Card Update",
           "cSharpName": "XiaomiVacuumMapCardUpdate"
         },
         {
@@ -12748,14 +14713,14 @@
           "cSharpName": "Reminders"
         },
         {
-          "id": "var.roar_ugeplan_next",
-          "friendlyName": "Ugeplan, n\u00E6ste, Roar",
-          "cSharpName": "RoarUgeplanNext"
-        },
-        {
           "id": "var.ugeplan_current_roar",
           "friendlyName": "Ugeplan, nuv\u00E6rende, Roar",
           "cSharpName": "UgeplanCurrentRoar"
+        },
+        {
+          "id": "var.ugeplan_roar_next",
+          "friendlyName": "Ugeplan, n\u00E6ste, Roar",
+          "cSharpName": "UgeplanRoarNext"
         }
       ],
       "attributes": [
@@ -12885,6 +14850,11 @@
           "jsonName": "uv_index",
           "cSharpName": "UvIndex",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "visibility",
+          "cSharpName": "Visibility",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -12955,6 +14925,11 @@
           "id": "zone.tulle_mads",
           "friendlyName": "Tulle \u0026 Mads",
           "cSharpName": "TulleMads"
+        },
+        {
+          "id": "zone.universitetsparken",
+          "friendlyName": "Universitetsparken",
+          "cSharpName": "Universitetsparken"
         },
         {
           "id": "zone.universitetsparken_kantine",
@@ -13034,6 +15009,11 @@
           "cSharpName": "DoodleCalendar"
         },
         {
+          "id": "calendar.ebbe_storm_lerbaek_emkjaer_gmail_com",
+          "friendlyName": "Ebbe.storm.lerbaek.emkjaer@gmail.com",
+          "cSharpName": "EbbeStormLerbaekEmkjaerGmailCom"
+        },
+        {
           "id": "calendar.family",
           "friendlyName": "Family",
           "cSharpName": "Family"
@@ -13079,9 +15059,19 @@
           "cSharpName": "MealieBreakfast"
         },
         {
+          "id": "calendar.mealie_dessert",
+          "friendlyName": "Mealie Dessert",
+          "cSharpName": "MealieDessert"
+        },
+        {
           "id": "calendar.mealie_dinner",
           "friendlyName": "Mealie Dinner",
           "cSharpName": "MealieDinner"
+        },
+        {
+          "id": "calendar.mealie_drink",
+          "friendlyName": "Mealie Drink",
+          "cSharpName": "MealieDrink"
         },
         {
           "id": "calendar.mealie_lunch",
@@ -13092,6 +15082,11 @@
           "id": "calendar.mealie_side",
           "friendlyName": "Mealie Side",
           "cSharpName": "MealieSide"
+        },
+        {
+          "id": "calendar.mealie_snack",
+          "friendlyName": "Mealie Snack",
+          "cSharpName": "MealieSnack"
         },
         {
           "id": "calendar.roar",
@@ -13110,13 +15105,18 @@
         },
         {
           "id": "calendar.sunrise_and_sunset_for_lystrup",
-          "friendlyName": "Sunrise and sunset for lystrup",
+          "friendlyName": "Sunrise and sunset for aarhus",
           "cSharpName": "SunriseAndSunsetForLystrup"
         },
         {
           "id": "calendar.u7_handbold_20242025",
-          "friendlyName": "U7  h\u00E5ndbold 20242025",
+          "friendlyName": "U9  h\u00E5ndbold 20262027",
           "cSharpName": "U7Handbold20242025"
+        },
+        {
+          "id": "calendar.u8_handbold_20252026",
+          "friendlyName": "U9  h\u00E5ndbold 20262027",
+          "cSharpName": "U8Handbold20252026"
         },
         {
           "id": "calendar.ugenumre",
@@ -13201,6 +15201,11 @@
           "cSharpName": "MealieIndkobsliste"
         },
         {
+          "id": "todo.mealie_indkobsliste_2",
+          "friendlyName": "Mealie Indk\u00F8bsliste",
+          "cSharpName": "MealieIndkobsliste2"
+        },
+        {
           "id": "todo.reminders",
           "friendlyName": "Reminders",
           "cSharpName": "Reminders"
@@ -13226,6 +15231,11 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -13236,6 +15246,11 @@
           "id": "lawn_mower.grasputin",
           "friendlyName": "Grasputin",
           "cSharpName": "Grasputin"
+        },
+        {
+          "id": "lawn_mower.grasputin_2",
+          "friendlyName": "Grasputin",
+          "cSharpName": "Grasputin2"
         }
       ],
       "attributes": [
@@ -13273,12 +15288,22 @@
           "jsonName": "protocol",
           "cSharpName": "Protocol",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     },
     {
       "domain": "conversation",
       "entities": [
+        {
+          "id": "conversation.deepseek",
+          "friendlyName": "DeepSeek",
+          "cSharpName": "Deepseek"
+        },
         {
           "id": "conversation.google_generative_ai",
           "friendlyName": "Flabet assistent",
@@ -13321,6 +15346,11 @@
     {
       "domain": "event",
       "entities": [
+        {
+          "id": "event.backup_automatic_backup",
+          "friendlyName": "Backup Automatic backup",
+          "cSharpName": "BackupAutomaticBackup"
+        },
         {
           "id": "event.dorklokke_chime",
           "friendlyName": "D\u00F8rklokke Chime",
@@ -13377,6 +15407,16 @@
           "jsonName": "folder",
           "cSharpName": "Folder",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "backup_stage",
+          "cSharpName": "BackupStage",
+          "clrType": null
+        },
+        {
+          "jsonName": "failed_reason",
+          "cSharpName": "FailedReason",
+          "clrType": null
         }
       ]
     },
@@ -13399,6 +15439,268 @@
           "jsonName": "editable",
           "cSharpName": "Editable",
           "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "stt",
+      "entities": [
+        {
+          "id": "stt.elevenlabs_speech_to_text",
+          "friendlyName": "ElevenLabs Speech-to-text",
+          "cSharpName": "ElevenlabsSpeechToText"
+        },
+        {
+          "id": "stt.faster_whisper",
+          "friendlyName": "faster-whisper",
+          "cSharpName": "FasterWhisper"
+        },
+        {
+          "id": "stt.google_ai_stt",
+          "friendlyName": "Google AI STT",
+          "cSharpName": "GoogleAiStt"
+        },
+        {
+          "id": "stt.openai_stt",
+          "friendlyName": "OpenAI STT",
+          "cSharpName": "OpenaiStt"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "ai_task",
+      "entities": [
+        {
+          "id": "ai_task.google_ai_task",
+          "friendlyName": "Google AI Task",
+          "cSharpName": "GoogleAiTask"
+        },
+        {
+          "id": "ai_task.openai_ai_task",
+          "friendlyName": "OpenAI AI Task",
+          "cSharpName": "OpenaiAiTask"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "fan",
+      "entities": [
+        {
+          "id": "fan.a1_bambi_cooling_fan",
+          "friendlyName": "A1 Bambi Cooling fan",
+          "cSharpName": "A1BambiCoolingFan"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "preset_modes",
+          "cSharpName": "PresetModes",
+          "clrType": null
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "image",
+      "entities": [
+        {
+          "id": "image.a1_bambi_cover_image",
+          "friendlyName": "A1 Bambi Cover Image",
+          "cSharpName": "A1BambiCoverImage"
+        },
+        {
+          "id": "image.a1_bambi_pick_image",
+          "friendlyName": "A1 Bambi Pick image",
+          "cSharpName": "A1BambiPickImage"
+        },
+        {
+          "id": "image.indkorsel_event_image",
+          "friendlyName": "Indk\u00F8rsel Event Image",
+          "cSharpName": "IndkorselEventImage"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "access_token",
+          "cSharpName": "AccessToken",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "entity_picture",
+          "cSharpName": "EntityPicture",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "notify",
+      "entities": [
+        {
+          "id": "notify.bornenes_galaxy_s9",
+          "friendlyName": "B\u00F8rnenes telefon",
+          "cSharpName": "BornenesGalaxyS9"
+        },
+        {
+          "id": "notify.galaxy_watch4_wlsw",
+          "friendlyName": "Galaxy Watch4 (WLSW)",
+          "cSharpName": "GalaxyWatch4Wlsw"
+        },
+        {
+          "id": "notify.galaxy_watch4_wlsw_2",
+          "friendlyName": "Galaxy Watch4 (WLSW)",
+          "cSharpName": "GalaxyWatch4Wlsw2"
+        },
+        {
+          "id": "notify.gros_backup_telefon",
+          "friendlyName": "Gros backup-telefon",
+          "cSharpName": "GrosBackupTelefon"
+        },
+        {
+          "id": "notify.gros_galaxy_s20",
+          "friendlyName": "Gros Galaxy S20\u002B",
+          "cSharpName": "GrosGalaxyS20"
+        },
+        {
+          "id": "notify.gros_galaxy_s24",
+          "friendlyName": "Gros Galaxy S24",
+          "cSharpName": "GrosGalaxyS24"
+        },
+        {
+          "id": "notify.kristoffer_iphone",
+          "friendlyName": "Kristoffer - iPhone",
+          "cSharpName": "KristofferIphone"
+        },
+        {
+          "id": "notify.kristoffers_galaxy_s20_ultra",
+          "friendlyName": "Kristoffers Galaxy S20 Ultra",
+          "cSharpName": "KristoffersGalaxyS20Ultra"
+        },
+        {
+          "id": "notify.kristoffers_galaxy_s24_ultra",
+          "friendlyName": "Kristoffers Galaxy S24 Ultra",
+          "cSharpName": "KristoffersGalaxyS24Ultra"
+        },
+        {
+          "id": "notify.oneplus_a3003",
+          "friendlyName": "ONEPLUS A3003",
+          "cSharpName": "OneplusA3003"
+        },
+        {
+          "id": "notify.oneplus_a3003_2",
+          "friendlyName": "ONEPLUS A3003",
+          "cSharpName": "OneplusA30032"
+        },
+        {
+          "id": "notify.samsung_galaxy_s8",
+          "friendlyName": "Samsung Galaxy S8",
+          "cSharpName": "SamsungGalaxyS8"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "schedule",
+      "entities": [
+        {
+          "id": "schedule.ev_charging",
+          "friendlyName": "EV charging",
+          "cSharpName": "EvCharging"
+        },
+        {
+          "id": "schedule.oplad_med_det_samme",
+          "friendlyName": "Oplad med det samme",
+          "cSharpName": "OpladMedDetSamme"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "editable",
+          "cSharpName": "Editable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "next_event",
+          "cSharpName": "NextEvent",
+          "clrType": "System.String"
         },
         {
           "jsonName": "icon",
