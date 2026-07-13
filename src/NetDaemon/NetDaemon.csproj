@@ -1,80 +1,77 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net9.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <RootNamespace>Lerbaek.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-        <Configurations>Debug;Release;Deploy</Configurations>
-        <BaseOutputPath Condition="'$(Configuration)' == 'Deploy'">\\192.168.1.9\config\netdaemon3</BaseOutputPath>
-        <AppendTargetFrameworkToOutputPath Condition="'$(Configuration)' == 'Deploy'">false</AppendTargetFrameworkToOutputPath>
-        <AppendRuntimeIdentifierToOutputPath Condition="'$(Configuration)' == 'Deploy'">false</AppendRuntimeIdentifierToOutputPath>
-        <AssemblyName>Lerbaek.$(MSBuildProjectName)</AssemblyName>
-        <UserSecretsId>7167e23a-6c2a-4383-9729-6b5dca750868</UserSecretsId>
-    </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Lerbaek.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <Configurations>Debug;Release;Deploy</Configurations>
+    <BaseOutputPath Condition="'$(Configuration)' == 'Deploy'">\\192.168.1.9\config\netdaemon3</BaseOutputPath>
+    <AppendTargetFrameworkToOutputPath Condition="'$(Configuration)' == 'Deploy'">false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath Condition="'$(Configuration)' == 'Deploy'">false</AppendRuntimeIdentifierToOutputPath>
+    <AssemblyName>Lerbaek.$(MSBuildProjectName)</AssemblyName>
+    <UserSecretsId>7167e23a-6c2a-4383-9729-6b5dca750868</UserSecretsId>
+  </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deploy|AnyCPU'">
-      <Optimize>False</Optimize>
-    </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deploy|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <Compile Remove="bin\**" />
-      <EmbeddedResource Remove="bin\**" />
-      <None Remove="bin\**" />
-    </ItemGroup>
-    
-    <ItemGroup>
-        <Content Include="appsettings.json">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Include="appsettings.*.json">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-          <DependentUpon>appsettings.json</DependentUpon>
-        </Content>
-        <None Update="Apps\Integrations\Nordlux\Configuration\NordluxConfig.yaml">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Update="$(MSBuildProjectDir)**\*.yaml">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-        
-    <ItemGroup>
-        <PackageReference Include="FluentValidation" Version="11.11.0" />
-        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
-        <PackageReference Include="NetDaemon.AppModel" Version="24.52.0" />
-        <PackageReference Include="NetDaemon.Extensions.Mqtt" Version="24.52.0" />
-        <PackageReference Include="NetDaemon.Runtime" Version="24.52.0" />
-        <PackageReference Include="NetDaemon.HassModel" Version="24.52.0" />
-        <PackageReference Include="NetDaemon.Client" Version="24.52.0" />
-        <PackageReference Include="NetDaemon.Extensions.Scheduling" Version="24.52.0" />
-        <PackageReference Include="NetDaemon.Extensions.Logging" Version="24.52.0" />
-        <PackageReference Include="NetDaemon.Extensions.Tts" Version="24.52.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="9.0.0" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="NMoneys" Version="7.3.0" />
-        <PackageReference Include="Polly" Version="8.5.0" />
-        <PackageReference Include="Polly.Contrib.WaitAndRetry" Version="1.1.1" />
-        <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
-        <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="5.0.0" />
-        <PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
-        <PackageReference Include="System.IO.Abstractions" Version="21.1.7" />
-        <PackageReference Include="System.Reactive" Version="6.0.1" />
-        <PackageReference Include="System.Text.Json" Version="9.0.0" />
-    </ItemGroup>
-        
-    <ItemGroup>
-      <ProjectReference Include="..\Auctions\Auctions.csproj" />
-      <ProjectReference Include="..\Calendar\Calendar.csproj" />
-      <ProjectReference Include="..\HostBuilder\HostBuilder.csproj" />
-      <ProjectReference Include="..\Lectio\Lectio.csproj" />
-      <ProjectReference Include="..\Messaging\Messaging.csproj" />
-      <ProjectReference Include="..\Stores\Stores.csproj" />
-    </ItemGroup>
-        
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)' == 'Debug'">
-      <Exec Command="nd-codegen" />
-    </Target>
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Content>
+    <None Update="Apps\Integrations\Nordlux\Configuration\NordluxConfig.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="$(MSBuildProjectDir)**\*.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotnetAutomaticInterface" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="NetDaemon.AppModel" Version="26.21.0" />
+    <PackageReference Include="NetDaemon.Extensions.Mqtt" Version="26.21.0" />
+    <PackageReference Include="NetDaemon.Runtime" Version="26.21.0" />
+    <PackageReference Include="NetDaemon.HassModel" Version="26.21.0" />
+    <PackageReference Include="NetDaemon.Client" Version="26.21.0" />
+    <PackageReference Include="NetDaemon.Extensions.Scheduling" Version="26.21.0" />
+    <PackageReference Include="NetDaemon.Extensions.Logging" Version="26.21.0" />
+    <PackageReference Include="NetDaemon.Extensions.Tts" Version="26.21.0" />
+    <PackageReference Include="Polly" Version="8.7.0" />
+    <PackageReference Include="Polly.Contrib.WaitAndRetry" Version="1.1.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="9.1.0" />
+    <PackageReference Include="System.IO.Abstractions" Version="22.1.1" />
+    <PackageReference Include="System.Reactive" Version="6.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Auctions\Auctions.csproj" />
+    <ProjectReference Include="..\Calendar\Calendar.csproj" />
+    <ProjectReference Include="..\HostBuilder\HostBuilder.csproj" />
+    <ProjectReference Include="..\Lectio\Lectio.csproj" />
+    <ProjectReference Include="..\Messaging\Messaging.csproj" />
+    <ProjectReference Include="..\Stores\Stores.csproj" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)' == 'Debug'">
+    <Exec Command="nd-codegen" />
+  </Target>
 </Project>

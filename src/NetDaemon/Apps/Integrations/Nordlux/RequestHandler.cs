@@ -1,6 +1,7 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Security.Cryptography;
+using DotnetAutomaticInterface;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Model;
 using static System.Text.Encoding;
@@ -9,6 +10,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 
+[GenerateAutomaticInterface]
 public class RequestHandler : IRequestHandler
 {
     private readonly NordluxConfig _config;
@@ -86,10 +88,10 @@ public class RequestHandler : IRequestHandler
 
     private async Task<HttpResponseMessage> SendAndLog(HttpRequestMessage requestMessage)
     {
-        _logger.LogTrace("Sending request");
+        _logger.LogInformation("Sending request");
         var response = await _httpClient.SendAsync(requestMessage);
 
-        _logger.LogTrace(
+        _logger.LogInformation(
             "Response: {StatusCode}({Status})",
             (int)response.StatusCode,
             response.StatusCode);

@@ -1,8 +1,10 @@
+using DotnetAutomaticInterface;
 using Lerbaek.NetDaemon.Common.Logging;
 using Microsoft.Extensions.Configuration;
 
 namespace Lerbaek.NetDaemon.Common.Notifications;
 
+[GenerateAutomaticInterface]
 public class NotificationPresets(IHaContext ha, IConfiguration config, INotificationBuilder notificationBuilder)
   : INotificationPresets
 {

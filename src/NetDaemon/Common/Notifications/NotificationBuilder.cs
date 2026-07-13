@@ -1,10 +1,12 @@
 #pragma warning disable CS8618
 
+using DotnetAutomaticInterface;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 
 namespace Lerbaek.NetDaemon.Common.Notifications;
 
+[GenerateAutomaticInterface]
 public class NotificationBuilder : VoiceNotificationBuilder, INotificationBuilder
 {
   private IDictionary<string, string>[] _actions;

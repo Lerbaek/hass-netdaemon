@@ -1,6 +1,6 @@
-namespace Lerbaek.NetDaemon.Common.Notifications;
+//namespace Lerbaek.NetDaemon.Common.Notifications;
 
-public interface INotificationPresets
-{
-  void NotifyAppException(Exception e);
-}
+//public interface INotificationPresets
+//{
+//  void NotifyAppException(Exception e);
+//}
