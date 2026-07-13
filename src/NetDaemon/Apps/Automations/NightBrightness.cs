@@ -30,7 +30,7 @@ public class NightBrightness
         _lights.GarageLanterne,
         _lights.Hp850g5Screen,
         _lights.Indkorsel,
-        _lights.Juletrae,
+        _lights.Julelys,
         _lights.LysForanGaragen,
         _lights.LysIBaghaven,
         _lights.LysIBryggerset,

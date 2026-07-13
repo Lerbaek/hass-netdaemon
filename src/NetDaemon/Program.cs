@@ -1,6 +1,5 @@
 using FluentValidation;
 using Lerbaek.HostBuilder;
-using Lerbaek.NetDaemon.Apps.Integrations.CampenAuktioner;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Configuration;
 using Lerbaek.NetDaemon.Apps.Integrations.Nordlux.Validation;
@@ -46,10 +45,6 @@ static void ServiceConfiguration(IServiceCollection services)
     .AddLerbaekRetryPolicyHandler<Nordlux>();
 
   services.AddSingleton<IValidateOptions<NordluxConfig>, NordluxConfigValidator>();
-
-  services
-    .AddHttpClient<CampenAuktioner>(nameof(CampenAuktioner))
-    .AddLerbaekRetryPolicyHandler<CampenAuktioner>();
 
   services
     .AddHttpClient<LectioCalendar>(nameof(LectioCalendar))
