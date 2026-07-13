@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>Lerbaek.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <AssemblyName>Lerbaek.$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RegExtract" Version="2.3.0" />
+    <PackageReference Include="RegExtract" Version="2.3.1" />
   </ItemGroup>
 
 </Project>
